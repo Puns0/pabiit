@@ -51,3 +51,12 @@ footer {
     padding: 20px;
     text-align: center;
 }
+
+.parent {
+    position: relative;
+}
+
+.bottom {
+    position: absolute;
+    bottom: 0; /* set the bottom to 0*/
+}
