@@ -93,7 +93,7 @@
             font-weight: bold;
         }
 
-        #select,
+        
         #contact-form input[type="option"],
         #contact-form input[type="text"],
         #contact-form input[type="email"],
@@ -200,7 +200,7 @@
             <h2>PC Games</h2>
             <h2>Choose Your Game</h2>
             <div id="select">
-                <form action="https://api.web3forms.com/submit" class="contact-form" method="post">
+                <form action="https://api.web3forms.com/submit" class="contact-form" method="post" id="contact-left">
                     <input type="hidden" name="access_key" value="6ebf7ee8-9778-4609-8885-41b3c6d63e19">
                     <input type="hidden" name="redirect" value="https://pabiit.cloud/gamepage_redirect.html">
                     <select id="games" name="game" style="border: white 1px;">
@@ -213,8 +213,8 @@
                         <option value="gtavc/sa">GTA Vice City and San Andreas Bundle</option>
                         <option value="gta5/rdr2">GTA 5 and Red Dead Redemption 2 Bundle</option>
                         <option value="mk11">Mortal Kombat 11</option>
-                        <input type="email" id="email" name="email" required>
                     </select>
+                    <input type="email" id="" name="email" required placeholder="Your Email" style="width: 100%; padding: 10px; margin-bottom: 15px; background-color: #40444b; border: 1px solid #202225; color: #dcddde; border-radius: 5px; box-sizing: border-box;">
                     <button type="submit">Submit</button>
                 </form>
             </div>
