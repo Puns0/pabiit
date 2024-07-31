@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PABIIT Corporation - Games</title>
+    <style>
+        body {
+           margin: 0;
+           font-family: Arial, sans-serif;
+           background-color: #2C2F33;
+           color: #FFFFFF;
+        }
+
+        header {
+            background-color: #23272A;
+            padding: 10px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        header h1 a {
+            color: #7289DA;
+            text-decoration: none;
+        }
+
+        header h1 a:hover {
+            color: #99AAB5;
+        }
+
+        nav {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #99AAB5;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        nav ul li a:hover {
+            color: #7289DA;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #23272A;
+            color: #99AAB5;
+            margin-top: 20px;
+        }
+
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .game-box {
+            background-color: #3A3F44;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            width: 250px;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .game-box img {
+            width: 100%;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .game-box .game-info {
+            padding: 10px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease;
+        }
+
+        .game-box .game-info h3 {
+            margin: 0 0 10px 0;
+            color: #7289DA;
+        }
+
+        .game-box .game-info p {
+            margin: 0 0 5px 0;
+            color: #FFFFFF;
+        }
+
+        .game-box .game-info .price {
+            font-size: 1.2em;
+            color: #99AAB5;
+        }
+
+        .game-box .game-info .buy-btn,
+        .game-box .game-info .more-info-btn {
+            background-color: #7289DA;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .game-box .game-info .buy-btn:hover,
+        .game-box .game-info .more-info-btn:hover {
+            background-color: #677bc4;
+        }
+
+        .game-box .more-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(44, 47, 51, 0.95);
+            color: #dcddde;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            opacity: 0;
+            height: auto;
+            max-height: 100%;
+            z-index: 2;
+        }
+
+        .game-box:hover .more-info {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .game-box:hover img {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .game-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .game-box .more-info {
+                display: none;
+            }
+        
+            .game-box .more-info-btn.active + .more-info {
+                display: block;
+                position: static;
+                transform: none;
+                opacity: 1;
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+
+        .modal-content {
+            background-color: #2C2F33;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .modal-content input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .modal-content .confirm-btn {
+            background-color: #7289DA;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .modal-content .confirm-btn:hover {
+            background-color: #677bc4;
+        }
+
+        .modal-content .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .modal-content .close:hover,
+        .modal-content .close:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="index.html">PABIIT Corporation</a></h1>
+        <nav>
+            <ul>
+                <li><a href="cloud-services.html">Cloud Services</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about-me.html">About</a></li>
+                <li><a href="gamepage.html">Games</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Apps & Games</h2>
+        <div class="game-container">
+            <div class="game-box" data-game="gta5">
+                <img src="gta5.jpg" alt="gta5">
+                <div class="game-info">
+                    <h3>Grand Theft Auto V</h3>
+                    <p class="price"><del>Rs.2699</del> <b>Rs.699</b></p>
+                    <button class="buy-btn">Buy</button>
+                    <button class="more-info-btn">More Info</button>
+                </div>
+                <div class="more-info">
+                    <p>Get a Steam account containing GTA V.</p>
+                </div>
+            </div>
+            
+            <div class="game-box" data-game="gtavc">
+                <img src="gtavc.png" alt="gtavc">
+                <div class="game-info">
+                    <h3>Grand Theft Auto: Vice City</h3>
+                    <p class="price"><b>Rs.49</b></p>
+                    <button class="buy-btn">Buy</button>
+                    <button class="more-info-btn">More Info</button>
+                </div>
+                <div class="more-info">
+                    <p>Get a copy of GTA Vice City.</p>
+                </div>
+            </div>
+            <div class="game-box" data-game="gtasa">
+                <img src="gtasa.png" alt="gtasa">
+                <div class="game-info">
+                    <h3>Grand Theft Auto: San Andreas</h3>
+                    <p class="price"><b>Rs.49</b></p>
+                    <button class="buy-btn">Buy</button>
+                    <button class="more-info-btn">More Info</button>
+                </div>
+                <div class="more-info">
+                    <p>Get a copy of GTA San Andreas</p>
+                </div>
+            </div>
+            <div class="game-box" data-game="rdr2">
+                <img src="rdr2.png" alt="rdr2">
+                <div class="game-info">
+                    <h3>Red Dead Redemption 2</h3>
+                    <p class="price"><del>Rs.3199</del> <b>Rs.799</b></p>
+                    <button class="buy-btn">Buy</button>
+                    <button class="more-info-btn">More Info</button>
+                </div>
+                <div class="more-info">
+                    <p>Get an Epic Games account containing Red Dead Redemption 2</p>
+                </div>
+            </div>
+            <div class="game-box" data-game="gta5rdr2">
+                <img src="gta5rdr2.png" alt="gta5rdr2">
+                <div class="game-info">
+                    <h3>Red Dead Redemption 2</h3>
+                    <p class="price"><del>Rs.5899</del> <b>Rs. 1399</b></p>
+                    <button class="buy-btn">Buy</button>
+                    <button class="more-info-btn">More Info</button>
+                </div>
+                <div class="more-info">
+                    <p>Get an Epic Games account containing Red Dead Redemption 2 and a Steam account containing GTA V</p>
+                </div>
+            </div>
+            
+            <div class="game-box" data-game="mc">
+                <img src="mc.png" alt="mc">
+                <div class="game-info">
+                    <h3>Minecraft Bedrock</h3>
+                    <p class="price"><del>Rs.1599</del> <b>Rs.499</b></p>
+                    <button class="buy-btn">Buy</button>
+                    <button class="more-info-btn">More Info</button>
+                </div>
+                <div class="more-info">
+                    <p>Get a method to get Minecraft Bedrock Edition through Microsoft Store. Multiplayer will be playable.</p>
+                </div>
+            </div>
+            <div class="game-box" data-game="mk11">
+                <img src="mk11.jpg" alt="mk11">
+                <div class="game-info">
+                    <h3>Mortal Kombat</h3>
+                    <p class="price"><del>Rs.2699</del> <b>Rs.299</b></p>
+                    <button class="buy-btn">Buy</button>
+                    <button class="more-info-btn">More Info</button>
+                </div>
+                <div class="more-info">
+                    <p>Get a Steam account oontaining Mortal Kombat 11.</p>
+                </div>
+            </div>
+            <div class="game-box" data-game="hitman">
+                <img src="rdr2.png" alt="rdr2">
+                <div class="game-info">
+                    <h3>HITMAN World of Assassin</h3>
+                    <p class="price"><del>Rs.3199</del> <b>Rs.699</b></p>
+                    <button class="buy-btn">Buy</button>
+                    <button class="more-info-btn">More Info</button>
+                </div>
+                <div class="more-info">
+                    <p>Get an Epic Games account oontaining Red Dead Redemption 2</p>
+                </div>
+            </div>
+            <div class="game-box" data-game="wd2">
+                <img src="rdr2.png" alt="rdr2">
+                <div class="game-info">
+                    <h3>Watch Dogs 2</h3>
+                    <p class="price"><del>Rs.3199</del> <b>Rs.699</b></p>
+                    <button class="buy-btn">Buy</button>
+                    <button class="more-info-btn">More Info</button>
+                </div>
+                <div class="more-info">
+                    <p>Get an Epic Games account oontaining Red Dead Redemption 2</p>
+                </div>
+            </div>
+            
+            <!-- Add more game boxes as needed -->
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 PABIIT Corporation. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Confirm Purchase</h2>
+            <form id="purchaseForm" action="https://api.web3forms.com/submit" method="post">
+                <input type="hidden" name="access_key" value="6ebf7ee8-9778-4609-8885-41b3c6d63e19">
+                <input type="hidden" name="game" id="gameInput" value="">
+                <input type="hidden" name="redirect" value="https://pabiit.cloud/homepage_redirect.html">
+                <input type="email" name="email" id="email" placeholder="Enter your email" required>
+                <button type="submit" class="confirm-btn">Confirm Purchase</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("purchaseModal");
+
+        // Get the button that opens the modal
+        var buyButtons = document.querySelectorAll('.buy-btn');
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal 
+        buyButtons.forEach(button => {
+            button.onclick = function() {
+                var gameName = this.parentElement.parentElement.getAttribute("data-game");
+                document.getElementById("gameInput").value = gameName;
+                modal.style.display = "block";
+            }
+        });
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Toggle more info for mobile users
+        var moreInfoButtons = document.querySelectorAll('.more-info-btn');
+        moreInfoButtons.forEach(button => {
+            button.onclick = function() {
+                this.classList.toggle('active');
+            }
+        });
+    </script>
+</body>
+</html>
