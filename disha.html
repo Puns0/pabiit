@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Disha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose:       #c0394f;
+      --rose-soft:  #e8a0b0;
+      --rose-pale:  #fff0f3;
+      --rose-faint: #fff8f9;
+      --petal:      #f5c6d0;
+      --ink:        #2a0d16;
+      --ink-mid:    #6b1a2f;
+      --ink-soft:   #9c5060;
+      --ink-mute:   #c4889a;
+      --cream:      #fdf6f7;
+    }
+
+    html, body {
+      min-height: 100%;
+      background: var(--cream);
+      font-family: 'Jost', sans-serif;
+      color: var(--ink);
+    }
+
+    /* ── noise texture overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ══════════════════════════════
+       LOCK SCREEN
+    ══════════════════════════════ */
+    #lock-screen {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.25rem;
+    }
+
+    .lock-petal-top {
+      font-size: 13px;
+      letter-spacing: 14px;
+      color: var(--rose-soft);
+      margin-bottom: 2.5rem;
+      user-select: none;
+    }
+
+    .lock-card {
+      background: white;
+      border: 0.5px solid var(--petal);
+      border-radius: 20px;
+      padding: 2.8rem 2.4rem 2.4rem;
+      width: 100%;
+      max-width: 380px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 2px 40px rgba(192, 57, 79, 0.06);
+    }
+
+    .lock-rose {
+      font-size: 36px;
+      display: block;
+      margin-bottom: 1.4rem;
+      animation: breathe 4s ease-in-out infinite;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.06); }
+    }
+
+    .lock-card h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 400;
+      color: var(--ink-mid);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .lock-card .sub {
+      font-size: 13px;
+      color: var(--ink-mute);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .field-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      display: block;
+      text-align: left;
+      margin-bottom: 7px;
+      font-weight: 500;
+    }
+
+    .pwd-input {
+      width: 100%;
+      background: var(--rose-faint);
+      border: 0.5px solid var(--petal);
+      border-radius: 10px;
+      padding: 13px 16px;
+      font-size: 22px;
+      letter-spacing: 0.25em;
+      color: var(--ink);
+      outline: none;
+      text-align: center;
+      font-family: 'Jost', sans-serif;
+      transition: border-color 0.2s, background 0.2s;
+      margin-bottom: 12px;
+    }
+
+    .pwd-input:focus {
+      border-color: var(--rose);
+      background: white;
+    }
+
+    .hint-text {
+      font-size: 11.5px;
+      color: var(--ink-mute);
+      font-style: italic;
+      margin-bottom: 1.4rem;
+      display: block;
+    }
+
+    .unlock-btn {
+      width: 100%;
+      background: var(--rose);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 13px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: 'Jost', sans-serif;
+      transition: background 0.2s, transform 0.1s;
+    }
+
+    .unlock-btn:hover { background: #a82e43; }
+    .unlock-btn:active { transform: scale(0.98); }
+
+    .err {
+      font-size: 12px;
+      color: #b33;
+      min-height: 18px;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .lock-petal-bot {
+      font-size: 13px;
+      letter-spacing: 14px;
+      color: var(--rose-soft);
+      margin-top: 2.5rem;
+      user-select: none;
+    }
+
+    /* ══════════════════════════════
+       MESSAGE SCREEN
+    ══════════════════════════════ */
+    #message-screen {
+      display: none;
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      padding: 4rem 1.25rem 5rem;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .letter-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* header */
+    .letter-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .header-rule {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 1.6rem;
+    }
+
+    .header-rule hr {
+      flex: 1;
+      border: none;
+      border-top: 0.5px solid var(--petal);
+    }
+
+    .header-rule span {
+      font-size: 20px;
+    }
+
+    .letter-header .eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-mute);
+      font-weight: 400;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .letter-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--ink-mid);
+      line-height: 1.1;
+    }
+
+    .letter-header .date-line {
+      font-size: 12px;
+      color: var(--ink-mute);
+      margin-top: 0.7rem;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    /* letter card */
+    .letter-card {
+      background: white;
+      border: 0.5px solid var(--petal);
+      border-radius: 20px;
+      padding: 3rem 3.2rem;
+      box-shadow: 0 2px 40px rgba(192, 57, 79, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .letter-card::before {
+      content: '🌹';
+      position: absolute;
+      top: -18px;
+      right: 32px;
+      font-size: 64px;
+      opacity: 0.055;
+      transform: rotate(20deg);
+      pointer-events: none;
+    }
+
+    .salutation {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--ink-mid);
+      margin-bottom: 1.6rem;
+      font-style: italic;
+    }
+
+    .letter-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 2;
+      color: var(--ink);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .letter-body p {
+      margin-bottom: 1.4rem;
+    }
+
+    .signature {
+      margin-top: 2.4rem;
+      padding-top: 1.6rem;
+      border-top: 0.5px solid var(--petal);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: var(--ink-mid);
+      text-align: right;
+    }
+
+    /* footer */
+    .letter-footer {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .footer-rule {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 1rem;
+    }
+
+    .footer-rule hr {
+      flex: 1;
+      border: none;
+      border-top: 0.5px solid var(--petal);
+    }
+
+    .letter-footer p {
+      font-size: 11.5px;
+      color: var(--ink-mute);
+      font-style: italic;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── shake ── */
+    .shake { animation: shake 0.4s ease; }
+    @keyframes shake {
+      0%,100% { transform: translateX(0); }
+      20%      { transform: translateX(-7px); }
+      40%      { transform: translateX(7px); }
+      60%      { transform: translateX(-4px); }
+      80%      { transform: translateX(4px); }
+    }
+
+    /* ── mobile ── */
+    @media (max-width: 600px) {
+      .letter-card { padding: 2rem 1.5rem; }
+      .letter-header h2 { font-size: 38px; }
+      .letter-body { font-size: 17px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ LOCK SCREEN ══ -->
+<div id="lock-screen">
+  <div class="lock-petal-top">🌸 🌷 🌸</div>
+
+  <div class="lock-card">
+    <span class="lock-rose">🌹</span>
+    <h1>This is just for you,<br>Disha.</h1>
+    <p class="sub">There's a letter inside, written with everything I have.<br>Enter the password to read it.</p>
+
+    <label class="field-label" for="pwd">Password</label>
+    <input
+      class="pwd-input"
+      type="password"
+      id="pwd"
+      maxlength="10"
+      autocomplete="off"
+      placeholder="· · · · · ·"
+    />
+    <span class="hint-text">hint: it's our anniversary 🌸</span>
+    <button class="unlock-btn" onclick="tryUnlock()">Open the letter</button>
+    <div class="err" id="err"></div>
+  </div>
+
+  <div class="lock-petal-bot">🌸 🌷 🌸</div>
+</div>
+
+<!-- ══ MESSAGE SCREEN ══ -->
+<div id="message-screen">
+  <div class="letter-wrap">
+
+    <div class="letter-header">
+      <div class="header-rule">
+        <hr /><span>🌹</span><hr />
+      </div>
+      <span class="eyebrow">a letter for</span>
+      <h2>Disha</h2>
+      <div class="date-line" id="letter-date"></div>
+    </div>
+
+    <div class="letter-card">
+      <div class="salutation">My dearest Disha,</div>
+
+      <div class="letter-body" id="letter-body">
+        Disha, 
+
+        I heard everything you said. All of it. And I'm not going to fight it or dismiss any of it. I want you to know that. 
+
+        You said I never really listened to you. That when you expressed yourself, I made it about me. That I'd bring up my own pain instead of just sitting with yours first. You're right. I did that. More than once. And I understand now how exhausting that must have been  to keep coming to me with something that's hurting you and feel like you have to compete just to be heard.  I'm sorry for that. Genuinely. 
+
+        You said my effort wasn't consistent. That I'd do it for a few days and then it would just disappear and you'd be left hoping, getting anxious. I know how that feeling is, waiting on someone who keeps almost showing up. I got too comfortable. I stopped being intentional with my efforts. I let work and stress become excuses when they shouldn't have been. You should be my priority. 
+
+        You said you felt like you were "too much." Disha, I hate that I made you feel that way. You were never too much. Your needs were not fulfilled by me, I kept falling short of that. You were trying to express yourself and instead of just listening, I made you feel guilty. That's one of the things I regret the most. I truly regret it Disha. 
+
+        You said I never checked in on you. That I'd wake up and go "be normal or leave it". You deserved to be asked if you are okay before anything else, every single time. I should have been that person for you, I SHOULD HAVE BEEN THAT PERSON, and I wasn't. I’m sorry for that Disha. 
+
+        You said I let you beg. And I did. I sat there and let that happen and I'm genuinely ashamed of that. I had never done that. You stopped me from doing the same thing because you couldn't bear to see me lose my dignity. I didn't give you that same care back. I'm sorry. 
+
+        And I know I wasn't the same person I was at the start of us. I got distant, I withdrew, partly because of stress, partly because I was hurting in ways I didn't know how to say out loud. That's not an excuse, just the honest truth. I should have talked to you instead of going quiet. 
+
+        Now I want to be honest about something, not to argue with you but to tell you everything: 
+
+        I have put in effort, Disha. Not always the visible kind, not always paragraphs and reassurance every day, but I did things quietly for you and for us that I never made a big deal about. I learned to play a song for you on guitar. I picked up calls in the middle of the night, stayed until morning, even when we were just friends. I've shown up in ways I don't think were ever fully seen. I'm not saying this to make you feel bad. I'm saying it because I genuinely don't want you to leave thinking I never cared. I cared more than I ever knew how to show. I have cared Disha. I hope you can see it too.  
+
+        And Disha, I have to be honest about this part too, because it's been sitting heavy on me. He didn't fight for you. He told you he didn't love you anymore and you still stayed. He got with someone else, even kissed her and you still went back. I hate to say this one but, you made love with him after it was over. He never really chose you the way you deserved to be chosen. I'm saying it because I don't understand how someone who gave so little got so many chances, and I, someone who has loved you since 8th grade and would do anything to fix this, can't get even one more. That genuinely breaks me, Disha. I'm just... hurt. And I'm confused. Because you deserve someone who fights for you and I am that person, if you'll let me be. 
+
+        I know you said you've thought about this a hundred times. I know you said you couldn't move on even if you forgave me. I'm not going to beg, and I'm not going to pretend everything was perfect. But I am telling you clearly, I understand now what you actually needed from me. Not in a casual way. Actual understanding. I have used these 2 months trying to reflect on everything and see to it that you get what you deserve, that you get what you always wanted from me. And I want to be that for you. 
+        Give me a chance. 
+
+
+        Since 8th grade, Disha. That's 5, 6 years of me choosing you. I'm still choosing you. I just need to know if you'll choose me back, one more time. 
+
+
+        Also, it just happens to be around this time, in 2022 that I had told Aman about you. It was 15th April. 
+        So many things feel like destiny to me. So many things match up. Like how you held my hand for the first time after getting together, 27th November. The same day, the previous year you were sad, so sad but the year after, we were together, holding hands, happy this time. It’s just one of those days, but there are like so many days we have talked about before as well, they feel like destiny Disha. 
+
+
+        I feel like we can continue being happy. I feel like we can make it. I hope you feel it too. I’d like to talk more, even if there isn't a chance, I’d like to talk more. 
+
+        If there's even a small part of you that thinks this is worth one more try, I'm here. 
+
+        I’ve loved you, I love you, and I will continue to love you no matter what. 
+        I love you Disha. 
+
+        
+      </div>
+
+      <div class="signature">
+        with everything I have,<br>
+        <strong style="font-size:20px; font-weight:400;">— Puneet</strong>
+      </div>
+    </div>
+
+    <div class="letter-footer">
+      <div class="footer-rule">
+        <hr /><span>🌸</span><hr />
+      </div>
+      <p>written with honesty &nbsp;·&nbsp; sent with hope &nbsp;·&nbsp; meant with love</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  const PASSWORD = "231124";
+
+  document.getElementById("letter-date").textContent = new Date().toLocaleDateString("en-IN", {
+    weekday: "long", year: "numeric", month: "long", day: "numeric"
+  });
+
+  document.getElementById("pwd").addEventListener("keydown", e => {
+    if (e.key === "Enter") tryUnlock();
+  });
+
+  function tryUnlock() {
+    const val = document.getElementById("pwd").value.trim();
+    if (val === PASSWORD) {
+      document.getElementById("lock-screen").style.display = "none";
+      document.getElementById("message-screen").style.display = "block";
+      window.scrollTo(0, 0);
+    } else {
+      document.getElementById("err").textContent = "Hmm, that's not it. Try again.";
+      const card = document.querySelector(".lock-card");
+      card.classList.remove("shake");
+      void card.offsetWidth;
+      card.classList.add("shake");
+      document.getElementById("pwd").value = "";
+      document.getElementById("pwd").focus();
+    }
+  }
+</script>
+</body>
+</html>
