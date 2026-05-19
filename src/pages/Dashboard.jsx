@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import StatusBadge from '../components/StatusBadge'
 import PageTransition from '../components/PageTransition'
+import prawaptedAudioUrl from '../assets/Prawapted.mp3'
+
+const globalAudio = new Audio(prawaptedAudioUrl)
 
 const primaryDomains = [
   {
@@ -75,8 +78,8 @@ function DomainCard({ domain, index, hideDesc, isPrimary }) {
 
   const handleSelect = () => {
     if (isPrimary) {
-      const audio = new Audio('/Prawapted.mp3')
-      audio.play().catch(e => console.error('Audio playback failed:', e))
+      globalAudio.currentTime = 0;
+      globalAudio.play().catch(e => console.error('Audio playback failed:', e))
     }
     navigate(domain.path)
   }
