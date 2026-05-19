@@ -70,13 +70,21 @@ const secondaryDomains = [
   },
 ]
 
-function DomainCard({ domain, index, hideDesc }) {
+function DomainCard({ domain, index, hideDesc, isPrimary }) {
   const navigate = useNavigate()
+
+  const handleSelect = () => {
+    if (isPrimary) {
+      const audio = new Audio('/Prawapted.mp3')
+      audio.play().catch(e => console.error('Audio playback failed:', e))
+    }
+    navigate(domain.path)
+  }
 
   return (
     <motion.div
       className="domain-card"
-      onClick={() => navigate(domain.path)}
+      onClick={handleSelect}
       whileHover={{ scale: 1.015, y: -2 }}
       whileTap={{ scale: 0.99 }}
       initial={{ opacity: 0, y: 20 }}
@@ -113,7 +121,7 @@ export default function Dashboard() {
           <div className="section-label">// PRIMARY OPERATIONS</div>
           <div className="domain-grid">
             {primaryDomains.map((d, i) => (
-              <DomainCard key={d.path} domain={d} index={i} hideDesc />
+              <DomainCard key={d.path} domain={d} index={i} hideDesc isPrimary />
             ))}
           </div>
 
