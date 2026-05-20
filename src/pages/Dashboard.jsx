@@ -4,6 +4,11 @@ import { motion } from 'framer-motion'
 import StatusBadge from '../components/StatusBadge'
 import PageTransition from '../components/PageTransition'
 
+import prawaptedAudioUrl from '../assets/Prawapted.mp3'
+
+const primaryAudio = new Audio(prawaptedAudioUrl)
+primaryAudio.preload = "auto"
+
 const primaryDomains = [
   {
     name: 'PABIT',
@@ -75,7 +80,8 @@ function DomainCard({ domain, index, hideDesc, isPrimary }) {
 
   const handleSelect = () => {
     if (isPrimary) {
-      window.dispatchEvent(new Event('play-primary-audio'))
+      primaryAudio.currentTime = 0
+      primaryAudio.play().catch(e => console.error('Audio play error:', e))
     }
     navigate(domain.path)
   }

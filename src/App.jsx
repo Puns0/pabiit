@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 
@@ -16,27 +16,15 @@ import LinuxFundamentals from './pages/blogs/LinuxFundamentals'
 import DummyBlog from './pages/blogs/DummyBlog'
 import About from './pages/About'
 
-import prawaptedAudioUrl from './assets/Prawapted.mp3'
-
 export default function App() {
   const location = useLocation()
-  const audioRef = useRef(null)
 
   useEffect(() => {
-    const playAudio = () => {
-      if (audioRef.current) {
-        audioRef.current.currentTime = 0;
-        audioRef.current.play().catch(e => console.error('Audio play error:', e));
-      }
-    };
-    
-    window.addEventListener('play-primary-audio', playAudio);
-    return () => window.removeEventListener('play-primary-audio', playAudio);
-  }, []);
+    // Top level effects if any
+  }, [])
 
   return (
     <>
-      <audio ref={audioRef} src={prawaptedAudioUrl} preload="auto" />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Dashboard />} />
