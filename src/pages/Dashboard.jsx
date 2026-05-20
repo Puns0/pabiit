@@ -73,12 +73,23 @@ const secondaryDomains = [
     desc: 'Operator profile and background.',
     status: 'OPEN',
   },
+  {
+    name: 'Navigation',
+    path: 'https://nav.pabit.in',
+    desc: '↗ Go to nav.pabit.in/',
+    status: 'OPEN',
+    isExternal: true,
+  },
 ]
 
 function DomainCard({ domain, index, hideDesc, isPrimary }) {
   const navigate = useNavigate()
 
   const handleSelect = () => {
+    if (domain.isExternal) {
+      window.open(domain.path, '_blank', 'noopener,noreferrer')
+      return
+    }
     if (isPrimary) {
       primaryAudio.currentTime = 0
       primaryAudio.play().catch(e => console.error('Audio play error:', e))
