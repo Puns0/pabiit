@@ -5,9 +5,13 @@ import StatusBadge from '../components/StatusBadge'
 import PageTransition from '../components/PageTransition'
 
 import prawaptedAudioUrl from '../assets/Prawapted.mp3'
+import blogAudioUrl from '../assets/blogaoe.mp3'
 
 const primaryAudio = new Audio(prawaptedAudioUrl)
 primaryAudio.preload = "auto"
+
+const blogAudio = new Audio(blogAudioUrl)
+blogAudio.preload = "auto"
 
 const primaryDomains = [
   {
@@ -93,6 +97,10 @@ function DomainCard({ domain, index, hideDesc, isPrimary }) {
     if (isPrimary) {
       primaryAudio.currentTime = 0
       primaryAudio.play().catch(e => console.error('Audio play error:', e))
+    }
+    if (domain.name === 'Blogs') {
+      blogAudio.currentTime = 0
+      blogAudio.play().catch(e => console.error('Audio play error:', e))
     }
     navigate(domain.path)
   }
