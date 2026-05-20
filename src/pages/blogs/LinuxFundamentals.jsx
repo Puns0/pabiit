@@ -1,14 +1,20 @@
 import React from 'react'
 import PageHeader from '../../components/PageHeader'
 import PageTransition from '../../components/PageTransition'
+import GoogleAd from '../../components/GoogleAd'
 
 export default function LinuxFundamentals() {
   return (
     <PageTransition>
       <PageHeader title="Fundamentals of Linux" breadcrumb="DASHBOARD / BLOGS / LINUX FUNDAMENTALS" />
       <main className="page-content">
-        <div className="blog-card" style={{ padding: '40px', maxWidth: '900px', margin: '0 auto', cursor: 'default' }}>
-          <article className="article-content" style={{ maxWidth: '100%' }}>
+        <div className="blog-layout">
+          <aside className="blog-ad-sidebar left-ad">
+            <GoogleAd />
+          </aside>
+          
+          <div className="blog-card" style={{ padding: '40px', maxWidth: '900px', width: '100%', margin: '0', cursor: 'default' }}>
+            <article className="article-content" style={{ maxWidth: '100%' }}>
             <h1 style={{ borderBottom: 'none', paddingBottom: '0', marginBottom: '0.5rem' }}>Fundamentals of Linux: The Backbone of the Modern Digital World</h1>
             
             <div className="blog-card-meta" style={{ marginBottom: '2.5rem', opacity: 0.8 }}>
@@ -506,7 +512,12 @@ export default function LinuxFundamentals() {
             <p><strong>It is a skill.</strong></p>
           </article>
         </div>
-      </main>
-    </PageTransition>
+
+        <aside className="blog-ad-sidebar right-ad">
+          <GoogleAd />
+        </aside>
+      </div>
+    </main>
+  </PageTransition>
   )
 }

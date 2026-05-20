@@ -860,6 +860,35 @@ a {
 }
 
 /* ============================================================
+   BLOG AD LAYOUT
+   ============================================================ */
+
+.blog-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr 250px;
+  gap: 24px;
+  align-items: flex-start;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.blog-ad-sidebar {
+  position: sticky;
+  top: 100px;
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .blog-layout {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .blog-ad-sidebar {
+    display: none;
+  }
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 
