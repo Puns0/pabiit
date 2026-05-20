@@ -201,6 +201,17 @@ h4 { font-size: 1.4rem; }
     height: 100%;
     object-fit: contain;
 }
+.object-cover { object-fit: cover !important; }
+.object-contain { object-fit: contain !important; }
+
+/* Vertical card image areas */
+.img-card-top {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+.h-40 { height: 200px; }
 
 /* Fallback styles when image is missing */
 .placeholder {

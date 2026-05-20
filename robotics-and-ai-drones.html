@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,6 +16,8 @@
     <!-- GSAP for smooth entrance animations -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3355090635372737" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -45,7 +47,7 @@
                         </div>
                         <!-- Founder 1 -->
                         <div class="image-container shadow-sm" style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid #f8fafc;">
-                            <img src="founder-1.jpg" alt="Founder 1" class="responsive-img object-cover w-full h-full" onerror="this.outerHTML='<div class=\'placeholder\'><i class=\'fas fa-user\'></i><p>F1</p></div>'" />
+                            <img src="founder-1.jpg" alt="Founder 1" class="responsive-img object-contain w-full h-full" onerror="this.outerHTML='<div class=\'placeholder\'><i class=\'fas fa-user\'></i><p>F1</p></div>'" />
                         </div>
                     </div>
 
@@ -66,11 +68,11 @@
                     <div style="display: flex; flex-direction: column; gap: 3rem; align-items: flex-end;">
                         <!-- Founder 2 -->
                         <div class="image-container shadow-sm" style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid #f8fafc;">
-                            <img src="founder-2.jpeg" alt="Founder 2" class="responsive-img object-cover w-full h-full" onerror="this.outerHTML='<div class=\'placeholder\'><i class=\'fas fa-user\'></i><p>F2</p></div>'" />
+                            <img src="founder-2.jpeg" alt="Founder 2" class="responsive-img object-contain w-full h-full" onerror="this.outerHTML='<div class=\'placeholder\'><i class=\'fas fa-user\'></i><p>F2</p></div>'" />
                         </div>
                         <!-- Founder 3 -->
                         <div class="image-container shadow-sm" style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid #f8fafc;">
-                            <img src="founder-3.webp" alt="Founder 3" class="responsive-img object-cover w-full h-full" onerror="this.outerHTML='<div class=\'placeholder\'><i class=\'fas fa-user\'></i><p>F3</p></div>'" />
+                            <img src="founder-3.webp" alt="Founder 3" class="responsive-img object-contain w-full h-full" onerror="this.outerHTML='<div class=\'placeholder\'><i class=\'fas fa-user\'></i><p>F3</p></div>'" />
                         </div>
                     </div>
                 </div>
@@ -394,8 +396,128 @@
             </div>
         </section>
 
-        <!-- SLIDE 9: AI vs Automation Table -->
+        
+        <!-- SLIDE 9: Real-World AI Robots -->
         <section class="slide bg-light" id="slide-9">
+            <div class="slide-content">
+                <h2 class="section-title text-center gs-reveal"><span class="text-primary"><i class="fas fa-robot"></i></span> Real-World AI Robots</h2>
+                <p class="text-center lead text-gray-600 mb-6 gs-reveal">These machines show what happens when robotics meets AI in the real world.</p>
+
+                <div class="grid-2-col gap-6">
+                    <div class="card shadow-md border rounded-xl bg-white overflow-hidden hover-lift flex-col gs-reveal">
+                        <div class="img-card-top image-container bg-white">
+                            <img src="robot-spot.webp" alt="Boston Dynamics Spot" class="responsive-img object-contain w-full h-full" onerror="this.outerHTML='<div class=\'placeholder w-full h-full\'><i class=\'fas fa-dog text-primary text-xl\'></i><code>robot-spot.webp</code></div>'" />
+                        </div>
+                        <div class="p-4 flex-1">
+                            <h3 class="text-primary-dark mb-1 font-bold">Spot &mdash; Boston Dynamics</h3>
+                            <p class="text-gray-600 text-sm">Autonomous quadruped robot for industrial inspection. Uses AI terrain adaptation and computer vision to navigate construction sites, mines, and power plants without human guidance.</p>
+                        </div>
+                    </div>
+                    <div class="card shadow-md border rounded-xl bg-white overflow-hidden hover-lift flex-col gs-reveal">
+                        <div class="img-card-top image-container bg-white">
+                            <img src="robot-davinci.png" alt="Da Vinci Surgical" class="responsive-img object-contain w-full h-full" onerror="this.outerHTML='<div class=\'placeholder w-full h-full\'><i class=\'fas fa-heartbeat text-alert text-xl\'></i><code>robot-davinci.png</code></div>'" />
+                        </div>
+                        <div class="p-4 flex-1">
+                            <h3 class="text-alert mb-1 font-bold">Da Vinci &mdash; Surgical System</h3>
+                            <p class="text-gray-600 text-sm">AI-assisted surgical robot with sub-millimeter precision. Filters hand tremors, provides 3D visualization, and identifies tissue types during minimally invasive procedures.</p>
+                        </div>
+                    </div>
+                    <div class="card shadow-md border rounded-xl bg-white overflow-hidden hover-lift flex-col gs-reveal">
+                        <div class="img-card-top image-container bg-white">
+                            <img src="robot-perseverance.png" alt="NASA Perseverance" class="responsive-img object-contain w-full h-full" onerror="this.outerHTML='<div class=\'placeholder w-full h-full\'><i class=\'fas fa-satellite text-secondary text-xl\'></i><code>robot-perseverance.png</code></div>'" />
+                        </div>
+                        <div class="p-4 flex-1">
+                            <h3 class="text-secondary mb-1 font-bold">Perseverance &mdash; NASA Mars Rover</h3>
+                            <p class="text-gray-600 text-sm">Uses AutoNav AI to plan driving routes on Mars independently. Since commands from Earth take 20 minutes to arrive, the rover must think and navigate entirely on its own.</p>
+                        </div>
+                    </div>
+                    <div class="card shadow-md border rounded-xl bg-white overflow-hidden hover-lift flex-col gs-reveal">
+                        <div class="img-card-top image-container bg-white">
+                            <img src="robot-atlas.jpg" alt="Boston Dynamics Atlas" class="responsive-img object-contain w-full h-full" onerror="this.outerHTML='<div class=\'placeholder w-full h-full\'><i class=\'fas fa-running text-gray-500 text-xl\'></i><code>robot-atlas.jpg</code></div>'" />
+                        </div>
+                        <div class="p-4 flex-1">
+                            <h3 class="text-gray-800 mb-1 font-bold">Atlas &mdash; Boston Dynamics</h3>
+                            <p class="text-gray-600 text-sm">Humanoid robot capable of parkour, backflips, and complex manipulation. Trained entirely through reinforcement learning in simulation before real-world deployment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 10: How Robots Learn -->
+        <section class="slide bg-white" id="slide-10">
+            <div class="slide-content">
+                <h2 class="section-title gs-reveal"><span class="text-primary"><i class="fas fa-graduation-cap"></i></span> How Robots Learn</h2>
+
+                <div class="quote-card bg-gray-50 shadow-sm border-l-4 border-secondary rounded-r-lg p-5 my-5 gs-reveal">
+                    <h3 class="text-secondary-dark font-medium italic mb-0">"Training a robot in simulation for 1 day can equal 100 years of real-world experience."</h3>
+                </div>
+
+                <div class="timeline mt-5">
+                    <div class="timeline-item shadow-sm border rounded-lg bg-gray-50 flex gap-4 p-4 hover-lift gs-reveal">
+                        <div class="timeline-icon bg-primary text-white rounded-full flex-center w-12 h-12 flex-shrink-0"><strong>1</strong></div>
+                        <div>
+                            <h3 class="text-primary mb-1">Data Collection</h3>
+                            <p class="text-gray-600 text-sm">Cameras, LiDAR, force sensors, and IMUs gather millions of data samples. This raw data is the foundation &mdash; without good data, AI cannot learn anything useful.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item shadow-sm border rounded-lg bg-gray-50 flex gap-4 p-4 hover-lift gs-reveal">
+                        <div class="timeline-icon bg-secondary text-white rounded-full flex-center w-12 h-12 flex-shrink-0"><strong>2</strong></div>
+                        <div>
+                            <h3 class="text-secondary mb-1">Simulation Training</h3>
+                            <p class="text-gray-600 text-sm">Robots train in virtual environments (NVIDIA Isaac Sim, Gazebo) where they can fail safely millions of times. Physics engines simulate gravity, friction, and collisions realistically.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item shadow-sm border rounded-lg bg-gray-50 flex gap-4 p-4 hover-lift gs-reveal">
+                        <div class="timeline-icon bg-alert text-white rounded-full flex-center w-12 h-12 flex-shrink-0"><strong>3</strong></div>
+                        <div>
+                            <h3 class="text-alert mb-1">Sim-to-Real Transfer</h3>
+                            <p class="text-gray-600 text-sm">The trained model moves from simulation to the physical robot. Domain randomization (randomly changing lighting, textures, physics) during training helps bridge the gap between virtual and real worlds.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item shadow-sm border rounded-lg bg-gray-50 flex gap-4 p-4 hover-lift gs-reveal">
+                        <div class="timeline-icon bg-warning text-white rounded-full flex-center w-12 h-12 flex-shrink-0"><strong>4</strong></div>
+                        <div>
+                            <h3 class="text-warning-dark mb-1">Deployment &amp; Continuous Learning</h3>
+                            <p class="text-gray-600 text-sm">The robot operates in the real world. Performance data is collected and fed back to improve the model over time &mdash; an ongoing cycle of learning and refinement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SLIDE 11: Human-Robot Interaction -->
+        <section class="slide bg-light" id="slide-11">
+            <div class="slide-content">
+                <h2 class="section-title text-center gs-reveal"><span class="text-secondary"><i class="fas fa-handshake"></i></span> Human-Robot Interaction</h2>
+                <p class="text-center lead text-gray-600 mb-6 gs-reveal">AI enables robots to work <strong>alongside</strong> humans safely and intuitively &mdash; not just replace them.</p>
+
+                <div class="grid-2-col gap-6">
+                    <div class="card shadow-sm border rounded-xl p-5 bg-white hover-lift gs-reveal">
+                        <div class="icon-bubble bg-primary-100 text-primary mb-3"><i class="fas fa-people-carry"></i></div>
+                        <h3 class="mb-2 text-gray-800 font-bold">Cobots (Collaborative Robots)</h3>
+                        <p class="text-gray-600 text-sm">Designed to share workspace with humans. Use force sensors and AI-based intent prediction to avoid injury. Found on 60%+ of modern auto assembly lines.</p>
+                    </div>
+                    <div class="card shadow-sm border rounded-xl p-5 bg-white hover-lift gs-reveal">
+                        <div class="icon-bubble bg-secondary-100 text-secondary mb-3"><i class="fas fa-microphone"></i></div>
+                        <h3 class="mb-2 text-gray-800 font-bold">Voice &amp; Language Commands</h3>
+                        <p class="text-gray-600 text-sm">Natural Language Processing allows workers to give verbal instructions instead of writing code. Example: &ldquo;Pick up the red box from shelf B.&rdquo;</p>
+                    </div>
+                    <div class="card shadow-sm border rounded-xl p-5 bg-white hover-lift gs-reveal">
+                        <div class="icon-bubble bg-alert-100 text-alert mb-3"><i class="fas fa-hand-paper"></i></div>
+                        <h3 class="mb-2 text-gray-800 font-bold">Gesture Recognition</h3>
+                        <p class="text-gray-600 text-sm">AI vision systems interpret hand signals and body language for intuitive robot control &mdash; especially useful in noisy factory environments where voice commands fail.</p>
+                    </div>
+                    <div class="card shadow-sm border rounded-xl p-5 bg-white hover-lift gs-reveal">
+                        <div class="icon-bubble bg-warning-100 text-warning-dark mb-3"><i class="fas fa-user-shield"></i></div>
+                        <h3 class="mb-2 text-gray-800 font-bold">Safety Intelligence</h3>
+                        <p class="text-gray-600 text-sm">Predictive AI anticipates human movement patterns and preemptively slows or stops the robot to prevent collisions &mdash; safety through prediction, not just reaction.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SLIDE 12: AI vs Automation Table -->
+        <section class="slide bg-light" id="slide-12">
             <div class="slide-content">
                 <h2 class="section-title gs-reveal"><span class="text-primary"><i class="fas fa-random"></i></span> AI vs. Automation in Drones</h2>
                 <p class="lead mb-5 text-gray-600 gs-reveal">Distinguishing between programmed logic and machine intelligence.</p>
@@ -441,8 +563,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 10: Drone Mapping -->
-        <section class="slide bg-white" id="slide-10">
+        <!-- SLIDE 13: Drone Mapping -->
+        <section class="slide bg-white" id="slide-13">
             <div class="slide-content two-col">
                 <div class="col-text">
                     <h2 class="section-title gs-reveal"><span class="text-secondary"><i class="fas fa-map"></i></span> Drone Mapping</h2>
@@ -473,47 +595,79 @@
             </div>
         </section>
 
-        <!-- SLIDE 11: Applications -->
-        <section class="slide bg-light" id="slide-11" style="font-size: 0.9rem;">
+        
+        <!-- SLIDE 14: Drone Swarm Intelligence -->
+        <section class="slide bg-white" id="slide-14">
+            <div class="slide-content two-col">
+                <div class="col-text">
+                    <h2 class="section-title gs-reveal"><span class="text-secondary"><i class="fas fa-sitemap"></i></span> Drone Swarm Intelligence</h2>
+                    <p class="lead mb-4 gs-reveal">A swarm is a group of drones acting as <strong>one coordinated unit</strong>, like a flock of birds. No single leader &mdash; each drone makes local decisions based on shared rules.</p>
+
+                    <div class="card bg-white shadow-sm border p-4 mb-4 rounded-lg border-l-4 border-secondary gs-reveal">
+                        <h4 class="mb-2 font-bold text-gray-700">Three Simple Rules Create Complex Behavior</h4>
+                        <ul class="bullet-list check-secondary text-gray-600">
+                            <li><strong>Separation:</strong> Avoid crowding nearby drones &mdash; maintain safe distance.</li>
+                            <li><strong>Alignment:</strong> Match speed and heading with neighbors.</li>
+                            <li><strong>Cohesion:</strong> Steer toward the average position of the group.</li>
+                        </ul>
+                    </div>
+                    <div class="card bg-white shadow-sm border p-4 rounded-lg border-l-4 border-primary gs-reveal">
+                        <h4 class="mb-2 font-bold text-gray-700">Why AI Matters for Swarms</h4>
+                        <ul class="bullet-list check-primary text-gray-600">
+                            <li>Dynamically re-form if individual drones are lost or destroyed.</li>
+                            <li>Share discovered information across the entire network instantly.</li>
+                            <li>Make collective decisions no single drone could make alone.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-visual flex-center bg-light rounded-xl border shadow-inner gs-reveal">
+                    <div class="image-container w-full h-full">
+                        <img src="drone-swarm.png" alt="Drone swarm formation" class="responsive-img object-cover h-full" onerror="this.outerHTML='<div class=\'placeholder h-full\'><i class=\'fas fa-project-diagram text-4xl mb-3 text-secondary\'></i><p>Drone Swarm Formation</p><code>drone-swarm.png</code></div>'" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SLIDE 15: Applications -->
+        <section class="slide bg-light" id="slide-15" style="font-size: 0.9rem;">
             <div class="slide-content">
                 <h2 class="section-title gs-reveal" style="font-size: 2.5rem; margin-bottom: 1rem;"><span class="text-primary"><i class="fas fa-globe-americas"></i></span> Applications of AI Drones</h2>
                 
                 <div class="grid-2-col gap-4 mt-2">
-                    <div class="app-card shadow-sm border rounded-lg bg-white overflow-hidden hover-lift flex gs-reveal align-center">
-                        <div class="image-container" style="width: 220px; height: 220px; flex-shrink: 0;">
-                            <img src="drone-agriculture.jpg" alt="Drone in agriculture" class="responsive-img object-cover w-full h-full" onerror="this.outerHTML='<div class=\'placeholder w-full h-full bg-green-50\'><i class=\'fas fa-leaf text-green-600 text-xl mb-1\'></i><p class=\'text-xs\'>Agri Drone</p><code>drone-agri...</code></div>'" />
+                    <div class="app-card shadow-md border rounded-xl bg-white overflow-hidden hover-lift flex-col gs-reveal">
+                        <div class="img-card-top image-container bg-white">
+                            <img src="drone-agriculture.jpg" alt="Drone in agriculture" class="responsive-img object-contain w-full h-full" onerror="this.outerHTML='<div class=\'placeholder w-full h-full bg-green-50\'><i class=\'fas fa-leaf text-green-600 text-xl mb-1\'></i><p class=\'text-xs\'>Agri Drone</p><code>drone-agri...</code></div>'" />
                         </div>
-                        <div class="p-3" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                        <div class="p-4 flex-1">
                             <h3 class="text-gray-800 mb-1 font-bold" style="font-size: 1.2rem;">Precision Agriculture</h3>
                             <p class="text-gray-600 text-xs">Crop health monitoring & disease detection via multispectral AI Vision. Automatically determining optimal irrigation. <br><em class="text-gray-400" style="font-size: 0.7rem;">Note: Spraying is automation; knowing *where* to spray is AI.</em></p>
                         </div>
                     </div>
                     
-                    <div class="app-card shadow-sm border rounded-lg bg-white overflow-hidden hover-lift flex gs-reveal align-center">
-                        <div class="image-container" style="width: 220px; height: 220px; flex-shrink: 0;">
-                            <img src="drone-disaster.jpg" alt="Drone in disaster management" class="responsive-img object-cover w-full h-full" onerror="this.outerHTML='<div class=\'placeholder w-full h-full bg-red-50\'><i class=\'fas fa-medkit text-red-600 text-xl mb-1\'></i><p class=\'text-xs\'>Disaster</p><code>drone-disaster...</code></div>'" />
+                    <div class="app-card shadow-md border rounded-xl bg-white overflow-hidden hover-lift flex-col gs-reveal">
+                        <div class="img-card-top image-container bg-white">
+                            <img src="drone-disaster.jpg" alt="Drone in disaster management" class="responsive-img object-contain w-full h-full" onerror="this.outerHTML='<div class=\'placeholder w-full h-full bg-red-50\'><i class=\'fas fa-medkit text-red-600 text-xl mb-1\'></i><p class=\'text-xs\'>Disaster</p><code>drone-disaster...</code></div>'" />
                         </div>
-                        <div class="p-3" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                        <div class="p-4 flex-1">
                             <h3 class="text-gray-800 mb-1 font-bold" style="font-size: 1.2rem;">Disaster Management</h3>
                             <p class="text-gray-600 text-xs">Autonomous search and rescue in unmapped, hazardous areas. Using thermal imaging combined with AI survivor detection algorithms to find humans in rubble.</p>
                         </div>
                     </div>
 
-                    <div class="app-card shadow-sm border rounded-lg bg-white overflow-hidden hover-lift flex gs-reveal align-center">
-                        <div class="image-container" style="width: 220px; height: 220px; flex-shrink: 0;">
-                            <img src="drone-delivery.jpg" alt="Drone delivery" class="responsive-img object-cover w-full h-full" onerror="this.outerHTML='<div class=\'placeholder w-full h-full bg-blue-50\'><i class=\'fas fa-box-open text-blue-600 text-xl mb-1\'></i><p class=\'text-xs\'>Delivery</p><code>drone-delivery...</code></div>'" />
+                    <div class="app-card shadow-md border rounded-xl bg-white overflow-hidden hover-lift flex-col gs-reveal">
+                        <div class="img-card-top image-container bg-white">
+                            <img src="drone-delivery.jpg" alt="Drone delivery" class="responsive-img object-contain w-full h-full" onerror="this.outerHTML='<div class=\'placeholder w-full h-full bg-blue-50\'><i class=\'fas fa-box-open text-blue-600 text-xl mb-1\'></i><p class=\'text-xs\'>Delivery</p><code>drone-delivery...</code></div>'" />
                         </div>
-                        <div class="p-3" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                        <div class="p-4 flex-1">
                             <h3 class="text-gray-800 mb-1 font-bold" style="font-size: 1.2rem;">Delivery Logistics</h3>
                             <p class="text-gray-600 text-xs">Autonomous medical and package delivery over dense urban areas. AI is required to identify safe drop zones and avoid moving obstacles like birds and power lines.</p>
                         </div>
                     </div>
 
-                    <div class="app-card shadow-sm border rounded-lg bg-white overflow-hidden hover-lift flex gs-reveal align-center">
-                        <div class="image-container" style="width: 220px; height: 220px; flex-shrink: 0;">
-                            <img src="drone-inspection.jpg" alt="Infrastructure inspection" class="responsive-img object-cover w-full h-full" onerror="this.outerHTML='<div class=\'placeholder w-full h-full bg-orange-50\'><i class=\'fas fa-bridge text-orange-600 text-xl mb-1\'></i><p class=\'text-xs\'>Inspection</p><code>drone-inspect...</code></div>'" />
+                    <div class="app-card shadow-md border rounded-xl bg-white overflow-hidden hover-lift flex-col gs-reveal">
+                        <div class="img-card-top image-container bg-white">
+                            <img src="drone-inspection.jpg" alt="Infrastructure inspection" class="responsive-img object-contain w-full h-full" onerror="this.outerHTML='<div class=\'placeholder w-full h-full bg-orange-50\'><i class=\'fas fa-bridge text-orange-600 text-xl mb-1\'></i><p class=\'text-xs\'>Inspection</p><code>drone-inspect...</code></div>'" />
                         </div>
-                        <div class="p-3" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                        <div class="p-4 flex-1">
                             <h3 class="text-gray-800 mb-1 font-bold" style="font-size: 1.2rem;">Infrastructure Inspection</h3>
                             <p class="text-gray-600 text-xs">AI-based micro-crack or corrosion detection on massive bridges, high-voltage power lines, and oil pipelines, replacing dangerous human labor.</p>
                         </div>
@@ -522,8 +676,39 @@
             </div>
         </section>
 
-        <!-- SLIDE 12: Industrial -->
-        <section class="slide bg-white" id="slide-12">
+        
+        <!-- SLIDE 16: Future of AI Drones -->
+        <section class="slide bg-white" id="slide-16">
+            <div class="slide-content">
+                <h2 class="section-title text-center gs-reveal"><span class="text-primary"><i class="fas fa-rocket"></i></span> The Future of AI Drones</h2>
+                <p class="text-center lead text-gray-600 mb-6 gs-reveal">Where autonomous aerial systems are headed in the next decade.</p>
+
+                <div class="grid-2-col gap-6">
+                    <div class="card shadow-sm border rounded-xl p-5 bg-gray-50 hover-lift gs-reveal">
+                        <div class="icon-bubble bg-primary-100 text-primary mb-3"><i class="fas fa-helicopter"></i></div>
+                        <h3 class="mb-2 text-gray-800 font-bold">Urban Air Mobility</h3>
+                        <p class="text-gray-600 text-sm">AI-piloted electric air taxis by companies like Joby Aviation and EHang aim to transport passengers autonomously in cities by 2028-2030. The AI handles takeoff, navigation, landing, and emergency response entirely.</p>
+                    </div>
+                    <div class="card shadow-sm border rounded-xl p-5 bg-gray-50 hover-lift gs-reveal">
+                        <div class="icon-bubble bg-secondary-100 text-secondary mb-3"><i class="fas fa-binoculars"></i></div>
+                        <h3 class="mb-2 text-gray-800 font-bold">Beyond Visual Line of Sight</h3>
+                        <p class="text-gray-600 text-sm">BVLOS regulations are evolving to allow drones to fly far beyond the pilot's view. AI is the enabling technology &mdash; the drone must independently handle all situations when no human can see it.</p>
+                    </div>
+                    <div class="card shadow-sm border rounded-xl p-5 bg-gray-50 hover-lift gs-reveal">
+                        <div class="icon-bubble bg-alert-100 text-alert mb-3"><i class="fas fa-traffic-light"></i></div>
+                        <h3 class="mb-2 text-gray-800 font-bold">Drone Traffic Management</h3>
+                        <p class="text-gray-600 text-sm">As drone numbers grow, AI-powered airspace management (like NASA's UTM program) will prevent mid-air collisions &mdash; essentially air traffic control for millions of unmanned aircraft.</p>
+                    </div>
+                    <div class="card shadow-sm border rounded-xl p-5 bg-gray-50 hover-lift gs-reveal">
+                        <div class="icon-bubble bg-warning-100 text-warning-dark mb-3"><i class="fas fa-microchip"></i></div>
+                        <h3 class="mb-2 text-gray-800 font-bold">Edge AI &amp; 5G Connectivity</h3>
+                        <p class="text-gray-600 text-sm">Next-gen chips (NVIDIA Jetson Orin) run powerful AI models directly on the drone. Combined with 5G, drones can share real-time data with ground stations and each other at unprecedented speeds.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SLIDE 17: Industrial -->
+        <section class="slide bg-white" id="slide-17">
             <div class="slide-content">
                 <h2 class="section-title gs-reveal"><span class="text-primary"><i class="fas fa-industry"></i></span> Industrial Ground Applications</h2>
                 
@@ -570,8 +755,54 @@
             </div>
         </section>
 
-        <!-- SLIDE 13: Defense & Radar -->
-        <section class="slide bg-dark-theme text-white" id="slide-13">
+        
+        <!-- SLIDE 18: AI Robotics in Healthcare -->
+        <section class="slide bg-light" id="slide-18">
+            <div class="slide-content">
+                <h2 class="section-title gs-reveal"><span class="text-secondary"><i class="fas fa-heartbeat"></i></span> AI Robotics in Healthcare</h2>
+
+                <div class="grid-2-col gap-6 mt-4">
+                    <div class="card shadow-md border rounded-xl bg-white overflow-hidden hover-lift flex-col gs-reveal">
+                        <div class="img-card-top image-container bg-white">
+                            <img src="robot-surgery.jpg" alt="Surgical robot" class="responsive-img object-contain w-full h-full" onerror="this.outerHTML='<div class=\'placeholder w-full h-full\'><i class=\'fas fa-procedures text-alert text-xl\'></i><code>robot-surgery.jpg</code></div>'" />
+                        </div>
+                        <div class="p-4 flex-1">
+                            <h3 class="text-alert mb-1 font-bold" style="font-size: 1.2rem;">Surgical Robotics</h3>
+                            <p class="text-gray-600 text-sm">The Da Vinci system performs over 1.5 million procedures annually. AI assists surgeons with tremor filtering, 3D visualization, and real-time tissue identification. The surgeon stays in control while AI enhances precision.</p>
+                        </div>
+                    </div>
+                    <div class="card shadow-md border rounded-xl bg-white overflow-hidden hover-lift flex-col gs-reveal">
+                        <div class="img-card-top image-container bg-white">
+                            <img src="robot-exoskeleton.jpg" alt="Rehabilitation exoskeleton" class="responsive-img object-contain w-full h-full" onerror="this.outerHTML='<div class=\'placeholder w-full h-full\'><i class=\'fas fa-walking text-secondary text-xl\'></i><code>robot-exoskeleton.jpg</code></div>'" />
+                        </div>
+                        <div class="p-4 flex-1">
+                            <h3 class="text-secondary mb-1 font-bold" style="font-size: 1.2rem;">Rehabilitation Exoskeletons</h3>
+                            <p class="text-gray-600 text-sm">AI-powered exoskeletons (Ekso, ReWalk) adapt in real-time to a patient's movement, providing the exact right amount of assistance for stroke and spinal cord injury recovery.</p>
+                        </div>
+                    </div>
+                    <div class="card shadow-md border rounded-xl bg-white overflow-hidden hover-lift flex-col gs-reveal">
+                        <div class="img-card-top image-container bg-white">
+                            <img src="robot-hospital.webp" alt="Hospital logistics robot" class="responsive-img object-contain w-full h-full" onerror="this.outerHTML='<div class=\'placeholder w-full h-full\'><i class=\'fas fa-robot text-primary text-xl\'></i><code>robot-hospital.webp</code></div>'" />
+                        </div>
+                        <div class="p-4 flex-1">
+                            <h3 class="text-primary mb-1 font-bold" style="font-size: 1.2rem;">Hospital Logistics</h3>
+                            <p class="text-gray-600 text-sm">Robots like TUG and Moxi autonomously deliver medications, meals, and lab samples through busy hospital corridors, using AI navigation to safely avoid staff and patients 24/7.</p>
+                        </div>
+                    </div>
+                    <div class="card shadow-md border rounded-xl bg-white overflow-hidden hover-lift flex-col gs-reveal">
+                        <div class="img-card-top image-container bg-white">
+                            <img src="robot-diagnostic.png" alt="AI diagnostics" class="responsive-img object-contain w-full h-full" onerror="this.outerHTML='<div class=\'placeholder w-full h-full\'><i class=\'fas fa-x-ray text-gray-500 text-xl\'></i><code>robot-diagnostic.png</code></div>'" />
+                        </div>
+                        <div class="p-4 flex-1">
+                            <h3 class="text-gray-800 mb-1 font-bold" style="font-size: 1.2rem;">AI-Powered Diagnostics</h3>
+                            <p class="text-gray-600 text-sm">AI analyzes X-rays, MRIs, and CT scans to detect tumors, fractures, and diseases &mdash; often faster and more accurately than human radiologists, acting as a powerful second opinion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SLIDE 19: Defense & Radar -->
+        <section class="slide bg-dark-theme text-white" id="slide-19">
             <div class="slide-content two-col">
                 <div class="col-text">
                     <h2 class="section-title text-white border-b-gray gs-reveal"><span class="text-primary-light"><i class="fas fa-shield-alt"></i></span> Defense & Swarm Systems</h2>
@@ -607,8 +838,41 @@
             </div>
         </section>
 
-        <!-- SLIDE 14: Ethical Concerns -->
-        <section class="slide bg-light" id="slide-14">
+        
+        <!-- SLIDE 20: Counter-Drone Systems -->
+        <section class="slide bg-light" id="slide-20">
+            <div class="slide-content two-col">
+                <div class="col-text">
+                    <h2 class="section-title gs-reveal"><span class="text-alert"><i class="fas fa-shield-alt"></i></span> Counter-Drone Systems</h2>
+                    <h3 class="text-gray-700 mb-3 gs-reveal">Defending Against Hostile UAVs</h3>
+                    <p class="lead mb-4 gs-reveal">As drones become cheaper and more capable, <strong>Counter-UAS (C-UAS)</strong> systems have become critical for protecting airports, military bases, and public events.</p>
+
+                    <div class="card bg-white shadow-sm border p-4 mb-4 rounded-lg border-l-4 border-alert gs-reveal">
+                        <h4 class="mb-2 font-bold text-gray-700">AI-Powered Detection</h4>
+                        <ul class="bullet-list check-alert text-gray-600">
+                            <li><strong>Radar + Vision Fusion:</strong> AI combines radar, cameras, and acoustic sensors to detect small drones up to 10 km away.</li>
+                            <li><strong>Classification:</strong> Neural networks distinguish drones from birds, kites, and other airborne objects.</li>
+                            <li><strong>RF Analysis:</strong> AI identifies drone control signals in crowded radio spectrum.</li>
+                        </ul>
+                    </div>
+                    <div class="card bg-white shadow-sm border p-4 rounded-lg border-l-4 border-gray-400 gs-reveal">
+                        <h4 class="mb-2 font-bold text-gray-700">Neutralization Methods</h4>
+                        <ul class="bullet-list check-gray text-gray-600">
+                            <li><strong>RF Jamming:</strong> Disrupts the control link, forcing the drone to land.</li>
+                            <li><strong>GPS Spoofing:</strong> Feeds false coordinates to redirect the drone away.</li>
+                            <li><strong>Directed Energy:</strong> High-powered lasers to physically disable the drone mid-flight.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-visual flex-center bg-light rounded-xl border shadow-inner gs-reveal">
+                    <div class="image-container w-full h-full">
+                        <img src="counter-drone-system.jpg" alt="Counter-drone defense system" class="responsive-img object-cover h-full" onerror="this.outerHTML='<div class=\'placeholder h-full\'><i class=\'fas fa-satellite-dish text-4xl mb-3 text-alert\'></i><p>C-UAS Detection System</p><code>counter-drone-system.jpg</code></div>'" />
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SLIDE 21: Ethical Concerns -->
+        <section class="slide bg-light" id="slide-21">
             <div class="slide-content">
                 <h2 class="section-title gs-reveal"><span class="text-alert"><i class="fas fa-exclamation-triangle"></i></span> Ethical & Social Concerns</h2>
                 
@@ -633,8 +897,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 15: Limitations -->
-        <section class="slide bg-white" id="slide-15">
+        <!-- SLIDE 22: Limitations -->
+        <section class="slide bg-white" id="slide-22">
             <div class="slide-content">
                 <h2 class="section-title text-center gs-reveal"><span class="text-warning-dark"><i class="fas fa-battery-quarter"></i></span> Limitations & Challenges</h2>
                 <p class="lead mb-6 text-center text-gray-500 gs-reveal">Despite the massive hype, AI robotics currently face severe real-world physical and computational constraints.</p>
@@ -659,20 +923,20 @@
             </div>
         </section>
 
-        <!-- SLIDE 16: Conclusion -->
-        <section class="slide bg-gradient-brand text-white flex-center" id="slide-16">
+        <!-- SLIDE 23: Conclusion -->
+        <section class="slide bg-gradient-brand text-white flex-center" id="slide-23">
             <div class="slide-content text-center max-w-4xl">
                 <i class="fas fa-lightbulb text-6xl text-white mb-6 opacity-80 shadow-glow gs-reveal"></i>
                 <h2 class="text-3xl md:text-4xl font-light leading-relaxed mb-0 gs-reveal">
-                    "AI does not replace robotics — <br>
+                    "AI does not replace robotics &mdash; <br>
                     <span class="font-bold text-white uppercase tracking-wider" style="text-shadow: 0 0 20px rgba(255,255,255,0.5);">it enhances robotics</span><br>
                     by enabling machines to perceive, learn, and make decisions in complex environments."
                 </h2>
             </div>
         </section>
 
-        <!-- SLIDE 17: Final -->
-        <section class="slide bg-white flex-center relative" id="slide-17">
+        <!-- SLIDE 24: Final -->
+        <section class="slide bg-white flex-center relative" id="slide-24">
             <h1 class="display-1 text-primary font-heading font-bold mb-0 gs-reveal" style="text-align: center; margin: 0 auto; width: 100%;">Thank You</h1>
             
             <div class="credit-badge" style="position: absolute; bottom: 20px; left: 0; width: 100%; text-align: center;">
