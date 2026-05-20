@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { PROTECTED_HASH } from '../config/passwords'
 
@@ -46,6 +47,9 @@ export default function PasswordGate({ domainName, children }) {
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.4 }}
         >
+          <Link to="/" className="page-header-back password-gate-home" style={{ position: 'absolute', top: '40px', left: '40px', zIndex: 10 }}>
+            ← HOME
+          </Link>
           <div className="password-gate-domain" id={`gate-title-${domainName?.toLowerCase().replace(/\s+/g, '-')}`}>
             {domainName}
           </div>

@@ -14,7 +14,7 @@ function seedFromId(id) {
 
 function GeoThumbnail({ id }) {
   const seed = useMemo(() => seedFromId(id), [id])
-  const colors = ['#00D4FF', '#FF4D4D', '#00FF9D', '#E8EEF4']
+  const colors = ['var(--primary)', 'var(--alert)', 'var(--success)', 'var(--text)']
 
   const shapes = useMemo(() => {
     const s = []

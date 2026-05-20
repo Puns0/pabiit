@@ -5,18 +5,46 @@
 
 /* --- CSS Custom Properties --- */
 :root {
+  --bg: #111827;
+  --surface: #1F2937;
+  --border: #374151;
+  --primary: #6366F1;
+  --primary-rgb: 99, 102, 241;
+  --alert: #EF4444;
+  --alert-rgb: 239, 68, 68;
+  --text: #F9FAFB;
+  --text-muted: #9CA3AF;
+  --success: #10B981;
+  --radius: 12px;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --transition: 200ms ease;
+}
+
+.legacy-theme {
   --bg: #080B0F;
   --surface: #0D1117;
   --border: #1C2A3A;
   --primary: #00D4FF;
+  --primary-rgb: 0, 212, 255;
   --alert: #FF4D4D;
+  --alert-rgb: 255, 77, 77;
   --text: #E8EEF4;
   --text-muted: #4A6070;
   --success: #00FF9D;
   --radius: 2px;
   --font-mono: 'Share Tech Mono', 'IBM Plex Mono', monospace;
   --font-body: 'Inter Tight', 'Barlow Condensed', sans-serif;
-  --transition: 200ms ease;
+  
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: var(--font-body);
+  isolation: isolate;
 }
 
 /* --- Reset --- */
@@ -42,10 +70,20 @@ body {
   position: relative;
 }
 
-/* --- Scanline Overlay --- */
+/* --- Soft Glow Overlay for New Theme --- */
 body::before {
   content: '';
   position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(circle at 50% -20%, rgba(99, 102, 241, 0.15) 0%, transparent 80%);
+}
+
+/* --- Scanline Overlay (Legacy) --- */
+.legacy-theme::before {
+  content: '';
+  position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: 9999;
@@ -53,15 +91,15 @@ body::before {
     0deg,
     transparent,
     transparent 2px,
-    rgba(0, 212, 255, 0.015) 2px,
-    rgba(0, 212, 255, 0.015) 4px
+    rgba(var(--primary-rgb), 0.015) 2px,
+    rgba(var(--primary-rgb), 0.015) 4px
   );
 }
 
-/* --- Grid Pattern Background --- */
-body::after {
+/* --- Grid Pattern Background (Legacy) --- */
+.legacy-theme::after {
   content: '';
-  position: fixed;
+  position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: -1;
@@ -100,7 +138,7 @@ a {
 
 /* --- Selection --- */
 ::selection {
-  background: rgba(0, 212, 255, 0.2);
+  background: rgba(var(--primary-rgb), 0.2);
   color: var(--primary);
 }
 
@@ -237,7 +275,7 @@ a {
 
 .domain-card:hover {
   border-color: var(--primary);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.08), inset 0 0 20px rgba(0, 212, 255, 0.02);
+  box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.08), inset 0 0 20px rgba(var(--primary-rgb), 0.02);
 }
 
 .domain-card-name {
@@ -289,14 +327,14 @@ a {
 
 .status-badge--restricted {
   color: var(--alert);
-  border-color: rgba(255, 77, 77, 0.3);
-  background: rgba(255, 77, 77, 0.06);
+  border-color: rgba(var(--alert-rgb), 0.3);
+  background: rgba(var(--alert-rgb), 0.06);
 }
 
 .status-badge--open {
   color: var(--primary);
-  border-color: rgba(0, 212, 255, 0.3);
-  background: rgba(0, 212, 255, 0.06);
+  border-color: rgba(var(--primary-rgb), 0.3);
+  background: rgba(var(--primary-rgb), 0.06);
 }
 
 .status-badge-dot {
@@ -363,7 +401,7 @@ a {
 
 .password-gate-input:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 12px rgba(0, 212, 255, 0.1);
+  box-shadow: 0 0 12px rgba(var(--primary-rgb), 0.1);
 }
 
 .password-gate-input::placeholder {
@@ -387,8 +425,8 @@ a {
 }
 
 .password-gate-btn:hover {
-  background: rgba(0, 212, 255, 0.1);
-  box-shadow: 0 0 16px rgba(0, 212, 255, 0.15);
+  background: rgba(var(--primary-rgb), 0.1);
+  box-shadow: 0 0 16px rgba(var(--primary-rgb), 0.15);
 }
 
 .password-gate-error {
@@ -542,7 +580,7 @@ a {
 }
 
 .panel-card:hover {
-  border-color: rgba(0, 212, 255, 0.3);
+  border-color: rgba(var(--primary-rgb), 0.3);
 }
 
 .panel-card-title {
@@ -564,12 +602,12 @@ a {
 /* Reference card that links to another route */
 .panel-card--link {
   cursor: pointer;
-  border-color: rgba(0, 212, 255, 0.2);
+  border-color: rgba(var(--primary-rgb), 0.2);
 }
 
 .panel-card--link:hover {
   border-color: var(--primary);
-  box-shadow: 0 0 16px rgba(0, 212, 255, 0.08);
+  box-shadow: 0 0 16px rgba(var(--primary-rgb), 0.08);
 }
 
 .panel-card--link .panel-card-status {
@@ -605,7 +643,7 @@ a {
 }
 
 .service-card:hover {
-  border-color: rgba(0, 212, 255, 0.3);
+  border-color: rgba(var(--primary-rgb), 0.3);
 }
 
 .service-card-title {
@@ -638,7 +676,7 @@ a {
 
 .presentation-card:hover {
   border-color: var(--primary);
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.08);
+  box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.08);
 }
 
 .presentation-thumb {
@@ -682,7 +720,7 @@ a {
 }
 
 .blog-card:hover {
-  border-color: rgba(0, 212, 255, 0.3);
+  border-color: rgba(var(--primary-rgb), 0.3);
 }
 
 .blog-card-title {
@@ -712,7 +750,7 @@ a {
   letter-spacing: 2px;
   text-transform: uppercase;
   padding: 2px 8px;
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  border: 1px solid rgba(var(--primary-rgb), 0.3);
   border-radius: var(--radius);
 }
 
@@ -761,7 +799,7 @@ a {
 
 .article-content code {
   font-family: var(--font-mono);
-  background: rgba(0, 212, 255, 0.1);
+  background: rgba(var(--primary-rgb), 0.1);
   color: var(--primary);
   padding: 2px 6px;
   border-radius: 2px;
@@ -806,7 +844,7 @@ a {
 }
 
 .article-content th {
-  background: rgba(0, 212, 255, 0.05);
+  background: rgba(var(--primary-rgb), 0.05);
   color: var(--primary);
 }
 
@@ -864,6 +902,11 @@ a {
 
   .password-gate-domain {
     font-size: 1.3rem;
+  }
+
+  .password-gate-home {
+    top: 16px !important;
+    left: 20px !important;
   }
 }
 

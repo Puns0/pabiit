@@ -18,7 +18,7 @@ export default function About() {
       <PageHeader title="About Me" breadcrumb="DASHBOARD / ABOUT" />
       <main className="page-content">
         <div className="about-content" style={{ maxWidth: '800px' }}>
-          <h2 style={{ color: 'var(--primary)', marginBottom: '1.5rem', fontSize: '2.2rem', textShadow: '0 0 10px rgba(0,212,255,0.3)' }}>
+          <h2 style={{ color: 'var(--primary)', marginBottom: '1.5rem', fontSize: '2.2rem', textShadow: '0 0 10px rgba(var(--primary-rgb),0.3)' }}>
             Hey, I'm Puneet Gangur.
           </h2>
           
@@ -34,7 +34,7 @@ export default function About() {
             I'm completely <span style={highlight}>self-taught</span>. Most of what I know came from breaking things, fixing them, staying curious, and spending countless hours reading documentation and experimenting until things finally clicked.
           </p>
 
-          <p className="page-description" style={{ ...pStyle, color: 'var(--primary)', fontWeight: 'bold', fontSize: '1.15rem', borderLeft: '4px solid var(--primary)', paddingLeft: '16px', background: 'rgba(0,212,255,0.05)', padding: '10px 16px', borderRadius: '0 8px 8px 0' }}>
+          <p className="page-description" style={{ ...pStyle, color: 'var(--primary)', fontWeight: 'bold', fontSize: '1.15rem', borderLeft: '4px solid var(--primary)', paddingLeft: '16px', background: 'rgba(var(--primary-rgb),0.05)', padding: '10px 16px', borderRadius: '0 8px 8px 0' }}>
             I don't like blindly using technology. I like understanding it.
           </p>
 
@@ -58,7 +58,7 @@ export default function About() {
             This website is basically my corner of the internet — a place where I share things related to technology, cloud, networking, Linux, cybersecurity, projects, experiments, and whatever else I find interesting enough to write about.
           </p>
 
-          <p className="page-description" style={{ ...pStyle, color: 'var(--alert)', borderLeftColor: 'var(--alert)', background: 'rgba(255,77,77,0.05)', padding: '10px 16px', borderRadius: '0 8px 8px 0' }}>
+          <p className="page-description" style={{ ...pStyle, color: 'var(--alert)', borderLeftColor: 'var(--alert)', background: 'rgba(var(--alert-rgb),0.05)', padding: '10px 16px', borderRadius: '0 8px 8px 0' }}>
             <strong>One small warning though:</strong> I have absolutely zero tolerance for people who lack civic sense.
           </p>
 
