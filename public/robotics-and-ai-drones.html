@@ -270,8 +270,50 @@
             </div>
         </section>
 
-        <!-- SLIDE 6: Robotics as AI Application -->
-        <section class="slide bg-gradient-light" id="slide-6">
+
+        <!-- SLIDE 6: AI Dynamic Navigation Demo -->
+        <section class="slide bg-light" id="slide-6">
+            <div class="slide-content two-col">
+                <div class="col-text flex-col justify-center">
+                    <h2 class="section-title gs-reveal"><span class="text-primary"><i class="fas fa-route"></i></span> AI Pathfinding & Autonomy</h2>
+                    <h3 class="text-gray-700 mb-3 gs-reveal">Dynamic Obstacle Avoidance</h3>
+                    <p class="lead mb-4 gs-reveal">Unlike simple waypoint followers, <strong>AI-powered drones perceive their environment and think for themselves.</strong></p>
+                    
+                    <div class="card bg-white shadow-sm border p-4 mb-5 rounded-lg border-l-4 border-primary gs-reveal">
+                        <h4 class="mb-2 font-bold text-gray-700">AI Navigation Relies On:</h4>
+                        <ul class="bullet-list check-primary text-gray-600">
+                            <li><strong>Perception:</strong> Recognizing unexpected obstacles in real-time.</li>
+                            <li><strong>Pathfinding Algorithms:</strong> (Like A*) Calculating the optimal safe route around blockages.</li>
+                            <li><strong>Dynamic Re-planning:</strong> Instantly adjusting the flight path if a new obstacle appears.</li>
+                        </ul>
+                    </div>
+                    <p class="text-sm text-gray-500 italic gs-reveal"><i class="fas fa-hand-pointer text-primary"></i> Try the AI demo: Place waypoints and obstacles. Watch the drone intelligently route around barriers to reach its goal.</p>
+                </div>
+                <div class="col-visual flex-col shadow-lg rounded-xl overflow-hidden border bg-white relative gs-reveal">
+                    <div class="bg-primary-dark text-white p-3 text-sm font-semibold flex-between">
+                        <span><i class="fas fa-brain"></i> AI Autonomy Demo (A*)</span>
+                        <span class="badge" style="background: var(--primary); color: white;">AI ENABLED</span>
+                    </div>
+                    <!-- INTERACTIVE AI WAYPOINT CANVAS -->
+                    <canvas id="aiWaypointCanvas" class="w-full interactive-canvas bg-gray-50" style="flex:1; cursor: crosshair;"></canvas>
+                    <div class="p-3 bg-white border-t flex-col gap-2">
+                        <div class="flex gap-2 justify-center mb-2">
+                            <button id="modeWaypoint" class="btn btn-sm btn-primary">Add Waypoints</button>
+                            <button id="modeObstacle" class="btn btn-sm btn-outline">Add Obstacles</button>
+                        </div>
+                        <div class="flex-between">
+                            <span class="text-xs text-gray-500">Click map to add</span>
+                            <div class="flex gap-2">
+                                <button id="clearAIWaypoints" class="btn btn-outline btn-sm">Clear</button>
+                                <button id="launchAIDrone" class="btn btn-primary btn-sm">Launch AI Drone</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- SLIDE 7: Robotics as AI Application -->
+        <section class="slide bg-gradient-light" id="slide-7">
             <div class="slide-content">
                 <h2 class="section-title gs-reveal"><span class="text-primary"><i class="fas fa-project-diagram"></i></span> Robotics as an AI Application</h2>
                 
@@ -311,8 +353,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 7: AI Tech -->
-        <section class="slide bg-white" id="slide-7">
+        <!-- SLIDE 8: AI Tech -->
+        <section class="slide bg-white" id="slide-8">
             <div class="slide-content">
                 <h2 class="section-title gs-reveal"><span class="text-primary"><i class="fas fa-network-wired"></i></span> Core AI Technologies</h2>
                 
@@ -352,8 +394,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 8: AI vs Automation Table -->
-        <section class="slide bg-light" id="slide-8">
+        <!-- SLIDE 9: AI vs Automation Table -->
+        <section class="slide bg-light" id="slide-9">
             <div class="slide-content">
                 <h2 class="section-title gs-reveal"><span class="text-primary"><i class="fas fa-random"></i></span> AI vs. Automation in Drones</h2>
                 <p class="lead mb-5 text-gray-600 gs-reveal">Distinguishing between programmed logic and machine intelligence.</p>
@@ -399,8 +441,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 9: Drone Mapping -->
-        <section class="slide bg-white" id="slide-9">
+        <!-- SLIDE 10: Drone Mapping -->
+        <section class="slide bg-white" id="slide-10">
             <div class="slide-content two-col">
                 <div class="col-text">
                     <h2 class="section-title gs-reveal"><span class="text-secondary"><i class="fas fa-map"></i></span> Drone Mapping</h2>
@@ -431,8 +473,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 10: Applications -->
-        <section class="slide bg-light" id="slide-10" style="font-size: 0.9rem;">
+        <!-- SLIDE 11: Applications -->
+        <section class="slide bg-light" id="slide-11" style="font-size: 0.9rem;">
             <div class="slide-content">
                 <h2 class="section-title gs-reveal" style="font-size: 2.5rem; margin-bottom: 1rem;"><span class="text-primary"><i class="fas fa-globe-americas"></i></span> Applications of AI Drones</h2>
                 
@@ -480,8 +522,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 11: Industrial -->
-        <section class="slide bg-white" id="slide-11">
+        <!-- SLIDE 12: Industrial -->
+        <section class="slide bg-white" id="slide-12">
             <div class="slide-content">
                 <h2 class="section-title gs-reveal"><span class="text-primary"><i class="fas fa-industry"></i></span> Industrial Ground Applications</h2>
                 
@@ -528,8 +570,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 12: Defense & Radar -->
-        <section class="slide bg-dark-theme text-white" id="slide-12">
+        <!-- SLIDE 13: Defense & Radar -->
+        <section class="slide bg-dark-theme text-white" id="slide-13">
             <div class="slide-content two-col">
                 <div class="col-text">
                     <h2 class="section-title text-white border-b-gray gs-reveal"><span class="text-primary-light"><i class="fas fa-shield-alt"></i></span> Defense & Swarm Systems</h2>
@@ -565,8 +607,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 13: Ethical Concerns -->
-        <section class="slide bg-light" id="slide-13">
+        <!-- SLIDE 14: Ethical Concerns -->
+        <section class="slide bg-light" id="slide-14">
             <div class="slide-content">
                 <h2 class="section-title gs-reveal"><span class="text-alert"><i class="fas fa-exclamation-triangle"></i></span> Ethical & Social Concerns</h2>
                 
@@ -591,8 +633,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 14: Limitations -->
-        <section class="slide bg-white" id="slide-14">
+        <!-- SLIDE 15: Limitations -->
+        <section class="slide bg-white" id="slide-15">
             <div class="slide-content">
                 <h2 class="section-title text-center gs-reveal"><span class="text-warning-dark"><i class="fas fa-battery-quarter"></i></span> Limitations & Challenges</h2>
                 <p class="lead mb-6 text-center text-gray-500 gs-reveal">Despite the massive hype, AI robotics currently face severe real-world physical and computational constraints.</p>
@@ -617,8 +659,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 15: Conclusion -->
-        <section class="slide bg-gradient-brand text-white flex-center" id="slide-15">
+        <!-- SLIDE 16: Conclusion -->
+        <section class="slide bg-gradient-brand text-white flex-center" id="slide-16">
             <div class="slide-content text-center max-w-4xl">
                 <i class="fas fa-lightbulb text-6xl text-white mb-6 opacity-80 shadow-glow gs-reveal"></i>
                 <h2 class="text-3xl md:text-4xl font-light leading-relaxed mb-0 gs-reveal">
@@ -629,8 +671,8 @@
             </div>
         </section>
 
-        <!-- SLIDE 16: Final -->
-        <section class="slide bg-white flex-center relative" id="slide-16">
+        <!-- SLIDE 17: Final -->
+        <section class="slide bg-white flex-center relative" id="slide-17">
             <h1 class="display-1 text-primary font-heading font-bold mb-0 gs-reveal" style="text-align: center; margin: 0 auto; width: 100%;">Thank You</h1>
             
             <div class="credit-badge" style="position: absolute; bottom: 20px; left: 0; width: 100%; text-align: center;">
