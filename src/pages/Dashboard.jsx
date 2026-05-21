@@ -13,6 +13,9 @@ primaryAudio.preload = "auto"
 const blogAudio = new Audio(blogAudioUrl)
 blogAudio.preload = "auto"
 
+const presentationAudio = new Audio(blogAudioUrl)
+presentationAudio.preload = "auto"
+
 const primaryDomains = [
   {
     name: 'PABIT',
@@ -98,9 +101,13 @@ function DomainCard({ domain, index, hideDesc, isPrimary }) {
       primaryAudio.currentTime = 0
       primaryAudio.play().catch(e => console.error('Audio play error:', e))
     }
-    if (domain.name === 'Blogs' || domain.name === 'Presentations') {
+    if (domain.name === 'Blogs') {
       blogAudio.currentTime = 0
       blogAudio.play().catch(e => console.error('Audio play error:', e))
+    }
+    if (domain.name === 'Presentations') {
+      presentationAudio.currentTime = 0
+      presentationAudio.play().catch(e => console.error('Audio play error:', e))
     }
     navigate(domain.path)
   }
