@@ -98,7 +98,7 @@ function DomainCard({ domain, index, hideDesc, isPrimary }) {
       primaryAudio.currentTime = 0
       primaryAudio.play().catch(e => console.error('Audio play error:', e))
     }
-    if (domain.name === 'Blogs') {
+    if (domain.name === 'Blogs' || domain.name === 'Presentations') {
       blogAudio.currentTime = 0
       blogAudio.play().catch(e => console.error('Audio play error:', e))
     }
