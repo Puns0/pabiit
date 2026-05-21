@@ -221,6 +221,7 @@ a {
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
+  min-height: 100vh;
 }
 
 .section-label {
@@ -520,6 +521,7 @@ a {
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
+  min-height: 100vh;
 }
 
 .page-description {
@@ -886,6 +888,106 @@ a {
   .blog-ad-sidebar {
     display: none;
   }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.dashboard-footer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  padding: 40px 40px 20px;
+  margin-top: 40px;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto 40px;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 250px;
+}
+
+.footer-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.footer-contact {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 24px;
+  max-width: 700px;
+}
+
+.footer-link {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: color var(--transition);
+  display: inline-block;
+}
+
+.footer-link:hover {
+  color: var(--primary);
+}
+
+.footer-action {
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.request-presentation-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.request-presentation-btn:hover {
+  background: rgba(var(--primary-rgb), 0.1);
+  box-shadow: 0 0 16px rgba(var(--primary-rgb), 0.15);
+}
+
+.footer-bottom {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* ============================================================

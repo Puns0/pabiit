@@ -11,6 +11,8 @@ import Prawapted from './pages/Prawapted'
 import CloudServices from './pages/CloudServices'
 import OtherServices from './pages/OtherServices'
 import Presentations from './pages/Presentations'
+import RequestPresentation from './pages/RequestPresentation'
+import RequestSuccess from './pages/RequestSuccess'
 import Blogs from './pages/Blogs'
 import LinuxFundamentals from './pages/blogs/LinuxFundamentals'
 import DummyBlog from './pages/blogs/DummyBlog'
@@ -36,6 +38,8 @@ export default function App() {
           <Route path="/cloud-services" element={<CloudServices />} />
           <Route path="/other-services" element={<OtherServices />} />
           <Route path="/presentations" element={<Presentations />} />
+          <Route path="/request-presentation" element={<RequestPresentation />} />
+          <Route path="/request-success" element={<RequestSuccess />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blogs/linux-fundamentals" element={<LinuxFundamentals />} />
           <Route path="/blogs/dummy-blog" element={<DummyBlog />} />

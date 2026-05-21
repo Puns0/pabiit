@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import PageTransition from '../components/PageTransition'
+import Footer from '../components/Footer'
 
 const posts = [
   {
@@ -37,6 +38,7 @@ export default function Blogs() {
           ))}
         </div>
       </main>
+      <Footer />
     </PageTransition>
   )
 }

@@ -93,6 +93,18 @@ export default function About() {
                 <div className="service-card-status" style={{ color: 'var(--success)' }}>puneet.gangur@gmail.com</div>
               </div>
             </a>
+            
+            <a 
+              href="tel:+917019294304" 
+              className="service-card" 
+              style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '1rem', cursor: 'pointer', borderColor: 'var(--alert)' }}
+            >
+              <div style={{ color: 'var(--alert)', fontSize: '1.8rem' }}>☏</div>
+              <div>
+                <div className="service-card-title" style={{ color: 'var(--text)' }}>Phone</div>
+                <div className="service-card-status" style={{ color: 'var(--alert)' }}>+91 7019294304</div>
+              </div>
+            </a>
           </div>
         </div>
       </main>

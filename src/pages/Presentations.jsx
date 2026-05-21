@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader'
 import PageTransition from '../components/PageTransition'
+import Footer from '../components/Footer'
 import { presentations } from '../config/presentations'
 
 /* Generate deterministic geometric shapes from an ID string */
@@ -83,8 +85,25 @@ export default function Presentations() {
       <PageHeader title="Presentations" breadcrumb="DASHBOARD / PRESENTATIONS" />
       <main className="page-content">
         <p className="page-description">
-          Presentations.
+          View presentations, get your own presentation
         </p>
+
+        <div className="presentation-actions" style={{ marginBottom: '40px' }}>
+          <Link to="/request-presentation" className="request-presentation-btn" style={{
+            display: 'inline-block',
+            padding: '12px 24px',
+            background: 'var(--primary)',
+            color: 'var(--bg)',
+            fontFamily: 'var(--font-mono)',
+            textDecoration: 'none',
+            borderRadius: 'var(--radius)',
+            fontWeight: 'bold',
+            letterSpacing: '1px',
+            textTransform: 'uppercase'
+          }}>
+            + Get Your Own Presentation
+          </Link>
+        </div>
 
         <div className="section-divider">// BRIEFINGS</div>
         <div className="panels-grid">
@@ -105,6 +124,7 @@ export default function Presentations() {
           ))}
         </div>
       </main>
+      <Footer />
     </PageTransition>
   )
 }

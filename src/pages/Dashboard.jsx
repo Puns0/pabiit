@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import StatusBadge from '../components/StatusBadge'
 import PageTransition from '../components/PageTransition'
-
+import Footer from '../components/Footer'
 import prawaptedAudioUrl from '../assets/Prawapted.mp3'
 import blogAudioUrl from '../assets/blogaoe.mp3'
 
@@ -65,7 +65,7 @@ const secondaryDomains = [
   {
     name: 'Presentations',
     path: '/presentations',
-    desc: 'Presentations.',
+    desc: 'View presentations, get your own presentation',
     status: 'OPEN',
   },
   {
@@ -144,7 +144,7 @@ export default function Dashboard() {
           </div>
           <div className="system-status">
             <span className="status-dot" />
-            SYSTEMS NOMINAL
+            SERVERS ONLINE
           </div>
         </header>
 
@@ -163,6 +163,7 @@ export default function Dashboard() {
             ))}
           </div>
         </main>
+        <Footer />
       </div>
     </PageTransition>
   )
