@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
 /* ============================================================
    PABIT — Global Stylesheet
    Intelligence Operations Dashboard Design System
@@ -5,20 +7,20 @@
 
 /* --- CSS Custom Properties --- */
 :root {
-  --bg: #111827;
-  --surface: #1F2937;
-  --border: #374151;
-  --primary: #6366F1;
-  --primary-rgb: 99, 102, 241;
+  --bg: #0B0E14;
+  --surface: #151A23;
+  --border: rgba(255, 255, 255, 0.08);
+  --primary: #8B5CF6;
+  --primary-rgb: 139, 92, 246;
   --alert: #EF4444;
   --alert-rgb: 239, 68, 68;
   --text: #F9FAFB;
   --text-muted: #9CA3AF;
   --success: #10B981;
   --radius: 12px;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --transition: 200ms ease;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --transition: 0s;
 }
 
 .legacy-theme {
@@ -159,7 +161,9 @@ a {
   justify-content: space-between;
   padding: 24px 40px;
   border-bottom: 1px solid var(--border);
-  background: var(--surface);
+  background: rgba(21, 26, 35, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -276,7 +280,7 @@ a {
 
 .domain-card:hover {
   border-color: var(--primary);
-  box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.08), inset 0 0 20px rgba(var(--primary-rgb), 0.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(var(--primary-rgb), 0.15), inset 0 0 20px rgba(var(--primary-rgb), 0.02);
 }
 
 .domain-card-name {
@@ -462,7 +466,9 @@ a {
   gap: 20px;
   padding: 20px 40px;
   border-bottom: 1px solid var(--border);
-  background: var(--surface);
+  background: rgba(21, 26, 35, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -582,7 +588,8 @@ a {
 }
 
 .panel-card:hover {
-  border-color: rgba(var(--primary-rgb), 0.3);
+  border-color: var(--primary);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(var(--primary-rgb), 0.15), inset 0 0 20px rgba(var(--primary-rgb), 0.02);
 }
 
 .panel-card-title {
@@ -645,7 +652,8 @@ a {
 }
 
 .service-card:hover {
-  border-color: rgba(var(--primary-rgb), 0.3);
+  border-color: var(--primary);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(var(--primary-rgb), 0.15), inset 0 0 20px rgba(var(--primary-rgb), 0.02);
 }
 
 .service-card-title {
@@ -678,7 +686,7 @@ a {
 
 .presentation-card:hover {
   border-color: var(--primary);
-  box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(var(--primary-rgb), 0.15), inset 0 0 20px rgba(var(--primary-rgb), 0.02);
 }
 
 .presentation-thumb {
@@ -722,7 +730,8 @@ a {
 }
 
 .blog-card:hover {
-  border-color: rgba(var(--primary-rgb), 0.3);
+  border-color: var(--primary);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(var(--primary-rgb), 0.15), inset 0 0 20px rgba(var(--primary-rgb), 0.02);
 }
 
 .blog-card-title {
