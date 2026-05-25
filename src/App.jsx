@@ -16,6 +16,7 @@ import RequestSuccess from './pages/RequestSuccess'
 import Blogs from './pages/Blogs'
 import LinuxFundamentals from './pages/blogs/LinuxFundamentals'
 import DummyBlog from './pages/blogs/DummyBlog'
+import InternetMachine from './pages/blogs/InternetMachine'
 import About from './pages/About'
 
 export default function App() {
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="/request-success" element={<RequestSuccess />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/blogs/linux-fundamentals" element={<LinuxFundamentals />} />
+          <Route path="/blogs/the-internet-machine" element={<InternetMachine />} />
           <Route path="/blogs/dummy-blog" element={<DummyBlog />} />
           <Route path="/about" element={<About />} />
         </Routes>

@@ -11,6 +11,13 @@ const posts = [
     date: '2026-05-13',
     tag: 'SYSTEMS',
     path: '/blogs/linux-fundamentals'
+  },
+  {
+    id: 'the-internet-machine',
+    title: 'The Internet: Humanity\'s Biggest Machine',
+    date: '2026-05-25',
+    tag: 'NETWORKING',
+    path: '/blogs/the-internet-machine'
   }
 ]
 
