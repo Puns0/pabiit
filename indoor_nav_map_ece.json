@@ -1,0 +1,6313 @@
+{
+  "floors": [
+    {
+      "id": 0,
+      "label": "Ground",
+      "rooms": [
+        {
+          "id": "room_f767c1875d3b",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "corridor",
+          "geometry": [
+            {
+              "row": 72,
+              "col": 48
+            },
+            {
+              "row": 72,
+              "col": 49
+            },
+            {
+              "row": 71,
+              "col": 49
+            },
+            {
+              "row": 70,
+              "col": 49
+            },
+            {
+              "row": 69,
+              "col": 49
+            },
+            {
+              "row": 69,
+              "col": 48
+            },
+            {
+              "row": 70,
+              "col": 48
+            },
+            {
+              "row": 71,
+              "col": 48
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_6e74d5ea766c",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "corridor",
+          "geometry": [
+            {
+              "row": 67,
+              "col": 48
+            },
+            {
+              "row": 68,
+              "col": 48
+            },
+            {
+              "row": 68,
+              "col": 49
+            },
+            {
+              "row": 67,
+              "col": 49
+            },
+            {
+              "row": 67,
+              "col": 50
+            },
+            {
+              "row": 67,
+              "col": 51
+            },
+            {
+              "row": 67,
+              "col": 52
+            },
+            {
+              "row": 67,
+              "col": 53
+            },
+            {
+              "row": 67,
+              "col": 54
+            },
+            {
+              "row": 67,
+              "col": 55
+            },
+            {
+              "row": 67,
+              "col": 56
+            },
+            {
+              "row": 67,
+              "col": 57
+            },
+            {
+              "row": 67,
+              "col": 58
+            },
+            {
+              "row": 68,
+              "col": 58
+            },
+            {
+              "row": 68,
+              "col": 57
+            },
+            {
+              "row": 68,
+              "col": 56
+            },
+            {
+              "row": 68,
+              "col": 55
+            },
+            {
+              "row": 68,
+              "col": 54
+            },
+            {
+              "row": 68,
+              "col": 53
+            },
+            {
+              "row": 68,
+              "col": 52
+            },
+            {
+              "row": 68,
+              "col": 51
+            },
+            {
+              "row": 68,
+              "col": 50
+            },
+            {
+              "row": 67,
+              "col": 47
+            },
+            {
+              "row": 67,
+              "col": 46
+            },
+            {
+              "row": 67,
+              "col": 45
+            },
+            {
+              "row": 67,
+              "col": 44
+            },
+            {
+              "row": 67,
+              "col": 43
+            },
+            {
+              "row": 67,
+              "col": 42
+            },
+            {
+              "row": 67,
+              "col": 41
+            },
+            {
+              "row": 67,
+              "col": 40
+            },
+            {
+              "row": 67,
+              "col": 39
+            },
+            {
+              "row": 67,
+              "col": 38
+            },
+            {
+              "row": 68,
+              "col": 38
+            },
+            {
+              "row": 68,
+              "col": 39
+            },
+            {
+              "row": 68,
+              "col": 40
+            },
+            {
+              "row": 68,
+              "col": 41
+            },
+            {
+              "row": 68,
+              "col": 42
+            },
+            {
+              "row": 68,
+              "col": 43
+            },
+            {
+              "row": 68,
+              "col": 44
+            },
+            {
+              "row": 68,
+              "col": 47
+            },
+            {
+              "row": 68,
+              "col": 46
+            },
+            {
+              "row": 68,
+              "col": 45
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_d75b20575208",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "corridor",
+          "geometry": [
+            {
+              "row": 67,
+              "col": 59
+            },
+            {
+              "row": 68,
+              "col": 59
+            },
+            {
+              "row": 68,
+              "col": 60
+            },
+            {
+              "row": 67,
+              "col": 60
+            },
+            {
+              "row": 66,
+              "col": 59
+            },
+            {
+              "row": 65,
+              "col": 59
+            },
+            {
+              "row": 64,
+              "col": 59
+            },
+            {
+              "row": 63,
+              "col": 59
+            },
+            {
+              "row": 62,
+              "col": 59
+            },
+            {
+              "row": 61,
+              "col": 59
+            },
+            {
+              "row": 61,
+              "col": 60
+            },
+            {
+              "row": 62,
+              "col": 60
+            },
+            {
+              "row": 63,
+              "col": 60
+            },
+            {
+              "row": 64,
+              "col": 60
+            },
+            {
+              "row": 65,
+              "col": 60
+            },
+            {
+              "row": 66,
+              "col": 60
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_38c825ad17b5",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "corridor",
+          "geometry": [
+            {
+              "row": 67,
+              "col": 37
+            },
+            {
+              "row": 67,
+              "col": 36
+            },
+            {
+              "row": 68,
+              "col": 36
+            },
+            {
+              "row": 68,
+              "col": 37
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_9b345429a62a",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "corridor",
+          "geometry": [
+            {
+              "row": 61,
+              "col": 36
+            },
+            {
+              "row": 62,
+              "col": 36
+            },
+            {
+              "row": 63,
+              "col": 36
+            },
+            {
+              "row": 64,
+              "col": 36
+            },
+            {
+              "row": 65,
+              "col": 36
+            },
+            {
+              "row": 66,
+              "col": 36
+            },
+            {
+              "row": 66,
+              "col": 37
+            },
+            {
+              "row": 65,
+              "col": 37
+            },
+            {
+              "row": 64,
+              "col": 37
+            },
+            {
+              "row": 63,
+              "col": 37
+            },
+            {
+              "row": 62,
+              "col": 37
+            },
+            {
+              "row": 61,
+              "col": 37
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_25d99a7a748c",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "corridor",
+          "geometry": [
+            {
+              "row": 59,
+              "col": 36
+            },
+            {
+              "row": 60,
+              "col": 36
+            },
+            {
+              "row": 60,
+              "col": 37
+            },
+            {
+              "row": 59,
+              "col": 37
+            },
+            {
+              "row": 59,
+              "col": 38
+            },
+            {
+              "row": 59,
+              "col": 39
+            },
+            {
+              "row": 59,
+              "col": 40
+            },
+            {
+              "row": 59,
+              "col": 41
+            },
+            {
+              "row": 59,
+              "col": 42
+            },
+            {
+              "row": 59,
+              "col": 43
+            },
+            {
+              "row": 59,
+              "col": 44
+            },
+            {
+              "row": 59,
+              "col": 45
+            },
+            {
+              "row": 59,
+              "col": 46
+            },
+            {
+              "row": 59,
+              "col": 47
+            },
+            {
+              "row": 59,
+              "col": 48
+            },
+            {
+              "row": 59,
+              "col": 49
+            },
+            {
+              "row": 59,
+              "col": 50
+            },
+            {
+              "row": 59,
+              "col": 51
+            },
+            {
+              "row": 59,
+              "col": 52
+            },
+            {
+              "row": 59,
+              "col": 53
+            },
+            {
+              "row": 59,
+              "col": 54
+            },
+            {
+              "row": 59,
+              "col": 55
+            },
+            {
+              "row": 59,
+              "col": 56
+            },
+            {
+              "row": 59,
+              "col": 57
+            },
+            {
+              "row": 59,
+              "col": 58
+            },
+            {
+              "row": 59,
+              "col": 59
+            },
+            {
+              "row": 59,
+              "col": 60
+            },
+            {
+              "row": 60,
+              "col": 60
+            },
+            {
+              "row": 60,
+              "col": 59
+            },
+            {
+              "row": 60,
+              "col": 58
+            },
+            {
+              "row": 60,
+              "col": 57
+            },
+            {
+              "row": 60,
+              "col": 56
+            },
+            {
+              "row": 60,
+              "col": 55
+            },
+            {
+              "row": 60,
+              "col": 54
+            },
+            {
+              "row": 60,
+              "col": 53
+            },
+            {
+              "row": 60,
+              "col": 52
+            },
+            {
+              "row": 60,
+              "col": 51
+            },
+            {
+              "row": 60,
+              "col": 50
+            },
+            {
+              "row": 60,
+              "col": 47
+            },
+            {
+              "row": 60,
+              "col": 46
+            },
+            {
+              "row": 60,
+              "col": 45
+            },
+            {
+              "row": 60,
+              "col": 44
+            },
+            {
+              "row": 60,
+              "col": 43
+            },
+            {
+              "row": 60,
+              "col": 42
+            },
+            {
+              "row": 60,
+              "col": 41
+            },
+            {
+              "row": 60,
+              "col": 40
+            },
+            {
+              "row": 60,
+              "col": 39
+            },
+            {
+              "row": 60,
+              "col": 38
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_ca882d308bea",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "corridor",
+          "geometry": [
+            {
+              "row": 60,
+              "col": 48
+            },
+            {
+              "row": 61,
+              "col": 48
+            },
+            {
+              "row": 62,
+              "col": 48
+            },
+            {
+              "row": 63,
+              "col": 48
+            },
+            {
+              "row": 64,
+              "col": 48
+            },
+            {
+              "row": 65,
+              "col": 48
+            },
+            {
+              "row": 66,
+              "col": 48
+            },
+            {
+              "row": 66,
+              "col": 49
+            },
+            {
+              "row": 65,
+              "col": 49
+            },
+            {
+              "row": 64,
+              "col": 49
+            },
+            {
+              "row": 63,
+              "col": 49
+            },
+            {
+              "row": 62,
+              "col": 49
+            },
+            {
+              "row": 61,
+              "col": 49
+            },
+            {
+              "row": 60,
+              "col": 49
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_fec04ebd6bf7",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "corridor",
+          "geometry": [
+            {
+              "row": 73,
+              "col": 48
+            },
+            {
+              "row": 73,
+              "col": 49
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_0eb948337739",
+          "floorId": 0,
+          "name": "EEE Dept Office, HOD's Office",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 69,
+              "col": 50
+            },
+            {
+              "row": 69,
+              "col": 52
+            },
+            {
+              "row": 69,
+              "col": 53
+            },
+            {
+              "row": 69,
+              "col": 54
+            },
+            {
+              "row": 69,
+              "col": 55
+            },
+            {
+              "row": 70,
+              "col": 55
+            },
+            {
+              "row": 71,
+              "col": 55
+            },
+            {
+              "row": 72,
+              "col": 55
+            },
+            {
+              "row": 73,
+              "col": 55
+            },
+            {
+              "row": 73,
+              "col": 54
+            },
+            {
+              "row": 73,
+              "col": 53
+            },
+            {
+              "row": 73,
+              "col": 52
+            },
+            {
+              "row": 73,
+              "col": 51
+            },
+            {
+              "row": 73,
+              "col": 50
+            },
+            {
+              "row": 72,
+              "col": 50
+            },
+            {
+              "row": 71,
+              "col": 50
+            },
+            {
+              "row": 70,
+              "col": 50
+            },
+            {
+              "row": 70,
+              "col": 51
+            },
+            {
+              "row": 70,
+              "col": 52
+            },
+            {
+              "row": 70,
+              "col": 53
+            },
+            {
+              "row": 71,
+              "col": 53
+            },
+            {
+              "row": 71,
+              "col": 54
+            },
+            {
+              "row": 72,
+              "col": 53
+            },
+            {
+              "row": 72,
+              "col": 52
+            },
+            {
+              "row": 72,
+              "col": 51
+            },
+            {
+              "row": 71,
+              "col": 51
+            },
+            {
+              "row": 71,
+              "col": 52
+            },
+            {
+              "row": 70,
+              "col": 54
+            },
+            {
+              "row": 72,
+              "col": 54
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_8ef2392b5a02",
+          "floorId": 0,
+          "name": "Relay And High Voltage Lab",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 69,
+              "col": 56
+            },
+            {
+              "row": 70,
+              "col": 56
+            },
+            {
+              "row": 71,
+              "col": 56
+            },
+            {
+              "row": 72,
+              "col": 56
+            },
+            {
+              "row": 73,
+              "col": 56
+            },
+            {
+              "row": 73,
+              "col": 57
+            },
+            {
+              "row": 73,
+              "col": 58
+            },
+            {
+              "row": 73,
+              "col": 59
+            },
+            {
+              "row": 73,
+              "col": 60
+            },
+            {
+              "row": 72,
+              "col": 60
+            },
+            {
+              "row": 71,
+              "col": 60
+            },
+            {
+              "row": 70,
+              "col": 60
+            },
+            {
+              "row": 69,
+              "col": 60
+            },
+            {
+              "row": 69,
+              "col": 59
+            },
+            {
+              "row": 69,
+              "col": 58
+            },
+            {
+              "row": 70,
+              "col": 57
+            },
+            {
+              "row": 70,
+              "col": 58
+            },
+            {
+              "row": 70,
+              "col": 59
+            },
+            {
+              "row": 71,
+              "col": 57
+            },
+            {
+              "row": 71,
+              "col": 58
+            },
+            {
+              "row": 71,
+              "col": 59
+            },
+            {
+              "row": 72,
+              "col": 59
+            },
+            {
+              "row": 72,
+              "col": 58
+            },
+            {
+              "row": 72,
+              "col": 57
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_4a2bd966d92d",
+          "floorId": 0,
+          "name": "Staff Room (EEE Dept)",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 73,
+              "col": 61
+            },
+            {
+              "row": 72,
+              "col": 61
+            },
+            {
+              "row": 71,
+              "col": 61
+            },
+            {
+              "row": 70,
+              "col": 61
+            },
+            {
+              "row": 69,
+              "col": 61
+            },
+            {
+              "row": 67,
+              "col": 61
+            },
+            {
+              "row": 66,
+              "col": 61
+            },
+            {
+              "row": 65,
+              "col": 61
+            },
+            {
+              "row": 64,
+              "col": 61
+            },
+            {
+              "row": 64,
+              "col": 62
+            },
+            {
+              "row": 64,
+              "col": 63
+            },
+            {
+              "row": 65,
+              "col": 63
+            },
+            {
+              "row": 66,
+              "col": 63
+            },
+            {
+              "row": 67,
+              "col": 63
+            },
+            {
+              "row": 68,
+              "col": 63
+            },
+            {
+              "row": 69,
+              "col": 63
+            },
+            {
+              "row": 70,
+              "col": 63
+            },
+            {
+              "row": 71,
+              "col": 63
+            },
+            {
+              "row": 72,
+              "col": 63
+            },
+            {
+              "row": 73,
+              "col": 63
+            },
+            {
+              "row": 73,
+              "col": 62
+            },
+            {
+              "row": 72,
+              "col": 62
+            },
+            {
+              "row": 71,
+              "col": 62
+            },
+            {
+              "row": 70,
+              "col": 62
+            },
+            {
+              "row": 69,
+              "col": 62
+            },
+            {
+              "row": 68,
+              "col": 62
+            },
+            {
+              "row": 67,
+              "col": 62
+            },
+            {
+              "row": 66,
+              "col": 62
+            },
+            {
+              "row": 65,
+              "col": 62
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_01cf47651b2b",
+          "floorId": 0,
+          "name": "ECE Dept Office, HOD's Office",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 69,
+              "col": 47
+            },
+            {
+              "row": 69,
+              "col": 45
+            },
+            {
+              "row": 69,
+              "col": 44
+            },
+            {
+              "row": 69,
+              "col": 43
+            },
+            {
+              "row": 69,
+              "col": 42
+            },
+            {
+              "row": 69,
+              "col": 41
+            },
+            {
+              "row": 70,
+              "col": 41
+            },
+            {
+              "row": 71,
+              "col": 41
+            },
+            {
+              "row": 72,
+              "col": 41
+            },
+            {
+              "row": 73,
+              "col": 41
+            },
+            {
+              "row": 73,
+              "col": 42
+            },
+            {
+              "row": 73,
+              "col": 43
+            },
+            {
+              "row": 73,
+              "col": 44
+            },
+            {
+              "row": 73,
+              "col": 45
+            },
+            {
+              "row": 73,
+              "col": 46
+            },
+            {
+              "row": 73,
+              "col": 47
+            },
+            {
+              "row": 72,
+              "col": 47
+            },
+            {
+              "row": 71,
+              "col": 47
+            },
+            {
+              "row": 71,
+              "col": 46
+            },
+            {
+              "row": 70,
+              "col": 46
+            },
+            {
+              "row": 70,
+              "col": 45
+            },
+            {
+              "row": 70,
+              "col": 44
+            },
+            {
+              "row": 70,
+              "col": 43
+            },
+            {
+              "row": 71,
+              "col": 43
+            },
+            {
+              "row": 71,
+              "col": 42
+            },
+            {
+              "row": 72,
+              "col": 42
+            },
+            {
+              "row": 72,
+              "col": 43
+            },
+            {
+              "row": 72,
+              "col": 44
+            },
+            {
+              "row": 72,
+              "col": 45
+            },
+            {
+              "row": 72,
+              "col": 46
+            },
+            {
+              "row": 70,
+              "col": 47
+            },
+            {
+              "row": 71,
+              "col": 45
+            },
+            {
+              "row": 71,
+              "col": 44
+            },
+            {
+              "row": 70,
+              "col": 42
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_b9c17f0e3c04",
+          "floorId": 0,
+          "name": "Staff Room (ECE Dept)",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 66,
+              "col": 35
+            },
+            {
+              "row": 66,
+              "col": 34
+            },
+            {
+              "row": 66,
+              "col": 33
+            },
+            {
+              "row": 67,
+              "col": 33
+            },
+            {
+              "row": 67,
+              "col": 34
+            },
+            {
+              "row": 67,
+              "col": 35
+            },
+            {
+              "row": 68,
+              "col": 34
+            },
+            {
+              "row": 68,
+              "col": 33
+            },
+            {
+              "row": 68,
+              "col": 35
+            },
+            {
+              "row": 69,
+              "col": 35
+            },
+            {
+              "row": 69,
+              "col": 34
+            },
+            {
+              "row": 69,
+              "col": 33
+            },
+            {
+              "row": 69,
+              "col": 36
+            },
+            {
+              "row": 69,
+              "col": 38
+            },
+            {
+              "row": 69,
+              "col": 39
+            },
+            {
+              "row": 69,
+              "col": 40
+            },
+            {
+              "row": 70,
+              "col": 40
+            },
+            {
+              "row": 70,
+              "col": 39
+            },
+            {
+              "row": 70,
+              "col": 38
+            },
+            {
+              "row": 70,
+              "col": 37
+            },
+            {
+              "row": 70,
+              "col": 36
+            },
+            {
+              "row": 70,
+              "col": 35
+            },
+            {
+              "row": 70,
+              "col": 34
+            },
+            {
+              "row": 70,
+              "col": 33
+            },
+            {
+              "row": 71,
+              "col": 33
+            },
+            {
+              "row": 71,
+              "col": 34
+            },
+            {
+              "row": 71,
+              "col": 35
+            },
+            {
+              "row": 71,
+              "col": 36
+            },
+            {
+              "row": 71,
+              "col": 37
+            },
+            {
+              "row": 71,
+              "col": 38
+            },
+            {
+              "row": 71,
+              "col": 39
+            },
+            {
+              "row": 71,
+              "col": 40
+            },
+            {
+              "row": 72,
+              "col": 40
+            },
+            {
+              "row": 72,
+              "col": 39
+            },
+            {
+              "row": 72,
+              "col": 38
+            },
+            {
+              "row": 72,
+              "col": 37
+            },
+            {
+              "row": 72,
+              "col": 36
+            },
+            {
+              "row": 72,
+              "col": 35
+            },
+            {
+              "row": 72,
+              "col": 34
+            },
+            {
+              "row": 72,
+              "col": 33
+            },
+            {
+              "row": 73,
+              "col": 34
+            },
+            {
+              "row": 73,
+              "col": 35
+            },
+            {
+              "row": 73,
+              "col": 36
+            },
+            {
+              "row": 73,
+              "col": 37
+            },
+            {
+              "row": 73,
+              "col": 38
+            },
+            {
+              "row": 73,
+              "col": 39
+            },
+            {
+              "row": 73,
+              "col": 40
+            },
+            {
+              "row": 73,
+              "col": 33
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_44e529607159",
+          "floorId": 0,
+          "name": "EC Department Library",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 59,
+              "col": 35
+            },
+            {
+              "row": 59,
+              "col": 34
+            },
+            {
+              "row": 59,
+              "col": 33
+            },
+            {
+              "row": 60,
+              "col": 33
+            },
+            {
+              "row": 61,
+              "col": 33
+            },
+            {
+              "row": 62,
+              "col": 33
+            },
+            {
+              "row": 63,
+              "col": 33
+            },
+            {
+              "row": 64,
+              "col": 33
+            },
+            {
+              "row": 65,
+              "col": 33
+            },
+            {
+              "row": 65,
+              "col": 34
+            },
+            {
+              "row": 65,
+              "col": 35
+            },
+            {
+              "row": 64,
+              "col": 35
+            },
+            {
+              "row": 63,
+              "col": 35
+            },
+            {
+              "row": 62,
+              "col": 35
+            },
+            {
+              "row": 61,
+              "col": 35
+            },
+            {
+              "row": 61,
+              "col": 34
+            },
+            {
+              "row": 60,
+              "col": 34
+            },
+            {
+              "row": 62,
+              "col": 34
+            },
+            {
+              "row": 63,
+              "col": 34
+            },
+            {
+              "row": 64,
+              "col": 34
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_dc5b621db5d5",
+          "floorId": 0,
+          "name": "Computer Network/Project Lab",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 33
+            },
+            {
+              "row": 57,
+              "col": 33
+            },
+            {
+              "row": 56,
+              "col": 33
+            },
+            {
+              "row": 55,
+              "col": 33
+            },
+            {
+              "row": 54,
+              "col": 33
+            },
+            {
+              "row": 54,
+              "col": 34
+            },
+            {
+              "row": 54,
+              "col": 35
+            },
+            {
+              "row": 55,
+              "col": 35
+            },
+            {
+              "row": 56,
+              "col": 35
+            },
+            {
+              "row": 57,
+              "col": 35
+            },
+            {
+              "row": 58,
+              "col": 34
+            },
+            {
+              "row": 57,
+              "col": 34
+            },
+            {
+              "row": 56,
+              "col": 34
+            },
+            {
+              "row": 55,
+              "col": 34
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_a435caec8806",
+          "floorId": 0,
+          "name": "Digital Signal Processing / Microcontroller Lab",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 54,
+              "col": 43
+            },
+            {
+              "row": 54,
+              "col": 42
+            },
+            {
+              "row": 54,
+              "col": 41
+            },
+            {
+              "row": 54,
+              "col": 40
+            },
+            {
+              "row": 54,
+              "col": 39
+            },
+            {
+              "row": 54,
+              "col": 38
+            },
+            {
+              "row": 55,
+              "col": 38
+            },
+            {
+              "row": 56,
+              "col": 38
+            },
+            {
+              "row": 57,
+              "col": 38
+            },
+            {
+              "row": 58,
+              "col": 39
+            },
+            {
+              "row": 58,
+              "col": 40
+            },
+            {
+              "row": 58,
+              "col": 41
+            },
+            {
+              "row": 58,
+              "col": 42
+            },
+            {
+              "row": 58,
+              "col": 43
+            },
+            {
+              "row": 57,
+              "col": 43
+            },
+            {
+              "row": 56,
+              "col": 43
+            },
+            {
+              "row": 55,
+              "col": 43
+            },
+            {
+              "row": 55,
+              "col": 42
+            },
+            {
+              "row": 55,
+              "col": 41
+            },
+            {
+              "row": 55,
+              "col": 40
+            },
+            {
+              "row": 55,
+              "col": 39
+            },
+            {
+              "row": 56,
+              "col": 39
+            },
+            {
+              "row": 56,
+              "col": 40
+            },
+            {
+              "row": 57,
+              "col": 40
+            },
+            {
+              "row": 57,
+              "col": 41
+            },
+            {
+              "row": 57,
+              "col": 42
+            },
+            {
+              "row": 56,
+              "col": 42
+            },
+            {
+              "row": 56,
+              "col": 41
+            },
+            {
+              "row": 57,
+              "col": 39
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_f978c9afebbe",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "staircase",
+          "geometry": [
+            {
+              "row": 55,
+              "col": 48
+            },
+            {
+              "row": 55,
+              "col": 49
+            },
+            {
+              "row": 56,
+              "col": 49
+            },
+            {
+              "row": 57,
+              "col": 49
+            },
+            {
+              "row": 58,
+              "col": 49
+            },
+            {
+              "row": 58,
+              "col": 48
+            },
+            {
+              "row": 57,
+              "col": 48
+            },
+            {
+              "row": 56,
+              "col": 48
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_6014b1ab6cac",
+          "floorId": 0,
+          "name": "Electrical Machines Lab",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 63,
+              "col": 63
+            },
+            {
+              "row": 63,
+              "col": 62
+            },
+            {
+              "row": 63,
+              "col": 61
+            },
+            {
+              "row": 62,
+              "col": 61
+            },
+            {
+              "row": 62,
+              "col": 62
+            },
+            {
+              "row": 62,
+              "col": 63
+            },
+            {
+              "row": 61,
+              "col": 63
+            },
+            {
+              "row": 61,
+              "col": 62
+            },
+            {
+              "row": 60,
+              "col": 63
+            },
+            {
+              "row": 60,
+              "col": 62
+            },
+            {
+              "row": 61,
+              "col": 61
+            },
+            {
+              "row": 59,
+              "col": 61
+            },
+            {
+              "row": 59,
+              "col": 62
+            },
+            {
+              "row": 59,
+              "col": 63
+            },
+            {
+              "row": 58,
+              "col": 63
+            },
+            {
+              "row": 57,
+              "col": 63
+            },
+            {
+              "row": 56,
+              "col": 63
+            },
+            {
+              "row": 55,
+              "col": 63
+            },
+            {
+              "row": 54,
+              "col": 63
+            },
+            {
+              "row": 54,
+              "col": 62
+            },
+            {
+              "row": 54,
+              "col": 61
+            },
+            {
+              "row": 54,
+              "col": 60
+            },
+            {
+              "row": 55,
+              "col": 60
+            },
+            {
+              "row": 56,
+              "col": 60
+            },
+            {
+              "row": 57,
+              "col": 60
+            },
+            {
+              "row": 58,
+              "col": 60
+            },
+            {
+              "row": 58,
+              "col": 61
+            },
+            {
+              "row": 58,
+              "col": 62
+            },
+            {
+              "row": 57,
+              "col": 62
+            },
+            {
+              "row": 56,
+              "col": 62
+            },
+            {
+              "row": 55,
+              "col": 62
+            },
+            {
+              "row": 55,
+              "col": 61
+            },
+            {
+              "row": 56,
+              "col": 61
+            },
+            {
+              "row": 57,
+              "col": 61
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_d2001bf0924a",
+          "floorId": 0,
+          "name": "EEE LH-1",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 57,
+              "col": 59
+            },
+            {
+              "row": 56,
+              "col": 59
+            },
+            {
+              "row": 55,
+              "col": 59
+            },
+            {
+              "row": 54,
+              "col": 59
+            },
+            {
+              "row": 54,
+              "col": 58
+            },
+            {
+              "row": 54,
+              "col": 57
+            },
+            {
+              "row": 55,
+              "col": 57
+            },
+            {
+              "row": 56,
+              "col": 56
+            },
+            {
+              "row": 57,
+              "col": 56
+            },
+            {
+              "row": 58,
+              "col": 57
+            },
+            {
+              "row": 58,
+              "col": 58
+            },
+            {
+              "row": 57,
+              "col": 58
+            },
+            {
+              "row": 56,
+              "col": 58
+            },
+            {
+              "row": 55,
+              "col": 58
+            },
+            {
+              "row": 56,
+              "col": 57
+            },
+            {
+              "row": 57,
+              "col": 57
+            },
+            {
+              "row": 54,
+              "col": 56
+            },
+            {
+              "row": 55,
+              "col": 56
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_b606b356d079",
+          "floorId": 0,
+          "name": "EEE LH-2",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 54
+            },
+            {
+              "row": 58,
+              "col": 55
+            },
+            {
+              "row": 57,
+              "col": 55
+            },
+            {
+              "row": 56,
+              "col": 55
+            },
+            {
+              "row": 55,
+              "col": 55
+            },
+            {
+              "row": 54,
+              "col": 55
+            },
+            {
+              "row": 54,
+              "col": 54
+            },
+            {
+              "row": 55,
+              "col": 54
+            },
+            {
+              "row": 56,
+              "col": 54
+            },
+            {
+              "row": 57,
+              "col": 54
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_6003a3ecb4f1",
+          "floorId": 0,
+          "name": "Girl's Washroom 0",
+          "number": "",
+          "type": "toilet",
+          "geometry": [
+            {
+              "row": 54,
+              "col": 47
+            },
+            {
+              "row": 54,
+              "col": 46
+            },
+            {
+              "row": 54,
+              "col": 45
+            },
+            {
+              "row": 54,
+              "col": 44
+            },
+            {
+              "row": 55,
+              "col": 44
+            },
+            {
+              "row": 55,
+              "col": 45
+            },
+            {
+              "row": 55,
+              "col": 46
+            },
+            {
+              "row": 55,
+              "col": 47
+            },
+            {
+              "row": 56,
+              "col": 47
+            },
+            {
+              "row": 56,
+              "col": 46
+            },
+            {
+              "row": 56,
+              "col": 45
+            },
+            {
+              "row": 56,
+              "col": 44
+            },
+            {
+              "row": 57,
+              "col": 46
+            },
+            {
+              "row": 57,
+              "col": 47
+            },
+            {
+              "row": 57,
+              "col": 45
+            },
+            {
+              "row": 57,
+              "col": 44
+            },
+            {
+              "row": 58,
+              "col": 44
+            },
+            {
+              "row": 58,
+              "col": 45
+            },
+            {
+              "row": 58,
+              "col": 47
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_c4d5b04ffb52",
+          "floorId": 0,
+          "name": "Boy's Washroom 0",
+          "number": "",
+          "type": "toilet",
+          "geometry": [
+            {
+              "row": 54,
+              "col": 50
+            },
+            {
+              "row": 55,
+              "col": 50
+            },
+            {
+              "row": 56,
+              "col": 50
+            },
+            {
+              "row": 57,
+              "col": 50
+            },
+            {
+              "row": 58,
+              "col": 50
+            },
+            {
+              "row": 58,
+              "col": 51
+            },
+            {
+              "row": 58,
+              "col": 52
+            },
+            {
+              "row": 57,
+              "col": 53
+            },
+            {
+              "row": 56,
+              "col": 53
+            },
+            {
+              "row": 55,
+              "col": 53
+            },
+            {
+              "row": 55,
+              "col": 52
+            },
+            {
+              "row": 55,
+              "col": 51
+            },
+            {
+              "row": 56,
+              "col": 51
+            },
+            {
+              "row": 57,
+              "col": 51
+            },
+            {
+              "row": 57,
+              "col": 52
+            },
+            {
+              "row": 56,
+              "col": 52
+            },
+            {
+              "row": 54,
+              "col": 52
+            },
+            {
+              "row": 54,
+              "col": 53
+            },
+            {
+              "row": 54,
+              "col": 51
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_97010dcba88c",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "corridor",
+          "geometry": [
+            {
+              "row": 55,
+              "col": 37
+            },
+            {
+              "row": 55,
+              "col": 36
+            },
+            {
+              "row": 54,
+              "col": 37
+            },
+            {
+              "row": 54,
+              "col": 36
+            },
+            {
+              "row": 56,
+              "col": 36
+            },
+            {
+              "row": 56,
+              "col": 37
+            },
+            {
+              "row": 57,
+              "col": 37
+            },
+            {
+              "row": 58,
+              "col": 37
+            },
+            {
+              "row": 58,
+              "col": 36
+            },
+            {
+              "row": 57,
+              "col": 36
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_ea67e4928265",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 69,
+              "col": 51
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_08bde02db007",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 69,
+              "col": 57
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_e01462184115",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 68,
+              "col": 61
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_f3cd1efde6ab",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 60,
+              "col": 61
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_8ca4286d9fd4",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 69,
+              "col": 37
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_4fb6070dcc3e",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 60,
+              "col": 35
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_3f6983cdab04",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 35
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_f733206951fe",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 53
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_b80b613d77a4",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 46
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_938b6486e951",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 59
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_563ea068e4b6",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 56
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_b4b91448f25d",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 69,
+              "col": 46
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_912282afcd28",
+          "floorId": 0,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 38
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        }
+      ],
+      "walls": {
+        "69,55,right": true,
+        "70,55,right": true,
+        "71,55,right": true,
+        "72,55,right": true,
+        "73,55,right": true,
+        "63,61,bottom": true,
+        "63,62,bottom": true,
+        "63,63,bottom": true,
+        "64,60,right": true,
+        "65,60,right": true,
+        "66,60,right": true,
+        "67,60,right": true,
+        "68,60,bottom": true,
+        "68,59,bottom": true,
+        "68,58,bottom": true,
+        "68,56,bottom": true,
+        "68,55,bottom": true,
+        "68,54,bottom": true,
+        "68,53,bottom": true,
+        "68,52,bottom": true,
+        "68,50,bottom": true,
+        "64,63,right": true,
+        "65,63,right": true,
+        "66,63,right": true,
+        "67,63,right": true,
+        "68,63,right": true,
+        "69,63,right": true,
+        "70,63,right": true,
+        "71,63,right": true,
+        "72,63,right": true,
+        "73,63,right": true,
+        "73,63,bottom": true,
+        "73,62,bottom": true,
+        "73,61,bottom": true,
+        "73,60,bottom": true,
+        "73,58,bottom": true,
+        "73,57,bottom": true,
+        "73,56,bottom": true,
+        "73,59,bottom": true,
+        "73,50,bottom": true,
+        "73,51,bottom": true,
+        "73,52,bottom": true,
+        "73,53,bottom": true,
+        "73,54,bottom": true,
+        "73,55,bottom": true,
+        "69,40,right": true,
+        "70,40,right": true,
+        "71,40,right": true,
+        "72,40,right": true,
+        "73,40,right": true,
+        "58,33,bottom": true,
+        "58,34,bottom": true,
+        "58,35,bottom": true,
+        "63,34,bottom": true,
+        "63,33,bottom": true,
+        "64,35,right": true,
+        "65,35,right": true,
+        "66,35,right": true,
+        "63,35,bottom": true,
+        "67,35,right": true,
+        "68,35,right": true,
+        "68,36,bottom": true,
+        "68,38,bottom": true,
+        "68,39,bottom": true,
+        "68,40,bottom": true,
+        "61,35,right": true,
+        "62,35,right": true,
+        "63,35,right": true,
+        "59,35,right": true,
+        "54,35,right": true,
+        "56,35,right": true,
+        "55,35,right": true,
+        "57,35,right": true,
+        "73,47,bottom": true,
+        "73,46,bottom": true,
+        "73,45,bottom": true,
+        "73,44,bottom": true,
+        "73,43,bottom": true,
+        "73,42,bottom": true,
+        "73,41,bottom": true,
+        "73,40,bottom": true,
+        "73,39,bottom": true,
+        "73,38,bottom": true,
+        "73,37,bottom": true,
+        "73,36,bottom": true,
+        "73,35,bottom": true,
+        "73,34,bottom": true,
+        "73,33,bottom": true,
+        "73,32,right": true,
+        "72,32,right": true,
+        "71,32,right": true,
+        "70,32,right": true,
+        "69,32,right": true,
+        "68,32,right": true,
+        "67,32,right": true,
+        "66,32,right": true,
+        "65,32,right": true,
+        "64,32,right": true,
+        "63,32,right": true,
+        "62,32,right": true,
+        "61,32,right": true,
+        "60,32,right": true,
+        "59,32,right": true,
+        "58,32,right": true,
+        "57,32,right": true,
+        "56,32,right": true,
+        "55,32,right": true,
+        "54,32,right": true,
+        "53,33,bottom": true,
+        "53,34,bottom": true,
+        "53,35,bottom": true,
+        "53,36,bottom": true,
+        "53,37,bottom": true,
+        "54,37,right": true,
+        "55,37,right": true,
+        "56,37,right": true,
+        "57,37,right": true,
+        "58,39,bottom": true,
+        "58,40,bottom": true,
+        "58,41,bottom": true,
+        "58,42,bottom": true,
+        "58,43,bottom": true,
+        "58,44,bottom": true,
+        "58,45,bottom": true,
+        "58,47,bottom": true,
+        "58,50,bottom": true,
+        "58,51,bottom": true,
+        "58,52,bottom": true,
+        "58,54,bottom": true,
+        "58,55,bottom": true,
+        "58,57,bottom": true,
+        "58,58,bottom": true,
+        "58,60,bottom": true,
+        "61,60,right": true,
+        "62,60,right": true,
+        "63,60,right": true,
+        "54,43,right": true,
+        "55,43,right": true,
+        "56,43,right": true,
+        "57,43,right": true,
+        "58,43,right": true,
+        "58,59,right": true,
+        "57,59,right": true,
+        "56,59,right": true,
+        "55,59,right": true,
+        "54,59,right": true,
+        "58,56,right": true,
+        "57,56,right": true,
+        "56,56,right": true,
+        "55,56,right": true,
+        "54,56,right": true,
+        "54,53,right": true,
+        "55,53,right": true,
+        "56,53,right": true,
+        "57,53,right": true,
+        "58,53,right": true,
+        "53,38,bottom": true,
+        "53,39,bottom": true,
+        "53,40,bottom": true,
+        "53,41,bottom": true,
+        "53,42,bottom": true,
+        "53,43,bottom": true,
+        "53,44,bottom": true,
+        "53,45,bottom": true,
+        "53,46,bottom": true,
+        "53,47,bottom": true,
+        "53,48,bottom": true,
+        "53,49,bottom": true,
+        "53,50,bottom": true,
+        "53,51,bottom": true,
+        "53,52,bottom": true,
+        "53,53,bottom": true,
+        "53,54,bottom": true,
+        "53,55,bottom": true,
+        "53,56,bottom": true,
+        "53,57,bottom": true,
+        "53,58,bottom": true,
+        "53,59,bottom": true,
+        "53,60,bottom": true,
+        "53,61,bottom": true,
+        "53,62,bottom": true,
+        "53,63,bottom": true,
+        "54,63,right": true,
+        "55,63,right": true,
+        "56,63,right": true,
+        "57,63,right": true,
+        "58,63,right": true,
+        "59,63,right": true,
+        "60,63,right": true,
+        "61,63,right": true,
+        "62,63,right": true,
+        "63,63,right": true,
+        "59,60,right": true,
+        "68,41,bottom": true,
+        "68,42,bottom": true,
+        "68,43,bottom": true,
+        "68,44,bottom": true,
+        "68,45,bottom": true,
+        "68,47,bottom": true,
+        "69,47,right": true,
+        "70,47,right": true,
+        "71,47,right": true,
+        "73,47,right": true,
+        "72,47,right": true,
+        "69,49,right": true,
+        "70,49,right": true,
+        "71,49,right": true,
+        "72,49,right": true,
+        "73,49,right": true,
+        "58,38,bottom": true,
+        "69,60,right": true,
+        "70,60,right": true,
+        "71,60,right": true,
+        "72,60,right": true,
+        "73,60,right": true
+      },
+      "nodes": [
+        {
+          "id": "node_d46b6dde7d70",
+          "row": 73,
+          "col": 48,
+          "type": "entrance",
+          "label": "Entrance",
+          "roomId": null
+        },
+        {
+          "id": "node_5b99308c6b92",
+          "row": 58,
+          "col": 48,
+          "type": "staircase",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_e3d9cadce62f",
+          "row": 59,
+          "col": 49,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_04a0c319a558",
+          "row": 59,
+          "col": 53,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_c7e26a7f5789",
+          "row": 59,
+          "col": 56,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_78461d697bf8",
+          "row": 59,
+          "col": 59,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_81bd0b7658d8",
+          "row": 59,
+          "col": 60,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_c1ba46ddc92e",
+          "row": 68,
+          "col": 60,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_3797c39a7b84",
+          "row": 68,
+          "col": 36,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_5f223be9e61a",
+          "row": 59,
+          "col": 36,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_dfc3aa9e5cec",
+          "row": 58,
+          "col": 36,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_7c8f305391f3",
+          "row": 58,
+          "col": 37,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_13f3fd3f106d",
+          "row": 59,
+          "col": 37,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_ef27ea4ed004",
+          "row": 68,
+          "col": 48,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_a2d825eb900a",
+          "row": 68,
+          "col": 49,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_7125b7a26e0d",
+          "row": 59,
+          "col": 48,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_d9992c2e6da1",
+          "row": 58,
+          "col": 35,
+          "type": "room_entry",
+          "label": "Computer Network/Project Lab",
+          "roomId": null
+        },
+        {
+          "id": "node_90f007a3b389",
+          "row": 58,
+          "col": 38,
+          "type": "room_entry",
+          "label": "Digital Signal Processing / Microcontroller Lab",
+          "roomId": null
+        },
+        {
+          "id": "node_5c8fed34971c",
+          "row": 60,
+          "col": 35,
+          "type": "room_entry",
+          "label": "EC Department Library",
+          "roomId": null
+        },
+        {
+          "id": "node_cd10cfd2144b",
+          "row": 69,
+          "col": 37,
+          "type": "room_entry",
+          "label": "Staff Room (ECE Dept)",
+          "roomId": null
+        },
+        {
+          "id": "node_b7694a0a57fb",
+          "row": 69,
+          "col": 46,
+          "type": "room_entry",
+          "label": "ECE Dept Office, HOD's Office",
+          "roomId": null
+        },
+        {
+          "id": "node_9982d1289bf8",
+          "row": 58,
+          "col": 46,
+          "type": "room_entry",
+          "label": "Girl's Washroom 0",
+          "roomId": null
+        },
+        {
+          "id": "node_b69f4c6b3c0f",
+          "row": 58,
+          "col": 53,
+          "type": "room_entry",
+          "label": "Boy's Washroom 0",
+          "roomId": null
+        },
+        {
+          "id": "node_77ba27335adb",
+          "row": 58,
+          "col": 56,
+          "type": "room_entry",
+          "label": "EEE LH-2",
+          "roomId": null
+        },
+        {
+          "id": "node_a1a486ff90e9",
+          "row": 58,
+          "col": 59,
+          "type": "room_entry",
+          "label": "EEE LH-1",
+          "roomId": null
+        },
+        {
+          "id": "node_a6d75fea2cea",
+          "row": 69,
+          "col": 57,
+          "type": "room_entry",
+          "label": "Relay And High Voltage Lab",
+          "roomId": null
+        },
+        {
+          "id": "node_6f4e2396e2e6",
+          "row": 69,
+          "col": 51,
+          "type": "room_entry",
+          "label": "EEE Dept Office, HOD's Office",
+          "roomId": null
+        },
+        {
+          "id": "node_ac8f30a151ba",
+          "row": 68,
+          "col": 61,
+          "type": "room_entry",
+          "label": "Staff Room (EEE Dept)",
+          "roomId": null
+        },
+        {
+          "id": "node_63fb5af75235",
+          "row": 60,
+          "col": 61,
+          "type": "room_entry",
+          "label": "Electrical Machines Lab",
+          "roomId": null
+        },
+        {
+          "id": "node_473d281bb9ce",
+          "row": 60,
+          "col": 60,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_fdcef4542877",
+          "row": 68,
+          "col": 51,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_da4fe503bc9e",
+          "row": 68,
+          "col": 57,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_a78300aa114f",
+          "row": 68,
+          "col": 46,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_e27a99e537a6",
+          "row": 68,
+          "col": 37,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_5f803f9fe777",
+          "row": 60,
+          "col": 36,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_39daf6ad7665",
+          "row": 59,
+          "col": 46,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge_07aa4843793a",
+          "from": "node_d46b6dde7d70",
+          "to": "node_ef27ea4ed004",
+          "weight": null
+        },
+        {
+          "id": "edge_06284d7e178b",
+          "from": "node_ef27ea4ed004",
+          "to": "node_3797c39a7b84",
+          "weight": null
+        },
+        {
+          "id": "edge_a395c1646ec3",
+          "from": "node_ef27ea4ed004",
+          "to": "node_7125b7a26e0d",
+          "weight": null
+        },
+        {
+          "id": "edge_4f2cd58f7c35",
+          "from": "node_7125b7a26e0d",
+          "to": "node_5b99308c6b92",
+          "weight": null
+        },
+        {
+          "id": "edge_6be392cde442",
+          "from": "node_7125b7a26e0d",
+          "to": "node_13f3fd3f106d",
+          "weight": null
+        },
+        {
+          "id": "edge_e31658761e57",
+          "from": "node_7125b7a26e0d",
+          "to": "node_81bd0b7658d8",
+          "weight": null
+        },
+        {
+          "id": "edge_8a4e9d288fbb",
+          "from": "node_81bd0b7658d8",
+          "to": "node_c1ba46ddc92e",
+          "weight": null
+        },
+        {
+          "id": "edge_42c0fe9ef6b2",
+          "from": "node_c1ba46ddc92e",
+          "to": "node_a2d825eb900a",
+          "weight": null
+        },
+        {
+          "id": "edge_ad52afa8fe9c",
+          "from": "node_3797c39a7b84",
+          "to": "node_5f803f9fe777",
+          "weight": null
+        },
+        {
+          "id": "edge_da376064613a",
+          "from": "node_5f803f9fe777",
+          "to": "node_5f223be9e61a",
+          "weight": null
+        },
+        {
+          "id": "edge_6e3ab9059e95",
+          "from": "node_5f223be9e61a",
+          "to": "node_dfc3aa9e5cec",
+          "weight": null
+        },
+        {
+          "id": "edge_eb97f3f2366a",
+          "from": "node_dfc3aa9e5cec",
+          "to": "node_7c8f305391f3",
+          "weight": null
+        },
+        {
+          "id": "edge_0763b06f493d",
+          "from": "node_7c8f305391f3",
+          "to": "node_13f3fd3f106d",
+          "weight": null
+        },
+        {
+          "id": "edge_4642fce45b85",
+          "from": "node_13f3fd3f106d",
+          "to": "node_5f223be9e61a",
+          "weight": null
+        },
+        {
+          "id": "edge_2ee9b257bfb2",
+          "from": "node_dfc3aa9e5cec",
+          "to": "node_d9992c2e6da1",
+          "weight": null
+        },
+        {
+          "id": "edge_cf2cb966f681",
+          "from": "node_5f803f9fe777",
+          "to": "node_5c8fed34971c",
+          "weight": null
+        },
+        {
+          "id": "edge_796c79ef3d72",
+          "from": "node_e27a99e537a6",
+          "to": "node_cd10cfd2144b",
+          "weight": null
+        },
+        {
+          "id": "edge_73e5e5d22d30",
+          "from": "node_a78300aa114f",
+          "to": "node_b7694a0a57fb",
+          "weight": null
+        },
+        {
+          "id": "edge_c00f6cf53ce2",
+          "from": "node_ef27ea4ed004",
+          "to": "node_fdcef4542877",
+          "weight": null
+        },
+        {
+          "id": "edge_5c661efd95fd",
+          "from": "node_fdcef4542877",
+          "to": "node_da4fe503bc9e",
+          "weight": null
+        },
+        {
+          "id": "edge_d6e043bbff0e",
+          "from": "node_fdcef4542877",
+          "to": "node_6f4e2396e2e6",
+          "weight": null
+        },
+        {
+          "id": "edge_2d01a8492e12",
+          "from": "node_da4fe503bc9e",
+          "to": "node_a6d75fea2cea",
+          "weight": null
+        },
+        {
+          "id": "edge_c6739ae22bec",
+          "from": "node_c1ba46ddc92e",
+          "to": "node_ac8f30a151ba",
+          "weight": null
+        },
+        {
+          "id": "edge_5e54e1a16446",
+          "from": "node_473d281bb9ce",
+          "to": "node_63fb5af75235",
+          "weight": null
+        },
+        {
+          "id": "edge_82e68c4ef581",
+          "from": "node_473d281bb9ce",
+          "to": "node_81bd0b7658d8",
+          "weight": null
+        },
+        {
+          "id": "edge_d0e35812bbac",
+          "from": "node_78461d697bf8",
+          "to": "node_a1a486ff90e9",
+          "weight": null
+        },
+        {
+          "id": "edge_d3baf51daa63",
+          "from": "node_c7e26a7f5789",
+          "to": "node_77ba27335adb",
+          "weight": null
+        },
+        {
+          "id": "edge_3542cfd56c64",
+          "from": "node_c7e26a7f5789",
+          "to": "node_04a0c319a558",
+          "weight": null
+        },
+        {
+          "id": "edge_a91a55258e90",
+          "from": "node_04a0c319a558",
+          "to": "node_b69f4c6b3c0f",
+          "weight": null
+        },
+        {
+          "id": "edge_f0c6ce29fa0a",
+          "from": "node_7c8f305391f3",
+          "to": "node_90f007a3b389",
+          "weight": null
+        }
+      ],
+      "markers": [
+        {
+          "id": "marker_2cfb6ed13f44",
+          "row": 66,
+          "col": 48,
+          "type": "center",
+          "label": null,
+          "targetFloorId": null
+        },
+        {
+          "id": "marker_b72b1029496e",
+          "row": 66,
+          "col": 49,
+          "type": "center",
+          "label": null,
+          "targetFloorId": null
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "label": "Floor 1",
+      "rooms": [
+        {
+          "id": "room_d6e924b9f4b1",
+          "floorId": 1,
+          "name": "",
+          "number": "",
+          "type": "staircase",
+          "geometry": [
+            {
+              "row": 55,
+              "col": 48
+            },
+            {
+              "row": 55,
+              "col": 49
+            },
+            {
+              "row": 56,
+              "col": 49
+            },
+            {
+              "row": 57,
+              "col": 49
+            },
+            {
+              "row": 58,
+              "col": 49
+            },
+            {
+              "row": 58,
+              "col": 48
+            },
+            {
+              "row": 57,
+              "col": 48
+            },
+            {
+              "row": 56,
+              "col": 48
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_6410efa76f98",
+          "floorId": 1,
+          "name": "",
+          "number": "",
+          "type": "corridor",
+          "geometry": [
+            {
+              "row": 67,
+              "col": 37
+            },
+            {
+              "row": 67,
+              "col": 38
+            },
+            {
+              "row": 67,
+              "col": 39
+            },
+            {
+              "row": 67,
+              "col": 40
+            },
+            {
+              "row": 67,
+              "col": 41
+            },
+            {
+              "row": 67,
+              "col": 42
+            },
+            {
+              "row": 67,
+              "col": 43
+            },
+            {
+              "row": 67,
+              "col": 44
+            },
+            {
+              "row": 67,
+              "col": 45
+            },
+            {
+              "row": 67,
+              "col": 46
+            },
+            {
+              "row": 67,
+              "col": 47
+            },
+            {
+              "row": 67,
+              "col": 48
+            },
+            {
+              "row": 68,
+              "col": 47
+            },
+            {
+              "row": 68,
+              "col": 46
+            },
+            {
+              "row": 68,
+              "col": 45
+            },
+            {
+              "row": 68,
+              "col": 44
+            },
+            {
+              "row": 68,
+              "col": 43
+            },
+            {
+              "row": 68,
+              "col": 42
+            },
+            {
+              "row": 68,
+              "col": 41
+            },
+            {
+              "row": 68,
+              "col": 40
+            },
+            {
+              "row": 68,
+              "col": 39
+            },
+            {
+              "row": 68,
+              "col": 38
+            },
+            {
+              "row": 68,
+              "col": 37
+            },
+            {
+              "row": 68,
+              "col": 36
+            },
+            {
+              "row": 67,
+              "col": 36
+            },
+            {
+              "row": 66,
+              "col": 36
+            },
+            {
+              "row": 65,
+              "col": 36
+            },
+            {
+              "row": 64,
+              "col": 36
+            },
+            {
+              "row": 63,
+              "col": 36
+            },
+            {
+              "row": 62,
+              "col": 36
+            },
+            {
+              "row": 61,
+              "col": 36
+            },
+            {
+              "row": 60,
+              "col": 36
+            },
+            {
+              "row": 59,
+              "col": 36
+            },
+            {
+              "row": 59,
+              "col": 37
+            },
+            {
+              "row": 60,
+              "col": 37
+            },
+            {
+              "row": 61,
+              "col": 37
+            },
+            {
+              "row": 62,
+              "col": 37
+            },
+            {
+              "row": 63,
+              "col": 37
+            },
+            {
+              "row": 64,
+              "col": 37
+            },
+            {
+              "row": 65,
+              "col": 37
+            },
+            {
+              "row": 66,
+              "col": 37
+            },
+            {
+              "row": 59,
+              "col": 38
+            },
+            {
+              "row": 60,
+              "col": 38
+            },
+            {
+              "row": 60,
+              "col": 39
+            },
+            {
+              "row": 60,
+              "col": 40
+            },
+            {
+              "row": 59,
+              "col": 40
+            },
+            {
+              "row": 59,
+              "col": 41
+            },
+            {
+              "row": 59,
+              "col": 42
+            },
+            {
+              "row": 59,
+              "col": 43
+            },
+            {
+              "row": 59,
+              "col": 39
+            },
+            {
+              "row": 60,
+              "col": 41
+            },
+            {
+              "row": 60,
+              "col": 42
+            },
+            {
+              "row": 60,
+              "col": 43
+            },
+            {
+              "row": 60,
+              "col": 44
+            },
+            {
+              "row": 60,
+              "col": 45
+            },
+            {
+              "row": 60,
+              "col": 46
+            },
+            {
+              "row": 60,
+              "col": 47
+            },
+            {
+              "row": 60,
+              "col": 48
+            },
+            {
+              "row": 60,
+              "col": 49
+            },
+            {
+              "row": 60,
+              "col": 50
+            },
+            {
+              "row": 60,
+              "col": 51
+            },
+            {
+              "row": 60,
+              "col": 52
+            },
+            {
+              "row": 60,
+              "col": 53
+            },
+            {
+              "row": 60,
+              "col": 54
+            },
+            {
+              "row": 60,
+              "col": 55
+            },
+            {
+              "row": 60,
+              "col": 56
+            },
+            {
+              "row": 60,
+              "col": 57
+            },
+            {
+              "row": 60,
+              "col": 58
+            },
+            {
+              "row": 60,
+              "col": 59
+            },
+            {
+              "row": 61,
+              "col": 59
+            },
+            {
+              "row": 62,
+              "col": 59
+            },
+            {
+              "row": 63,
+              "col": 59
+            },
+            {
+              "row": 64,
+              "col": 59
+            },
+            {
+              "row": 65,
+              "col": 59
+            },
+            {
+              "row": 66,
+              "col": 59
+            },
+            {
+              "row": 67,
+              "col": 59
+            },
+            {
+              "row": 67,
+              "col": 58
+            },
+            {
+              "row": 67,
+              "col": 57
+            },
+            {
+              "row": 67,
+              "col": 56
+            },
+            {
+              "row": 67,
+              "col": 55
+            },
+            {
+              "row": 67,
+              "col": 54
+            },
+            {
+              "row": 67,
+              "col": 53
+            },
+            {
+              "row": 67,
+              "col": 52
+            },
+            {
+              "row": 67,
+              "col": 51
+            },
+            {
+              "row": 67,
+              "col": 50
+            },
+            {
+              "row": 67,
+              "col": 49
+            },
+            {
+              "row": 66,
+              "col": 49
+            },
+            {
+              "row": 65,
+              "col": 49
+            },
+            {
+              "row": 64,
+              "col": 49
+            },
+            {
+              "row": 63,
+              "col": 49
+            },
+            {
+              "row": 62,
+              "col": 49
+            },
+            {
+              "row": 61,
+              "col": 49
+            },
+            {
+              "row": 61,
+              "col": 48
+            },
+            {
+              "row": 62,
+              "col": 48
+            },
+            {
+              "row": 63,
+              "col": 48
+            },
+            {
+              "row": 64,
+              "col": 48
+            },
+            {
+              "row": 65,
+              "col": 48
+            },
+            {
+              "row": 66,
+              "col": 48
+            },
+            {
+              "row": 68,
+              "col": 48
+            },
+            {
+              "row": 68,
+              "col": 49
+            },
+            {
+              "row": 68,
+              "col": 50
+            },
+            {
+              "row": 68,
+              "col": 51
+            },
+            {
+              "row": 68,
+              "col": 52
+            },
+            {
+              "row": 68,
+              "col": 53
+            },
+            {
+              "row": 68,
+              "col": 54
+            },
+            {
+              "row": 68,
+              "col": 55
+            },
+            {
+              "row": 68,
+              "col": 56
+            },
+            {
+              "row": 68,
+              "col": 57
+            },
+            {
+              "row": 68,
+              "col": 58
+            },
+            {
+              "row": 68,
+              "col": 59
+            },
+            {
+              "row": 68,
+              "col": 60
+            },
+            {
+              "row": 67,
+              "col": 60
+            },
+            {
+              "row": 66,
+              "col": 60
+            },
+            {
+              "row": 65,
+              "col": 60
+            },
+            {
+              "row": 64,
+              "col": 60
+            },
+            {
+              "row": 63,
+              "col": 60
+            },
+            {
+              "row": 62,
+              "col": 60
+            },
+            {
+              "row": 61,
+              "col": 60
+            },
+            {
+              "row": 60,
+              "col": 60
+            },
+            {
+              "row": 59,
+              "col": 59
+            },
+            {
+              "row": 59,
+              "col": 60
+            },
+            {
+              "row": 59,
+              "col": 58
+            },
+            {
+              "row": 59,
+              "col": 57
+            },
+            {
+              "row": 59,
+              "col": 56
+            },
+            {
+              "row": 59,
+              "col": 55
+            },
+            {
+              "row": 59,
+              "col": 54
+            },
+            {
+              "row": 59,
+              "col": 53
+            },
+            {
+              "row": 59,
+              "col": 52
+            },
+            {
+              "row": 59,
+              "col": 51
+            },
+            {
+              "row": 59,
+              "col": 50
+            },
+            {
+              "row": 59,
+              "col": 49
+            },
+            {
+              "row": 59,
+              "col": 48
+            },
+            {
+              "row": 59,
+              "col": 47
+            },
+            {
+              "row": 59,
+              "col": 46
+            },
+            {
+              "row": 59,
+              "col": 45
+            },
+            {
+              "row": 59,
+              "col": 44
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_ca3e814d89eb",
+          "floorId": 1,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 53
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_829a6b699924",
+          "floorId": 1,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 45
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_fef97d0b79ea",
+          "floorId": 1,
+          "name": "FARADAY Seminar Hall (EEE)",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 66,
+              "col": 61
+            },
+            {
+              "row": 65,
+              "col": 61
+            },
+            {
+              "row": 68,
+              "col": 61
+            },
+            {
+              "row": 69,
+              "col": 61
+            },
+            {
+              "row": 70,
+              "col": 61
+            },
+            {
+              "row": 71,
+              "col": 61
+            },
+            {
+              "row": 72,
+              "col": 61
+            },
+            {
+              "row": 73,
+              "col": 61
+            },
+            {
+              "row": 73,
+              "col": 62
+            },
+            {
+              "row": 73,
+              "col": 63
+            },
+            {
+              "row": 72,
+              "col": 63
+            },
+            {
+              "row": 71,
+              "col": 63
+            },
+            {
+              "row": 70,
+              "col": 63
+            },
+            {
+              "row": 69,
+              "col": 63
+            },
+            {
+              "row": 68,
+              "col": 63
+            },
+            {
+              "row": 67,
+              "col": 63
+            },
+            {
+              "row": 66,
+              "col": 63
+            },
+            {
+              "row": 65,
+              "col": 63
+            },
+            {
+              "row": 65,
+              "col": 62
+            },
+            {
+              "row": 66,
+              "col": 62
+            },
+            {
+              "row": 67,
+              "col": 62
+            },
+            {
+              "row": 68,
+              "col": 62
+            },
+            {
+              "row": 69,
+              "col": 62
+            },
+            {
+              "row": 70,
+              "col": 62
+            },
+            {
+              "row": 71,
+              "col": 62
+            },
+            {
+              "row": 72,
+              "col": 62
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_26d8d4593e38",
+          "floorId": 1,
+          "name": "Electron Circuit Lab OP-AMP &LIC Lab",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 59
+            },
+            {
+              "row": 57,
+              "col": 59
+            },
+            {
+              "row": 56,
+              "col": 59
+            },
+            {
+              "row": 55,
+              "col": 59
+            },
+            {
+              "row": 54,
+              "col": 59
+            },
+            {
+              "row": 54,
+              "col": 60
+            },
+            {
+              "row": 54,
+              "col": 61
+            },
+            {
+              "row": 54,
+              "col": 62
+            },
+            {
+              "row": 54,
+              "col": 63
+            },
+            {
+              "row": 55,
+              "col": 63
+            },
+            {
+              "row": 56,
+              "col": 63
+            },
+            {
+              "row": 57,
+              "col": 63
+            },
+            {
+              "row": 58,
+              "col": 63
+            },
+            {
+              "row": 58,
+              "col": 62
+            },
+            {
+              "row": 58,
+              "col": 61
+            },
+            {
+              "row": 57,
+              "col": 60
+            },
+            {
+              "row": 56,
+              "col": 60
+            },
+            {
+              "row": 55,
+              "col": 60
+            },
+            {
+              "row": 55,
+              "col": 61
+            },
+            {
+              "row": 55,
+              "col": 62
+            },
+            {
+              "row": 56,
+              "col": 62
+            },
+            {
+              "row": 56,
+              "col": 61
+            },
+            {
+              "row": 57,
+              "col": 61
+            },
+            {
+              "row": 57,
+              "col": 62
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_b3b204ae0a11",
+          "floorId": 1,
+          "name": "C Programming/ Power system simulation LAb",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 59,
+              "col": 62
+            },
+            {
+              "row": 59,
+              "col": 63
+            },
+            {
+              "row": 60,
+              "col": 61
+            },
+            {
+              "row": 60,
+              "col": 62
+            },
+            {
+              "row": 60,
+              "col": 63
+            },
+            {
+              "row": 61,
+              "col": 63
+            },
+            {
+              "row": 61,
+              "col": 62
+            },
+            {
+              "row": 61,
+              "col": 61
+            },
+            {
+              "row": 62,
+              "col": 63
+            },
+            {
+              "row": 62,
+              "col": 62
+            },
+            {
+              "row": 62,
+              "col": 61
+            },
+            {
+              "row": 63,
+              "col": 61
+            },
+            {
+              "row": 63,
+              "col": 62
+            },
+            {
+              "row": 64,
+              "col": 62
+            },
+            {
+              "row": 64,
+              "col": 63
+            },
+            {
+              "row": 63,
+              "col": 63
+            },
+            {
+              "row": 64,
+              "col": 61
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_e981d1074638",
+          "floorId": 1,
+          "name": "EEE LH-105",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 54,
+              "col": 58
+            },
+            {
+              "row": 54,
+              "col": 57
+            },
+            {
+              "row": 54,
+              "col": 56
+            },
+            {
+              "row": 54,
+              "col": 55
+            },
+            {
+              "row": 54,
+              "col": 54
+            },
+            {
+              "row": 55,
+              "col": 54
+            },
+            {
+              "row": 55,
+              "col": 55
+            },
+            {
+              "row": 55,
+              "col": 56
+            },
+            {
+              "row": 55,
+              "col": 57
+            },
+            {
+              "row": 55,
+              "col": 58
+            },
+            {
+              "row": 56,
+              "col": 58
+            },
+            {
+              "row": 56,
+              "col": 57
+            },
+            {
+              "row": 56,
+              "col": 56
+            },
+            {
+              "row": 56,
+              "col": 55
+            },
+            {
+              "row": 56,
+              "col": 54
+            },
+            {
+              "row": 57,
+              "col": 54
+            },
+            {
+              "row": 57,
+              "col": 55
+            },
+            {
+              "row": 57,
+              "col": 56
+            },
+            {
+              "row": 57,
+              "col": 57
+            },
+            {
+              "row": 57,
+              "col": 58
+            },
+            {
+              "row": 58,
+              "col": 58
+            },
+            {
+              "row": 58,
+              "col": 56
+            },
+            {
+              "row": 58,
+              "col": 55
+            },
+            {
+              "row": 58,
+              "col": 54
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_86774436196d",
+          "floorId": 1,
+          "name": "ECE LH-101",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 43
+            },
+            {
+              "row": 58,
+              "col": 42
+            },
+            {
+              "row": 57,
+              "col": 42
+            },
+            {
+              "row": 57,
+              "col": 43
+            },
+            {
+              "row": 56,
+              "col": 43
+            },
+            {
+              "row": 56,
+              "col": 42
+            },
+            {
+              "row": 55,
+              "col": 43
+            },
+            {
+              "row": 54,
+              "col": 43
+            },
+            {
+              "row": 54,
+              "col": 42
+            },
+            {
+              "row": 55,
+              "col": 42
+            },
+            {
+              "row": 54,
+              "col": 41
+            },
+            {
+              "row": 54,
+              "col": 40
+            },
+            {
+              "row": 55,
+              "col": 40
+            },
+            {
+              "row": 56,
+              "col": 40
+            },
+            {
+              "row": 57,
+              "col": 40
+            },
+            {
+              "row": 58,
+              "col": 40
+            },
+            {
+              "row": 57,
+              "col": 41
+            },
+            {
+              "row": 56,
+              "col": 41
+            },
+            {
+              "row": 55,
+              "col": 41
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_671ecf6dbe2e",
+          "floorId": 1,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 41
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_097b4cdadb10",
+          "floorId": 1,
+          "name": "ECE LH-102",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 36
+            },
+            {
+              "row": 57,
+              "col": 36
+            },
+            {
+              "row": 56,
+              "col": 36
+            },
+            {
+              "row": 55,
+              "col": 36
+            },
+            {
+              "row": 54,
+              "col": 36
+            },
+            {
+              "row": 54,
+              "col": 37
+            },
+            {
+              "row": 54,
+              "col": 38
+            },
+            {
+              "row": 54,
+              "col": 39
+            },
+            {
+              "row": 55,
+              "col": 39
+            },
+            {
+              "row": 56,
+              "col": 39
+            },
+            {
+              "row": 57,
+              "col": 39
+            },
+            {
+              "row": 58,
+              "col": 39
+            },
+            {
+              "row": 58,
+              "col": 38
+            },
+            {
+              "row": 57,
+              "col": 37
+            },
+            {
+              "row": 56,
+              "col": 37
+            },
+            {
+              "row": 55,
+              "col": 37
+            },
+            {
+              "row": 55,
+              "col": 38
+            },
+            {
+              "row": 56,
+              "col": 38
+            },
+            {
+              "row": 57,
+              "col": 38
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_1b48ebe6202e",
+          "floorId": 1,
+          "name": "Power Electronics Project Lab",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 54,
+              "col": 35
+            },
+            {
+              "row": 54,
+              "col": 34
+            },
+            {
+              "row": 54,
+              "col": 33
+            },
+            {
+              "row": 55,
+              "col": 33
+            },
+            {
+              "row": 55,
+              "col": 34
+            },
+            {
+              "row": 55,
+              "col": 35
+            },
+            {
+              "row": 56,
+              "col": 35
+            },
+            {
+              "row": 56,
+              "col": 34
+            },
+            {
+              "row": 56,
+              "col": 33
+            },
+            {
+              "row": 57,
+              "col": 33
+            },
+            {
+              "row": 57,
+              "col": 34
+            },
+            {
+              "row": 58,
+              "col": 34
+            },
+            {
+              "row": 58,
+              "col": 35
+            },
+            {
+              "row": 57,
+              "col": 35
+            },
+            {
+              "row": 58,
+              "col": 33
+            },
+            {
+              "row": 59,
+              "col": 33
+            },
+            {
+              "row": 59,
+              "col": 34
+            },
+            {
+              "row": 60,
+              "col": 34
+            },
+            {
+              "row": 60,
+              "col": 33
+            },
+            {
+              "row": 61,
+              "col": 33
+            },
+            {
+              "row": 59,
+              "col": 35
+            },
+            {
+              "row": 61,
+              "col": 35
+            },
+            {
+              "row": 61,
+              "col": 34
+            },
+            {
+              "row": 62,
+              "col": 34
+            },
+            {
+              "row": 62,
+              "col": 33
+            },
+            {
+              "row": 63,
+              "col": 34
+            },
+            {
+              "row": 63,
+              "col": 35
+            },
+            {
+              "row": 62,
+              "col": 35
+            },
+            {
+              "row": 63,
+              "col": 33
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_e273c3f81304",
+          "floorId": 1,
+          "name": "ECE Seminar Hall",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 64,
+              "col": 35
+            },
+            {
+              "row": 64,
+              "col": 34
+            },
+            {
+              "row": 64,
+              "col": 33
+            },
+            {
+              "row": 65,
+              "col": 33
+            },
+            {
+              "row": 65,
+              "col": 34
+            },
+            {
+              "row": 65,
+              "col": 35
+            },
+            {
+              "row": 66,
+              "col": 33
+            },
+            {
+              "row": 66,
+              "col": 34
+            },
+            {
+              "row": 66,
+              "col": 35
+            },
+            {
+              "row": 67,
+              "col": 33
+            },
+            {
+              "row": 67,
+              "col": 34
+            },
+            {
+              "row": 68,
+              "col": 35
+            },
+            {
+              "row": 68,
+              "col": 34
+            },
+            {
+              "row": 68,
+              "col": 33
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_ab16fd9f7aab",
+          "floorId": 1,
+          "name": "VTU Research Centre, ECE",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 69,
+              "col": 33
+            },
+            {
+              "row": 70,
+              "col": 33
+            },
+            {
+              "row": 71,
+              "col": 33
+            },
+            {
+              "row": 72,
+              "col": 33
+            },
+            {
+              "row": 73,
+              "col": 33
+            },
+            {
+              "row": 73,
+              "col": 34
+            },
+            {
+              "row": 73,
+              "col": 35
+            },
+            {
+              "row": 73,
+              "col": 36
+            },
+            {
+              "row": 73,
+              "col": 37
+            },
+            {
+              "row": 73,
+              "col": 38
+            },
+            {
+              "row": 73,
+              "col": 39
+            },
+            {
+              "row": 73,
+              "col": 40
+            },
+            {
+              "row": 73,
+              "col": 41
+            },
+            {
+              "row": 72,
+              "col": 41
+            },
+            {
+              "row": 71,
+              "col": 41
+            },
+            {
+              "row": 70,
+              "col": 41
+            },
+            {
+              "row": 69,
+              "col": 41
+            },
+            {
+              "row": 69,
+              "col": 40
+            },
+            {
+              "row": 69,
+              "col": 39
+            },
+            {
+              "row": 69,
+              "col": 38
+            },
+            {
+              "row": 69,
+              "col": 36
+            },
+            {
+              "row": 69,
+              "col": 35
+            },
+            {
+              "row": 69,
+              "col": 34
+            },
+            {
+              "row": 70,
+              "col": 34
+            },
+            {
+              "row": 71,
+              "col": 34
+            },
+            {
+              "row": 71,
+              "col": 35
+            },
+            {
+              "row": 71,
+              "col": 36
+            },
+            {
+              "row": 70,
+              "col": 36
+            },
+            {
+              "row": 70,
+              "col": 37
+            },
+            {
+              "row": 70,
+              "col": 38
+            },
+            {
+              "row": 70,
+              "col": 39
+            },
+            {
+              "row": 71,
+              "col": 39
+            },
+            {
+              "row": 71,
+              "col": 38
+            },
+            {
+              "row": 71,
+              "col": 37
+            },
+            {
+              "row": 70,
+              "col": 35
+            },
+            {
+              "row": 72,
+              "col": 34
+            },
+            {
+              "row": 72,
+              "col": 35
+            },
+            {
+              "row": 72,
+              "col": 36
+            },
+            {
+              "row": 72,
+              "col": 37
+            },
+            {
+              "row": 72,
+              "col": 38
+            },
+            {
+              "row": 72,
+              "col": 39
+            },
+            {
+              "row": 72,
+              "col": 40
+            },
+            {
+              "row": 71,
+              "col": 40
+            },
+            {
+              "row": 70,
+              "col": 40
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_1048cc1a38a7",
+          "floorId": 1,
+          "name": "Advanced Communications Lab",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 69,
+              "col": 42
+            },
+            {
+              "row": 69,
+              "col": 43
+            },
+            {
+              "row": 69,
+              "col": 44
+            },
+            {
+              "row": 69,
+              "col": 45
+            },
+            {
+              "row": 69,
+              "col": 46
+            },
+            {
+              "row": 69,
+              "col": 47
+            },
+            {
+              "row": 69,
+              "col": 48
+            },
+            {
+              "row": 69,
+              "col": 49
+            },
+            {
+              "row": 69,
+              "col": 51
+            },
+            {
+              "row": 70,
+              "col": 51
+            },
+            {
+              "row": 70,
+              "col": 50
+            },
+            {
+              "row": 70,
+              "col": 49
+            },
+            {
+              "row": 70,
+              "col": 48
+            },
+            {
+              "row": 70,
+              "col": 47
+            },
+            {
+              "row": 70,
+              "col": 46
+            },
+            {
+              "row": 70,
+              "col": 45
+            },
+            {
+              "row": 70,
+              "col": 44
+            },
+            {
+              "row": 70,
+              "col": 43
+            },
+            {
+              "row": 70,
+              "col": 42
+            },
+            {
+              "row": 71,
+              "col": 42
+            },
+            {
+              "row": 71,
+              "col": 43
+            },
+            {
+              "row": 71,
+              "col": 44
+            },
+            {
+              "row": 71,
+              "col": 45
+            },
+            {
+              "row": 71,
+              "col": 46
+            },
+            {
+              "row": 71,
+              "col": 47
+            },
+            {
+              "row": 71,
+              "col": 48
+            },
+            {
+              "row": 71,
+              "col": 49
+            },
+            {
+              "row": 71,
+              "col": 50
+            },
+            {
+              "row": 71,
+              "col": 51
+            },
+            {
+              "row": 72,
+              "col": 51
+            },
+            {
+              "row": 72,
+              "col": 50
+            },
+            {
+              "row": 72,
+              "col": 49
+            },
+            {
+              "row": 72,
+              "col": 48
+            },
+            {
+              "row": 72,
+              "col": 47
+            },
+            {
+              "row": 72,
+              "col": 46
+            },
+            {
+              "row": 72,
+              "col": 45
+            },
+            {
+              "row": 72,
+              "col": 44
+            },
+            {
+              "row": 72,
+              "col": 43
+            },
+            {
+              "row": 72,
+              "col": 42
+            },
+            {
+              "row": 73,
+              "col": 42
+            },
+            {
+              "row": 73,
+              "col": 43
+            },
+            {
+              "row": 73,
+              "col": 44
+            },
+            {
+              "row": 73,
+              "col": 45
+            },
+            {
+              "row": 73,
+              "col": 46
+            },
+            {
+              "row": 73,
+              "col": 47
+            },
+            {
+              "row": 73,
+              "col": 48
+            },
+            {
+              "row": 73,
+              "col": 49
+            },
+            {
+              "row": 73,
+              "col": 50
+            },
+            {
+              "row": 73,
+              "col": 51
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_1b049316b622",
+          "floorId": 1,
+          "name": "EEE LH-103",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 70,
+              "col": 52
+            },
+            {
+              "row": 71,
+              "col": 52
+            },
+            {
+              "row": 72,
+              "col": 52
+            },
+            {
+              "row": 73,
+              "col": 52
+            },
+            {
+              "row": 73,
+              "col": 53
+            },
+            {
+              "row": 73,
+              "col": 54
+            },
+            {
+              "row": 73,
+              "col": 55
+            },
+            {
+              "row": 72,
+              "col": 55
+            },
+            {
+              "row": 71,
+              "col": 55
+            },
+            {
+              "row": 70,
+              "col": 55
+            },
+            {
+              "row": 70,
+              "col": 54
+            },
+            {
+              "row": 70,
+              "col": 53
+            },
+            {
+              "row": 71,
+              "col": 53
+            },
+            {
+              "row": 72,
+              "col": 53
+            },
+            {
+              "row": 72,
+              "col": 54
+            },
+            {
+              "row": 71,
+              "col": 54
+            },
+            {
+              "row": 69,
+              "col": 54
+            },
+            {
+              "row": 69,
+              "col": 53
+            },
+            {
+              "row": 69,
+              "col": 55
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_08f66195a604",
+          "floorId": 1,
+          "name": "Electric Circuit Lab",
+          "number": "",
+          "type": "room",
+          "geometry": [
+            {
+              "row": 69,
+              "col": 56
+            },
+            {
+              "row": 70,
+              "col": 56
+            },
+            {
+              "row": 71,
+              "col": 56
+            },
+            {
+              "row": 72,
+              "col": 56
+            },
+            {
+              "row": 73,
+              "col": 56
+            },
+            {
+              "row": 73,
+              "col": 57
+            },
+            {
+              "row": 73,
+              "col": 58
+            },
+            {
+              "row": 73,
+              "col": 59
+            },
+            {
+              "row": 73,
+              "col": 60
+            },
+            {
+              "row": 72,
+              "col": 60
+            },
+            {
+              "row": 71,
+              "col": 60
+            },
+            {
+              "row": 70,
+              "col": 60
+            },
+            {
+              "row": 69,
+              "col": 60
+            },
+            {
+              "row": 69,
+              "col": 59
+            },
+            {
+              "row": 69,
+              "col": 58
+            },
+            {
+              "row": 70,
+              "col": 57
+            },
+            {
+              "row": 70,
+              "col": 58
+            },
+            {
+              "row": 70,
+              "col": 59
+            },
+            {
+              "row": 71,
+              "col": 58
+            },
+            {
+              "row": 71,
+              "col": 57
+            },
+            {
+              "row": 71,
+              "col": 59
+            },
+            {
+              "row": 72,
+              "col": 59
+            },
+            {
+              "row": 72,
+              "col": 58
+            },
+            {
+              "row": 72,
+              "col": 57
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_c95d42d5a7c3",
+          "floorId": 1,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 60,
+              "col": 35
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_22ea2da82162",
+          "floorId": 1,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 37
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_0759debb257e",
+          "floorId": 1,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 67,
+              "col": 35
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_d73b7687d644",
+          "floorId": 1,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 69,
+              "col": 37
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_f1f29279ed6b",
+          "floorId": 1,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 69,
+              "col": 50
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_02af8efce789",
+          "floorId": 1,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 69,
+              "col": 52
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_53b6b5f77240",
+          "floorId": 1,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 69,
+              "col": 57
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_1b11418986ee",
+          "floorId": 1,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 57
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_b9fd476b99a9",
+          "floorId": 1,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 67,
+              "col": 61
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_deecb7b0dba7",
+          "floorId": 1,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 59,
+              "col": 61
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_a33764a27323",
+          "floorId": 1,
+          "name": "",
+          "number": "",
+          "type": "door",
+          "geometry": [
+            {
+              "row": 58,
+              "col": 60
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_4dd007db352e",
+          "floorId": 1,
+          "name": "Girl's Washroom 1",
+          "number": "",
+          "type": "toilet",
+          "geometry": [
+            {
+              "row": 54,
+              "col": 47
+            },
+            {
+              "row": 54,
+              "col": 46
+            },
+            {
+              "row": 54,
+              "col": 45
+            },
+            {
+              "row": 54,
+              "col": 44
+            },
+            {
+              "row": 55,
+              "col": 44
+            },
+            {
+              "row": 55,
+              "col": 45
+            },
+            {
+              "row": 55,
+              "col": 46
+            },
+            {
+              "row": 55,
+              "col": 47
+            },
+            {
+              "row": 56,
+              "col": 46
+            },
+            {
+              "row": 56,
+              "col": 45
+            },
+            {
+              "row": 56,
+              "col": 44
+            },
+            {
+              "row": 56,
+              "col": 47
+            },
+            {
+              "row": 57,
+              "col": 47
+            },
+            {
+              "row": 57,
+              "col": 46
+            },
+            {
+              "row": 57,
+              "col": 45
+            },
+            {
+              "row": 57,
+              "col": 44
+            },
+            {
+              "row": 58,
+              "col": 44
+            },
+            {
+              "row": 58,
+              "col": 46
+            },
+            {
+              "row": 58,
+              "col": 47
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        },
+        {
+          "id": "room_d605210d82b3",
+          "floorId": 1,
+          "name": "Boy's Washroom 1",
+          "number": "",
+          "type": "toilet",
+          "geometry": [
+            {
+              "row": 54,
+              "col": 50
+            },
+            {
+              "row": 55,
+              "col": 50
+            },
+            {
+              "row": 56,
+              "col": 50
+            },
+            {
+              "row": 57,
+              "col": 50
+            },
+            {
+              "row": 58,
+              "col": 50
+            },
+            {
+              "row": 57,
+              "col": 51
+            },
+            {
+              "row": 56,
+              "col": 51
+            },
+            {
+              "row": 55,
+              "col": 51
+            },
+            {
+              "row": 58,
+              "col": 51
+            },
+            {
+              "row": 54,
+              "col": 51
+            },
+            {
+              "row": 54,
+              "col": 52
+            },
+            {
+              "row": 54,
+              "col": 53
+            },
+            {
+              "row": 55,
+              "col": 52
+            },
+            {
+              "row": 55,
+              "col": 53
+            },
+            {
+              "row": 56,
+              "col": 52
+            },
+            {
+              "row": 56,
+              "col": 53
+            },
+            {
+              "row": 57,
+              "col": 53
+            },
+            {
+              "row": 57,
+              "col": 52
+            },
+            {
+              "row": 58,
+              "col": 52
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        }
+      ],
+      "walls": {
+        "58,61,bottom": true,
+        "58,62,bottom": true,
+        "58,63,bottom": true,
+        "64,61,bottom": true,
+        "64,62,bottom": true,
+        "64,63,bottom": true,
+        "69,60,right": true,
+        "70,60,right": true,
+        "71,60,right": true,
+        "72,60,right": true,
+        "73,60,right": true,
+        "73,61,bottom": true,
+        "73,62,bottom": true,
+        "73,63,bottom": true,
+        "73,63,right": true,
+        "72,63,right": true,
+        "71,63,right": true,
+        "70,63,right": true,
+        "69,63,right": true,
+        "68,63,right": true,
+        "67,63,right": true,
+        "66,63,right": true,
+        "65,63,right": true,
+        "64,63,right": true,
+        "63,63,right": true,
+        "62,63,right": true,
+        "61,63,right": true,
+        "60,63,right": true,
+        "59,63,right": true,
+        "58,63,right": true,
+        "57,63,right": true,
+        "56,63,right": true,
+        "55,63,right": true,
+        "54,63,right": true,
+        "53,60,bottom": true,
+        "53,63,bottom": true,
+        "53,62,bottom": true,
+        "53,61,bottom": true,
+        "53,59,bottom": true,
+        "54,58,right": true,
+        "55,58,right": true,
+        "56,58,right": true,
+        "57,58,right": true,
+        "58,58,right": true,
+        "58,58,bottom": true,
+        "58,56,bottom": true,
+        "58,55,bottom": true,
+        "58,54,bottom": true,
+        "58,53,right": true,
+        "57,53,right": true,
+        "56,53,right": true,
+        "55,53,right": true,
+        "54,53,right": true,
+        "53,53,bottom": true,
+        "53,52,bottom": true,
+        "53,51,bottom": true,
+        "53,50,bottom": true,
+        "53,54,bottom": true,
+        "53,55,bottom": true,
+        "53,56,bottom": true,
+        "53,57,bottom": true,
+        "53,58,bottom": true,
+        "58,43,right": true,
+        "57,43,right": true,
+        "56,43,right": true,
+        "55,43,right": true,
+        "54,43,right": true,
+        "58,39,right": true,
+        "57,39,right": true,
+        "56,39,right": true,
+        "55,39,right": true,
+        "54,39,right": true,
+        "53,37,bottom": true,
+        "53,38,bottom": true,
+        "53,39,bottom": true,
+        "53,40,bottom": true,
+        "53,41,bottom": true,
+        "53,42,bottom": true,
+        "53,43,bottom": true,
+        "53,44,bottom": true,
+        "53,45,bottom": true,
+        "53,46,bottom": true,
+        "53,47,bottom": true,
+        "59,35,right": true,
+        "58,35,right": true,
+        "57,35,right": true,
+        "56,35,right": true,
+        "55,35,right": true,
+        "53,36,bottom": true,
+        "54,35,right": true,
+        "53,35,bottom": true,
+        "53,34,bottom": true,
+        "53,33,bottom": true,
+        "54,32,right": true,
+        "55,32,right": true,
+        "56,32,right": true,
+        "57,32,right": true,
+        "58,32,right": true,
+        "59,32,right": true,
+        "60,32,right": true,
+        "61,32,right": true,
+        "62,32,right": true,
+        "63,32,right": true,
+        "64,32,right": true,
+        "65,32,right": true,
+        "66,32,right": true,
+        "67,32,right": true,
+        "68,32,right": true,
+        "69,32,right": true,
+        "70,32,right": true,
+        "71,32,right": true,
+        "72,32,right": true,
+        "73,32,right": true,
+        "73,33,bottom": true,
+        "73,34,bottom": true,
+        "73,35,bottom": true,
+        "73,36,bottom": true,
+        "73,37,bottom": true,
+        "73,38,bottom": true,
+        "73,39,bottom": true,
+        "73,40,bottom": true,
+        "73,41,bottom": true,
+        "73,42,bottom": true,
+        "73,43,bottom": true,
+        "73,44,bottom": true,
+        "73,45,bottom": true,
+        "73,46,bottom": true,
+        "73,47,bottom": true,
+        "73,48,bottom": true,
+        "73,49,bottom": true,
+        "73,50,bottom": true,
+        "73,51,bottom": true,
+        "73,52,bottom": true,
+        "73,53,bottom": true,
+        "73,54,bottom": true,
+        "73,55,bottom": true,
+        "73,56,bottom": true,
+        "73,57,bottom": true,
+        "73,58,bottom": true,
+        "73,59,bottom": true,
+        "73,60,bottom": true,
+        "68,36,bottom": true,
+        "68,35,right": true,
+        "66,35,right": true,
+        "68,38,bottom": true,
+        "68,39,bottom": true,
+        "68,40,bottom": true,
+        "68,42,bottom": true,
+        "68,41,bottom": true,
+        "69,41,right": true,
+        "70,41,right": true,
+        "71,41,right": true,
+        "72,41,right": true,
+        "73,41,right": true,
+        "68,51,bottom": true,
+        "68,49,bottom": true,
+        "68,48,bottom": true,
+        "69,51,right": true,
+        "70,51,right": true,
+        "71,51,right": true,
+        "72,51,right": true,
+        "73,51,right": true,
+        "68,53,bottom": true,
+        "68,58,bottom": true,
+        "68,56,bottom": true,
+        "69,55,right": true,
+        "70,55,right": true,
+        "71,55,right": true,
+        "72,55,right": true,
+        "73,55,right": true,
+        "68,59,bottom": true,
+        "68,60,bottom": true,
+        "68,54,bottom": true,
+        "68,55,bottom": true,
+        "61,35,right": true,
+        "62,35,right": true,
+        "63,35,right": true,
+        "64,35,right": true,
+        "65,35,right": true,
+        "63,35,bottom": true,
+        "63,34,bottom": true,
+        "63,33,bottom": true,
+        "68,35,bottom": true,
+        "68,34,bottom": true,
+        "68,33,bottom": true,
+        "58,38,bottom": true,
+        "58,39,bottom": true,
+        "58,36,bottom": true,
+        "58,40,bottom": true,
+        "58,42,bottom": true,
+        "58,43,bottom": true,
+        "68,43,bottom": true,
+        "68,44,bottom": true,
+        "68,45,bottom": true,
+        "68,46,bottom": true,
+        "68,47,bottom": true,
+        "53,48,bottom": true,
+        "53,49,bottom": true,
+        "60,60,right": true,
+        "61,60,right": true,
+        "62,60,right": true,
+        "63,60,right": true,
+        "64,60,right": true,
+        "58,59,bottom": true,
+        "68,60,right": true,
+        "66,60,right": true,
+        "65,60,right": true,
+        "58,50,bottom": true,
+        "58,51,bottom": true,
+        "58,52,bottom": true
+      },
+      "nodes": [
+        {
+          "id": "node_312391a47e2b",
+          "row": 58,
+          "col": 48,
+          "type": "staircase",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_e5f1acb2c1ad",
+          "row": 58,
+          "col": 45,
+          "type": "room_entry",
+          "label": "Girl's Washroom 1",
+          "roomId": null
+        },
+        {
+          "id": "node_09172c384084",
+          "row": 58,
+          "col": 41,
+          "type": "room_entry",
+          "label": "ECE LH-101",
+          "roomId": null
+        },
+        {
+          "id": "node_760cd0b3c212",
+          "row": 58,
+          "col": 37,
+          "type": "room_entry",
+          "label": "ECE LH-102",
+          "roomId": null
+        },
+        {
+          "id": "node_19958773fd45",
+          "row": 60,
+          "col": 35,
+          "type": "room_entry",
+          "label": "Power Electronics Project Lab",
+          "roomId": null
+        },
+        {
+          "id": "node_168ea4d45289",
+          "row": 67,
+          "col": 35,
+          "type": "room_entry",
+          "label": "ECE Seminar Hall",
+          "roomId": null
+        },
+        {
+          "id": "node_7c833de2a091",
+          "row": 69,
+          "col": 37,
+          "type": "room_entry",
+          "label": "VTU Research Centre, ECE",
+          "roomId": null
+        },
+        {
+          "id": "node_7f5b0888bcca",
+          "row": 69,
+          "col": 50,
+          "type": "room_entry",
+          "label": "Advanced Communications Lab",
+          "roomId": null
+        },
+        {
+          "id": "node_1881fbbb8d22",
+          "row": 69,
+          "col": 52,
+          "type": "room_entry",
+          "label": "EEE LH-103",
+          "roomId": null
+        },
+        {
+          "id": "node_0f1324d5bd74",
+          "row": 69,
+          "col": 57,
+          "type": "room_entry",
+          "label": "Electric Circuit Lab",
+          "roomId": null
+        },
+        {
+          "id": "node_8c6f61a4af7d",
+          "row": 67,
+          "col": 61,
+          "type": "room_entry",
+          "label": "FARADAY Seminar Hall (EEE)",
+          "roomId": null
+        },
+        {
+          "id": "node_46bb20da8266",
+          "row": 59,
+          "col": 61,
+          "type": "room_entry",
+          "label": "C Programming/ Power system simulation LAb",
+          "roomId": null
+        },
+        {
+          "id": "node_5b5188c08860",
+          "row": 58,
+          "col": 60,
+          "type": "room_entry",
+          "label": "Electron Circuit Lab OP-AMP &LIC Lab",
+          "roomId": null
+        },
+        {
+          "id": "node_1128516c963d",
+          "row": 58,
+          "col": 57,
+          "type": "room_entry",
+          "label": "EEE LH-105",
+          "roomId": null
+        },
+        {
+          "id": "node_01cc7ce7353a",
+          "row": 58,
+          "col": 53,
+          "type": "room_entry",
+          "label": "Boy's Washroom 1",
+          "roomId": null
+        },
+        {
+          "id": "node_6494fe3c18bb",
+          "row": 59,
+          "col": 48,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_4895589bb625",
+          "row": 59,
+          "col": 36,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_be5014019fef",
+          "row": 68,
+          "col": 36,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_8b3d973c554d",
+          "row": 68,
+          "col": 48,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_f5e4c2692fcd",
+          "row": 68,
+          "col": 60,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_54d824b8175b",
+          "row": 59,
+          "col": 60,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_b4595a192ed6",
+          "row": 59,
+          "col": 37,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_29827af97f0f",
+          "row": 60,
+          "col": 36,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_c8a0ccc21761",
+          "row": 59,
+          "col": 41,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_e57e6313f0a5",
+          "row": 59,
+          "col": 45,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_ae052fda7ce4",
+          "row": 59,
+          "col": 53,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_210f47e98813",
+          "row": 59,
+          "col": 57,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_eff56d0427b1",
+          "row": 68,
+          "col": 57,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_6a72ae60bb56",
+          "row": 68,
+          "col": 52,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_82014ec84ead",
+          "row": 68,
+          "col": 37,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_869da667cdb2",
+          "row": 67,
+          "col": 36,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_eeb0c9d1f006",
+          "row": 68,
+          "col": 50,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        },
+        {
+          "id": "node_835b90a167c3",
+          "row": 67,
+          "col": 60,
+          "type": "hallway",
+          "label": null,
+          "roomId": null
+        }
+      ],
+      "edges": [
+        {
+          "id": "edge_bb6637026823",
+          "from": "node_312391a47e2b",
+          "to": "node_6494fe3c18bb",
+          "weight": null
+        },
+        {
+          "id": "edge_bddd8c329be8",
+          "from": "node_6494fe3c18bb",
+          "to": "node_e57e6313f0a5",
+          "weight": null
+        },
+        {
+          "id": "edge_cd71793611ee",
+          "from": "node_e5f1acb2c1ad",
+          "to": "node_e57e6313f0a5",
+          "weight": null
+        },
+        {
+          "id": "edge_80bf54551bfd",
+          "from": "node_e57e6313f0a5",
+          "to": "node_c8a0ccc21761",
+          "weight": null
+        },
+        {
+          "id": "edge_d33d1f2f8098",
+          "from": "node_c8a0ccc21761",
+          "to": "node_09172c384084",
+          "weight": null
+        },
+        {
+          "id": "edge_9fdd0ac8e123",
+          "from": "node_c8a0ccc21761",
+          "to": "node_b4595a192ed6",
+          "weight": null
+        },
+        {
+          "id": "edge_e2e7be4796fc",
+          "from": "node_b4595a192ed6",
+          "to": "node_760cd0b3c212",
+          "weight": null
+        },
+        {
+          "id": "edge_44a15c84f341",
+          "from": "node_b4595a192ed6",
+          "to": "node_4895589bb625",
+          "weight": null
+        },
+        {
+          "id": "edge_7bb78cfb130a",
+          "from": "node_4895589bb625",
+          "to": "node_29827af97f0f",
+          "weight": null
+        },
+        {
+          "id": "edge_57f5e6c7dd1d",
+          "from": "node_29827af97f0f",
+          "to": "node_19958773fd45",
+          "weight": null
+        },
+        {
+          "id": "edge_45aa5929b288",
+          "from": "node_29827af97f0f",
+          "to": "node_869da667cdb2",
+          "weight": null
+        },
+        {
+          "id": "edge_1839a5d8733f",
+          "from": "node_869da667cdb2",
+          "to": "node_168ea4d45289",
+          "weight": null
+        },
+        {
+          "id": "edge_5cbb21f841d8",
+          "from": "node_869da667cdb2",
+          "to": "node_be5014019fef",
+          "weight": null
+        },
+        {
+          "id": "edge_6e01cf01527c",
+          "from": "node_be5014019fef",
+          "to": "node_82014ec84ead",
+          "weight": null
+        },
+        {
+          "id": "edge_21b34a264482",
+          "from": "node_82014ec84ead",
+          "to": "node_7c833de2a091",
+          "weight": null
+        },
+        {
+          "id": "edge_164371b020fa",
+          "from": "node_82014ec84ead",
+          "to": "node_8b3d973c554d",
+          "weight": null
+        },
+        {
+          "id": "edge_a74c9bb42e1c",
+          "from": "node_eeb0c9d1f006",
+          "to": "node_7f5b0888bcca",
+          "weight": null
+        },
+        {
+          "id": "edge_bdaa3b2d8a0c",
+          "from": "node_eeb0c9d1f006",
+          "to": "node_6a72ae60bb56",
+          "weight": null
+        },
+        {
+          "id": "edge_fe86c5a385a1",
+          "from": "node_6a72ae60bb56",
+          "to": "node_1881fbbb8d22",
+          "weight": null
+        },
+        {
+          "id": "edge_e351a3a9387a",
+          "from": "node_6a72ae60bb56",
+          "to": "node_eff56d0427b1",
+          "weight": null
+        },
+        {
+          "id": "edge_7cd60bd4bfa8",
+          "from": "node_eff56d0427b1",
+          "to": "node_0f1324d5bd74",
+          "weight": null
+        },
+        {
+          "id": "edge_8ac29d945d37",
+          "from": "node_eff56d0427b1",
+          "to": "node_f5e4c2692fcd",
+          "weight": null
+        },
+        {
+          "id": "edge_8a6a33d67e8d",
+          "from": "node_f5e4c2692fcd",
+          "to": "node_835b90a167c3",
+          "weight": null
+        },
+        {
+          "id": "edge_79f60867f6b7",
+          "from": "node_835b90a167c3",
+          "to": "node_8c6f61a4af7d",
+          "weight": null
+        },
+        {
+          "id": "edge_2d671ea5acfa",
+          "from": "node_835b90a167c3",
+          "to": "node_54d824b8175b",
+          "weight": null
+        },
+        {
+          "id": "edge_c4f9a1023dbf",
+          "from": "node_54d824b8175b",
+          "to": "node_46bb20da8266",
+          "weight": null
+        },
+        {
+          "id": "edge_9dcf52eb5cbb",
+          "from": "node_54d824b8175b",
+          "to": "node_5b5188c08860",
+          "weight": null
+        },
+        {
+          "id": "edge_8d77456f26b6",
+          "from": "node_210f47e98813",
+          "to": "node_1128516c963d",
+          "weight": null
+        },
+        {
+          "id": "edge_1579dfcd61bb",
+          "from": "node_210f47e98813",
+          "to": "node_54d824b8175b",
+          "weight": null
+        },
+        {
+          "id": "edge_936b1101f6d8",
+          "from": "node_210f47e98813",
+          "to": "node_ae052fda7ce4",
+          "weight": null
+        },
+        {
+          "id": "edge_ff0358ea78b5",
+          "from": "node_ae052fda7ce4",
+          "to": "node_01cc7ce7353a",
+          "weight": null
+        },
+        {
+          "id": "edge_f0b5a2650efb",
+          "from": "node_ae052fda7ce4",
+          "to": "node_6494fe3c18bb",
+          "weight": null
+        },
+        {
+          "id": "edge_42f519e00687",
+          "from": "node_6494fe3c18bb",
+          "to": "node_8b3d973c554d",
+          "weight": null
+        },
+        {
+          "id": "edge_fe04423e5919",
+          "from": "node_8b3d973c554d",
+          "to": "node_eeb0c9d1f006",
+          "weight": null
+        }
+      ],
+      "markers": [
+        {
+          "id": "marker_d665975a489d",
+          "row": 66,
+          "col": 48,
+          "type": "center",
+          "label": null,
+          "targetFloorId": null
+        },
+        {
+          "id": "marker_74e7e5085cc9",
+          "row": 66,
+          "col": 49,
+          "type": "center",
+          "label": null,
+          "targetFloorId": null
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "label": "Floor 2",
+      "rooms": [
+        {
+          "id": "room_87f8df3138f7",
+          "floorId": 2,
+          "name": "",
+          "number": "",
+          "type": "staircase",
+          "geometry": [
+            {
+              "row": 55,
+              "col": 48
+            },
+            {
+              "row": 55,
+              "col": 49
+            },
+            {
+              "row": 56,
+              "col": 49
+            },
+            {
+              "row": 57,
+              "col": 49
+            },
+            {
+              "row": 58,
+              "col": 49
+            },
+            {
+              "row": 58,
+              "col": 48
+            },
+            {
+              "row": 57,
+              "col": 48
+            },
+            {
+              "row": 56,
+              "col": 48
+            }
+          ],
+          "labelAnchor": null,
+          "entryPoint": null,
+          "metadata": {}
+        }
+      ],
+      "walls": {},
+      "nodes": [],
+      "edges": [],
+      "markers": []
+    }
+  ],
+  "events": [
+    {
+      "id": "evt_5ab8adc44e24",
+      "title": "wdwdwd",
+      "description": "sdg",
+      "roomId": "room_ffeefef47fb1",
+      "startTime": "4545-04-06T03:04",
+      "endTime": "45454-04-05T17:45"
+    }
+  ]
+}

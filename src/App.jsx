@@ -18,6 +18,7 @@ import LinuxFundamentals from './pages/blogs/LinuxFundamentals'
 import DummyBlog from './pages/blogs/DummyBlog'
 import InternetMachine from './pages/blogs/InternetMachine'
 import About from './pages/About'
+import Miscellaneous from './pages/Miscellaneous'
 
 export default function App() {
   const location = useLocation()
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="/blogs/the-internet-machine" element={<InternetMachine />} />
           <Route path="/blogs/dummy-blog" element={<DummyBlog />} />
           <Route path="/about" element={<About />} />
+          <Route path="/miscellaneous" element={<Miscellaneous />} />
         </Routes>
       </AnimatePresence>
     </>
