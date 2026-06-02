@@ -93,12 +93,26 @@ const secondaryDomains = [
     status: 'OPEN',
     isExternal: true,
   },
+  {
+    name: 'ECE Map Demo',
+    path: '/indoor_nav_map_ece.json',
+    desc: 'Download indoor navigation map ECE demo JSON.',
+    status: 'OPEN',
+    download: true,
+  },
 ]
 
 function DomainCard({ domain, index, hideDesc, isPrimary }) {
   const navigate = useNavigate()
 
   const handleSelect = () => {
+    if (domain.download) {
+      const link = document.createElement('a')
+      link.href = domain.path
+      link.download = domain.path.split('/').pop()
+      link.click()
+      return
+    }
     if (domain.isExternal) {
       window.open(domain.path, '_blank', 'noopener,noreferrer')
       return
