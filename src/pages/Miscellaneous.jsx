@@ -13,6 +13,28 @@ export default function Miscellaneous() {
         </p>
 
 
+        <div className="section-divider">// AVAILABLE DOWNLOADS</div>
+        <div className="panels-grid">
+          <div className="service-card" id="dl-indoornavmap-ece">
+            <div className="service-card-title">ECE Map Demo</div>
+            <div className="service-card-status" style={{ opacity: 1, marginTop: '8px' }}>
+              <a
+                href="/indoor_nav_map_ece.json"
+                download="indoor_nav_map_ece.json"
+                className="password-gate-btn"
+                style={{
+                  display: 'inline-block',
+                  textAlign: 'center',
+                  textDecoration: 'none',
+                  marginTop: '10px'
+                }}
+                id="btn-download-indoornavmap-ece"
+              >
+                DOWNLOAD
+              </a>
+            </div>
+          </div>
+        </div>
       </main>
       <Footer />
     </PageTransition>

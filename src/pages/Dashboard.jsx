@@ -93,13 +93,6 @@ const secondaryDomains = [
     status: 'OPEN',
     isExternal: true,
   },
-  {
-    name: 'ECE Map Demo',
-    path: '/indoor_nav_map_ece.json',
-    desc: 'Download indoor navigation map ECE demo JSON.',
-    status: 'OPEN',
-    download: true,
-  },
 ]
 
 function DomainCard({ domain, index, hideDesc, isPrimary }) {
