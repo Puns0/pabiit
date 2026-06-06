@@ -15,5 +15,10 @@ export const presentations = [
     id: 'robotics-ai-drones',
     title: 'Robotics & AI-Powered Drones',
     link: '/robotics-and-ai-drones.html',
+  },
+  {
+    id: 'indoor-navigation',
+    title: 'Indoor Navigation',
+    link: '/presentation.html',
   }
 ]
