@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indoor Nav — Project Presentation</title>
+  <meta name="description" content="Indoor Nav: An Indoor Navigation System for College Campuses. Project Based Learning presentation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="presentation.css" />
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Slide Counter -->
+  <div class="slide-counter" id="slideCounter">01 / 12</div>
+
+  <!-- Scroll Container -->
+  <div class="slides-container" id="slidesContainer">
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SLIDE 1 — Title -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="slide slide-title" id="slide-1">
+      <div class="bg-grid"></div>
+      <div class="slide-content reveal">
+        <h1 class="title-main">Indoor Nav</h1>
+        <p class="subtitle">An Indoor Navigation System for College Campuses</p>
+        <div class="scroll-hint">
+          <span>Scroll to explore</span>
+          <div class="scroll-arrow"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SLIDE 2 — Problem Statement -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="slide" id="slide-2">
+      <div class="slide-content reveal">
+        <h2 class="slide-heading">The Problem</h2>
+        <div class="highlight-boxes">
+          <div class="highlight-box">
+            <div class="box-icon">🏫</div>
+            <p>Large campus buildings are confusing for new students, visitors, and staff</p>
+          </div>
+          <div class="highlight-box">
+            <div class="box-icon">📍</div>
+            <p>No existing system provides room-level indoor navigation</p>
+          </div>
+          <div class="highlight-box">
+            <div class="box-icon">📅</div>
+            <p>Events and activities inside buildings are hard to discover and locate</p>
+          </div>
+        </div>
+        <p class="bottom-line">GPS doesn't work indoors. There's no Google Maps for buildings.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SLIDE 3 — Our Solution -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="slide" id="slide-3">
+      <div class="slide-content reveal">
+        <h2 class="slide-heading">What We Built</h2>
+        <p class="solution-paragraph">
+          Indoor Nav is a full-stack web application that lets administrators map any building floor-by-floor,
+          add rooms, events, and navigation nodes — and lets users navigate room-to-room with turn-by-turn
+          directions, all from a mobile browser.
+        </p>
+        <div class="feature-pills">
+          <span class="pill">Map Editor</span>
+          <span class="pill-dot">·</span>
+          <span class="pill">Event Management</span>
+          <span class="pill-dot">·</span>
+          <span class="pill">Routing Engine</span>
+          <span class="pill-dot">·</span>
+          <span class="pill">Mobile Preview</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SLIDE 4 — System Architecture -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="slide" id="slide-4">
+      <div class="slide-content reveal">
+        <h2 class="slide-heading">How It Works</h2>
+        <div class="flow-diagram">
+          <div class="flow-step">Admin draws map</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Nodes &amp; edges placed</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">JSON exported</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">A* pathfinding</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Turn-by-turn output</div>
+        </div>
+        <div class="two-columns">
+          <div class="column">
+            <h3 class="column-title">Admin Side</h3>
+            <ul class="column-list">
+              <li>Map Editor</li>
+              <li>Event Manager</li>
+              <li>Navigation Tester</li>
+            </ul>
+          </div>
+          <div class="column">
+            <h3 class="column-title">User Side</h3>
+            <ul class="column-list">
+              <li>Campus Map</li>
+              <li>Building View</li>
+              <li>Navigate Here</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SLIDE 5 — Map Editor -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="slide" id="slide-5">
+      <div class="slide-content reveal">
+        <h2 class="slide-heading">Map Editor</h2>
+        <div class="two-columns two-columns--media">
+          <div class="column column--image">
+            <div class="screenshot-placeholder" id="ph-editor">
+              <img src="editor.png" alt="Map Editor — Floor 1 view with nodes and edges"
+                   onload="this.parentElement.classList.add('loaded')"
+                   onerror="this.style.display='none'" />
+              <span class="placeholder-label">editor.png</span>
+              <span class="placeholder-caption">Map Editor — Floor 1 view with nodes and edges</span>
+            </div>
+          </div>
+          <div class="column column--bullets">
+            <div class="bullet-card"><strong>Intuitive Tile Painting:</strong> Draw paths and define spaces by selecting from 10+ intelligent tile types including Corridors, Toilets, Staircases, and Construction zones.</div>
+            <div class="bullet-card"><strong>Semantic Room Labeling:</strong> Assign meaningful names, numbers, and descriptive metadata to any enclosed space so users can search for exact locations.</div>
+            <div class="bullet-card"><strong>Precision Navigation Graph:</strong> Click to drop invisible navigation nodes at critical intersections and corners to build a robust pathfinding network.</div>
+            <div class="bullet-card"><strong>Edge Connections:</strong> Visually link nodes together to define exactly where users are allowed to walk, preventing routes through solid walls.</div>
+            <div class="bullet-card"><strong>Multi-Floor Architecture:</strong> Seamlessly switch between building levels (Ground, Floor 1, Floor 2) while maintaining global coordinate alignment.</div>
+            <div class="bullet-card"><strong>Data Portability:</strong> Export entire building topologies as lightweight JSON files, and import them instantly for backups or deployment.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SLIDE 6 — Navigation Engine -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="slide" id="slide-6">
+      <div class="slide-content reveal">
+        <h2 class="slide-heading">Routing &amp; Navigation</h2>
+        <div class="two-columns two-columns--media two-columns--reverse">
+          <div class="column column--bullets">
+            <div class="bullet-card"><strong>A* Pathfinding Algorithm:</strong> The system utilizes the highly efficient A* search algorithm, guaranteeing the absolute shortest path between any two locations.</div>
+            <div class="bullet-card"><strong>Continuous Graph Evaluation:</strong> The engine calculates distance metrics using the custom nodes and edges mapped by the administrator in real-time.</div>
+            <div class="bullet-card"><strong>Dynamic Route Visualization:</strong> The computed optimal path is instantly painted onto the map canvas, adapting instantly if the user changes their destination.</div>
+            <div class="bullet-card"><strong>Actionable Turn Instructions:</strong> Abstract path data is translated into human-readable steps like "Head straight," "Turn left," and "Arrive at destination."</div>
+          </div>
+          <div class="column column--image">
+            <div class="screenshot-placeholder" id="ph-navigation">
+              <img src="navigation.png" alt="Navigation page — path highlighted with directions panel"
+                   onload="this.parentElement.classList.add('loaded')"
+                   onerror="this.style.display='none'" />
+              <span class="placeholder-label">navigation.png</span>
+              <span class="placeholder-caption">Navigation page — path highlighted with directions panel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SLIDE 7 — Event Management -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="slide" id="slide-7">
+      <div class="slide-content reveal">
+        <h2 class="slide-heading">Event Management</h2>
+        <div class="two-columns two-columns--media">
+          <div class="column column--image">
+            <div class="screenshot-placeholder" id="ph-events">
+              <img src="events.png" alt="Event Management page"
+                   onload="this.parentElement.classList.add('loaded')"
+                   onerror="this.style.display='none'" />
+              <span class="placeholder-label">events.png</span>
+              <span class="placeholder-caption">Event Management page</span>
+            </div>
+          </div>
+          <div class="column column--bullets">
+            <div class="bullet-card"><strong>Comprehensive Event Data:</strong> Administrators can schedule seminars, classes, and college fests with rich titles, descriptions, and precise time windows.</div>
+            <div class="bullet-card"><strong>Spatial Anchoring:</strong> Every created event is tightly coupled to a specific room ID in the building's semantic topology.</div>
+            <div class="bullet-card"><strong>Live User Visibility:</strong> The mobile interface automatically fetches and displays active events, keeping the campus community informed in real-time.</div>
+            <div class="bullet-card"><strong>One-Tap Routing:</strong> Users exploring the event list can tap "Navigate Here" to instantly bypass manual search and route directly to the venue.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SLIDE 8 — Mobile User Experience -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="slide" id="slide-8">
+      <div class="slide-content reveal">
+        <h2 class="slide-heading">The User Experience</h2>
+        <div class="three-columns">
+          <div class="ux-column">
+            <div class="screenshot-placeholder screenshot-placeholder--mobile" id="ph-campus">
+              <img src="campus_map.png" alt="Campus Map with building markers"
+                   onload="this.parentElement.classList.add('loaded')"
+                   onerror="this.style.display='none'" />
+              <span class="placeholder-label">campus_map.png</span>
+            </div>
+            <p class="ux-caption">Campus Map with building markers. Tap a building to enter.</p>
+          </div>
+          <div class="ux-column">
+            <div class="screenshot-placeholder screenshot-placeholder--mobile" id="ph-floor">
+              <img src="floor_view.png" alt="Floor map with labeled rooms"
+                   onload="this.parentElement.classList.add('loaded')"
+                   onerror="this.style.display='none'" />
+              <span class="placeholder-label">floor_view.png</span>
+            </div>
+            <p class="ux-caption">Floor map with labeled rooms. Tap any room to see details and events.</p>
+          </div>
+          <div class="ux-column">
+            <div class="screenshot-placeholder screenshot-placeholder--mobile" id="ph-room">
+              <img src="room_popup.png" alt="Room popup showing events"
+                   onload="this.parentElement.classList.add('loaded')"
+                   onerror="this.style.display='none'" />
+              <span class="placeholder-label">room_popup.png</span>
+            </div>
+            <p class="ux-caption">Room popup showing scheduled events and a Navigate&nbsp;Here button.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SLIDE 9 — QR & Navigation Flow -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="slide" id="slide-9">
+      <div class="slide-content reveal">
+        <h2 class="slide-heading">Navigate with QR</h2>
+        <div class="two-columns two-columns--media two-columns--vertical-media">
+          <div class="column column--image">
+            <div class="screenshot-placeholder screenshot-placeholder--vertical" id="ph-qr">
+              <img src="setup_route.png" alt="Setup Route screen showing QR tiles"
+                   onload="this.parentElement.classList.add('loaded')"
+                   onerror="this.style.display='none'" />
+              <span class="placeholder-label">setup_route.png</span>
+              <span class="placeholder-caption">Setup Route screen showing QR tiles for each room</span>
+            </div>
+          </div>
+          <div class="column column--bullets">
+            <div class="bullet-card"><strong>Location-Aware QR Codes:</strong> The system generates a distinct, printable QR code for the entrance of every registered room.</div>
+            <div class="bullet-card"><strong>Instant Start Point:</strong> When a user scans a door's QR code, the web app launches with their exact physical location pre-filled as the starting node.</div>
+            <div class="bullet-card"><strong>Frictionless Searching:</strong> Users simply select their target room from an intuitive dropdown and tap "Start Navigation" to begin.</div>
+            <div class="bullet-card"><strong>Bridging Physical and Digital:</strong> This QR approach completely eliminates the need for expensive indoor GPS hardware or Bluetooth beacon installations.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SLIDE 10 — Step-by-Step Navigation -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="slide" id="slide-10">
+      <div class="slide-content reveal">
+        <h2 class="slide-heading">Turn-by-Turn Directions</h2>
+        <div class="two-columns two-columns--media two-columns--reverse two-columns--vertical-media">
+          <div class="column column--bullets">
+            <div class="bullet-card"><strong>Contextual Awareness:</strong> A clear, high-contrast step counter (e.g., "Step 2 of 6") keeps users informed of their overall progress along the route.</div>
+            <div class="bullet-card"><strong>Focused Directives:</strong> The interface isolates the immediate action required, highlighting critical turns so users don't have to parse a complex map while walking.</div>
+            <div class="bullet-card"><strong>Synchronized Map State:</strong> As the user advances through the steps, the underlying map canvas updates its viewport to frame the current leg of the journey.</div>
+            <div class="bullet-card"><strong>Paced Progression:</strong> Simple "Prev" and "Next" controls allow the user to advance the instructions at their own walking pace.</div>
+          </div>
+          <div class="column column--image">
+            <div class="screenshot-placeholder screenshot-placeholder--vertical" id="ph-steps">
+              <img src="navigation_steps.png" alt="Step-by-step navigation view"
+                   onload="this.parentElement.classList.add('loaded')"
+                   onerror="this.style.display='none'" />
+              <span class="placeholder-label">navigation_steps.png</span>
+              <span class="placeholder-caption">Step-by-step navigation view</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SLIDE 11 — Tech Stack -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="slide" id="slide-11">
+      <div class="slide-content reveal">
+        <h2 class="slide-heading">Built With</h2>
+        <div class="tech-grid">
+          <div class="tech-category">
+            <h4 class="tech-category-label">Frontend</h4>
+            <div class="tech-badges">
+              <span class="tech-badge">Vite</span>
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">Tailwind CSS</span>
+              <span class="tech-badge">Zustand</span>
+            </div>
+          </div>
+          <div class="tech-category">
+            <h4 class="tech-category-label">Backend / Data</h4>
+            <div class="tech-badges">
+              <span class="tech-badge">Supabase (PostgreSQL)</span>
+              <span class="tech-badge">Node.js / Express</span>
+            </div>
+          </div>
+          <div class="tech-category">
+            <h4 class="tech-category-label">Map &amp; Routing</h4>
+            <div class="tech-badges">
+              <span class="tech-badge">Canvas API</span>
+              <span class="tech-badge">A* Algorithm</span>
+              <span class="tech-badge">Custom Graph Engine</span>
+            </div>
+          </div>
+          <div class="tech-category">
+            <h4 class="tech-category-label">Other</h4>
+            <div class="tech-badges">
+              <span class="tech-badge">QR Code Generation</span>
+              <span class="tech-badge">JSON Map Export</span>
+              <span class="tech-badge">Leaflet.js (Campus Map)</span>
+            </div>
+          </div>
+        </div>
+        <p class="deployed-line">Deployed at <strong>nav.pabit.in</strong></p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <!-- SLIDE 12 — Future Scope & Conclusion -->
+    <!-- ═══════════════════════════════════════════════════════════════════ -->
+    <section class="slide slide-final" id="slide-12">
+      <div class="slide-content reveal">
+        <h2 class="slide-heading">What's Next</h2>
+        <div class="highlight-boxes">
+          <div class="highlight-box">
+            <div class="box-icon">📡</div>
+            <p>Real-time indoor positioning using BLE beacons or Wi-Fi triangulation</p>
+          </div>
+          <div class="highlight-box">
+            <div class="box-icon">🏙️</div>
+            <p>Multi-building campus support with outdoor-to-indoor routing</p>
+          </div>
+          <div class="highlight-box">
+            <div class="box-icon">📊</div>
+            <p>Admin analytics — foot traffic heatmaps, popular routes</p>
+          </div>
+        </div>
+        <hr class="divider" />
+        <p class="closing-statement">
+          Indoor Nav demonstrates that meaningful, real-world navigation tools
+          can be built from scratch — for any building, by anyone.
+        </p>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="presentation.js"></script>
+</body>
+</html>
