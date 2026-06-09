@@ -33,7 +33,7 @@
 }
 
 html {
-  font-size: 28px;
+  font-size: 24px;
   scroll-behavior: smooth;
 }
 
@@ -92,7 +92,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 20px;
+  padding: 20px 40px;
   position: relative;
   overflow: hidden;
 
@@ -119,7 +119,7 @@ body {
 }
 
 .slide-content {
-  max-width: 100%;
+  max-width: 1450px; /* INCREASED: Makes everything much larger */
   width: 100%;
   margin: 0 auto;
 }
