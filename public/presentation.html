@@ -43,15 +43,83 @@
     <!-- PART 1 — SPEAKER 1: INTRODUCTION & PROBLEM                          -->
     <!-- ═══════════════════════════════════════════════════════════════════ -->
 
-    <section class="slide slide-title" id="slide-1">
+    <section class="slide" id="slide-1" style="padding: 2rem 4rem; overflow-y: auto;">
       <div class="bg-grid"></div>
-      <div class="slide-content reveal">
-        <h1 class="title-main">Indoor Nav</h1>
-        <p class="subtitle">An Indoor Navigation System for College Campuses</p>
-        <div class="scroll-hint">
-          <span>Scroll to explore</span>
+      <div class="slide-content reveal" style="width: 100%; max-width: 1200px; display: flex; flex-direction: column; justify-content: center; height: 100%;">
+
+        <!-- TOP SECTION: Logo, College, Title, Founders -->
+        <div style="display: grid; grid-template-columns: 140px 1fr 140px; gap: 4rem; align-items: start; margin-bottom: 2rem;">
+
+          <!-- Left Column: Logo & Founder 1 -->
+          <div style="display: flex; flex-direction: column; gap: 2rem; align-items: flex-start;">
+            <!-- Logo -->
+            <div style="width: 120px; height: 120px; border-radius: 8px; overflow: hidden; background: white; padding: 5px; border: 1px solid #e2e8f0; box-shadow: var(--shadow-sm);">
+              <img src="college-logo.jpg" alt="College Logo" style="width: 100%; height: 100%; object-fit: contain;" />
+            </div>
+            <!-- Founder 1 -->
+            <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid #e2e8f0; box-shadow: var(--shadow-sm);">
+              <img src="founder-1.jpg" alt="Founder 1" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+          </div>
+
+          <!-- Middle Column: College Name & Title -->
+          <div style="display: flex; flex-direction: column; justify-content: flex-start; gap: 2rem; text-align: center;">
+            <!-- College Name -->
+            <div style="background: white; border-radius: 12px; border: 1px solid #e2e8f0; padding: 2rem; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-md);">
+              <h2 style="font-family: 'DM Serif Display', serif; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 1px; color: black; margin: 0;">SJB Institute of Technology</h2>
+            </div>
+
+            <!-- Title -->
+            <div style="background: white; border-radius: 12px; border: 1px solid #e2e8f0; padding: 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: var(--shadow-md);">
+              <h3 style="font-family: 'DM Serif Display', serif; font-size: 2rem; color: black; margin: 0;">Indoor Navigation</h3>
+              <p style="color: #4b5563; margin-top: 0.5rem; font-size: 1.1rem; margin-bottom: 0;">An Indoor Navigation System for College Campuses</p>
+            </div>
+          </div>
+
+          <!-- Right Column: Founder 2 & Founder 3 -->
+          <div style="display: flex; flex-direction: column; gap: 2rem; align-items: flex-end;">
+            <!-- Founder 2 -->
+            <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid #e2e8f0; box-shadow: var(--shadow-sm);">
+              <img src="founder-2.jpeg" alt="Founder 2" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <!-- Founder 3 -->
+            <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid #e2e8f0; box-shadow: var(--shadow-sm);">
+              <img src="founder-3.webp" alt="Founder 3" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+          </div>
+        </div>
+
+        <!-- BOTTOM SECTION: Team and Presenter -->
+        <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 3rem;">
+          <!-- Team Details -->
+          <div style="background: white; border-radius: 1rem; border: 1px solid #e2e8f0; padding: 2rem; display: flex; flex-direction: column; text-align: left; box-shadow: var(--shadow-md); border-top: 4px solid var(--accent);">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 0.8rem; margin-bottom: 1rem;">
+              <h3 style="font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: black; margin: 0;">Team Details</h3>
+              <span class="speaker-badge" style="margin-bottom: 0; padding: 4px 12px; font-size: 0.75rem;">Team 12</span>
+            </div>
+            <ul style="list-style: none; padding: 0; margin: 0; font-size: 1rem; line-height: 1.8; color: black; flex: 1;">
+              <li style="display: flex; justify-content: space-between;"><strong>Puneet Gangur</strong> <span style="color: #4b5563;">1JB25CS133</span></li>
+              <li style="display: flex; justify-content: space-between;"><strong>Punith KC</strong> <span style="color: #4b5563;">1JB25CS134</span></li>
+              <li style="display: flex; justify-content: space-between;"><strong>Surya P G</strong> <span style="color: #4b5563;">1JB25EE041</span></li>
+              <li style="display: flex; justify-content: space-between;"><strong>Rachana H N</strong> <span style="color: #4b5563;">1JB25CS135</span></li>
+              <li style="display: flex; justify-content: space-between;"><strong>Hansa V</strong> <span style="color: #4b5563;">1JB25AI019</span></li>
+              <li style="display: flex; justify-content: space-between;"><strong>Sanjana U</strong> <span style="color: #4b5563;">1JB25ME045</span></li>
+            </ul>
+          </div>
+
+          <!-- Presented To -->
+          <div style="background: white; border-radius: 1rem; border: 1px solid #e2e8f0; padding: 2rem; display: flex; flex-direction: column; justify-content: center; text-align: left; box-shadow: var(--shadow-md); border-top: 4px solid #38bdf8;">
+            <h3 style="font-family: 'DM Serif Display', serif; font-size: 1.5rem; color: black; margin: 0 0 1rem 0;">Under the Guidance of:</h3>
+            <p style="font-weight: bold; color: black; font-size: 1.3rem; margin: 0 0 0.5rem 0;">Asst Prof. Anusha DY</p>
+            <p style="color: #4b5563; font-size: 1.1rem; margin: 0;">Dept of EEE</p>
+          </div>
+        </div>
+
+        <div class="scroll-hint" style="margin-top: 3rem; position: relative; bottom: 0; left: 50%; transform: translateX(-50%);">
+          <span style="color: white;">Scroll to explore</span>
           <div class="scroll-arrow"></div>
         </div>
+
       </div>
     </section>
 
