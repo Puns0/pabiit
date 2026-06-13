@@ -19,6 +19,7 @@ import DummyBlog from './pages/blogs/DummyBlog'
 import InternetMachine from './pages/blogs/InternetMachine'
 import About from './pages/About'
 import Miscellaneous from './pages/Miscellaneous'
+import EncryptFile from './pages/EncryptFile'
 
 export default function App() {
   const location = useLocation()
@@ -48,6 +49,7 @@ export default function App() {
           <Route path="/blogs/dummy-blog" element={<DummyBlog />} />
           <Route path="/about" element={<About />} />
           <Route path="/miscellaneous" element={<Miscellaneous />} />
+          <Route path="/encrypt-file" element={<EncryptFile />} />
         </Routes>
       </AnimatePresence>
     </>

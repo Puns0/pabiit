@@ -15,6 +15,7 @@ export default function Footer() {
     { name: 'Blogs', path: '/blogs' },
     { name: 'About Me', path: '/about' },
     { name: 'Get Your Own Presentation', path: '/request-presentation' },
+    { name: 'Encrypt File', path: '/encrypt-file' },
   ]
 
   return (

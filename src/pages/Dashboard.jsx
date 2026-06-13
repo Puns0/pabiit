@@ -81,6 +81,12 @@ const secondaryDomains = [
     status: 'OPEN',
   },
   {
+    name: 'Encrypt File',
+    path: '/encrypt-file',
+    desc: 'Encrypt or decrypt files with a password. Runs entirely in your browser.',
+    status: 'OPEN',
+  },
+  {
     name: 'About Me',
     path: '/about',
     desc: 'Operator profile and background.',
