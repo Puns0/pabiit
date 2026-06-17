@@ -75,8 +75,8 @@ const secondaryDomains = [
     status: 'OPEN',
   },
   {
-    name: 'Miscellaneous',
-    path: '/miscellaneous',
+    name: 'Downloads',
+    path: '/downloads',
     desc: 'Downloadable assets, map configurations, and miscellaneous JSON data.',
     status: 'OPEN',
   },

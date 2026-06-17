@@ -18,7 +18,7 @@ import LinuxFundamentals from './pages/blogs/LinuxFundamentals'
 import DummyBlog from './pages/blogs/DummyBlog'
 import InternetMachine from './pages/blogs/InternetMachine'
 import About from './pages/About'
-import Miscellaneous from './pages/Miscellaneous'
+import Downloads from './pages/Downloads'
 import EncryptFile from './pages/EncryptFile'
 
 export default function App() {
@@ -48,7 +48,7 @@ export default function App() {
           <Route path="/blogs/the-internet-machine" element={<InternetMachine />} />
           <Route path="/blogs/dummy-blog" element={<DummyBlog />} />
           <Route path="/about" element={<About />} />
-          <Route path="/miscellaneous" element={<Miscellaneous />} />
+          <Route path="/downloads" element={<Downloads />} />
           <Route path="/encrypt-file" element={<EncryptFile />} />
         </Routes>
       </AnimatePresence>
