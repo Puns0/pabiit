@@ -46,10 +46,20 @@
     return g;
   }
 
+  var LABEL_OFFSETS = {
+    A: { x: 65, y: 168, w: 86, h: 20 },
+    B: { x: 190, y: 22, w: 86, h: 20 },
+    C: { x: 190, y: 192, w: 86, h: 20 },
+    D: { x: 395, y: 35, w: 90, h: 20 },
+    E: { x: 395, y: 100, w: 90, h: 20 },
+    F: { x: 395, y: 165, w: 92, h: 20 }
+  };
+
   function renderRealNetworkSVG(container) {
     container.innerHTML = '';
     var svg = document.createElementNS(SVG_NS, 'svg');
-    svg.setAttribute('viewBox', '0 0 420 220');
+    svg.setAttribute('id', 's03-real-svg');
+    svg.setAttribute('viewBox', '0 0 450 220');
     svg.setAttribute('width', '100%');
     svg.setAttribute('height', '100%');
     svg.style.display = 'block';
@@ -77,7 +87,7 @@
       l.setAttribute('x2', v.x);
       l.setAttribute('y2', v.y);
       l.setAttribute('stroke', 'var(--ink-2)');
-      l.setAttribute('stroke-width', '2.5');
+      l.setAttribute('stroke-width', '3');
       l.setAttribute('stroke-linecap', 'round');
       gLine.appendChild(l);
 
@@ -85,11 +95,11 @@
       var mx = (u.x + v.x) / 2;
       var my = (u.y + v.y) / 2;
       var rect = document.createElementNS(SVG_NS, 'rect');
-      rect.setAttribute('x', mx - 12);
-      rect.setAttribute('y', my - 8);
-      rect.setAttribute('width', '24');
-      rect.setAttribute('height', '16');
-      rect.setAttribute('rx', '3');
+      rect.setAttribute('x', mx - 13);
+      rect.setAttribute('y', my - 9);
+      rect.setAttribute('width', '26');
+      rect.setAttribute('height', '18');
+      rect.setAttribute('rx', '4');
       rect.setAttribute('fill', 'var(--paper-3)');
       rect.setAttribute('stroke', 'var(--ink-3)');
       rect.setAttribute('stroke-width', '1');
@@ -101,7 +111,7 @@
       txt.setAttribute('text-anchor', 'middle');
       txt.setAttribute('dominant-baseline', 'central');
       txt.setAttribute('font-family', 'var(--font-mono)');
-      txt.setAttribute('font-size', '10');
+      txt.setAttribute('font-size', '11');
       txt.setAttribute('font-weight', '700');
       txt.setAttribute('fill', 'var(--ink)');
       txt.textContent = e.w;
@@ -126,10 +136,10 @@
       var circle = document.createElementNS(SVG_NS, 'circle');
       circle.setAttribute('cx', d.x);
       circle.setAttribute('cy', d.y);
-      circle.setAttribute('r', '18');
+      circle.setAttribute('r', '20');
       circle.setAttribute('fill', 'var(--paper-3)');
       circle.setAttribute('stroke', 'var(--ink)');
-      circle.setAttribute('stroke-width', '2');
+      circle.setAttribute('stroke-width', '2.5');
       dg.appendChild(circle);
 
       // Device icon inside
@@ -139,24 +149,41 @@
       icon.setAttribute('text-anchor', 'middle');
       icon.setAttribute('dominant-baseline', 'central');
       icon.setAttribute('font-family', 'var(--font-mono)');
-      icon.setAttribute('font-size', '10');
+      icon.setAttribute('font-size', '12');
       icon.setAttribute('font-weight', '700');
       icon.setAttribute('fill', 'var(--ink)');
       icon.textContent = d.id;
       dg.appendChild(icon);
 
-      // Device Name beneath
+      // Device Name with background pill to guarantee no cable collision
+      var pos = LABEL_OFFSETS[d.id] || { x: d.x, y: d.y + 26, w: 86, h: 20 };
+      var pillG = document.createElementNS(SVG_NS, 'g');
+      pillG.setAttribute('class', 'device-label-pill');
+
+      var pillRect = document.createElementNS(SVG_NS, 'rect');
+      pillRect.setAttribute('x', pos.x - pos.w / 2);
+      pillRect.setAttribute('y', pos.y - pos.h / 2);
+      pillRect.setAttribute('width', pos.w);
+      pillRect.setAttribute('height', pos.h);
+      pillRect.setAttribute('rx', '4');
+      pillRect.setAttribute('fill', 'var(--paper-3)');
+      pillRect.setAttribute('stroke', 'var(--ink-3)');
+      pillRect.setAttribute('stroke-width', '1');
+      pillG.appendChild(pillRect);
+
       var nameLbl = document.createElementNS(SVG_NS, 'text');
-      nameLbl.setAttribute('x', d.x);
-      nameLbl.setAttribute('y', d.y + 24);
+      nameLbl.setAttribute('x', pos.x);
+      nameLbl.setAttribute('y', pos.y);
       nameLbl.setAttribute('text-anchor', 'middle');
+      nameLbl.setAttribute('dominant-baseline', 'central');
       nameLbl.setAttribute('font-family', 'var(--font-mono)');
-      nameLbl.setAttribute('font-size', '9');
-      nameLbl.setAttribute('font-weight', '600');
+      nameLbl.setAttribute('font-size', '10.5');
+      nameLbl.setAttribute('font-weight', '700');
       nameLbl.setAttribute('fill', 'var(--ink-2)');
       nameLbl.textContent = d.name;
-      dg.appendChild(nameLbl);
+      pillG.appendChild(nameLbl);
 
+      dg.appendChild(pillG);
       devicesG.appendChild(dg);
     }
     svg.appendChild(devicesG);
@@ -387,14 +414,14 @@
 
       abstractGraph = buildInitialGraph();
       abstractView = new NG.View(abstractCanvas, abstractGraph, {
-        width: 420,
+        width: 450,
         height: 220,
-        viewBox: '0 0 420 220',
+        viewBox: '0 0 450 220',
         draggable: true,
         showWeights: true,
         weightMode: 'fixed',
-        nodeRadius: 18,
-        padding: 18
+        nodeRadius: 26,
+        padding: 22
       });
 
       // Drag handler: live recalculation of weights = round(euclid / 20)
@@ -461,7 +488,8 @@
 
       // Edit edges button toggle
       var btnEdit = document.getElementById('s03-btn-edit');
-      if (btnEdit) {
+      if (btnEdit && !btnEdit._hasClickListener) {
+        btnEdit._hasClickListener = true;
         btnEdit.addEventListener('click', function () {
           editMode = !editMode;
           btnEdit.textContent = 'Edit edges: ' + (editMode ? 'ON' : 'OFF');
@@ -475,7 +503,8 @@
 
       // Reset button
       var btnReset = document.getElementById('s03-btn-reset');
-      if (btnReset) {
+      if (btnReset && !btnReset._hasClickListener) {
+        btnReset._hasClickListener = true;
         btnReset.addEventListener('click', function () {
           abstractGraph = buildInitialGraph();
           abstractView.graph = abstractGraph;

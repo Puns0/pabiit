@@ -131,12 +131,12 @@
     if (elBackupGraphWrap) {
       elBackupGraphWrap.innerHTML = '';
       view1 = new NG.View(elBackupGraphWrap, graph1, {
-        width: 540,
-        height: 310,
+        width: 560,
+        height: 420,
         viewBox: '0 0 560 420',
         draggable: false,
         showWeights: true,
-        nodeRadius: 18
+        nodeRadius: 28
       });
       view1.render();
 
@@ -193,7 +193,7 @@
     var incPct = (((totalCost - 31) / 31) * 100).toFixed(1);
     var survives = (bridgesList.length === 0 && failedEdgeId === null);
 
-    if (elCostVal) elCostVal.textContent = '₹' + totalCost;
+    if (elCostVal) elCostVal.textContent = totalCost;
     if (elIncreaseVal) elIncreaseVal.textContent = '+' + incPct + '%';
     if (elBridgesVal) elBridgesVal.textContent = bridgesList.length;
     if (elSurvivesChip) {
@@ -220,20 +220,20 @@
     gMarker.setAttribute('class', 'bridge-marker');
     gMarker.setAttribute('transform', 'translate(' + mx + ',' + my + ')');
 
-    // Warning diamond badge
+    // Warning diamond badge (>= 28px)
     var path = document.createElementNS(svgNS, 'path');
-    path.setAttribute('d', 'M0,-9 L9,0 L0,9 L-9,0 Z');
+    path.setAttribute('d', 'M0,-15 L15,0 L0,15 L-15,0 Z');
     path.setAttribute('fill', 'var(--vermilion)');
     path.setAttribute('stroke', '#fff');
-    path.setAttribute('stroke-width', '1.5');
+    path.setAttribute('stroke-width', '2');
     gMarker.appendChild(path);
 
     var txt = document.createElementNS(svgNS, 'text');
     txt.setAttribute('x', '0');
-    txt.setAttribute('y', '3');
+    txt.setAttribute('y', '5');
     txt.setAttribute('text-anchor', 'middle');
     txt.setAttribute('font-family', 'var(--font-mono)');
-    txt.setAttribute('font-size', '9px');
+    txt.setAttribute('font-size', '16px');
     txt.setAttribute('font-weight', '700');
     txt.setAttribute('fill', '#fff');
     txt.textContent = '!';
@@ -324,12 +324,12 @@
     if (elSptGraphWrap) {
       elSptGraphWrap.innerHTML = '';
       view2 = new NG.View(elSptGraphWrap, graph2, {
-        width: 540,
-        height: 310,
+        width: 560,
+        height: 420,
         viewBox: '0 0 560 420',
         draggable: false,
         showWeights: true,
-        nodeRadius: 18
+        nodeRadius: 28
       });
       view2.render();
 
@@ -411,9 +411,13 @@
     for (var k = 0; k < nNodes; k++) {
       var nodeKey = CANONICAL_NODES[k].id;
       if (nodeKey === sptRoot) {
-        view2.setNodeState(nodeKey, { fill: 'var(--highlighter-yellow)', ring: 'var(--vermilion)' });
+        view2.setNodeState(nodeKey, { fill: '#FEF7E0', ring: '#D49A00' });
+        var itm = view2._nodeEls.get(nodeKey);
+        if (itm && itm.text) itm.text.style.fill = '#1C1A16';
       } else {
-        view2.setNodeState(nodeKey, { fill: 'var(--paper-2)', ring: 'var(--ink)' });
+        view2.setNodeState(nodeKey, { fill: '#FBF6E9', ring: '#1C1A16' });
+        var itm2 = view2._nodeEls.get(nodeKey);
+        if (itm2 && itm2.text) itm2.text.style.fill = '#1C1A16';
       }
     }
 
@@ -561,7 +565,7 @@
     steinerElements.gS.style.cursor = 'grab';
 
     var sCircle = document.createElementNS(svgNS, 'circle');
-    sCircle.setAttribute('r', '14');
+    sCircle.setAttribute('r', '16');
     sCircle.setAttribute('fill', '#e8f0fe');
     sCircle.setAttribute('stroke', 'var(--cobalt)');
     sCircle.setAttribute('stroke-width', '2.5');
@@ -572,7 +576,7 @@
     sText.setAttribute('dominant-baseline', 'central');
     sText.setAttribute('font-family', 'var(--font-mono)');
     sText.setAttribute('font-weight', '700');
-    sText.setAttribute('font-size', '12px');
+    sText.setAttribute('font-size', '13px');
     sText.setAttribute('fill', 'var(--cobalt)');
     sText.textContent = 'S';
     steinerElements.gS.appendChild(sText);
@@ -587,7 +591,7 @@
       gT.style.cursor = 'grab';
 
       var tCircle = document.createElementNS(svgNS, 'circle');
-      tCircle.setAttribute('r', '16');
+      tCircle.setAttribute('r', '18');
       tCircle.setAttribute('fill', 'var(--paper-2)');
       tCircle.setAttribute('stroke', 'var(--ink)');
       tCircle.setAttribute('stroke-width', '2.5');
@@ -598,7 +602,7 @@
       tText.setAttribute('dominant-baseline', 'central');
       tText.setAttribute('font-family', 'var(--font-mono)');
       tText.setAttribute('font-weight', '700');
-      tText.setAttribute('font-size', '13px');
+      tText.setAttribute('font-size', '14px');
       tText.setAttribute('fill', 'var(--ink)');
       tText.textContent = key;
       gT.appendChild(tText);
