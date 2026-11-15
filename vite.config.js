@@ -9,7 +9,10 @@ export default defineConfig({
       name: 'copy-mathpre',
       closeBundle() {
         if (fs.existsSync('mathpre')) {
-          fs.cpSync('mathpre', 'dist/mathpre', { recursive: true })
+          fs.cpSync('mathpre', 'dist/mathpre', {
+            recursive: true,
+            filter: (src) => !src.includes('scratch')
+          })
         }
       }
     }
