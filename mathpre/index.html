@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Network Design Using Spanning Trees</title>
+
+  <!-- Stylesheets in SPEC order -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/deck.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/slides.css">
+</head>
+<body>
+
+  <!-- SVG Noise Filter for Paper Texture -->
+  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <filter id="paper-noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+  </svg>
+
+  <!-- Main Presentation Deck -->
+  <main id="deck">
+
+    <!-- Slide 1: Official College Template -->
+    <section class="slide" id="s01" data-title="Title" data-notes="Title slide: SJB Institute of Technology, Department of Computer Science and Engineering. Presentation on Computer Network Design Using Spanning Trees, Discrete Mathematics and Graph Theory. Prepared by Puneet Gangur, Raghav Atreya, Ronit Chakraborthy, and S K Jagadeesh under the guidance of Mrs. Divya. K, Assistant Professor, Department of Mathematics.">
+      <span class="slide-label" style="display:none">§ 01</span>
+      <div class="s01-template-frame reveal" style="--i:0">
+        
+        <!-- Top Institutional Header with 4 Corner Avatars -->
+        <header class="s01-top-header">
+          <!-- Left Founders (Top: founder-1, Bottom: founder-3) -->
+          <div class="s01-avatars-col left">
+            <div class="s01-avatar-wrap">
+              <img src="founder_images/founder-1.jpg" alt="His Holiness Jagadguru Sri Sri Sri Dr. Balagangadharanatha Mahaswamiji" class="s01-avatar">
+            </div>
+            <div class="s01-avatar-wrap">
+              <img src="founder_images/founder-3.webp" alt="Founder" class="s01-avatar">
+            </div>
+          </div>
+
+          <!-- Center Institution Crest & Details -->
+          <div class="s01-inst-center">
+            <div class="s01-invocation">|| Jai Sri Gurudev ||</div>
+            <div class="s01-trust-name">Sri Adichunchanagiri Shikshana Trust&reg;</div>
+            <h1 class="s01-inst-title">SJB INSTITUTE OF TECHNOLOGY</h1>
+            <div class="s01-inst-affil">(An Autonomous Institution Affiliated to Visvesvaraya Technological University, Belagavi &amp; Approved by AICTE, New Delhi.)</div>
+            <div class="s01-inst-naac">Accredited with NAAC &lsquo;A+&rsquo; grade</div>
+            <div class="s01-inst-address">No. 67, BGS Health &amp; Education City, Dr. Vishnuvardhan Road Kengeri, Bengaluru &ndash; 560 060</div>
+          </div>
+
+          <!-- Right Founders (Top: founder-2, Bottom: college-logo) -->
+          <div class="s01-avatars-col right">
+            <div class="s01-avatar-wrap">
+              <img src="founder_images/founder-2.jpeg" alt="Sri Sri Sri Dr. Nirmalanandanatha Mahaswamiji" class="s01-avatar">
+            </div>
+            <div class="s01-avatar-wrap">
+              <img src="founder_images/college-logo.jpg" alt="SJB Institute of Technology Logo" class="s01-avatar logo">
+            </div>
+          </div>
+        </header>
+
+        <!-- Divider Line -->
+        <div class="s01-divider"></div>
+
+        <!-- Center Presentation Titles -->
+        <main class="s01-main-body">
+          <div class="s01-dept">Department of Computer Science and Engineering</div>
+          <div class="s01-pres-on">Presentation on:</div>
+          <h2 class="s01-project-title">Computer Network Design Using Spanning Trees</h2>
+          <div class="s01-subject">Subject: Discrete Mathematics and Graph Theory</div>
+        </main>
+
+        <!-- Divider Line -->
+        <div class="s01-divider"></div>
+
+        <!-- Bottom 3-Column Info -->
+        <footer class="s01-bottom-grid">
+          <!-- Col 1: Presented by -->
+          <div class="s01-info-col presented-by">
+            <div class="s01-col-heading">Presented by:</div>
+            <ol class="s01-student-list">
+              <li>Puneet Gangur &ndash; <span class="mono">USN: 1JB25CS133</span></li>
+              <li>Raghav Atreya &ndash; <span class="mono">USN: 1JB25CS136</span></li>
+              <li>Ronit Chakraborthy &ndash; <span class="mono">USN: 1JB25CS149</span></li>
+              <li>S K Jagadeesh &ndash; <span class="mono">USN: 1JB25CS150</span></li>
+            </ol>
+          </div>
+
+          <!-- Col 2: Academic Details -->
+          <div class="s01-info-col academic-info">
+            <div class="s01-meta-row"><span>Academic year :</span> <strong>2026-27</strong></div>
+            <div class="s01-meta-row"><span>Semester :</span> <strong>III semester</strong></div>
+            <div class="s01-meta-row"><span>Branch &amp; Section :</span> <strong>CSE - C</strong></div>
+          </div>
+
+          <!-- Col 3: Under the Guidance of -->
+          <div class="s01-info-col guidance">
+            <div class="s01-col-heading">Under the guidance of:</div>
+            <div class="s01-guide-name">Mrs. Divya. K</div>
+            <div class="s01-guide-role">Assistant Professor</div>
+            <div class="s01-guide-dept">Department of Mathematics</div>
+          </div>
+        </footer>
+
+      </div>
+    </section>
+
+    <!-- Slide 2: Introduction -->
+    <section class="slide" id="s01b" data-title="Introduction" data-notes="A computer network connects devices such as computers, switches, routers and servers using wired or wireless links. By modelling networks as graphs with vertices and edges, spanning trees eliminate redundant loops and reduce unnecessary connections in campus, office, and communication systems.">
+      <span class="slide-label">§ 02</span>
+      <h2 class="reveal" style="--i:0">Introduction
+        <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+          <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+        </svg>
+      </h2>
+      <div class="s01b-layout">
+        <div class="s01b-illustration-col reveal" style="--i:1">
+          <div class="card s01b-notecard">
+            <svg class="s01b-network-svg" viewBox="0 0 460 360" aria-label="A network as a graph">
+              <!-- Links from SW (230, 185) -->
+              <line class="s01b-edge" x1="230" y1="185" x2="230" y2="60" />
+              <line class="s01b-edge" x1="230" y1="185" x2="85" y2="105" />
+              <line class="s01b-edge" x1="230" y1="185" x2="75" y2="255" />
+              <line class="s01b-edge" x1="230" y1="185" x2="180" y2="315" />
+              <line class="s01b-edge" x1="230" y1="185" x2="310" y2="315" />
+              <line class="s01b-edge" x1="230" y1="185" x2="395" y2="185" />
+
+              <!-- Central Switch SW -->
+              <g class="s01b-node" transform="translate(230,185)">
+                <rect x="-28" y="-22" width="56" height="44" rx="8" class="s01b-node-sw" />
+                <text y="5" text-anchor="middle" class="s01b-sw-label">SW</text>
+              </g>
+
+              <!-- Server SV -->
+              <g class="s01b-node" transform="translate(230,60)">
+                <rect x="-26" y="-22" width="52" height="44" rx="6" class="s01b-node-sv" />
+                <line x1="-18" y1="-8" x2="18" y2="-8" stroke="var(--ink)" stroke-width="1.5" />
+                <line x1="-18" y1="4" x2="18" y2="4" stroke="var(--ink)" stroke-width="1.5" />
+                <circle cx="14" cy="14" r="2.5" fill="var(--c1)" />
+                <text y="-12" text-anchor="middle" class="s01b-sv-label">SV</text>
+              </g>
+
+              <!-- PC1 to PC5 -->
+              <g class="s01b-node" transform="translate(85,105)">
+                <circle r="22" class="s01b-node-pc" />
+                <text y="5" text-anchor="middle" class="s01b-pc-label">PC1</text>
+              </g>
+              <g class="s01b-node" transform="translate(75,255)">
+                <circle r="22" class="s01b-node-pc" />
+                <text y="5" text-anchor="middle" class="s01b-pc-label">PC2</text>
+              </g>
+              <g class="s01b-node" transform="translate(180,315)">
+                <circle r="22" class="s01b-node-pc" />
+                <text y="5" text-anchor="middle" class="s01b-pc-label">PC3</text>
+              </g>
+              <g class="s01b-node" transform="translate(310,315)">
+                <circle r="22" class="s01b-node-pc" />
+                <text y="5" text-anchor="middle" class="s01b-pc-label">PC4</text>
+              </g>
+              <g class="s01b-node" transform="translate(395,185)">
+                <circle r="22" class="s01b-node-pc" />
+                <text y="5" text-anchor="middle" class="s01b-pc-label">PC5</text>
+              </g>
+            </svg>
+            <p class="s01b-caption">A network as a graph</p>
+          </div>
+        </div>
+        <div class="s01b-text-col">
+          <div class="card s01b-statement-card reveal" style="--i:1">
+            <p class="s01b-statement">A computer network connects devices such as computers, switches, routers and servers.</p>
+          </div>
+          <div class="card s01b-statement-card reveal" style="--i:2">
+            <p class="s01b-statement">Devices communicate through wired or wireless connections.</p>
+          </div>
+          <div class="card s01b-statement-card reveal" style="--i:3">
+            <p class="s01b-statement">Graph Theory represents devices as vertices and communication links as edges.</p>
+          </div>
+          <div class="card s01b-statement-card reveal" style="--i:4">
+            <p class="s01b-statement">A spanning tree is a connected subgraph that includes all vertices without forming any cycles.</p>
+          </div>
+          <div class="card s01b-statement-card reveal" style="--i:5">
+            <p class="s01b-statement">It helps design efficient networks by reducing unnecessary connections.</p>
+          </div>
+          <div class="card s01b-statement-card reveal" style="--i:6">
+            <p class="s01b-statement">Useful in campus networks, office networks and communication systems.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 3 -->
+    <section class="slide" id="s02" data-title="The Problem" data-notes="A college needs to connect n buildings with cable so every building reaches every other. A full mesh uses n(n-1)/2 links which is unaffordably expensive, while a tree uses only n-1 links with zero redundant loops. At 100 buildings, that is 4950 links compared to just 99.">
+      <span class="slide-label">§ 03</span>
+      <h2 class="reveal" style="--i:0">The Problem
+        <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+          <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+        </svg>
+      </h2>
+      <div class="s02-layout">
+        <div class="s02-left">
+          <div class="card s02-opening-card reveal" style="--i:1">
+            <p class="s02-opening-text">
+              A college has <strong>n</strong> buildings. Connect them all with cable. Every building must reach every other. Cable is expensive. No pointless loops.
+            </p>
+          </div>
+          <div class="card s02-points-card reveal" style="--i:2">
+            <ol class="s02-points-list">
+              <li class="s02-point-item reveal" style="--i:2">Networks contain many devices that must connect to communicate and share resources.</li>
+              <li class="s02-point-item reveal" style="--i:3">Too many links increase installation and maintenance costs.</li>
+              <li class="s02-point-item reveal" style="--i:4">Unnecessary connections can create cycles or loops.</li>
+              <li class="s02-point-item reveal" style="--i:5">Every device must still be able to reach every other device.</li>
+              <li class="s02-point-item s02-challenge-item reveal" style="--i:6"><strong>The challenge: find the required connections and avoid unnecessary links.</strong></li>
+              <li class="s02-point-item reveal" style="--i:7">A spanning tree connects all n devices using exactly n−1 links, with no cycles.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="s02-right">
+          <div class="s02-stats-row reveal" style="--i:2">
+            <div class="s02-stat-box">
+              <div class="s02-stat-num" id="s02-stat-mesh">28</div>
+              <div class="s02-stat-lbl">Full Mesh Links<br><code>n(n-1)/2</code></div>
+            </div>
+            <div class="s02-stat-box">
+              <div class="s02-stat-num highlight" id="s02-stat-tree">7</div>
+              <div class="s02-stat-lbl">Tree Links<br><code>n-1</code></div>
+            </div>
+            <div class="s02-stat-box">
+              <div class="s02-stat-num" id="s02-stat-wasted">21</div>
+              <div class="s02-stat-lbl">Wasted Links<br><code>Mesh &minus; Tree</code></div>
+            </div>
+            <div class="s02-stat-box">
+              <div class="s02-stat-num" id="s02-stat-ratio">25.0%</div>
+              <div class="s02-stat-lbl">Tree Uses<br><code>% of Mesh</code></div>
+            </div>
+          </div>
+          <div class="card s02-slider-box reveal" style="--i:3">
+            <div class="s02-slider-header">
+              <span>Buildings: <strong id="s02-n-val" style="color:var(--vermilion);font-size:1.2rem;">8</strong></span>
+              <span class="pill mono">n &isin; [2, 100]</span>
+            </div>
+            <input type="range" id="s02-slider" min="2" max="100" value="8" style="margin-top:0.35rem;" aria-label="Number of buildings n">
+          </div>
+          <div class="s02-diagram-panel reveal" style="--i:4">
+            <div class="s02-diagram-split" id="s02-split-view">
+              <div class="card s02-drawing-card">
+                <div class="s02-circ-label">Full Mesh: All Links</div>
+                <div id="s02-mesh-canvas" class="s02-canvas-wrap"></div>
+              </div>
+              <div class="card s02-drawing-card">
+                <div class="s02-circ-label s02-tree-label">Spanning Tree: n&minus;1 Links</div>
+                <div id="s02-tree-canvas" class="s02-canvas-wrap"></div>
+              </div>
+            </div>
+            <div class="card s02-bars-view" id="s02-bars-view">
+              <div id="s02-bars-node-ring" class="s02-bars-ring-wrap"></div>
+              <div class="s02-bar-item">
+                <div class="s02-bar-header">
+                  <span>Full Mesh Links:</span><span id="s02-bar-mesh-count">4,950</span>
+                </div>
+                <div class="s02-bar-track"><div class="s02-bar-fill mesh-bar" id="s02-bar-mesh-fill" style="width:100%;"></div></div>
+              </div>
+              <div class="s02-bar-item">
+                <div class="s02-bar-header">
+                  <span style="color:var(--vermilion);">Spanning Tree Links:</span><span id="s02-bar-tree-count" style="color:var(--vermilion);font-weight:700;">99</span>
+                </div>
+                <div class="s02-bar-track"><div class="s02-bar-fill tree-bar" id="s02-bar-tree-fill" style="width:2%;"></div></div>
+              </div>
+              <div class="s02-overflow-caption">&ldquo;Too many lines to draw. That is the point.&rdquo;</div>
+              <div class="s02-callout" id="s02-callout-100">
+                <strong>Fixed Fact (n = 100):</strong><br>
+                4,950 links vs 99.<br>
+                A spanning tree connects all 100 buildings using only <strong>2.0%</strong> of the mesh cable.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 4: Objectives -->
+    <section class="slide" id="s02b" data-title="Objectives" data-notes="Key presentation objectives: modelling physical computer networks with graph theory, exploring spanning tree properties, implementing Kruskal's and Prim's MST algorithms, evaluating computational complexity, analyzing single-point-of-failure constraints, and studying practical protocols like STP.">
+      <span class="slide-label">§ 04</span>
+      <h2 class="reveal" style="--i:0">Objectives
+        <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+          <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+        </svg>
+      </h2>
+      <div class="s02b-grid">
+        <div class="card s02b-card reveal" style="--i:1">
+          <span class="s02b-marker marker-c1">1</span>
+          <p class="s02b-text">Model computer networks using graph theory concepts.</p>
+        </div>
+        <div class="card s02b-card reveal" style="--i:2">
+          <span class="s02b-marker marker-c2">2</span>
+          <p class="s02b-text">Understand the properties and role of spanning trees in network design.</p>
+        </div>
+        <div class="card s02b-card reveal" style="--i:3">
+          <span class="s02b-marker marker-c3">3</span>
+          <p class="s02b-text">Apply Kruskal's and Prim's algorithms to find Minimum Spanning Trees (MST).</p>
+        </div>
+        <div class="card s02b-card reveal" style="--i:4">
+          <span class="s02b-marker marker-c4">4</span>
+          <p class="s02b-text">Compare algorithm complexity and suitability for different network sizes.</p>
+        </div>
+        <div class="card s02b-card reveal" style="--i:5">
+          <span class="s02b-marker marker-c5">5</span>
+          <p class="s02b-text">Analyze real-world limitations such as single point of failure and bottleneck links.</p>
+        </div>
+        <div class="card s02b-card reveal" style="--i:6">
+          <span class="s02b-marker marker-vermilion">6</span>
+          <p class="s02b-text">Study practical solutions including Spanning Tree Protocol (STP) and redundant links.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 5: Graph Modelling -->
+    <section class="slide" id="s03" data-title="Graph Modelling" data-notes="We model physical computer network equipment as an undirected weighted graph where switches and routers are vertices, cables are edges, and cable lengths or costs are weights. The interactive table and graph demonstrate how local changes update the mathematical adjacency structures.">
+      <span class="slide-label">§ 05</span>
+      <h2 class="reveal" style="--i:0">Graph Modelling
+        <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+          <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+        </svg>
+      </h2>
+      <div class="s03-layout">
+        <div class="s03-left-col">
+          <div class="card reveal" style="--i:1">
+            <p style="margin:0;font-size:1.05rem;font-weight:600;">Turn the network into a graph.</p>
+            <p style="margin:0.4rem 0 0;font-size:0.85rem;color:var(--ink-2);">
+              Note: Undirected, simple (no self-loops, no parallel edges), connected.
+            </p>
+          </div>
+          <div class="card reveal" style="--i:2;padding:0.75rem;">
+            <table class="s03-mapping-table" id="s03-mapping-table">
+              <thead><tr><th>Real Network</th><th>Graph Concept</th><th>Math</th></tr></thead>
+              <tbody>
+                <tr data-map="devices"><td>Router / Switch</td><td>Vertex</td><td class="mono">v &isin; V</td></tr>
+                <tr data-map="cables"><td>Cable between two devices</td><td>Edge</td><td class="mono">e = {u,v} &isin; E</td></tr>
+                <tr data-map="costs"><td>Cost or length of the cable</td><td>Weight</td><td class="mono">w(e) &gt; 0</td></tr>
+                <tr data-map="whole"><td>Whole network</td><td>Weighted graph</td><td class="mono">G = (V, E, w)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="s03-right-col reveal" style="--i:2">
+          <div class="s03-diagrams-row">
+            <div class="s03-sub-diagram">
+              <div class="s03-sub-diagram-header">
+                <span>1. Real Network (6 Devices)</span>
+                <span class="pill mono">Hardware</span>
+              </div>
+              <div class="s03-canvas-area" id="s03-real-canvas"></div>
+            </div>
+            <div class="s03-sub-diagram">
+              <div class="s03-sub-diagram-header">
+                <span>2. Abstract Graph G = (V, E, w)</span>
+                <button type="button" class="btn" id="s03-btn-edit" style="padding:0.15rem 0.5rem;font-size:0.75rem;">Edit edges: OFF</button>
+              </div>
+              <div class="s03-canvas-area" id="s03-abstract-canvas"></div>
+            </div>
+          </div>
+          <div class="s03-bottom-panel reveal" style="--i:3">
+            <div>
+              <div class="mono" style="font-size:0.75rem;font-weight:700;margin-bottom:0.25rem;">ADJACENCY MATRIX</div>
+              <div id="s03-matrix-wrap"></div>
+            </div>
+            <div>
+              <div class="mono" style="font-size:0.75rem;font-weight:700;margin-bottom:0.25rem;">ADJACENCY LIST</div>
+              <div class="s03-adj-list" id="s03-adj-list-wrap"></div>
+            </div>
+            <div class="s03-readouts-col">
+              <div>|V| = <strong id="s03-readout-v">6</strong></div>
+              <div>|E| = <strong id="s03-readout-e">7</strong></div>
+              <div>&sum; w = <strong id="s03-readout-sum">35</strong></div>
+              <div>Degree: <strong id="s03-readout-deg">&minus;</strong></div>
+              <button type="button" class="btn" id="s03-btn-reset" style="margin-top:0.4rem;padding:0.25rem 0.6rem;font-size:0.8rem;">Reset</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 6: Trees -->
+    <section class="slide" id="s04" data-title="Trees" data-notes="A tree is defined mathematically as a connected undirected graph containing no cycles, possessing exactly n-1 edges. Between any two vertices there exists exactly one simple path, and severing any edge splits the graph into two connected components. Adding any edge introduces a unique cycle.">
+      <span class="slide-label">§ 06</span>
+      <h2 class="reveal" style="--i:0">Trees
+        <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+          <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+        </svg>
+      </h2>
+      <div class="s04-layout">
+        <!-- Left Column: Definition & Properties -->
+        <div class="s04-left">
+          <div class="card reveal" style="--i:1">
+            <div class="s04-card-title">DEFINITION</div>
+            <p style="margin:0;font-size:1.02rem;line-height:1.5;">
+              A <strong>tree</strong> is a connected graph with no cycles.
+            </p>
+          </div>
+          <div class="card reveal" style="--i:2">
+            <div class="s04-card-title">KEY PROPERTIES (HOVER TO PREVIEW)</div>
+            <div class="s04-props-list" id="s04-props-list">
+              <div class="s04-prop-item" data-prop="1" tabindex="0" role="button" aria-label="Property 1: n vertices require n minus 1 edges">
+                <span class="s04-prop-num">1</span>
+                <span><strong>n</strong> vertices &rarr; exactly <strong>n &minus; 1</strong> edges.</span>
+              </div>
+              <div class="s04-prop-item" data-prop="2" tabindex="0" role="button" aria-label="Property 2: Exactly one path between any two vertices">
+                <span class="s04-prop-num">2</span>
+                <span>Exactly <strong>ONE</strong> path between any two vertices.</span>
+              </div>
+              <div class="s04-prop-item" data-prop="3" tabindex="0" role="button" aria-label="Property 3: Remove any edge falls apart into two pieces">
+                <span class="s04-prop-num">3</span>
+                <span>Remove any edge &rarr; falls apart into <strong>2</strong> pieces.</span>
+              </div>
+              <div class="s04-prop-item" data-prop="4" tabindex="0" role="button" aria-label="Property 4: Add any edge creates exactly one cycle">
+                <span class="s04-prop-num">4</span>
+                <span>Add any edge &rarr; exactly <strong>ONE</strong> cycle appears.</span>
+              </div>
+            </div>
+          </div>
+          <div class="s04-controls-card card reveal" style="--i:3">
+            <div style="display:flex;gap:0.5rem;align-items:center;justify-content:space-between;">
+              <button type="button" class="btn" id="s04-btn-pathmode">Path finder: OFF</button>
+              <button type="button" class="btn" id="s04-btn-reset">Reset tree</button>
+            </div>
+            <div class="s04-hint-box" id="s04-hint-box">
+              Click any edge in the graph to toggle it on/off.
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Status & Canvas -->
+        <div class="s04-right reveal" style="--i:2">
+          <div class="s04-status-card card">
+            <div class="s04-status-items">
+              <div class="s04-status-item">
+                <span class="s04-status-lbl">Connected:</span>
+                <span class="chip chip-yes" id="s04-status-conn">YES</span>
+              </div>
+              <div class="s04-status-item">
+                <span class="s04-status-lbl">Acyclic:</span>
+                <span class="chip chip-yes" id="s04-status-acyc">YES</span>
+              </div>
+              <div class="s04-status-item">
+                <span class="s04-status-lbl">Edges (m vs n&minus;1):</span>
+                <span class="pill mono" id="s04-status-m">7 vs 7</span>
+              </div>
+            </div>
+            <div class="s04-verdict-wrap">
+              <span class="s04-verdict-chip verdict-tree" id="s04-verdict">TREE</span>
+            </div>
+          </div>
+          <div class="s04-canvas-container" id="s04-canvas"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 7: Spanning Trees -->
+    <section class="slide" id="s05" data-title="Spanning Trees" data-notes="A spanning tree is a subgraph containing every vertex of G that forms a tree. Cayley's theorem proves that a complete graph on n vertices has n to the power of n minus 2 distinct spanning trees. We enumerate all spanning trees and verify the count using Kirchhoff's matrix-tree theorem.">
+      <span class="slide-label">§ 07</span>
+      <h2 class="reveal" style="--i:0">Spanning Trees
+        <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+          <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+        </svg>
+      </h2>
+      <div class="s05-layout">
+        <!-- Left Column: Cayley Formula & Mini Kn Widget -->
+        <div class="s05-left">
+          <div class="card reveal" style="--i:1">
+            <div class="s05-card-title">DEFINITION</div>
+            <p style="margin:0;font-size:1.02rem;line-height:1.45;">
+              A <strong>spanning tree</strong> of G is a subgraph that is a tree and contains every vertex of G.
+            </p>
+          </div>
+          <div class="card reveal" style="--i:2">
+            <div class="s05-card-title">CAYLEY&rsquo;S FORMULA</div>
+            <p style="margin:0 0 0.4rem;font-size:0.92rem;">
+              The complete graph K<sub>n</sub> has <strong>n<sup>n&minus;2</sup></strong> spanning trees.
+            </p>
+            <table class="s05-cayley-table" id="s05-cayley-table">
+              <thead><tr><th>n</th><th>Formula n<sup>n&minus;2</sup></th><th>Count</th></tr></thead>
+              <tbody id="s05-cayley-tbody"></tbody>
+            </table>
+          </div>
+          <div class="card s05-mini-kn-card reveal" style="--i:3">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span class="s05-card-title" style="margin:0;">COMPLETE GRAPH K<sub>n</sub></span>
+              <span class="pill mono">n = <strong id="s05-kn-n-lbl">4</strong></span>
+            </div>
+            <input type="range" id="s05-kn-slider" min="3" max="10" value="4" style="margin:0.35rem 0;">
+            <div class="s05-kn-preview-row">
+              <div class="s05-kn-svg-wrap" id="s05-kn-canvas"></div>
+              <div class="s05-kn-count-box">
+                <div class="s05-kn-count-label">Spanning trees:</div>
+                <div class="s05-kn-count-num" id="s05-kn-count-val">16</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Explorer of All Spanning Trees -->
+        <div class="s05-right reveal" style="--i:2">
+          <div class="s05-toolbar card">
+            <div class="s05-nav-group">
+              <button type="button" class="btn" id="s05-btn-prev">&larr; Prev</button>
+              <button type="button" class="btn" id="s05-btn-next">Next &rarr;</button>
+              <button type="button" class="btn" id="s05-btn-random">Random</button>
+              <button type="button" class="btn btn-primary" id="s05-btn-autoplay">Autoplay</button>
+            </div>
+            <div class="s05-sort-group">
+              <button type="button" class="btn" id="s05-btn-sort">Sort: Unsorted</button>
+            </div>
+          </div>
+
+          <div class="s05-stats-row">
+            <div class="s05-tree-counter">
+              <span class="mono" style="font-size:1.1rem;font-weight:700;">Tree <span id="s05-tree-idx">1</span> of <span id="s05-tree-total">464</span></span>
+            </div>
+            <div class="s05-tree-weights">
+              <span class="pill mono">Weight: <strong id="s05-tree-weight" style="color:var(--vermilion);font-size:1.05rem;">31</strong></span>
+              <span class="pill mono">Lightest found: <strong id="s05-tree-lightest">31</strong></span>
+            </div>
+          </div>
+
+          <div class="s05-canvas-container" id="s05-canvas"></div>
+
+          <div class="s05-footnote" id="s05-footnote">
+            <span class="s05-foot-check" id="s05-foot-check">&check;</span>
+            <span id="s05-foot-text">N = 464 verified by Kirchhoff&rsquo;s matrix-tree theorem = enumeration count</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 8: Minimum Spanning Tree -->
+    <section class="slide" id="s06" data-title="Minimum Spanning Tree" data-notes="A minimum spanning tree is a spanning tree whose total sum of edge weights is minimized. If all edge weights are distinct, the MST is mathematically unique. In this live demo, the audience can try to beat greedy algorithms by selecting edges manually.">
+      <span class="slide-label">§ 08</span>
+      <h2 class="reveal" style="--i:0">Minimum Spanning Tree
+        <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+          <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+        </svg>
+      </h2>
+      <div class="s06-layout">
+        <!-- Left Column: Cards & Histogram -->
+        <div class="s06-left">
+          <div class="card reveal" style="--i:1">
+            <div class="s06-card-title">DEFINITION</div>
+            <p style="margin:0;font-size:1.02rem;line-height:1.45;">
+              A <strong>minimum spanning tree (MST)</strong> is a spanning tree whose total weight
+              <span class="mono" style="display:block;margin:0.25rem 0;color:var(--vermilion);">w(T) = &sum;<sub>e &isin; T</sub> w(e)</span>
+              is as small as possible.
+            </p>
+          </div>
+          <div class="card reveal" style="--i:2">
+            <div class="s06-card-title">MATHEMATICAL FACTS</div>
+            <ul style="margin:0;padding-left:1.2rem;font-size:0.88rem;line-height:1.45;">
+              <li>If all edge weights are distinct, the MST is <strong>unique</strong>.</li>
+              <li>If weights tie, multiple MSTs may exist, all with the same minimum total.</li>
+            </ul>
+          </div>
+          <div class="card s06-hist-card reveal" style="--i:3">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.35rem;">
+              <span class="s06-card-title" style="margin:0;">WEIGHT HISTOGRAM (ALL 464 TREES)</span>
+              <button type="button" class="btn" id="s06-btn-toggle-hist" style="padding:0.15rem 0.5rem;font-size:0.75rem;">Hide</button>
+            </div>
+            <div id="s06-hist-container"></div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Builder -->
+        <div class="s06-right reveal" style="--i:2">
+          <div class="s06-toolbar card">
+            <div class="s06-status-chips">
+              <span class="pill mono">Edges: <strong id="s06-chosen-k">0</strong> of 7</span>
+              <span class="pill mono">Weight: <strong id="s06-curr-weight" style="color:var(--vermilion);font-size:1.05rem;">0</strong></span>
+            </div>
+            <div class="s06-actions">
+              <button type="button" class="btn btn-primary" id="s06-btn-reveal">Reveal MST</button>
+              <button type="button" class="btn" id="s06-btn-reset">Reset</button>
+            </div>
+          </div>
+
+          <div class="s06-banner" id="s06-banner">
+            <span id="s06-banner-msg">Click edges to build a spanning tree. Avoid creating cycles!</span>
+          </div>
+
+          <div class="s06-canvas-container" id="s06-canvas"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 9: Kruskal's Algorithm -->
+    <section class="slide" id="s07" data-title="Kruskal's Algorithm" data-notes="Kruskal's algorithm sorts all candidate edges from cheapest to most expensive and greedily accepts each edge unless it creates a cycle. A disjoint-set union-find data structure with path compression and rank tracking maintains connected components efficiently. When n minus 1 edges are accepted, the algorithm halts.">
+      <span class="slide-label">§ 09</span>
+      <h2 class="reveal" style="--i:0">Kruskal's Algorithm
+        <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+          <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+        </svg>
+      </h2>
+      <div class="s07-layout">
+        <!-- Left Column: Plain-words, Pseudocode & Controls -->
+        <div class="s07-left">
+          <div class="card reveal" style="--i:1">
+            <p style="margin:0;font-size:0.95rem;line-height:1.45;">
+              Sort all edges from cheapest to costliest. Walk down the list. Take an edge unless it would close a loop.
+            </p>
+          </div>
+          <div class="card s07-code-card reveal" style="--i:2">
+            <div class="pseudocode" id="s07-pseudocode">
+              <span class="line" data-line="1" data-tooltip="Sort all candidate edges ascending by weight">sort edges by weight</span>
+              <span class="line" data-line="2" data-tooltip="Initialize empty tree and singleton disjoint sets">T = empty set; each vertex is its own set</span>
+              <span class="line" data-line="3" data-tooltip="Iterate over sorted edge list">for each edge (u,v) in sorted order:</span>
+              <span class="line" data-line="4" data-tooltip="Check if endpoints belong to different components">    if find(u) != find(v):</span>
+              <span class="line" data-line="5" data-tooltip="Accept edge and add to spanning tree">        add (u,v) to T</span>
+              <span class="line" data-line="6" data-tooltip="Merge the two components into one">        union(u,v)</span>
+              <span class="line" data-line="7" data-tooltip="Skip edge: endpoints already in same group">    else: skip it (it would make a cycle)</span>
+              <span class="line" data-line="8" data-tooltip="Stop when n-1 edges are accepted">stop when T has n-1 edges</span>
+            </div>
+          </div>
+          <div class="card s07-controls-card reveal" style="--i:3">
+            <div class="s07-btn-row">
+              <button type="button" class="btn btn-primary" id="s07-btn-play">Play</button>
+              <button type="button" class="btn" id="s07-btn-step">Step &rarr;</button>
+              <button type="button" class="btn" id="s07-btn-back">&larr; Back</button>
+              <button type="button" class="btn" id="s07-btn-reset">Reset</button>
+            </div>
+            <div class="s07-speed-row">
+              <span class="mono" style="font-size:0.75rem;">Speed: <strong id="s07-speed-val">1.0x</strong></span>
+              <input type="range" id="s07-speed-slider" min="0.25" max="4" step="0.25" value="1" style="flex:1;">
+            </div>
+            <div class="s07-graph-btns">
+              <button type="button" class="btn" id="s07-btn-rand">New random graph</button>
+              <button type="button" class="btn" id="s07-btn-example">Back to example</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Visualiser -->
+        <div class="s07-right reveal" style="--i:2">
+          <div class="s07-toolbar card">
+            <div class="s07-stats-chips">
+              <span class="pill mono">Accepted: <strong id="s07-stat-k">0</strong> / 7</span>
+              <span class="pill mono">Total: <strong id="s07-stat-total" style="color:var(--vermilion);">0</strong></span>
+              <span class="pill mono">Step: <strong id="s07-stat-step">0</strong> / <span id="s07-stat-max">0</span></span>
+            </div>
+            <div class="s07-banner" id="s07-banner" style="display:none;">MST found. Total = 31</div>
+          </div>
+
+          <div class="s07-main-split">
+            <div class="s07-canvas-container" id="s07-canvas"></div>
+            <div class="s07-edge-list-card card">
+              <div class="s07-edge-list-title">SORTED EDGES</div>
+              <div class="s07-edge-list" id="s07-edge-list"></div>
+            </div>
+          </div>
+
+          <div class="card s07-uf-card">
+            <div class="s07-uf-header">
+              <span>UNION-FIND STATE (COMPONENTS &amp; PARENT TABLE)</span>
+            </div>
+            <div class="s07-uf-body">
+              <div class="s07-uf-parent-table" id="s07-uf-parent"></div>
+              <div class="s07-uf-chips-row" id="s07-uf-chips"></div>
+            </div>
+          </div>
+
+          <div class="s07-caption-box" id="s07-caption">
+            Click Play or Step to begin Kruskal&rsquo;s algorithm.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 10: Prim's Algorithm -->
+    <section class="slide" id="s08" data-title="Prim's Algorithm" data-notes="Prim's algorithm begins at an arbitrary root vertex and grows a single connected tree outward. At every step, it extracts the minimum-weight frontier edge leaving the current tree using a min-heap. Although the order of edge selection differs from Kruskal's, both algorithms produce an identical total weight.">
+      <span class="slide-label">§ 10</span>
+      <h2 class="reveal" style="--i:0">Prim's Algorithm
+        <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+          <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+        </svg>
+      </h2>
+      <div class="s08-layout">
+        <!-- Left Column: Plain-words, Pseudocode & Controls -->
+        <div class="s08-left">
+          <div class="card reveal" style="--i:1">
+            <p style="margin:0;font-size:0.95rem;line-height:1.45;">
+              Start at one vertex. Grow a single tree outward. Each time, take the cheapest edge that leaves the tree.
+            </p>
+          </div>
+          <div class="card s08-code-card reveal" style="--i:2">
+            <div class="pseudocode" id="s08-pseudocode">
+              <span class="line" data-line="1" data-tooltip="Select initial root vertex s; tree = {s}">pick a start vertex s; tree = {s}</span>
+              <span class="line" data-line="2" data-tooltip="Insert all incident edges into a priority queue / min-heap">put all edges leaving the tree into a min-heap</span>
+              <span class="line" data-line="3" data-tooltip="Loop until all vertices belong to tree">repeat until tree has all n vertices:</span>
+              <span class="line" data-line="4" data-tooltip="Extract the minimum-weight frontier edge from heap">    pop the cheapest edge (u,v) from the heap</span>
+              <span class="line" data-line="5" data-tooltip="Lazy deletion: if v is already in tree, skip it">    if v is already in the tree: skip it</span>
+              <span class="line" data-line="6" data-tooltip="Add new vertex v and connecting edge to tree">    else: add v and edge (u,v) to the tree</span>
+              <span class="line" data-line="7" data-tooltip="Push incident edges from v to unvisited vertices">         push every edge from v to a vertex outside the tree</span>
+            </div>
+          </div>
+          <div class="card s08-controls-card reveal" style="--i:3">
+            <div class="s08-btn-row">
+              <button type="button" class="btn btn-primary" id="s08-btn-play">Play</button>
+              <button type="button" class="btn" id="s08-btn-step">Step &rarr;</button>
+              <button type="button" class="btn" id="s08-btn-back">&larr; Back</button>
+              <button type="button" class="btn" id="s08-btn-reset">Reset</button>
+            </div>
+            <div class="s08-speed-row">
+              <span class="mono" style="font-size:0.75rem;">Speed: <strong id="s08-speed-val">1.0x</strong></span>
+              <input type="range" id="s08-speed-slider" min="0.25" max="4" step="0.25" value="1" style="flex:1;">
+            </div>
+            <div class="s08-graph-btns">
+              <button type="button" class="btn" id="s08-btn-rand">New random graph</button>
+              <button type="button" class="btn" id="s08-btn-example">Back to example</button>
+            </div>
+            <div class="s08-start-hint" id="s08-start-hint">
+              Start vertex: <strong id="s08-start-lbl" style="color:var(--vermilion);">A</strong> (click any vertex on graph to change)
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Visualiser -->
+        <div class="s08-right reveal" style="--i:2">
+          <div class="s08-toolbar card">
+            <div class="s08-stats-chips">
+              <span class="pill mono">Vertices: <strong id="s08-stat-k">1</strong> / 8</span>
+              <span class="pill mono">Total: <strong id="s08-stat-total" style="color:var(--vermilion);">0</strong></span>
+              <span class="pill mono">Step: <strong id="s08-stat-step">0</strong> / <span id="s08-stat-max">0</span></span>
+            </div>
+            <div class="s08-banner" id="s08-banner" style="display:none;">MST found. Total = 31</div>
+          </div>
+
+          <div class="s08-main-split">
+            <div class="s08-canvas-container" id="s08-canvas"></div>
+            <div class="s08-heap-card card">
+              <div class="s08-heap-title">MIN-HEAP (FRONTIER)</div>
+              <div class="s08-heap-list" id="s08-heap-list"></div>
+            </div>
+          </div>
+
+          <div class="s08-caption-box" id="s08-caption">
+            Click Play or Step to run Prim&rsquo;s algorithm from vertex A.
+          </div>
+
+          <div class="s08-compare-strip" id="s08-compare-strip">
+            <span class="mono"><strong>Kruskal and Prim:</strong> different order, same minimum total &bull; Kruskal: <span id="s08-cmp-kruskal">31</span> &bull; Prim: <span id="s08-cmp-prim">31</span> <span class="s08-cmp-check">&check; Equal</span></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sub-Slide 10·b: Campus Network Designer -->
+    <section class="slide" id="s08b" data-title="Campus Network Designer" data-notes="The Campus Network Designer is our flagship interactive simulation tool for real-world network planning. Users place campus buildings, draw terrain obstacles like roads, rocky terrain, or lakes, and simulate fiber routing costs. Both Kruskal and Prim algorithms compute the minimum spanning tree over terrain-adjusted edge weights.">
+      <span class="slide-label">§ 10·b</span>
+      <h2 class="reveal" style="--i:0">Campus Network Designer
+        <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+          <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+        </svg>
+      </h2>
+      <div class="s08b-layout">
+        <!-- Left: Map Canvas & Toolbar Area (70%) -->
+        <div class="s08b-map-area">
+          <div class="s08b-top-bar card">
+            <div class="s08b-tool-modes" id="s08b-tool-modes">
+              <button type="button" class="btn btn-sm active" data-mode="place" id="s08b-mode-place" title="Click on map to place a building (max 30)">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-right:2px"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg>Place
+              </button>
+              <button type="button" class="btn btn-sm" data-mode="move" id="s08b-mode-move" title="Drag buildings to reposition">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-right:2px"><path d="M5 9l-3 3 3 3M9 5l3-3 3 3M19 9l3 3-3 3M9 19l3 3 3-3M2 12h20M12 2v20"/></svg>Move
+              </button>
+              <button type="button" class="btn btn-sm" data-mode="delete" id="s08b-mode-delete" title="Click building or obstacle to remove">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-right:2px"><path d="M3 6h18M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>Delete
+              </button>
+              <button type="button" class="btn btn-sm" data-mode="draw" id="s08b-mode-draw" title="Drag on map to draw an obstacle">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align:middle;margin-right:2px"><rect x="3" y="3" width="18" height="18" rx="2" stroke-dasharray="3 3"/></svg>Obstacle
+              </button>
+            </div>
+
+            <div class="s08b-obs-picker" id="s08b-obs-picker" style="display:none;">
+              <span class="mono s08b-picker-lbl">Type:</span>
+              <button type="button" class="btn btn-xs active" data-obstype="road" id="s08b-obs-road" title="Road: cable cost x2">Road (&times;2)</button>
+              <button type="button" class="btn btn-xs" data-obstype="rocky" id="s08b-obs-rocky" title="Rocky ground: cable cost x3">Rocky (&times;3)</button>
+              <button type="button" class="btn btn-xs" data-obstype="nogo" id="s08b-obs-nogo" title="No-go zone: cable impossible">No-go (Blocked)</button>
+            </div>
+
+            <div class="s08b-quick-actions">
+              <button type="button" class="btn btn-sm" id="s08b-btn-undo" title="Undo last placement">Undo</button>
+              <button type="button" class="btn btn-sm" id="s08b-btn-clear" title="Clear all buildings and obstacles">Clear all</button>
+              <button type="button" class="btn btn-sm" id="s08b-btn-sample" title="Load sample campus (10 buildings, 3 obstacles)">Sample campus</button>
+              <button type="button" class="btn btn-sm" id="s08b-btn-toggle-mesh" title="Toggle visibility of all candidate links">Links: OFF</button>
+            </div>
+          </div>
+
+          <div class="s08b-warning-banner" id="s08b-warning" style="display:none;"></div>
+
+          <div class="s08b-canvas-container" id="s08b-canvas-container">
+            <!-- SVG map canvas generated dynamically -->
+          </div>
+        </div>
+
+        <!-- Right: Control Panel & Live Stats (30%) -->
+        <div class="s08b-sidebar">
+          <!-- Simulation Stepper Card -->
+          <div class="card s08b-sim-card">
+            <div class="s08b-card-title">ALGORITHM SIMULATION</div>
+            <div class="s08b-algo-row">
+              <div class="s08b-algo-picker">
+                <button type="button" class="btn btn-sm active" id="s08b-algo-kruskal">Kruskal</button>
+                <button type="button" class="btn btn-sm" id="s08b-algo-prim">Prim</button>
+              </div>
+              <div class="s08b-prim-root-wrap" id="s08b-prim-root-wrap" style="display:none;">
+                <span class="mono" style="font-size:0.75rem;">Root:</span>
+                <select id="s08b-prim-root-sel" class="mono"></select>
+              </div>
+            </div>
+
+            <div class="s08b-stepper-btn-row">
+              <button type="button" class="btn btn-primary btn-sm" id="s08b-btn-build">Build</button>
+              <button type="button" class="btn btn-sm" id="s08b-btn-step">Step &rarr;</button>
+              <button type="button" class="btn btn-sm" id="s08b-btn-back">&larr; Back</button>
+              <button type="button" class="btn btn-sm" id="s08b-btn-reset">Reset</button>
+            </div>
+
+            <div class="s08b-speed-row">
+              <span class="mono" style="font-size:0.72rem;">Speed: <strong id="s08b-speed-val">1.0x</strong></span>
+              <input type="range" id="s08b-speed-slider" min="0.25" max="4" step="0.25" value="1" style="flex:1;">
+            </div>
+
+            <div class="s08b-sim-caption mono" id="s08b-sim-caption">
+              Place buildings on the map, then click Build or Step.
+            </div>
+          </div>
+
+          <!-- Parameters & Cost Model Card -->
+          <div class="card s08b-params-card">
+            <div class="s08b-card-title">COST MODEL PARAMETERS</div>
+            <div class="s08b-param-grid">
+              <label for="s08b-input-width">Map width (m):</label>
+              <input type="number" id="s08b-input-width" min="10" max="10000" step="10" value="500" class="mono">
+              <label for="s08b-input-rate">Rate per m (₹):</label>
+              <input type="number" id="s08b-input-rate" min="1" max="100000" step="25" value="500" class="mono">
+            </div>
+            <div class="s08b-param-scale-hint mono" id="s08b-scale-hint">
+              Scale: 0.50 m/px &bull; Road &times;2, Rocky &times;3
+            </div>
+          </div>
+
+          <!-- Live Stats Card -->
+          <div class="card s08b-stats-card">
+            <div class="s08b-card-title">LIVE NETWORK METRICS</div>
+            <div class="s08b-stats-list">
+              <div class="s08b-stat-row">
+                <span class="s08b-stat-lbl">Buildings (n):</span>
+                <span class="pill mono"><strong id="s08b-stat-n">0</strong> / 30</span>
+              </div>
+              <div class="s08b-stat-row">
+                <span class="s08b-stat-lbl">Cables used:</span>
+                <span class="pill mono"><strong id="s08b-stat-k">0</strong> of <span id="s08b-stat-nminus1">0</span></span>
+              </div>
+              <div class="s08b-stat-row">
+                <span class="s08b-stat-lbl">Network cable length:</span>
+                <span class="pill mono"><strong id="s08b-stat-length">0 m</strong></span>
+              </div>
+              <div class="s08b-stat-row highlight">
+                <span class="s08b-stat-lbl">TOTAL NETWORK COST:</span>
+                <strong class="mono" id="s08b-stat-total" style="color:var(--vermilion);font-size:1.1rem;">₹0</strong>
+              </div>
+              <div class="s08b-stat-row">
+                <span class="s08b-stat-lbl">Full-mesh alternative:</span>
+                <span class="mono" style="font-size:0.75rem;" id="s08b-stat-mesh-cost">₹0 (0 links)</span>
+              </div>
+              <div class="s08b-stat-row">
+                <span class="s08b-stat-lbl">Savings vs full mesh:</span>
+                <strong class="mono" id="s08b-stat-savings" style="color:#28a745;font-size:1.02rem;">&minus;</strong>
+              </div>
+            </div>
+
+            <div class="s08b-check-row" id="s08b-cmp-box" style="display:none;margin-top:0.35rem;">
+              <span class="chip chip-yes" id="s08b-stat-cmp-chip" style="font-size:0.75rem;padding:0.15rem 0.5rem;">&check; Kruskal total = Prim total</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 11: Why They Work -->
+    <section class="slide" id="s09" data-title="Why They Work" data-notes="We present formal proofs for greedy MST correctness based on the fundamental Cut Property and Cycle Property. The Cut Property guarantees that the strictly lightest edge crossing any partition must belong to every MST. The Cycle Property proves that the unique heaviest edge on any cycle can never belong to an MST.">
+      <span class="slide-label">§ 11</span>
+      <div class="s09-top-bar">
+        <h2 class="reveal" style="--i:0">Why They Work
+          <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+            <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+          </svg>
+        </h2>
+        <div class="s09-main-tabs reveal" style="--i:1" role="tablist" aria-label="Why They Work Topics">
+          <button class="s09-tab-btn active" id="s09-tab-cut" data-tab="cut" role="tab" aria-selected="true">1 Cut property</button>
+          <button class="s09-tab-btn" id="s09-tab-cycle" data-tab="cycle" role="tab" aria-selected="false">2 Cycle property</button>
+          <button class="s09-tab-btn" id="s09-tab-algs" data-tab="algs" role="tab" aria-selected="false">3 So the algorithms work</button>
+        </div>
+      </div>
+
+      <div class="s09-layout">
+        <!-- Left: Story Panel (42%) -->
+        <div class="s09-left">
+          <div class="card s09-story-card reveal" style="--i:2">
+            <div class="s09-story-header">
+              <span class="chip" id="s09-topic-chip" style="font-weight:700;">Cut Property</span>
+              <span class="s09-mode-tag" id="s09-mode-tag">Guided Story</span>
+            </div>
+
+            <div class="s09-story-body">
+              <h3 class="s09-story-title" id="s09-story-title">Pick any cut, take the lightest edge.</h3>
+              
+              <!-- Past steps: small greyed one-liners above -->
+              <div class="s09-past-steps" id="s09-past-steps" aria-live="polite"></div>
+
+              <!-- Current step: big, at least 24px on 1920x1080 -->
+              <div class="s09-current-step-wrap">
+                <div class="s09-current-step-text" id="s09-current-step-text" aria-live="assertive"></div>
+                <div class="s09-current-step-detail" id="s09-current-step-detail"></div>
+              </div>
+            </div>
+
+            <!-- Stepper Controls & Dots -->
+            <div class="s09-stepper-row" id="s09-stepper-row">
+              <div class="s09-nav-btns">
+                <button class="btn btn-sm" id="s09-btn-back" title="Previous step">Back</button>
+                <button class="btn btn-sm btn-primary" id="s09-btn-next" title="Next step (or press Right Arrow)">Next step</button>
+                <button class="btn btn-sm" id="s09-btn-reset" title="Reset story">Reset</button>
+              </div>
+              <div class="s09-progress-dots" id="s09-progress-dots" aria-label="Story progress"></div>
+            </div>
+
+            <!-- Bottom Action Row -->
+            <div class="s09-action-row">
+              <button class="btn btn-sm" id="s09-btn-interactive" title="Toggle free interactive mode">
+                <span id="s09-interactive-btn-label">Try it yourself</span>
+              </button>
+              <button class="btn btn-sm" id="s09-btn-proof" title="Open complete formal proof drawer">
+                Full formal proof
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Figure Panel (58%) -->
+        <div class="s09-right">
+          <div class="card s09-figure-card reveal" style="--i:3">
+            <!-- Cut Property Figure View -->
+            <div class="s09-fig-view active" id="s09-fig-cut">
+              <div class="s09-fig-toolbar">
+                <span class="s09-fig-hint" id="s09-cut-hint">Canonical cut: S = {A, B} (Teal) vs V\S = {C, D, E, F, G, H} (Mustard)</span>
+                <button class="btn btn-sm" id="s09-btn-rand-cut" style="display:none;">Random cut</button>
+              </div>
+              <div class="s09-graph-box" id="s09-cut-graph"></div>
+              <div class="s09-fig-status-bar">
+                <div class="s09-status-row">
+                  <span id="s09-cut-status" class="chip">Lightest crossing edge: BE (wt 3)</span>
+                  <span id="s09-cut-mst-chip" class="chip chip-success">&check; Verified: BE is in canonical MST</span>
+                </div>
+                <div class="s09-crossing-row">
+                  <span class="s09-list-label">Crossing edges:</span>
+                  <span id="s09-crossing-items">BE (3), AE (5), AD (9), BC (10)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cycle Property Figure View -->
+            <div class="s09-fig-view" id="s09-fig-cycle">
+              <div class="s09-fig-toolbar">
+                <span class="s09-fig-hint" id="s09-cycle-hint">Canonical cycle: A-B-E (Cobalt loop), heaviest edge AE (wt 5, Alarm Red)</span>
+                <button class="btn btn-sm" id="s09-btn-reset-cycle" style="display:none;">Reset test</button>
+              </div>
+              <div class="s09-graph-box" id="s09-cycle-graph"></div>
+              <div class="s09-fig-status-bar">
+                <div class="s09-status-row">
+                  <span id="s09-cycle-status" class="chip">Heaviest edge: AE (wt 5)</span>
+                  <span id="s09-cycle-mst-chip" class="chip chip-alarm">&check; Cycle Property: AE can never be in an MST</span>
+                </div>
+                <div class="s09-cycle-path-row">
+                  <span class="s09-list-label">Active Cycle:</span>
+                  <span id="s09-cycle-items">A - B - E - A (weights: AB=4, BE=3, AE=5)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- So The Algorithms Work Figure View -->
+            <div class="s09-fig-view" id="s09-fig-algs">
+              <div class="s09-algs-container">
+                <div class="s09-algs-cards">
+                  <!-- Row 1: Kruskal Safe Edge -->
+                  <div class="s09-alg-card" id="s09-alg-kruskal-add">
+                    <div class="s09-alg-icon cut-icon">&check;</div>
+                    <div class="s09-alg-info">
+                      <h4>1. Kruskal adds lightest edge between trees</h4>
+                      <p>Let <em>S</em> = component of <em>u</em>. No selected edges cross (<em>S</em>, <em>V</em>\<em>S</em>). Edge (<em>u</em>,<em>v</em>) is lightest crossing, so it is <strong>safe by Cut Property</strong>.</p>
+                    </div>
+                    <a href="#s07" class="btn btn-sm s09-jump-btn">See Kruskal in action &rarr;</a>
+                  </div>
+
+                  <!-- Row 2: Kruskal Reject Cycle -->
+                  <div class="s09-alg-card" id="s09-alg-kruskal-rej">
+                    <div class="s09-alg-icon cycle-icon">&cross;</div>
+                    <div class="s09-alg-info">
+                      <h4>2. Kruskal rejects edge closing a cycle</h4>
+                      <p>Edges are examined in ascending order of weight. A cycle-closing edge is strictly the heaviest on that cycle, so it is <strong>safe to discard by Cycle Property</strong>.</p>
+                    </div>
+                    <a href="#s07" class="btn btn-sm s09-jump-btn">Inspect cycle reject &rarr;</a>
+                  </div>
+
+                  <!-- Row 3: Prim Safe Edge -->
+                  <div class="s09-alg-card" id="s09-alg-prim-add">
+                    <div class="s09-alg-icon cut-icon">&check;</div>
+                    <div class="s09-alg-info">
+                      <h4>3. Prim adds lightest edge leaving visited tree</h4>
+                      <p>Let <em>S</em> = tree vertices grown so far. Prim greedily chooses the lightest edge crossing the cut from <em>S</em> to unvisited nodes, which is <strong>safe by Cut Property</strong>.</p>
+                    </div>
+                    <a href="#s08" class="btn btn-sm s09-jump-btn">See Prim in action &rarr;</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full Formal Proof Drawer / Modal Backdrop -->
+      <div class="s09-proof-modal-backdrop" id="s09-proof-modal" aria-hidden="true" role="dialog" aria-labelledby="s09-drawer-title">
+        <div class="s09-proof-modal-card">
+          <div class="s09-proof-modal-header">
+            <div>
+              <span class="chip" style="font-weight:700;">Reference</span>
+              <h3 id="s09-drawer-title" style="margin:0.25rem 0 0 0;font-size:1.15rem;font-family:var(--font-display);">Full Formal Proofs: Cut &amp; Cycle Properties</h3>
+            </div>
+            <button class="btn btn-sm btn-primary" id="s09-btn-close-proof" aria-label="Close modal">Close &times;</button>
+          </div>
+          <div class="s09-proof-modal-body" id="s09-proof-modal-body">
+            <!-- Step 1: Definitions -->
+            <div class="s09-modal-proof-block">
+              <h4>Definitions</h4>
+              <p>A <strong>cut</strong> is a split of the vertex set into <em>S</em> and <em>V</em> minus <em>S</em> (both non-empty). An edge <strong>crosses</strong> the cut if one endpoint is in <em>S</em> and the other is not.</p>
+            </div>
+
+            <!-- Step 2: Theorem 1 -->
+            <div class="s09-modal-proof-block">
+              <h4>Theorem 1 (Cut property, general form)</h4>
+              <p>Let <em>A</em> be a set of edges contained in some MST <em>T</em>. Let (<em>S</em>, <em>V</em>\<em>S</em>) be a cut that no edge of <em>A</em> crosses. Let <em>e</em> be a lightest edge crossing the cut. Then <em>A</em> ∪ {<em>e</em>} is contained in some MST. If <em>e</em> is the strictly lightest crossing edge, <em>e</em> is in <strong>EVERY MST</strong>.</p>
+            </div>
+
+            <!-- Step 3: Proof Theorem 1 part A -->
+            <div class="s09-modal-proof-block">
+              <h4>Proof of Theorem 1 (Setup &amp; Unique Path)</h4>
+              <p>If <em>e</em> is already in <em>T</em> we are done. Otherwise <em>T</em> has a unique path between the endpoints of <em>e</em> (they are in different sides of the cut), and that path must contain an edge <em>f</em> that crosses the cut. <em>f</em> is not in <em>A</em>, because no edge of <em>A</em> crosses the cut.</p>
+            </div>
+
+            <!-- Step 4: Proof Theorem 1 part B -->
+            <div class="s09-modal-proof-block">
+              <h4>Proof of Theorem 1 (Edge Exchange &amp; Tree Property)</h4>
+              <p>Remove <em>f</em> from <em>T</em> and add <em>e</em>. The result <em>T′</em> = <em>T</em> − <em>f</em> + <em>e</em> is connected with <em>n</em>−1 edges, so it is a spanning tree.</p>
+            </div>
+
+            <!-- Step 5: Proof Theorem 1 part C -->
+            <div class="s09-modal-proof-block">
+              <h4>Proof of Theorem 1 (Minimality &amp; QED)</h4>
+              <p><em>w</em>(<em>T′</em>) = <em>w</em>(<em>T</em>) − <em>w</em>(<em>f</em>) + <em>w</em>(<em>e</em>) ≤ <em>w</em>(<em>T</em>) because <em>e</em> is lightest crossing, <em>w</em>(<em>e</em>) ≤ <em>w</em>(<em>f</em>). So <em>T′</em> is also an MST, and it contains <em>A</em> ∪ {<em>e</em>}. If <em>w</em>(<em>e</em>) &lt; <em>w</em>(<em>f</em>) strictly, then <em>w</em>(<em>T′</em>) &lt; <em>w</em>(<em>T</em>), contradicting that <em>T</em> is minimum, so every MST contains <em>e</em>. <strong>QED.</strong></p>
+            </div>
+
+            <!-- Step 6: Theorem 2 -->
+            <div class="s09-modal-proof-block">
+              <h4>Theorem 2 (Cycle property)</h4>
+              <p>If <em>e</em> is the unique heaviest edge on some cycle <em>C</em> of <em>G</em>, then <strong>no MST contains <em>e</em></strong>.</p>
+            </div>
+
+            <!-- Step 7: Proof Theorem 2 part A -->
+            <div class="s09-modal-proof-block">
+              <h4>Proof of Theorem 2 (Cycle Cut &amp; Edge f)</h4>
+              <p>Suppose an MST <em>T</em> contains <em>e</em>. Removing <em>e</em> from <em>T</em> splits <em>T</em> into two components. The rest of the cycle, <em>C</em> minus <em>e</em>, is a path joining the two endpoints of <em>e</em>, so it contains some edge <em>f</em> crossing between the two components.</p>
+            </div>
+
+            <!-- Step 8: Proof Theorem 2 part B -->
+            <div class="s09-modal-proof-block">
+              <h4>Proof of Theorem 2 (Lighter Edge Contradiction)</h4>
+              <p><em>w</em>(<em>f</em>) &lt; <em>w</em>(<em>e</em>). Then <em>T</em> − <em>e</em> + <em>f</em> is a spanning tree with smaller weight, contradicting minimality. <strong>QED.</strong></p>
+            </div>
+
+            <!-- Step 9: Corollary 1 part A -->
+            <div class="s09-modal-proof-block">
+              <h4>Corollary 1 (Kruskal is correct — Accepted Edges)</h4>
+              <p><strong>Invariant:</strong> the accepted edges <em>A</em> are always contained in some MST. When Kruskal accepts <em>e</em> = (<em>u</em>,<em>v</em>), <em>u</em> and <em>v</em> are in different components. Let <em>S</em> = the component of <em>u</em>. No accepted edge crosses (<em>S</em>, <em>V</em>\<em>S</em>). Any lighter edge crossing this cut would have been examined earlier and accepted (its endpoints were in different components then, since components only grow and <em>u</em>,<em>v</em> are still apart). That is impossible, so <em>e</em> is a lightest crossing edge. By Theorem 1, <em>A</em> ∪ {<em>e</em>} is still inside some MST.</p>
+            </div>
+
+            <!-- Step 10: Corollary 1 part B -->
+            <div class="s09-modal-proof-block">
+              <h4>Corollary 1 (Kruskal is correct — Rejected Edges)</h4>
+              <p>Rejected edges close a cycle in which they are the heaviest edge examined so far (all others are already accepted, so lighter or equal), so by Theorem 2 they are safe to discard (for distinct weights).</p>
+            </div>
+
+            <!-- Step 11: Corollary 2 -->
+            <div class="s09-modal-proof-block">
+              <h4>Corollary 2 (Prim is correct)</h4>
+              <p>At each step let <em>S</em> = vertices in the tree. The tree edges <em>A</em> do not cross (<em>S</em>, <em>V</em>\<em>S</em>). Prim takes a lightest edge crossing the cut, so Theorem 1 keeps <em>A</em> inside some MST.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 12: Complexity -->
+    <section class="slide" id="s10" data-title="Complexity" data-notes="Both Kruskal and Prim are fast, but the best choice depends on graph density. On sparse networks where E is close to V, Kruskal and binary-heap Prim run in O(V log V). On dense networks where E approaches V², Prim with an adjacency matrix achieves O(V²), outperforming Kruskal's O(V² log V).">
+      <span class="slide-label">§ 12</span>
+      <div class="s10-header-row">
+        <h2 class="reveal" style="--i:0">Complexity
+          <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+            <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+          </svg>
+        </h2>
+        <div class="s10-actions-bar reveal" style="--i:1">
+          <button type="button" class="btn btn-sm btn-primary" id="s10-btn-next" aria-label="Next step in complexity explanation">Next step &rarr;</button>
+          <button type="button" class="btn btn-sm" id="s10-btn-reset" aria-label="Reset complexity steps">Reset</button>
+          <button type="button" class="btn btn-sm" id="s10-btn-table" aria-label="Open full complexity table drawer">Full complexity table</button>
+        </div>
+      </div>
+
+      <div class="s10-layout">
+        <!-- Left: The Story (45%) -->
+        <div class="s10-left">
+          <p class="s10-headline reveal" style="--i:1">Both are fast. Which is faster depends on the graph.</p>
+
+          <div class="s10-story-flow">
+            <!-- Step 1: Kruskal Card -->
+            <div class="s10-step card s10-algo-card s10-kruskal-card" data-step="1">
+              <div class="s10-card-header">
+                <span class="s10-algo-name">Kruskal</span>
+                <span class="s10-bound-badge pill pill-vermilion"><em>O</em>(<em>E</em> log <em>E</em>)</span>
+              </div>
+              <p class="s10-card-text">Kruskal spends its time sorting the edges.</p>
+            </div>
+
+            <!-- Step 2: Prim Card -->
+            <div class="s10-step card s10-algo-card s10-prim-card" data-step="2">
+              <div class="s10-card-header">
+                <span class="s10-algo-name">Prim (with heap)</span>
+                <span class="s10-bound-badge pill pill-cobalt"><em>O</em>(<em>E</em> log <em>V</em>)</span>
+              </div>
+              <p class="s10-card-text">Prim spends its time picking the cheapest edge from a heap.</p>
+            </div>
+
+            <!-- Step 3: Small Equivalence Line -->
+            <div class="s10-step s10-equiv-line" data-step="3">
+              <span class="s10-equiv-icon" aria-hidden="true">&asymp;</span>
+              <p class="s10-equiv-text">
+                <em>O</em>(<em>E</em> log <em>E</em>) and <em>O</em>(<em>E</em> log <em>V</em>) are the same thing, because <em>E</em> is at most <em>V</em><sup>2</sup>, so log <em>E</em> is at most 2 log <em>V</em>.
+              </p>
+            </div>
+
+            <!-- Step 4: Verdict Cards (Side-by-Side) -->
+            <div class="s10-step s10-verdict-container" data-step="4">
+              <div class="s10-verdict-row">
+                <!-- Sparse Verdict Card -->
+                <div class="card s10-verdict-card" id="s10-verdict-sparse" tabindex="0" role="region" aria-label="Sparse graph verdict">
+                  <div class="s10-verdict-top">
+                    <div class="s10-verdict-icon-wrap" aria-hidden="true">
+                      <!-- Hand-drawn SVG sparse graph icon: tree with 5 nodes -->
+                      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+                        <line x1="17" y1="6" x2="8" y2="18" stroke="#1C1A16" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="17" y1="6" x2="26" y2="18" stroke="#1C1A16" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="8" y1="18" x2="5" y2="28" stroke="#1C1A16" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="26" y1="18" x2="29" y2="28" stroke="#1C1A16" stroke-width="2" stroke-linecap="round"/>
+                        <circle cx="17" cy="6" r="3.5" fill="#FBF6E9" stroke="#1C1A16" stroke-width="2"/>
+                        <circle cx="8" cy="18" r="3.5" fill="#FBF6E9" stroke="#1C1A16" stroke-width="2"/>
+                        <circle cx="26" cy="18" r="3.5" fill="#FBF6E9" stroke="#1C1A16" stroke-width="2"/>
+                        <circle cx="5" cy="28" r="3" fill="#FBF6E9" stroke="#1C1A16" stroke-width="2"/>
+                        <circle cx="29" cy="28" r="3" fill="#FBF6E9" stroke="#1C1A16" stroke-width="2"/>
+                      </svg>
+                    </div>
+                    <span class="chip chip-success s10-badge-use">Use this</span>
+                  </div>
+                  <h4 class="s10-verdict-title">Sparse graph (<em>E</em> close to <em>V</em>)</h4>
+                  <p class="s10-verdict-body">Kruskal or Prim with a heap. Both take about <em>V</em> log <em>V</em>.</p>
+                </div>
+
+                <!-- Dense Verdict Card -->
+                <div class="card s10-verdict-card" id="s10-verdict-dense" tabindex="0" role="region" aria-label="Dense graph verdict">
+                  <div class="s10-verdict-top">
+                    <div class="s10-verdict-icon-wrap" aria-hidden="true">
+                      <!-- Hand-drawn SVG dense mesh icon: complete graph K5 with all diagonals -->
+                      <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
+                        <polygon points="17,5 29,14 24,28 10,28 5,14" stroke="#1C1A16" stroke-width="1.5" fill="none"/>
+                        <line x1="17" y1="5" x2="24" y2="28" stroke="#1C1A16" stroke-width="1.5"/>
+                        <line x1="17" y1="5" x2="10" y2="28" stroke="#1C1A16" stroke-width="1.5"/>
+                        <line x1="29" y1="14" x2="10" y2="28" stroke="#1C1A16" stroke-width="1.5"/>
+                        <line x1="5" y1="14" x2="24" y2="28" stroke="#1C1A16" stroke-width="1.5"/>
+                        <line x1="5" y1="14" x2="29" y2="14" stroke="#1C1A16" stroke-width="1.5"/>
+                        <circle cx="17" cy="5" r="3" fill="#FBF6E9" stroke="#1C1A16" stroke-width="1.5"/>
+                        <circle cx="29" cy="14" r="3" fill="#FBF6E9" stroke="#1C1A16" stroke-width="1.5"/>
+                        <circle cx="24" cy="28" r="3" fill="#FBF6E9" stroke="#1C1A16" stroke-width="1.5"/>
+                        <circle cx="10" cy="28" r="3" fill="#FBF6E9" stroke="#1C1A16" stroke-width="1.5"/>
+                        <circle cx="5" cy="14" r="3" fill="#FBF6E9" stroke="#1C1A16" stroke-width="1.5"/>
+                      </svg>
+                    </div>
+                    <span class="chip chip-success s10-badge-use">Use this</span>
+                  </div>
+                  <h4 class="s10-verdict-title">Dense graph (<em>E</em> close to <em>V</em><sup>2</sup>)</h4>
+                  <p class="s10-verdict-body">Prim with an adjacency matrix. It takes <em>O</em>(<em>V</em><sup>2</sup>), which beats Kruskal's <em>O</em>(<em>V</em><sup>2</sup> log <em>V</em>).</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: One Large Clean Chart (55%) -->
+        <div class="s10-right">
+          <div class="card s10-chart-card reveal" style="--i:2">
+            <div class="s10-chart-box">
+              <svg id="s10-growth-chart" viewBox="0 0 680 430" aria-label="Theoretical growth of Kruskal and Prim algorithms as edge count increases"></svg>
+              <div class="s10-chart-caption">Theoretical growth (shape, not measured)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Full Complexity Table Drawer / Modal Backdrop -->
+      <div class="s10-table-drawer-backdrop" id="s10-table-drawer" aria-hidden="true" role="dialog" aria-labelledby="s10-drawer-title">
+        <div class="s10-drawer-card">
+          <div class="s10-drawer-header">
+            <div>
+              <span class="chip" style="font-weight:700;">Reference</span>
+              <h3 id="s10-drawer-title" style="margin:0.25rem 0 0 0;font-size:1.15rem;font-family:var(--font-display);">Full Complexity Reference</h3>
+            </div>
+            <button type="button" class="btn btn-sm btn-primary" id="s10-btn-close-table" aria-label="Close complexity drawer">Close &times;</button>
+          </div>
+          <div class="s10-drawer-body">
+            <table class="s10-drawer-table">
+              <thead>
+                <tr>
+                  <th>Algorithm &amp; Implementation</th>
+                  <th>Operations / Breakdown</th>
+                  <th>Total Bound</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Kruskal</strong></td>
+                  <td>sort <em>O</em>(<em>E</em> log <em>E</em>) + union-find with path compression and union by rank ~ <em>O</em>(<em>E</em> <em>α</em>(<em>V</em>))</td>
+                  <td><span class="pill pill-vermilion"><em>O</em>(<em>E</em> log <em>E</em>)</span></td>
+                </tr>
+                <tr>
+                  <td><em>Why O(E log E) = O(E log V)</em></td>
+                  <td><em>E</em> &le; <em>V</em><sup>2</sup>, so log <em>E</em> &le; 2 log <em>V</em></td>
+                  <td><span class="pill">Identity</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Prim</strong>, binary heap + adjacency list</td>
+                  <td>Heap insert/decrease-key <em>O</em>(log <em>V</em>) per edge</td>
+                  <td><span class="pill pill-cobalt"><em>O</em>(<em>E</em> log <em>V</em>)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Prim</strong>, Fibonacci heap</td>
+                  <td><em>O</em>(1) amortized decrease-key + <em>O</em>(log <em>V</em>) delete-min</td>
+                  <td><span class="pill"><em>O</em>(<em>E</em> + <em>V</em> log <em>V</em>)</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Prim</strong>, adjacency matrix (no heap)</td>
+                  <td>Linear vertex scan <em>O</em>(<em>V</em>) per step without heap overhead</td>
+                  <td><span class="pill pill-ochre"><em>O</em>(<em>V</em><sup>2</sup>)</span></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="s10-drawer-guidance">
+              <p>
+                <strong>Sparse graph</strong> (<em>E</em> close to <em>V</em>): Kruskal and heap-Prim both about <em>V</em> log <em>V</em>.<br>
+                <strong>Dense graph</strong> (<em>E</em> close to <em>V</em><sup>2</sup>): Prim with a matrix, <em>O</em>(<em>V</em><sup>2</sup>), beats Kruskal's <em>O</em>(<em>V</em><sup>2</sup> log <em>V</em>).<br>
+                <span class="s10-drawer-ackermann"><em>α</em> = inverse Ackermann function, practically &le; 4.</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 13: Limitations -->
+    <section class="slide" id="s11" data-title="Limitations" data-notes="An MST has significant practical limitations when deployed as a production computer network. Every edge in a tree is a critical bridge and single point of failure, meaning one severed cable disconnects the network. Furthermore, minimizing total cable cost can create long detours between specific high-traffic node pairs.">
+      <span class="slide-label">§ 13</span>
+      <h2 class="reveal" style="--i:0">Limitations
+        <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+          <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+        </svg>
+      </h2>
+      <div class="s11-layout">
+        <!-- Top Cards: Plain Words -->
+        <div class="s11-cards-row">
+          <div class="card s11-card reveal" style="--i:1">
+            <div class="s11-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div class="s11-card-content">
+              <strong>Single Points of Failure:</strong> No backup. A tree has exactly <em>n</em>−1 edges and every edge is a bridge: cut any one and the network splits in two.
+            </div>
+          </div>
+          <div class="card s11-card reveal" style="--i:2">
+            <div class="s11-card-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 14 4 9 9 4"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg>
+            </div>
+            <div class="s11-card-content">
+              <strong>Suboptimal Hop Detours:</strong> It minimises TOTAL cable, not the distance between two particular machines. A short trip in the network can become a long detour in the tree.
+            </div>
+          </div>
+        </div>
+
+        <!-- Demos Split -->
+        <div class="s11-demos-row">
+          <!-- Demo A: Break a Link -->
+          <div class="card s11-demo-card reveal" style="--i:3">
+            <div class="s11-demo-header">
+              <h3 class="s11-demo-title">Demo A: Break a Link</h3>
+              <button class="btn btn-sm" id="s11-btn-reset-a">Reset</button>
+            </div>
+            <div class="s11-demo-hint">
+              Click any tree cable to cut/repair it. Severed bridges partition the network into isolated components.
+            </div>
+            <div class="s11-graph-box" id="s11-graph-a"></div>
+            <div class="s11-stats-strip">
+              <div class="s11-stat-pill">Components: <strong id="s11-comp-count">1</strong></div>
+              <div class="s11-stat-pill">Sizes: <strong id="s11-comp-sizes">8</strong></div>
+              <div class="s11-stat-pill">
+                Pairs that can no longer talk: <strong id="s11-unreachable-pairs">0 of 28 (0.0%)</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Demo B: Detour -->
+          <div class="card s11-demo-card reveal" style="--i:4">
+            <div class="s11-demo-header">
+              <h3 class="s11-demo-title">Demo B: Detour</h3>
+              <div class="s11-demo-btns">
+                <button class="btn btn-sm btn-primary" id="s11-btn-worst-pair">Worst pair</button>
+                <button class="btn btn-sm" id="s11-btn-reset-b">Clear</button>
+              </div>
+            </div>
+            <div class="s11-demo-hint">
+              Click two nodes to contrast the MST path (<span style="color:var(--vermilion);font-weight:700;">vermilion</span>) with the shortest network path (<span style="color:var(--cobalt);font-weight:700;">cobalt dashed</span>).
+            </div>
+            <div class="s11-graph-box" id="s11-graph-b"></div>
+            <div class="s11-stats-strip">
+              <div class="s11-stat-pill">Pair: <strong id="s11-detour-pair">None selected</strong></div>
+              <div class="s11-stat-pill">MST path (<em>P</em>): <strong id="s11-detour-p">—</strong></div>
+              <div class="s11-stat-pill">Shortest (<em>S</em>): <strong id="s11-detour-s">—</strong></div>
+              <div class="s11-stat-pill">Detour (<em>P/S</em>): <strong id="s11-detour-ratio">—</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 14: Fixes -->
+    <section class="slide" id="s12" data-title="Fixes" data-notes="We explore engineering solutions to MST limitations including greedy backup links to eliminate bridge vulnerabilities, shortest-path trees via Dijkstra's algorithm from a central router, and Euclidean Steiner trees that introduce auxiliary junctions to reduce overall cable length further.">
+      <span class="slide-label">§ 14</span>
+      <h2 class="reveal" style="--i:0">Fixes
+        <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+          <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+        </svg>
+      </h2>
+      <div class="s12-layout">
+        <!-- Tabs Bar -->
+        <div class="s12-tabs-bar">
+          <button class="s12-tab-btn active" id="s12-tab-btn-1" data-tab="1">Tab 1: Add Backup Links</button>
+          <button class="s12-tab-btn" id="s12-tab-btn-2" data-tab="2">Tab 2: Shortest-Path Tree</button>
+          <button class="s12-tab-btn" id="s12-tab-btn-3" data-tab="3">Tab 3: Steiner Tree</button>
+        </div>
+
+        <!-- Tab 1: Backup Links -->
+        <div class="s12-tab-content active" id="s12-tab-1">
+          <div class="card s12-tab-card">
+            <div class="s12-tab-toolbar">
+              <div class="s12-tab-actions">
+                <button class="btn btn-sm btn-primary" id="s12-btn-add-backup">Add a backup link</button>
+                <button class="btn btn-sm" id="s12-btn-reset-backup">Reset to MST</button>
+                <button class="btn btn-sm" id="s12-btn-toggle-failure">Test a failure: OFF</button>
+              </div>
+              <div class="s12-readouts-row">
+                <div class="s12-readout-item">Cost: <strong id="s12-cost-val">₹31</strong></div>
+                <div class="s12-readout-item">Cost increase vs MST: <strong id="s12-increase-val">+0.0%</strong></div>
+                <div class="s12-readout-item">Bridges left: <strong id="s12-bridges-val">7</strong></div>
+                <div class="s12-readout-item">Survives any single link failure: <span id="s12-survives-chip" class="chip chip-alarm">No</span></div>
+              </div>
+            </div>
+            <div class="s12-test-msg" id="s12-failure-msg" style="display:none;"></div>
+            <div class="s12-graph-container" id="s12-backup-graph"></div>
+            <div class="s12-caption-card">
+              <em>Caption:</em> Finding the cheapest set of backup links is a hard problem (NP-hard). We are using a simple greedy rule, not an optimal one.
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: Shortest-Path Tree -->
+        <div class="s12-tab-content" id="s12-tab-2">
+          <div class="card s12-tab-card">
+            <div class="s12-tab-toolbar">
+              <div class="s12-tab-actions">
+                <span style="font-size:0.8rem;font-weight:700;">Root vertex:</span>
+                <select id="s12-spt-root-sel" class="s12-select">
+                  <option value="A" selected>A</option>
+                  <option value="B">B</option>
+                  <option value="C">C</option>
+                  <option value="D">D</option>
+                  <option value="E">E</option>
+                  <option value="F">F</option>
+                  <option value="G">G</option>
+                  <option value="H">H</option>
+                </select>
+                <button class="btn btn-sm btn-primary" id="s12-btn-toggle-spt">View: MST</button>
+              </div>
+              <div class="s12-readouts-row">
+                <div class="s12-readout-item">Tree Weight: <strong id="s12-spt-weight">31</strong></div>
+                <div class="s12-readout-item">Avg Root Distance: <strong id="s12-spt-avg">5.7</strong></div>
+                <div class="s12-readout-item">Max Root Distance: <strong id="s12-spt-max">12</strong></div>
+              </div>
+            </div>
+            <div class="s12-graph-container" id="s12-spt-graph"></div>
+            <div class="s12-caption-card">
+              <em>Caption:</em> MST: cheapest cable overall. Shortest-path tree: shortest route from the root to everybody. Different goals, different trees.
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3: Steiner Tree -->
+        <div class="s12-tab-content" id="s12-tab-3">
+          <div class="card s12-tab-card">
+            <div class="s12-tab-toolbar">
+              <div class="s12-tab-actions">
+                <button class="btn btn-sm btn-primary" id="s12-btn-snap-steiner">Snap to best point</button>
+                <button class="btn btn-sm" id="s12-btn-equilateral">Reset Equilateral</button>
+                <button class="btn btn-sm" id="s12-btn-obtuse">Try Obtuse (130°)</button>
+              </div>
+              <div class="s12-readouts-row">
+                <div class="s12-readout-item">MST on terminals: <strong id="s12-steiner-mst-len">2.000</strong></div>
+                <div class="s12-readout-item">Steiner tree: <strong id="s12-steiner-len">1.732</strong></div>
+                <div class="s12-readout-item"><span id="s12-steiner-saving-chip" class="chip chip-success">Saving 13.4%</span></div>
+              </div>
+            </div>
+            <div class="s12-steiner-notice" id="s12-steiner-notice" style="display:none;"></div>
+            <div class="s12-steiner-board" id="s12-steiner-board"></div>
+            <div class="s12-steiner-footer">
+              <div class="s12-fact-card">
+                <strong>Fact:</strong> In the plane, an MST is never more than 2/√3, about 1.155 times, the length of the best Steiner tree. (Du and Hwang, 1992)
+              </div>
+              <div class="s12-caption-card" style="margin:0;">
+                <em>Caption:</em> Adding a helper junction that is not a building can make the cable shorter.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 15: Spanning Tree Protocol -->
+    <section class="slide" id="s13" data-title="Spanning Tree Protocol" data-notes="Ethernet broadcast frames circulate endlessly in loops and generate exponential broadcast storms unless redundant links are blocked. The IEEE 802.1D Spanning Tree Protocol elects a root bridge via BPDU exchanges and places redundant ports in a blocking state. If a forwarding link fails, the protocol dynamically transitions a backup port to forwarding.">
+      <span class="slide-label">§ 15</span>
+      <h2 class="reveal" style="--i:0">Spanning Tree Protocol
+        <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+          <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+        </svg>
+      </h2>
+      <div class="s13-layout">
+        <!-- Left: Story Panel (36%) -->
+        <div class="s13-left reveal" style="--i:1">
+          <div class="card s13-story-card">
+            <!-- 3 Acts as large tab buttons across top of panel -->
+            <div class="s13-act-tabs" role="tablist" aria-label="Story Acts">
+              <button type="button" class="s13-act-btn active" id="s13-tab-act1" data-act="1" role="tab" aria-selected="true">1 The problem</button>
+              <button type="button" class="s13-act-btn" id="s13-tab-act2" data-act="2" role="tab" aria-selected="false">2 The fix</button>
+              <button type="button" class="s13-act-btn" id="s13-tab-act3" data-act="3" role="tab" aria-selected="false">3 A link breaks</button>
+            </div>
+
+            <!-- Story Body -->
+            <div class="s13-story-body">
+              <div class="s13-headline" id="s13-headline">Loops make network traffic multiply.</div>
+
+              <!-- Small greyed one-liners of earlier sentences above -->
+              <div class="s13-past-sentences" id="s13-past-sentences" aria-live="polite"></div>
+
+              <!-- ONE big sentence at a time (at least 26px at 1920x1080, max ~22 words) -->
+              <div class="s13-current-sentence-wrap">
+                <div class="s13-current-sentence" id="s13-current-sentence" aria-live="assertive">
+                  A switch copies every message it gets onto all its other cables.
+                </div>
+              </div>
+
+              <!-- Act 2 Maths Line Card (visible only in Act 2) -->
+              <div class="s13-math-card" id="s13-math-card" style="display:none;">
+                <p>Every switch uses its cheapest route to the boss, so STP builds a shortest-path tree, not an MST (<a href="#s12" class="s13-link-s12">slide 14, tab 2</a>).</p>
+              </div>
+            </div>
+
+            <!-- Stepper Controls Row: Next, Back, Replay act -->
+            <div class="s13-stepper-row">
+              <div class="s13-stepper-btns">
+                <button type="button" class="btn btn-sm" id="s13-btn-back" title="Previous sentence">Back</button>
+                <button type="button" class="btn btn-sm btn-primary" id="s13-btn-next" title="Next sentence (or Right Arrow)">Next</button>
+                <button type="button" class="btn btn-sm" id="s13-btn-replay" title="Replay current act">Replay act</button>
+              </div>
+              <div class="s13-progress-dots" id="s13-progress-dots" aria-label="Sentence progress"></div>
+            </div>
+
+            <!-- Bottom Drawer Button -->
+            <div class="s13-bottom-actions">
+              <button type="button" class="btn btn-sm" id="s13-btn-details" title="Open complete technical reference">
+                Technical details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Simulation Scene (64%) -->
+        <div class="s13-right reveal" style="--i:2">
+          <div class="card s13-scene-card">
+            <!-- Status Card Above Scene -->
+            <div class="s13-scene-status-card" id="s13-scene-status-card">
+              <div class="s13-status-left">
+                <span class="chip" id="s13-act-badge">Act 1: The Problem</span>
+                <span class="s13-narrator-line" id="s13-narrator-line">Ready. Send a frame to see traffic flow.</span>
+              </div>
+              <div class="s13-counters">
+                <div class="s13-counter">
+                  <span class="s13-counter-lbl">Copies travelling:</span>
+                  <span class="s13-counter-num" id="s13-cnt-flight">0</span>
+                </div>
+                <div class="s13-counter">
+                  <span class="s13-counter-lbl">Total delivered:</span>
+                  <span class="s13-counter-num" id="s13-cnt-delivered">0</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- SVG Scene Container -->
+            <div class="s13-canvas-wrap" id="s13-canvas-wrap">
+              <svg id="s13-svg" viewBox="0 0 800 520" preserveAspectRatio="xMidYMid meet" class="s13-svg"></svg>
+
+              <!-- Broadcast Storm Overlay Stamp -->
+              <div class="s13-storm-stamp" id="s13-storm-stamp" style="display:none;">
+                <div class="s13-stamp-icon">&cross;</div>
+                <div class="s13-stamp-text">BROADCAST STORM. Network down.</div>
+                <div class="s13-stamp-sub">Frames circulating endlessly in loops (&gt; 1,000,000 copies).</div>
+                <button type="button" class="btn btn-sm btn-primary" id="s13-btn-storm-replay" style="margin-top:0.6rem;">Replay Act 1</button>
+              </div>
+            </div>
+
+            <!-- Scene Controls & Actions Row -->
+            <div class="s13-scene-controls-row">
+              <div class="s13-main-scene-actions">
+                <button type="button" class="btn btn-sm btn-primary" id="s13-btn-send-frame" style="display:none;">Send one frame</button>
+                <button type="button" class="btn btn-sm btn-primary" id="s13-btn-turn-stp-on" style="display:none;">Turn STP on</button>
+                <button type="button" class="btn btn-sm" id="s13-btn-choose-boss" style="display:none;">Choose the boss switch</button>
+                <button type="button" class="btn btn-sm" id="s13-btn-repair-link" style="display:none;">Repair link</button>
+                <button type="button" class="btn btn-sm" id="s13-btn-scene-reset">Reset</button>
+              </div>
+
+              <!-- Collapsed Advanced Controls Details/Popover -->
+              <details class="s13-advanced-controls" id="s13-advanced-controls">
+                <summary class="s13-advanced-summary">Advanced ▾</summary>
+                <div class="s13-advanced-popover">
+                  <div class="s13-advanced-row">
+                    <button type="button" class="btn btn-xs" id="s13-btn-step-bpdu" disabled>Step hello messages</button>
+                    <button type="button" class="btn btn-xs" id="s13-btn-auto" disabled>Auto</button>
+                  </div>
+                  <div class="s13-speed-row">
+                    <label for="s13-speed" class="s13-speed-lbl">Speed: <span id="s13-speed-val">1x</span></label>
+                    <input type="range" id="s13-speed" class="range-slider" min="0.5" max="2.5" step="0.25" value="1">
+                  </div>
+                </div>
+              </details>
+            </div>
+
+            <!-- INLINE Choose Boss Card Directly Under Scene (Never Floats Outside) -->
+            <div class="s13-choose-boss-card" id="s13-choose-boss-card" style="display:none;">
+              <div class="s13-boss-header">
+                <span class="s13-boss-title" id="s13-boss-title">Choose Boss Switch</span>
+                <button type="button" class="s13-boss-close" id="s13-boss-close" aria-label="Close">&times;</button>
+              </div>
+              <div class="s13-boss-body" id="s13-boss-body">
+                <div class="s13-boss-prompt" id="s13-boss-prompt">Click any switch in the scene to select it.</div>
+                <div class="s13-boss-actions" id="s13-boss-actions" style="display:none;">
+                  <button type="button" class="btn btn-sm btn-primary" id="s13-btn-make-boss">Make S4 the boss</button>
+                  <button type="button" class="btn btn-sm" id="s13-btn-boss-default">Back to default (32768)</button>
+                  <span class="s13-pri-mono" id="s13-pri-mono">Priority: 32768</span>
+                </div>
+                <div class="s13-boss-caption">Changing the boss changes which links stay on.</div>
+              </div>
+            </div>
+
+            <!-- Compact Legend Row Under Scene -->
+            <div class="s13-legend-row">
+              <span class="s13-legend-item"><span class="s13-leg-line s13-leg-solid"></span> working link</span>
+              <span class="s13-legend-item"><span class="s13-leg-line s13-leg-blocked"></span><span class="s13-leg-bar"></span> switched off</span>
+              <span class="s13-legend-item"><span class="s13-leg-crown"><svg width="16" height="14" viewBox="0 0 20 16" style="vertical-align:-2px;display:inline-block"><polygon points="2,14 0,4 6,9 10,2 14,9 20,4 18,14" fill="#D49A00" stroke="var(--ink)" stroke-width="1.2" stroke-linejoin="round"/><circle cx="10" cy="8" r="1.5" fill="var(--vermilion)"/></svg></span> boss switch</span>
+              <span class="s13-legend-item"><span class="s13-leg-envelope"><svg width="16" height="13" viewBox="0 0 20 15" style="vertical-align:-2px;display:inline-block"><rect x="1" y="1" width="18" height="13" rx="1.5" fill="#fdfbf7" stroke="var(--ink)" stroke-width="1.2"/><polyline points="2,2 10,9 18,2" fill="none" stroke="var(--ink)" stroke-width="1.2"/></svg></span> hello message</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technical Details Drawer / Modal Backdrop -->
+      <div class="s13-details-drawer-backdrop" id="s13-details-drawer" aria-hidden="true" role="dialog" aria-labelledby="s13-drawer-title">
+        <div class="s13-drawer-card">
+          <div class="s13-drawer-header">
+            <div>
+              <span class="chip" style="font-weight:700;">Technical Reference (IEEE 802.1D)</span>
+              <h3 id="s13-drawer-title" style="margin:0.25rem 0 0 0;font-size:1.15rem;font-family:var(--font-display);">Spanning Tree Protocol Details</h3>
+            </div>
+            <button type="button" class="btn btn-sm btn-primary" id="s13-btn-close-details" aria-label="Close drawer">Close &times;</button>
+          </div>
+          <div class="s13-drawer-body">
+            <!-- Key Facts & Theory from SPEC -->
+            <div class="s13-drawer-section">
+              <h4>Key Facts</h4>
+              <ul class="s13-drawer-list">
+                <li><strong>Bridge ID:</strong> priority (default 32768) + MAC address; lowest Bridge ID becomes the root bridge.</li>
+                <li>Every other switch keeps the one port with the lowest path cost to the root (<strong>root port</strong>).</li>
+                <li>Each link has one <strong>designated port</strong> (the end closer to the root). Everything else is <strong>blocked</strong>.</li>
+                <li>Switches exchange <strong>BPDUs</strong> (every 2 seconds by default).</li>
+                <li><strong>Path cost examples:</strong> 10 Mbps = 100, 100 Mbps = 19, 1 Gbps = 4, 10 Gbps = 2.</li>
+                <li><strong>Port states:</strong> blocking, listening, learning, forwarding.</li>
+              </ul>
+            </div>
+
+            <!-- Maths Link from SPEC -->
+            <div class="s13-drawer-section">
+              <h4>Maths Link</h4>
+              <p>STP builds a spanning tree where every switch uses its cheapest path to the root: a <strong>shortest-path tree</strong>, not an MST. (<a href="#s12">Slide 14, tab 2</a>.)</p>
+            </div>
+
+            <!-- Bridge Table (Updated Live) -->
+            <div class="s13-drawer-section">
+              <h4>Bridge Table</h4>
+              <div class="s13-drawer-table-wrap">
+                <table class="s13-bridge-table">
+                  <thead>
+                    <tr>
+                      <th>Switch</th>
+                      <th>Priority</th>
+                      <th>MAC Suffix</th>
+                      <th>Root Port</th>
+                      <th>Role</th>
+                    </tr>
+                  </thead>
+                  <tbody id="s13-bridge-tbody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Protocol & BPDU Log (Updated Live) -->
+            <div class="s13-drawer-section">
+              <h4>Protocol &amp; BPDU Log</h4>
+              <div class="s13-log-box" id="s13-log-box"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 16: Applications -->
+    <section class="slide" id="s14" data-title="Applications" data-notes="Spanning tree algorithms power essential infrastructure across multiple industries. Key applications include campus LAN wiring, long-distance telecommunications fiber trenching, power grid layout dating back to Boruvka in 1926, multicast data distribution trees, low-power IoT sensor meshes, and clustering approximations.">
+      <span class="slide-label">§ 16</span>
+      <h2 class="reveal" style="--i:0">Applications
+        <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+          <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+        </svg>
+      </h2>
+      <div class="s14-layout">
+        <!-- 6 Application Cards (3x2 Grid) -->
+        <div class="s14-grid">
+          <!-- Card 1: Campus and office LAN -->
+          <div class="card s14-card reveal" style="--i:1" tabindex="0" data-card="campus" aria-label="Campus and office LAN">
+            <div class="s14-card-header">
+              <span class="s14-card-num">01</span>
+              <h3 class="s14-card-title">Campus and office LAN</h3>
+            </div>
+            <p class="s14-card-desc">Connect buildings with least cable.</p>
+            <div class="s14-canvas-container">
+              <svg class="s14-mini-svg" id="s14-svg-campus" viewBox="0 0 280 140" preserveAspectRatio="xMidYMid meet"></svg>
+            </div>
+          </div>
+
+          <!-- Card 2: Fibre and telecom networks -->
+          <div class="card s14-card reveal" style="--i:2" tabindex="0" data-card="fibre" aria-label="Fibre and telecom networks">
+            <div class="s14-card-header">
+              <span class="s14-card-num">02</span>
+              <h3 class="s14-card-title">Fibre and telecom networks</h3>
+            </div>
+            <p class="s14-card-desc">Connect cities/exchanges at least trenching cost.</p>
+            <div class="s14-canvas-container">
+              <svg class="s14-mini-svg" id="s14-svg-fibre" viewBox="0 0 280 140" preserveAspectRatio="xMidYMid meet"></svg>
+            </div>
+          </div>
+
+          <!-- Card 3: Power grids -->
+          <div class="card s14-card reveal" style="--i:3" tabindex="0" data-card="power" aria-label="Power grids">
+            <div class="s14-card-header">
+              <span class="s14-card-num">03</span>
+              <h3 class="s14-card-title">Power grids</h3>
+            </div>
+            <p class="s14-card-desc">The original motivation, Boruvka's 1926 work on electrifying Moravia.</p>
+            <div class="s14-canvas-container">
+              <svg class="s14-mini-svg" id="s14-svg-power" viewBox="0 0 280 140" preserveAspectRatio="xMidYMid meet"></svg>
+            </div>
+          </div>
+
+          <!-- Card 4: Multicast and broadcast trees -->
+          <div class="card s14-card reveal" style="--i:4" tabindex="0" data-card="multicast" aria-label="Multicast and broadcast trees">
+            <div class="s14-card-header">
+              <span class="s14-card-num">04</span>
+              <h3 class="s14-card-title">Multicast and broadcast trees</h3>
+            </div>
+            <p class="s14-card-desc">Send one copy of data along a tree to many receivers.</p>
+            <div class="s14-canvas-container">
+              <svg class="s14-mini-svg" id="s14-svg-multicast" viewBox="0 0 280 140" preserveAspectRatio="xMidYMid meet"></svg>
+            </div>
+          </div>
+
+          <!-- Card 5: IoT and wireless sensor meshes -->
+          <div class="card s14-card reveal" style="--i:5" tabindex="0" data-card="iot" aria-label="IoT and wireless sensor meshes">
+            <div class="s14-card-header">
+              <span class="s14-card-num">05</span>
+              <h3 class="s14-card-title">IoT and wireless sensor meshes</h3>
+            </div>
+            <p class="s14-card-desc">Low-power routing trees to a sink node.</p>
+            <div class="s14-canvas-container">
+              <svg class="s14-mini-svg" id="s14-svg-iot" viewBox="0 0 280 140" preserveAspectRatio="xMidYMid meet"></svg>
+            </div>
+          </div>
+
+          <!-- Card 6: Clustering and approximation -->
+          <div class="card s14-card reveal" style="--i:6" tabindex="0" data-card="clustering" aria-label="Clustering and approximation">
+            <div class="s14-card-header">
+              <span class="s14-card-num">06</span>
+              <h3 class="s14-card-title">Clustering and approximation</h3>
+            </div>
+            <p class="s14-card-desc">Single-linkage clustering (cut the longest MST edges) and MST-based approximation of the travelling salesman problem.</p>
+            <div class="s14-canvas-container">
+              <svg class="s14-mini-svg" id="s14-svg-clustering" viewBox="0 0 280 140" preserveAspectRatio="xMidYMid meet"></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 17: Conclusion -->
+    <section class="slide" id="s15" data-title="Conclusion" data-notes="Spanning trees connect all network devices with minimal cable and zero redundant loops. Kruskal and Prim efficiently compute minimum spanning trees using greedy choices validated by the cut property. In practical deployment, protocols like STP build on spanning trees to prevent broadcast storms while maintaining reliability.">
+      <span class="slide-label">§ 17</span>
+      <h2 class="reveal" style="--i:0">Conclusion
+        <svg class="heading-underline-svg" viewBox="0 0 300 12" preserveAspectRatio="none" style="display:block;width:80%;height:12px;margin-top:4px" aria-hidden="true">
+          <path class="heading-underline" d="M0 6 Q75 0 150 6 Q225 12 300 6" fill="none" stroke="var(--vermilion)" stroke-width="3" stroke-linecap="round" style="--line-len:320"/>
+        </svg>
+      </h2>
+      <div class="s15-layout">
+        <div class="card s15-card reveal" style="--i:1">
+          <span class="s15-marker marker-c1">1</span>
+          <p class="s15-text">A network is a <strong>weighted graph</strong>: devices are vertices, cables are edges, and cable cost is the weight.</p>
+        </div>
+        <div class="card s15-card reveal" style="--i:2">
+          <span class="s15-marker marker-c2">2</span>
+          <p class="s15-text">A <strong>tree</strong> is connected with no cycles, so <em>n</em> vertices use exactly <em>n</em>&minus;1 edges. A <strong>spanning tree</strong> reaches every vertex, and the complete graph <em>K</em><sub><em>n</em></sub> has <em>n</em><sup><em>n</em>&minus;2</sup> of them.</p>
+        </div>
+        <div class="card s15-card reveal" style="--i:3">
+          <span class="s15-marker marker-c3">3</span>
+          <p class="s15-text">The <strong>minimum spanning tree (MST)</strong> is the spanning tree with the smallest total weight.</p>
+        </div>
+        <div class="card s15-card reveal" style="--i:4">
+          <span class="s15-marker marker-c4">4</span>
+          <p class="s15-text"><strong>Kruskal</strong> (sort edges, skip cycles) and <strong>Prim</strong> (grow from one vertex) both find it, because of the <strong>cut property</strong>.</p>
+        </div>
+        <div class="card s15-card reveal" style="--i:5">
+          <span class="s15-marker marker-c5">5</span>
+          <p class="s15-text">Both run in about <strong>O(<em>E</em> log <em>V</em>)</strong>. <strong>Prim</strong> with an adjacency matrix, <strong>O(<em>V</em><sup>2</sup>)</strong>, suits dense graphs.</p>
+        </div>
+        <div class="card s15-card reveal" style="--i:6">
+          <span class="s15-marker marker-vermilion">6</span>
+          <p class="s15-text">An MST has <strong>no backup links</strong> and does not minimise distance between two machines. Fixes are backup links, shortest-path trees and Steiner trees. <strong>STP</strong> uses a spanning tree to stop loops in real networks.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Slide 18: Thank You -->
+    <section class="slide" id="s16" data-title="Thank You" data-notes="Close the presentation and invite questions.">
+      <div class="s16-layout">
+        <div class="s16-center">
+          <h2 class="s16-title reveal" style="--i:0">Thank You</h2>
+        </div>
+        <p class="s16-credit reveal" style="--i:1">A Presentation by PABIT Cloud Services</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Script load order: config, core (util, graph, algo, stepper, view, stp-model), deck, slides -->
+  <script src="js/config.js"></script>
+  <script src="js/core/util.js"></script>
+  <script src="js/core/graph.js"></script>
+  <script src="js/core/algo.js"></script>
+  <script src="js/core/stepper.js"></script>
+  <script src="js/core/view.js"></script>
+  <script src="js/core/stp-model.js"></script>
+  <script src="js/deck.js"></script>
+  <script src="js/slides/s01.js"></script>
+  <script src="js/slides/s01b.js"></script>
+  <script src="js/slides/s02.js"></script>
+  <script src="js/slides/s02b.js"></script>
+  <script src="js/slides/s03.js"></script>
+  <script src="js/slides/s04.js"></script>
+  <script src="js/slides/s05.js"></script>
+  <script src="js/slides/s06.js"></script>
+  <script src="js/slides/s07.js"></script>
+  <script src="js/slides/s08.js"></script>
+  <script src="js/slides/s08b.js"></script>
+  <script src="js/slides/s09.js"></script>
+  <script src="js/slides/s10.js"></script>
+  <script src="js/slides/s11.js"></script>
+  <script src="js/slides/s12.js"></script>
+  <script src="js/slides/s13.js"></script>
+  <script src="js/slides/s14.js"></script>
+  <script src="js/slides/s15.js"></script>
+  <script src="js/slides/s16.js"></script>
+
+</body>
+</html>

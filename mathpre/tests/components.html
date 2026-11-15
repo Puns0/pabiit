@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Component Kitchen Sink — Design System Eyeball Test</title>
+
+  <!-- Same CSS stylesheets with relative paths -->
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/deck.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/slides.css">
+
+  <style>
+    .kitchen-sink-wrap {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+    .sink-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .sink-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SVG Filter for Paper Noise Texture -->
+  <svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+    <filter id="paper-noise">
+      <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+  </svg>
+
+  <div class="kitchen-sink-wrap">
+    <div>
+      <span class="slide-label">Component Test</span>
+      <h1 style="margin-top: 1rem;">Component Kitchen Sink</h1>
+      <p style="color: var(--ink-2);">Eyeball verification page for buttons, cards, chips, sliders, pseudocode, tables, and statistics.</p>
+    </div>
+
+    <!-- 1. Cards & Panels -->
+    <section class="sink-section">
+      <h2>Cards &amp; Panels</h2>
+      <div class="sink-row">
+        <div class="card" style="flex: 1; min-width: 280px;">
+          <h3 style="margin-top:0;">Standard Card</h3>
+          <p>Cream paper surface (--paper-3) with 2px ink border and hard offset shadow (4px 4px).</p>
+        </div>
+        <div class="card tape" style="flex: 1; min-width: 280px;">
+          <h3 style="margin-top:0;">Card with Tape</h3>
+          <p>Has decorative highlighter-yellow tape strip at the top edge.</p>
+        </div>
+        <div class="panel" style="flex: 1; min-width: 280px;">
+          <h3 style="margin-top:0;">Panel</h3>
+          <p>Compact panel container for sidebars and controls.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Buttons -->
+    <section class="sink-section">
+      <h2>Buttons</h2>
+      <div class="sink-row">
+        <button type="button" class="btn">Default Button</button>
+        <button type="button" class="btn btn-primary">Primary (Vermilion)</button>
+        <button type="button" class="btn" disabled>Disabled Button</button>
+      </div>
+    </section>
+
+    <!-- 3. Chips and Pills -->
+    <section class="sink-section">
+      <h2>Status Chips &amp; Pills</h2>
+      <div class="sink-row">
+        <span class="chip">Default Chip</span>
+        <span class="chip accepted">Accepted (Vermilion)</span>
+        <span class="chip rejected">Rejected (Dashed / Cross)</span>
+        <span class="chip pending">Pending</span>
+        <span class="pill">weight = 12</span>
+        <span class="pill mono">|V| = 8, |E| = 13</span>
+      </div>
+    </section>
+
+    <!-- 4. Sliders and Inputs -->
+    <section class="sink-section">
+      <h2>Range Slider</h2>
+      <div style="max-width: 400px; display:flex; flex-direction:column; gap:0.5rem;">
+        <label for="sample-range" class="mono" style="font-size:0.9rem;">Nodes: <span id="val">8</span></label>
+        <input type="range" id="sample-range" min="2" max="100" value="8" oninput="document.getElementById('val').textContent=this.value">
+      </div>
+    </section>
+
+    <!-- 5. Pseudocode Block -->
+    <section class="sink-section">
+      <h2>Pseudocode Block</h2>
+      <div class="pseudocode" style="max-width: 600px;">
+<span class="line">sort edges by weight</span>
+<span class="line">T = empty set; each vertex is its own set</span>
+<span class="line active">for each edge (u,v) in sorted order:</span>
+<span class="line">    if find(u) != find(v):</span>
+<span class="line">        add (u,v) to T</span>
+<span class="line">        union(u,v)</span>
+<span class="line">    else: skip it (it would make a cycle)</span>
+<span class="line">stop when T has n-1 edges</span>
+      </div>
+    </section>
+
+    <!-- 6. Table with Hoverable Rows -->
+    <section class="sink-section">
+      <h2>Table with Hoverable Rows</h2>
+      <div class="card" style="padding: 0.5rem; overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Network Component</th>
+              <th>Graph Concept</th>
+              <th>Mathematical Notation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Router / Switch</td>
+              <td>Vertex (Node)</td>
+              <td class="mono">v &isin; V</td>
+            </tr>
+            <tr>
+              <td>Physical Cable</td>
+              <td>Edge (Link)</td>
+              <td class="mono">e = {u,v} &isin; E</td>
+            </tr>
+            <tr>
+              <td>Length / Trenching Cost</td>
+              <td>Edge Weight</td>
+              <td class="mono">w(e) &gt; 0</td>
+            </tr>
+            <tr>
+              <td>Complete Network</td>
+              <td>Weighted Graph</td>
+              <td class="mono">G = (V, E, w)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 7. Statistics and Tooltips -->
+    <section class="sink-section">
+      <h2>Statistics &amp; Tooltips</h2>
+      <div class="sink-row">
+        <div class="card stat" style="min-width: 160px;">
+          <span class="stat-number">4,950</span>
+          <span class="stat-label">Full Mesh Links</span>
+        </div>
+        <div class="card stat" style="min-width: 160px;">
+          <span class="stat-number">99</span>
+          <span class="stat-label">Tree Links</span>
+        </div>
+        <div class="card stat" style="min-width: 160px;">
+          <span class="stat-number">31</span>
+          <span class="stat-label">Optimal Weight</span>
+        </div>
+
+        <div style="margin-left: 2rem;">
+          <span class="pill" data-tooltip="Hover tooltip text preview">Hover over this pill for tooltip</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
+

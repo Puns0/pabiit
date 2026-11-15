@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Core Engine Test Runner — NG.Graph &amp; NG.Algo</title>
+  <link rel="stylesheet" href="../css/base.css">
+  <style>
+    body {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      font-family: var(--font-body);
+    }
+    h1 {
+      margin-top: 0;
+      font-family: var(--font-display);
+    }
+    .summary-card {
+      background: var(--paper-3);
+      border: 2px solid var(--ink);
+      border-radius: 6px;
+      box-shadow: 4px 4px 0 var(--ink);
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .summary-stat {
+      font-family: var(--font-mono);
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: 2px solid var(--ink);
+    }
+    .badge.pass {
+      background: var(--c4);
+      color: #fff;
+    }
+    .badge.fail {
+      background: var(--alarm);
+      color: #fff;
+    }
+    .test-log {
+      background: var(--paper-3);
+      border: 2px solid var(--ink);
+      border-radius: 6px;
+      box-shadow: 4px 4px 0 var(--ink);
+      padding: 1rem 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.8;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+    .item-pass {
+      color: #2e6918;
+    }
+    .item-fail {
+      color: var(--alarm);
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Core Engine Test Runner</h1>
+  <p style="color: var(--ink-2); margin-top: -0.5rem; margin-bottom: 1.5rem;">
+    Single source of mathematical truth verification: <code>NG.Graph</code> and <code>NG.Algo</code> against SPEC sections 6, 7 and 8.
+  </p>
+
+  <div class="summary-card" id="summary">
+    <div>
+      <div class="summary-stat" id="stat-text">Running tests...</div>
+      <div style="color: var(--ink-2); font-size: 0.85rem; margin-top: 0.25rem;">Includes 200 random connected graphs stress test</div>
+    </div>
+    <div id="status-badge" class="badge">RUNNING</div>
+  </div>
+
+  <div class="test-log" id="test-log"></div>
+
+  <!-- Scripts under test -->
+  <script src="../js/core/util.js"></script>
+  <script src="../js/core/graph.js"></script>
+  <script src="../js/core/algo.js"></script>
+  <script src="../js/core/stp-model.js"></script>
+
+  <script>
+    (function () {
+      var passed = 0;
+      var failed = 0;
+      var logEl = document.getElementById('test-log');
+
+      function logItem(isPass, desc, err) {
+        var div = document.createElement('div');
+        div.className = isPass ? 'item-pass' : 'item-fail';
+        var tag = isPass ? '[PASS] ' : '[FAIL] ';
+        div.textContent = tag + desc + (err ? ' — ' + err : '');
+        logEl.appendChild(div);
+        if (isPass) {
+          console.log('[PASS]', desc);
+        } else {
+          console.error('[FAIL]', desc, err);
+        }
+      }
+
+      function assert(condition, desc, err) {
+        if (condition) {
+          passed++;
+          logItem(true, desc);
+        } else {
+          failed++;
+          logItem(false, desc, err || 'Assertion failed');
+        }
+      }
+
+      function assertEq(actual, expected, desc) {
+        var ok = (actual === expected || actual == expected);
+        if (!ok && typeof actual === 'object' && typeof expected === 'object' && actual !== null && expected !== null) {
+          try {
+            ok = JSON.stringify(actual) === JSON.stringify(expected);
+          } catch (e) {}
+        }
+        if (ok) {
+          passed++;
+          logItem(true, desc);
+        } else {
+          failed++;
+          logItem(false, desc, 'Expected ' + String(expected) + ', got ' + String(actual));
+        }
+      }
+
+      /* --------------------------------------------------------
+         1. Canonical Demo Graph (SPEC §7)
+         8 nodes: A(120,80) B(300,50) C(480,90) D(80,230) E(260,210) F(450,240) G(170,370) H(380,360)
+         13 edges: EH 1, EF 2, BE 3, AB 4, AE 5, CF 6, DE 7, GH 8, AD 9, BC 10, DG 11, FH 12, CE 13
+         -------------------------------------------------------- */
+      function buildCanonical() {
+        var g = new NG.Graph();
+        g.addNode(120, 80, 'A', 'A');
+        g.addNode(300, 50, 'B', 'B');
+        g.addNode(480, 90, 'C', 'C');
+        g.addNode(80, 230, 'D', 'D');
+        g.addNode(260, 210, 'E', 'E');
+        g.addNode(450, 240, 'F', 'F');
+        g.addNode(170, 370, 'G', 'G');
+        g.addNode(380, 360, 'H', 'H');
+
+        g.addEdge('E', 'H', 1, 'EH');
+        g.addEdge('E', 'F', 2, 'EF');
+        g.addEdge('B', 'E', 3, 'BE');
+        g.addEdge('A', 'B', 4, 'AB');
+        g.addEdge('A', 'E', 5, 'AE');
+        g.addEdge('C', 'F', 6, 'CF');
+        g.addEdge('D', 'E', 7, 'DE');
+        g.addEdge('G', 'H', 8, 'GH');
+        g.addEdge('A', 'D', 9, 'AD');
+        g.addEdge('B', 'C', 10, 'BC');
+        g.addEdge('D', 'G', 11, 'DG');
+        g.addEdge('F', 'H', 12, 'FH');
+        g.addEdge('C', 'E', 13, 'CE');
+        return g;
+      }
+
+      var canonical = buildCanonical();
+      assertEq(canonical.n(), 8, 'Canonical graph: 8 nodes');
+      assertEq(canonical.m(), 13, 'Canonical graph: 13 edges');
+
+      /* --------------------------------------------------------
+         2. Kruskal step sequence on Canonical Graph
+         -------------------------------------------------------- */
+      var kSteps = NG.Algo.kruskalSteps(canonical);
+      var consideredEdges = [];
+      var acceptedSet = [];
+      var decisions = [];
+
+      for (var i = 0; i < kSteps.length; i++) {
+        var s = kSteps[i];
+        if (s.type === 'consider') {
+          consideredEdges.push(s.edgeId);
+        } else if (s.type === 'accept') {
+          decisions.push({ edge: s.edgeId, dec: 'accept' });
+          acceptedSet.push(s.edgeId);
+        } else if (s.type === 'reject') {
+          decisions.push({ edge: s.edgeId, dec: 'reject' });
+        }
+      }
+
+      assertEq(consideredEdges, ['EH', 'EF', 'BE', 'AB', 'AE', 'CF', 'DE', 'GH'], 'Kruskal consideration order: EH, EF, BE, AB, AE, CF, DE, GH');
+      assertEq(acceptedSet.slice().sort(), ['AB', 'BE', 'CF', 'DE', 'EF', 'EH', 'GH'], 'Kruskal accepted set: {EH, EF, BE, AB, CF, DE, GH}');
+      assertEq(kSteps[kSteps.length - 1].total, 31, 'Kruskal total weight is 31');
+      assertEq(acceptedSet.length, 7, 'Kruskal stops after exactly 7 accepts (n - 1)');
+
+      var aeDecision = decisions.filter(function (d) { return d.edge === 'AE'; })[0];
+      assert(aeDecision && aeDecision.dec === 'reject', 'Kruskal rejects AE (cycle A-B-E)');
+
+      /* --------------------------------------------------------
+         3. Prim from A and from every other vertex
+         -------------------------------------------------------- */
+      var primA = NG.Algo.primSteps(canonical, 'A');
+      var primAPicked = primA.filter(function (s) { return s.type === 'pick'; }).map(function (s) { return s.edgeId; });
+      assertEq(primAPicked, ['AB', 'BE', 'EH', 'EF', 'CF', 'DE', 'GH'], 'Prim from A picks AB, BE, EH, EF, CF, DE, GH in order');
+      var primADone = primA[primA.length - 1];
+      assertEq(primADone.total, 31, 'Prim from A total weight is 31');
+
+      var allNodes = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+      var allPrimMatch = true;
+      for (var j = 0; j < allNodes.length; j++) {
+        var pSteps = NG.Algo.primSteps(canonical, allNodes[j]);
+        var pDone = pSteps[pSteps.length - 1];
+        if (pDone.total !== 31 || pDone.treeEdges.length !== 7) {
+          allPrimMatch = false;
+        }
+      }
+      assert(allPrimMatch, 'Prim from every other start vertex (B..H) also totals 31 with 7 edges');
+
+      /* --------------------------------------------------------
+         4. mst() total 31 and equals Kruskal
+         -------------------------------------------------------- */
+      var mstRes = NG.Algo.mst(canonical);
+      assertEq(mstRes.total, 31, 'mst() total is 31');
+      assertEq(mstRes.forest, false, 'mst() forest is false');
+      assertEq(mstRes.edges.slice().sort(), ['AB', 'BE', 'CF', 'DE', 'EF', 'EH', 'GH'], 'mst() edge set matches Kruskal');
+
+      /* --------------------------------------------------------
+         5. countSpanningTrees == enumerateSpanningTrees.length
+            and complete graphs K4..K8 (Cayley vs Kirchhoff)
+         -------------------------------------------------------- */
+      var enumTrees = NG.Algo.enumerateSpanningTrees(canonical);
+      var countTrees = NG.Algo.countSpanningTrees(canonical);
+      assert(countTrees == enumTrees.length, 'countSpanningTrees(canonical) == enumerateSpanningTrees(canonical).length (' + countTrees + ')');
+
+      function buildKn(n) {
+        var g = new NG.Graph();
+        for (var i = 0; i < n; i++) g.addNode(0, 0, 'v' + i);
+        for (var i = 0; i < n; i++) {
+          for (var j = i + 1; j < n; j++) {
+            g.addEdge('v' + i, 'v' + j, 1);
+          }
+        }
+        return g;
+      }
+
+      var knExpected = [
+        { n: 4, val: 16n },
+        { n: 5, val: 125n },
+        { n: 6, val: 1296n },
+        { n: 7, val: 16807n },
+        { n: 8, val: 262144n }
+      ];
+
+      for (var k = 0; k < knExpected.length; k++) {
+        var item = knExpected[k];
+        var cVal = NG.Algo.cayley(item.n);
+        var kGraph = buildKn(item.n);
+        var countVal = NG.Algo.countSpanningTrees(kGraph);
+
+        assertEq(cVal, item.val, 'cayley(' + item.n + ') == ' + item.val);
+        assertEq(countVal, item.val, 'countSpanningTrees(K' + item.n + ') == ' + item.val);
+      }
+
+      /* --------------------------------------------------------
+         6. isTree(MST edges only) true; adding AE makes hasCycle
+            true and findCycleIfAdded(AE) returns {AB, BE, AE}
+         -------------------------------------------------------- */
+      var mstGraph = new NG.Graph();
+      for (var i = 0; i < allNodes.length; i++) {
+        var nd = canonical.node(allNodes[i]);
+        mstGraph.addNode(nd.x, nd.y, nd.label, nd.id);
+      }
+      for (var i = 0; i < mstRes.edges.length; i++) {
+        var ed = canonical.edge(mstRes.edges[i]);
+        mstGraph.addEdge(ed.u, ed.v, ed.w, ed.id);
+      }
+
+      assert(NG.Algo.isTree(mstGraph), 'isTree(MST edges only) is true');
+
+      var cycleAE = NG.Algo.findCycleIfAdded(mstGraph, 'AE');
+      assertEq(cycleAE ? cycleAE.slice().sort() : null, ['AB', 'AE', 'BE'], 'findCycleIfAdded(AE) returns {AB, BE, AE}');
+
+      mstGraph.addEdge('A', 'E', 5, 'AE');
+      assert(NG.Algo.hasCycle(mstGraph), 'After adding AE, hasCycle is true');
+      assert(!NG.Algo.isTree(mstGraph), 'After adding AE, isTree is false');
+
+      /* --------------------------------------------------------
+         7. bridges
+         -------------------------------------------------------- */
+      var mstBridges = NG.Algo.bridges(canonical, { onlyEdges: mstRes.edges });
+      assertEq(mstBridges.slice().sort(), ['AB', 'BE', 'CF', 'DE', 'EF', 'EH', 'GH'], 'bridges(MST only) returns all 7 edges');
+      var fullBridges = NG.Algo.bridges(canonical);
+      assertEq(fullBridges, [], 'bridges(canonical full) returns [] (no bridges)');
+
+      /* --------------------------------------------------------
+         8. cut(canonical, {A, B, D})
+            Hand calculation:
+            S = {A, B, D}, V\S = {C, E, F, G, H}
+            Crossing edges: BE(3), AE(5), DE(7), BC(10), DG(11) -> 5 edges
+            Lightest crossing edge = BE (weight 3), tied = false
+         -------------------------------------------------------- */
+      var cutRes = NG.Algo.cut(canonical, ['A', 'B', 'D']);
+      assertEq(cutRes.crossing.slice().sort(), ['AE', 'BC', 'BE', 'DE', 'DG'], 'cut(canonical, {A,B,D}) crossing edges: BE, AE, DE, BC, DG');
+      assertEq(cutRes.lightest, 'BE', 'cut lightest edge is BE');
+      assertEq(cutRes.tied, false, 'cut tied is false');
+
+      /* --------------------------------------------------------
+         9. Dijkstra & Shortest-Path Tree sanity check from A
+            HAND COMPUTATION TRACE OF DIJKSTRA FROM A:
+            A: 0
+            B: 4 (via AB)
+            E: 5 (via AE)
+            H: 6 (via EH from E)
+            F: 7 (via EF from E)
+            D: 9 (via AD)
+            C: 13 (via CF from F, beats BC at 14)
+            G: 14 (via GH from H)
+            SPT edges = { AB(4), AE(5), EH(1), EF(2), AD(9), CF(6), GH(8) }
+            Total SPT weight = 4 + 5 + 1 + 2 + 9 + 6 + 8 = 35.
+         -------------------------------------------------------- */
+      var dijkstraA = NG.Algo.dijkstra(canonical, 'A');
+      assertEq(dijkstraA.dist.get('A'), 0, 'Dijkstra dist A = 0');
+      assertEq(dijkstraA.dist.get('B'), 4, 'Dijkstra dist B = 4');
+      assertEq(dijkstraA.dist.get('E'), 5, 'Dijkstra dist E = 5');
+      assertEq(dijkstraA.dist.get('H'), 6, 'Dijkstra dist H = 6');
+      assertEq(dijkstraA.dist.get('F'), 7, 'Dijkstra dist F = 7');
+      assertEq(dijkstraA.dist.get('D'), 9, 'Dijkstra dist D = 9');
+      assertEq(dijkstraA.dist.get('C'), 13, 'Dijkstra dist C = 13');
+      assertEq(dijkstraA.dist.get('G'), 14, 'Dijkstra dist G = 14');
+
+      var sptA = NG.Algo.shortestPathTree(canonical, 'A');
+      assertEq(sptA.edges.slice().sort(), ['AB', 'AD', 'AE', 'CF', 'EF', 'EH', 'GH'], 'SPT edges match hand calculation');
+      assertEq(sptA.total, 35, 'SPT total weight is 35 (hand calculated)');
+
+      /* --------------------------------------------------------
+         10. Disconnected graph
+         -------------------------------------------------------- */
+      var discGraph = new NG.Graph();
+      discGraph.addNode(0, 0, 'A');
+      discGraph.addNode(0, 10, 'B');
+      discGraph.addNode(10, 0, 'C');
+      discGraph.addNode(10, 10, 'D');
+      discGraph.addEdge('A', 'B', 5, 'AB');
+      discGraph.addEdge('C', 'D', 7, 'CD');
+
+      var discMst = NG.Algo.mst(discGraph);
+      assertEq(discMst.forest, true, 'Disconnected graph mst() returns forest: true');
+      assertEq(discMst.edges.slice().sort(), ['AB', 'CD'], 'Disconnected graph mst() returns forest edges');
+      assertEq(discMst.total, 12, 'Disconnected graph mst() total is 12');
+
+      var discKSteps = NG.Algo.kruskalSteps(discGraph);
+      var discLast = discKSteps[discKSteps.length - 1];
+      assert(discLast.type === 'done' && discLast.forest === true, 'kruskalSteps ends with done forest: true');
+      assertEq(discLast.componentsAfter.length, 2, 'kruskalSteps ends with 2 components');
+
+      /* --------------------------------------------------------
+         11. Equal-weight ties (4-cycle with equal weights)
+         -------------------------------------------------------- */
+      var cycle4 = new NG.Graph();
+      cycle4.addNode(0, 0, '1');
+      cycle4.addNode(10, 0, '2');
+      cycle4.addNode(10, 10, '3');
+      cycle4.addNode(0, 10, '4');
+      cycle4.addEdge('1', '2', 5, 'e12');
+      cycle4.addEdge('2', '3', 5, 'e23');
+      cycle4.addEdge('3', '4', 5, 'e34');
+      cycle4.addEdge('4', '1', 5, 'e41');
+
+      var cycle4Mst = NG.Algo.mst(cycle4);
+      assertEq(cycle4Mst.total, 15, '4-cycle equal-weight MST total is 15');
+      assertEq(cycle4Mst.edges.length, 3, '4-cycle equal-weight MST has 3 edges');
+      assertEq(cycle4Mst.forest, false, '4-cycle MST is not a forest');
+
+      /* --------------------------------------------------------
+         12. Single node and empty graph do not throw
+         -------------------------------------------------------- */
+      var singleAndEmptyOk = true;
+      try {
+        var empty = new NG.Graph();
+        NG.Algo.mst(empty);
+        NG.Algo.kruskalSteps(empty);
+        NG.Algo.primSteps(empty);
+        NG.Algo.countSpanningTrees(empty);
+        NG.Algo.enumerateSpanningTrees(empty);
+        NG.Algo.isConnected(empty);
+        NG.Algo.hasCycle(empty);
+        NG.Algo.isTree(empty);
+        NG.Algo.bridges(empty);
+
+        var single = new NG.Graph();
+        single.addNode(0, 0, 'A');
+        NG.Algo.mst(single);
+        NG.Algo.kruskalSteps(single);
+        NG.Algo.primSteps(single, 'A');
+        NG.Algo.countSpanningTrees(single);
+        NG.Algo.enumerateSpanningTrees(single);
+        NG.Algo.isConnected(single);
+        NG.Algo.hasCycle(single);
+        NG.Algo.isTree(single);
+        NG.Algo.bridges(single);
+      } catch (e) {
+        singleAndEmptyOk = false;
+      }
+      assert(singleAndEmptyOk, 'Single node and empty graph do not throw');
+
+      /* --------------------------------------------------------
+         13. 200 random connected graphs stress test:
+             Kruskal total == Prim total == brute-force minimum
+         -------------------------------------------------------- */
+      var rng = NG.Util.mulberry32(42);
+      var stressOk = true;
+
+      for (var t = 0; t < 200; t++) {
+        var numNodes = 3 + Math.floor(rng() * 6); // 3..8 nodes
+        var g = new NG.Graph();
+        var nodeNames = [];
+        for (var i = 0; i < numNodes; i++) {
+          var nm = 'n' + i;
+          nodeNames.push(nm);
+          g.addNode(Math.floor(rng() * 500), Math.floor(rng() * 500), nm, nm);
+        }
+
+        // Random spanning tree first to guarantee connectivity
+        var conn = [nodeNames[0]];
+        var unconn = nodeNames.slice(1);
+        var wCount = 1;
+
+        while (unconn.length > 0) {
+          var uIdx = Math.floor(rng() * conn.length);
+          var vIdx = Math.floor(rng() * unconn.length);
+          var u = conn[uIdx];
+          var v = unconn.splice(vIdx, 1)[0];
+          conn.push(v);
+          g.addEdge(u, v, wCount++, u + '_' + v);
+        }
+
+        // Add extra random edges
+        var extra = Math.floor(rng() * numNodes);
+        for (var e = 0; e < extra; e++) {
+          var eu = nodeNames[Math.floor(rng() * numNodes)];
+          var ev = nodeNames[Math.floor(rng() * numNodes)];
+          if (eu !== ev) {
+            g.addEdge(eu, ev, wCount++, eu + '_' + ev);
+          }
+        }
+
+        var kTot = NG.Algo.mst(g).total;
+        var pSteps = NG.Algo.primSteps(g, nodeNames[0]);
+        var pTot = pSteps[pSteps.length - 1].total;
+
+        var allT = NG.Algo.enumerateSpanningTrees(g);
+        var bMin = Infinity;
+        for (var tr = 0; tr < allT.length; tr++) {
+          var curTree = allT[tr];
+          var sum = 0;
+          for (var ei = 0; ei < curTree.length; ei++) {
+            sum += g.edge(curTree[ei]).w;
+          }
+          if (sum < bMin) bMin = sum;
+        }
+
+        if (kTot !== pTot || pTot !== bMin) {
+          stressOk = false;
+          break;
+        }
+      }
+      assert(stressOk, '200 random connected graphs: Kruskal total == Prim total == brute-force minimum');
+
+      /* ========================================================
+         SECTION: NG.STP (Spanning Tree Protocol & BPDU Simulation)
+         ======================================================== */
+      var stpHeading = document.createElement('h2');
+      stpHeading.textContent = 'NG.STP — Bridge ID, Analytic STP & BPDU Simulation Tests';
+      stpHeading.style.marginTop = '2rem';
+      stpHeading.style.borderBottom = '2px solid var(--ink)';
+      stpHeading.style.paddingBottom = '0.4rem';
+      logEl.appendChild(stpHeading);
+
+      // 1. Data constructors & compareBridgeId
+      var sw1 = new NG.STP.Switch('S1', 'Switch 1', 32768, '00:1A:2B:00:00:01');
+      var sw2 = new NG.STP.Switch({ id: 'S2', name: 'Switch 2', priority: 4096, mac: '00:1A:2B:00:00:02' });
+      var lnk1 = new NG.STP.Link('L12', 'S1', 'S2', 4, false);
+      var lnk2 = new NG.STP.Link({ id: 'L23', a: 'S2', b: 'S3', cost: 19, failed: true });
+
+      assertEq(sw1.priority, 32768, 'Switch constructor sets default/passed priority');
+      assertEq(sw2.priority, 4096, 'Switch constructor handles option object');
+      assertEq(lnk1.cost, 4, 'Link constructor sets cost');
+      assertEq(lnk2.failed, true, 'Link constructor handles failed flag');
+
+      assert(NG.STP.compareBridgeId(sw2, sw1) < 0, 'compareBridgeId: lower priority 4096 wins over 32768');
+      var swSamePriA = new NG.STP.Switch('SA', 'A', 32768, '00:1A:2B:00:00:01');
+      var swSamePriB = new NG.STP.Switch('SB', 'B', 32768, '00:1A:2B:00:00:02');
+      assert(NG.STP.compareBridgeId(swSamePriA, swSamePriB) < 0, 'compareBridgeId: priority tie broken by lower MAC string');
+      assertEq(NG.STP.compareBridgeId(swSamePriA, swSamePriA), 0, 'compareBridgeId: identical bridge ID returns 0');
+
+      // 2. Default Topology & Analytic Result
+      var defTopo = NG.STP.defaultTopology();
+      assertEq(defTopo.switches.length, 6, 'defaultTopology has 6 switches');
+      assertEq(defTopo.links.length, 8, 'defaultTopology has 8 links');
+
+      var analyticDef = NG.STP.computeAnalytic(defTopo.switches, defTopo.links);
+      assertEq(analyticDef.root, 'S1', 'defaultTopology analytic root is S1 (lowest MAC 01)');
+      assertEq(analyticDef.activeLinks.length, 5, 'defaultTopology has exactly 5 active links (n - 1)');
+      assertEq(analyticDef.blocked.length, 3, 'defaultTopology has exactly 3 blocked links/ports (m - (n - 1))');
+
+      var expectedActive = ['L12', 'L23', 'L25', 'L45', 'L61'];
+      var actualActiveSorted = analyticDef.activeLinks.slice().sort();
+      assertEq(actualActiveSorted, expectedActive, 'defaultTopology active links match unique tie-free tree: L12, L23, L25, L45, L61');
+
+      var blockedLinkIds = analyticDef.blocked.map(function (b) { return b.linkId; }).sort();
+      assertEq(blockedLinkIds, ['L14', 'L34', 'L56'], 'defaultTopology blocked links are exactly L14, L34, L56');
+
+      // Root ports for all non-root switches
+      assertEq(analyticDef.rootPortLink['S1'], null, 'Root S1 has no root port (null)');
+      assertEq(analyticDef.rootPortLink['S2'], 'L12', 'S2 root port is L12');
+      assertEq(analyticDef.rootPortLink['S3'], 'L23', 'S3 root port is L23');
+      assertEq(analyticDef.rootPortLink['S4'], 'L45', 'S4 root port is L45 (cheapest path cost 12)');
+      assertEq(analyticDef.rootPortLink['S5'], 'L25', 'S5 root port is L25');
+      assertEq(analyticDef.rootPortLink['S6'], 'L61', 'S6 root port is L61');
+
+      // Path costs
+      assertEq(analyticDef.pathCost['S1'], 0, 'Path cost S1 is 0');
+      assertEq(analyticDef.pathCost['S2'], 4, 'Path cost S2 is 4');
+      assertEq(analyticDef.pathCost['S6'], 4, 'Path cost S6 is 4');
+      assertEq(analyticDef.pathCost['S3'], 8, 'Path cost S3 is 8');
+      assertEq(analyticDef.pathCost['S5'], 8, 'Path cost S5 is 8');
+      assertEq(analyticDef.pathCost['S4'], 12, 'Path cost S4 is 12 (via S5)');
+
+      // 3. BPDU Simulation Convergence on Default Topology
+      var simDef = new NG.STP.BPDUSimulator(defTopo.switches, defTopo.links);
+      var ticksToConverge = simDef.runToConvergence(50);
+      assert(simDef.converged(), 'BPDU simulation converges on default topology');
+      assert(ticksToConverge <= 6, 'BPDU simulation converges within diameter ticks (' + ticksToConverge + ' ticks <= 6)');
+
+      var simState = simDef.getState();
+      var simMatchesAnalytic = true;
+      for (var sIdx = 0; sIdx < defTopo.switches.length; sIdx++) {
+        var sId = defTopo.switches[sIdx].id;
+        if (simState[sId].rootId !== analyticDef.root) simMatchesAnalytic = false;
+        if (simState[sId].costToRoot !== analyticDef.pathCost[sId]) simMatchesAnalytic = false;
+        if (simState[sId].rootPortId !== analyticDef.rootPortLink[sId]) simMatchesAnalytic = false;
+      }
+      assert(simMatchesAnalytic, 'BPDU simulation state exactly matches computeAnalytic on default topology');
+
+      // 4. BPDU Simulation Convergence on 100 Random Topologies
+      var randPassCount = 0;
+      var rng = NG.Util.mulberry32(98765);
+      var priOptions = [4096, 8192, 16384, 24576, 32768, 36864, 40960];
+      var costOptions = [4, 19, 100];
+
+      for (var rIter = 0; rIter < 100; rIter++) {
+        var numSw = 4 + Math.floor(rng() * 5); // 4..8 switches
+        var rSwitches = [];
+        for (var swI = 0; swI < numSw; swI++) {
+          var pVal = priOptions[Math.floor(rng() * priOptions.length)];
+          var hex = (swI + 1).toString(16);
+          if (hex.length < 2) hex = '0' + hex;
+          rSwitches.push(new NG.STP.Switch({
+            id: 'S' + (swI + 1),
+            name: 'Switch ' + (swI + 1),
+            priority: pVal,
+            mac: '00:1A:2B:00:00:' + hex
+          }));
+        }
+
+        // Generate connected graph
+        var rLinks = [];
+        var rLCount = 1;
+        var connectedSw = [rSwitches[0].id];
+        for (var cswI = 1; cswI < numSw; cswI++) {
+          var targetSw = rSwitches[cswI].id;
+          var parentSw = connectedSw[Math.floor(rng() * connectedSw.length)];
+          connectedSw.push(targetSw);
+          rLinks.push(new NG.STP.Link({
+            id: 'L' + (rLCount++),
+            a: targetSw,
+            b: parentSw,
+            cost: costOptions[Math.floor(rng() * costOptions.length)],
+            failed: false
+          }));
+        }
+
+        // Add 1..4 extra links
+        var extraLinks = 1 + Math.floor(rng() * 4);
+        for (var exI = 0; exI < extraLinks; exI++) {
+          var uIdx = Math.floor(rng() * numSw);
+          var vIdx = Math.floor(rng() * numSw);
+          if (uIdx !== vIdx) {
+            var uName = rSwitches[uIdx].id;
+            var vName = rSwitches[vIdx].id;
+            var duplicate = false;
+            for (var chkI = 0; chkI < rLinks.length; chkI++) {
+              var rl = rLinks[chkI];
+              if ((rl.a === uName && rl.b === vName) || (rl.a === vName && rl.b === uName)) {
+                duplicate = true;
+                break;
+              }
+            }
+            if (!duplicate) {
+              rLinks.push(new NG.STP.Link({
+                id: 'L' + (rLCount++),
+                a: uName,
+                b: vName,
+                cost: costOptions[Math.floor(rng() * costOptions.length)],
+                failed: false
+              }));
+            }
+          }
+        }
+
+        var rAnalytic = NG.STP.computeAnalytic(rSwitches, rLinks);
+        var rSim = new NG.STP.BPDUSimulator(rSwitches, rLinks);
+        rSim.runToConvergence(100);
+
+        if (rSim.converged()) {
+          var rState = rSim.getState();
+          var rMatch = true;
+          for (var rChk = 0; rChk < rSwitches.length; rChk++) {
+            var chkId = rSwitches[rChk].id;
+            if (rState[chkId].rootId !== rAnalytic.root) rMatch = false;
+            if (rState[chkId].costToRoot !== rAnalytic.pathCost[chkId]) rMatch = false;
+            if (rState[chkId].rootPortId !== rAnalytic.rootPortLink[chkId]) rMatch = false;
+          }
+
+          var rSimActive = [];
+          for (var slI = 0; slI < rLinks.length; slI++) {
+            var sl = rLinks[slI];
+            var roleA = rState[sl.a].portRoles[sl.id];
+            var roleB = rState[sl.b].portRoles[sl.id];
+            if (roleA !== 'blocked' && roleB !== 'blocked') {
+              rSimActive.push(sl.id);
+            }
+          }
+          if (rSimActive.sort().join(',') !== rAnalytic.activeLinks.slice().sort().join(',')) {
+            rMatch = false;
+          }
+
+          if (rMatch) randPassCount++;
+        }
+      }
+      assertEq(randPassCount, 100, 'BPDU simulation converges and matches computeAnalytic on 100 random topologies');
+
+      // 5. Priority Change (S4 priority 4096 elects S4 as root)
+      var topoPri = NG.STP.defaultTopology();
+      topoPri.switches[3].priority = 4096; // S4
+      var analyticPri = NG.STP.computeAnalytic(topoPri.switches, topoPri.links);
+      assertEq(analyticPri.root, 'S4', 'Analytic: S4 priority 4096 elects S4 as root');
+      assertEq(analyticPri.pathCost['S4'], 0, 'Analytic: S4 cost to root is 0');
+
+      var simPri = new NG.STP.BPDUSimulator(topoPri.switches, topoPri.links);
+      simPri.runToConvergence(50);
+      assert(simPri.converged(), 'Simulator converges after setting S4 priority to 4096');
+      var simPriState = simPri.getState();
+      var allS4Root = topoPri.switches.every(function (s) { return simPriState[s.id].rootId === 'S4'; });
+      assert(allS4Root, 'Simulation: every switch elects S4 as root');
+      assertEq(simPriState['S4'].costToRoot, 0, 'Simulation: S4 cost to root is 0');
+      assertEq(simPriState['S5'].rootPortId, 'L45', 'Simulation: S5 root port points to S4 via L45');
+
+      // 6. Link cut & reconvergence
+      var topoCut = NG.STP.defaultTopology();
+      var simCut = new NG.STP.BPDUSimulator(topoCut.switches, topoCut.links);
+      simCut.runToConvergence(50);
+
+      // Cut active link L12
+      simCut.cutLink('L12');
+      simCut.runToConvergence(50);
+      var analyticCut = NG.STP.computeAnalytic(topoCut.switches, topoCut.links);
+      assert(analyticCut.activeLinks.indexOf('L14') !== -1, 'Cutting active link L12 unblocks backup link L14');
+      assertEq(analyticCut.activeLinks.length, 5, 'Network reconverges with 5 active links after L12 cut');
+
+      var simCutState = simCut.getState();
+      var simCutActive = [];
+      for (var scI = 0; scI < topoCut.links.length; scI++) {
+        var scl = topoCut.links[scI];
+        if (!scl.failed && simCutState[scl.a].portRoles[scl.id] !== 'blocked' && simCutState[scl.b].portRoles[scl.id] !== 'blocked') {
+          simCutActive.push(scl.id);
+        }
+      }
+      assertEq(simCutActive.sort(), analyticCut.activeLinks.slice().sort(), 'Simulation reconvergence after cutting L12 matches computeAnalytic');
+
+      // Repair L12
+      simCut.repairLink('L12');
+      simCut.runToConvergence(50);
+      var analyticRepaired = NG.STP.computeAnalytic(topoCut.switches, topoCut.links);
+      assertEq(analyticRepaired.activeLinks.slice().sort(), expectedActive, 'Repairing L12 restores original spanning tree');
+
+      // Cut bridges disconnecting graph into 2 components: {S1, S6} and {S2, S3, S4, S5}
+      // Sever all boundary links: L12, L14, L56
+      simCut.cutLink('L12');
+      simCut.cutLink('L14');
+      simCut.cutLink('L56');
+      simCut.runToConvergence(50);
+      var analyticSplit = NG.STP.computeAnalytic(topoCut.switches, topoCut.links);
+      assertEq(analyticSplit.roots.length, 2, 'Cutting boundary bridges yields 2 connected components with 2 roots');
+      assertEq(analyticSplit.roots.slice().sort(), ['S1', 'S2'], 'The two component roots are S1 and S2');
+
+      var simSplitState = simCut.getState();
+      assertEq(simSplitState['S1'].rootId, 'S1', 'Component 1 root is S1');
+      assertEq(simSplitState['S6'].rootId, 'S1', 'S6 in Component 1 has root S1');
+      assertEq(simSplitState['S2'].rootId, 'S2', 'Component 2 root is S2 (lowest MAC in component)');
+      assertEq(simSplitState['S3'].rootId, 'S2', 'S3 in Component 2 has root S2');
+      assertEq(simSplitState['S4'].rootId, 'S2', 'S4 in Component 2 has root S2');
+      assertEq(simSplitState['S5'].rootId, 'S2', 'S5 in Component 2 has root S2');
+
+      // 7. Aggregated Frame Flooding Model
+      var topoFlood = NG.STP.defaultTopology();
+
+      // STP OFF: All links active -> broadcast storm with exponential growth
+      var floodOff = new NG.STP.FrameFlooding(topoFlood.switches, topoFlood.links, topoFlood.links.map(function (l) { return l.id; }));
+      floodOff.injectFrame('S1');
+      var prevInFlight = floodOff.getTotalInFlight();
+      var strictGrowth = true;
+
+      for (var tIdx = 1; tIdx <= 10; tIdx++) {
+        var tickData = floodOff.tick();
+        if (tickData.totalInFlight <= prevInFlight) {
+          strictGrowth = false;
+        }
+        prevInFlight = tickData.totalInFlight;
+      }
+      assert(strictGrowth, 'Frame flooding with STP OFF: in-flight copies strictly grow across ticks 1..10');
+
+      // Run 2 more ticks (total 12)
+      floodOff.tick();
+      var finalOffData = floodOff.tick();
+      assert(finalOffData.totalInFlight > 900, 'Frame flooding with STP OFF: after 12 ticks frame copies exceed 900 (storm)');
+
+      // STP ON: Only 5 active tree links -> each switch receives exactly 1 copy, traffic terminates
+      var floodOn = new NG.STP.FrameFlooding(topoFlood.switches, topoFlood.links, analyticDef.activeLinks);
+      floodOn.injectFrame('S1');
+      var onTicks = 0;
+      while (floodOn.getTotalInFlight() > 0 && onTicks < 10) {
+        floodOn.tick();
+        onTicks++;
+      }
+      assert(floodOn.getTotalInFlight() === 0, 'Frame flooding with STP ON: in-flight count reaches 0');
+      assert(onTicks <= 4, 'Frame flooding with STP ON: terminates in <= diameter ticks (' + onTicks + ' ticks)');
+      var allDeliveredOne = topoFlood.switches.every(function (s) {
+        return floodOn.totalDelivered[s.id] === 1;
+      });
+      assert(allDeliveredOne, 'Frame flooding with STP ON: every switch receives exactly 1 copy');
+      assertEq(floodOn.getTotalDelivered(), 6, 'Frame flooding with STP ON: total delivered across all switches equals n (6)');
+
+      /* --------------------------------------------------------
+         Display final summary
+         -------------------------------------------------------- */
+      var statText = document.getElementById('stat-text');
+      var badge = document.getElementById('status-badge');
+      var total = passed + failed;
+
+      statText.textContent = 'TOTAL: ' + passed + ' passed, ' + failed + ' failed (' + total + ' total)';
+
+      if (failed === 0) {
+        badge.className = 'badge pass';
+        badge.textContent = 'ALL TESTS PASSED';
+      } else {
+        badge.className = 'badge fail';
+        badge.textContent = failed + ' FAILED';
+      }
+    })();
+  </script>
+</body>
+</html>
