@@ -327,13 +327,13 @@
       </h2>
       <div class="s03-layout">
         <div class="s03-left-col">
-          <div class="card reveal" style="--i:1">
-            <p style="margin:0;font-size:1.05rem;font-weight:600;">Turn the network into a graph.</p>
-            <p style="margin:0.4rem 0 0;font-size:0.85rem;color:var(--ink-2);">
+          <div class="card s03-intro-card reveal" style="--i:1">
+            <p class="s03-intro-title">Turn the network into a graph.</p>
+            <p class="s03-intro-sub">
               Note: Undirected, simple (no self-loops, no parallel edges), connected.
             </p>
           </div>
-          <div class="card reveal" style="--i:2;padding:0.75rem;">
+          <div class="card s03-table-card reveal" style="--i:2">
             <table class="s03-mapping-table" id="s03-mapping-table">
               <thead><tr><th>Real Network</th><th>Graph Concept</th><th>Math</th></tr></thead>
               <tbody>
@@ -346,37 +346,43 @@
           </div>
         </div>
         <div class="s03-right-col reveal" style="--i:2">
-          <div class="s03-diagrams-row">
-            <div class="s03-sub-diagram">
-              <div class="s03-sub-diagram-header">
-                <span>1. Real Network (6 Devices)</span>
-                <span class="pill mono">Hardware</span>
+          <div class="s03-top-section">
+            <div class="s03-helper-line">Hover a row, a device or a vertex to see the match.</div>
+            <div class="s03-diagrams-row">
+              <div class="s03-sub-diagram">
+                <div class="s03-sub-diagram-header">
+                  <span>1. Real Network (6 Devices)</span>
+                  <span class="pill mono">Hardware</span>
+                </div>
+                <div class="s03-canvas-area" id="s03-real-canvas"></div>
               </div>
-              <div class="s03-canvas-area" id="s03-real-canvas"></div>
-            </div>
-            <div class="s03-sub-diagram">
-              <div class="s03-sub-diagram-header">
-                <span>2. Abstract Graph G = (V, E, w)</span>
-                <button type="button" class="btn" id="s03-btn-edit" style="padding:0.15rem 0.5rem;font-size:0.75rem;">Edit edges: OFF</button>
+              <div class="s03-sub-diagram">
+                <div class="s03-sub-diagram-header">
+                  <span>2. Abstract Graph G = (V, E, w)</span>
+                  <button type="button" class="btn" id="s03-btn-edit">Edit edges: OFF</button>
+                </div>
+                <div class="s03-canvas-area" id="s03-abstract-canvas"></div>
               </div>
-              <div class="s03-canvas-area" id="s03-abstract-canvas"></div>
             </div>
           </div>
-          <div class="s03-bottom-panel reveal" style="--i:3">
-            <div>
-              <div class="mono" style="font-size:0.75rem;font-weight:700;margin-bottom:0.25rem;">ADJACENCY MATRIX</div>
-              <div id="s03-matrix-wrap"></div>
-            </div>
-            <div>
-              <div class="mono" style="font-size:0.75rem;font-weight:700;margin-bottom:0.25rem;">ADJACENCY LIST</div>
-              <div class="s03-adj-list" id="s03-adj-list-wrap"></div>
-            </div>
-            <div class="s03-readouts-col">
-              <div>|V| = <strong id="s03-readout-v">6</strong></div>
-              <div>|E| = <strong id="s03-readout-e">7</strong></div>
-              <div>&sum; w = <strong id="s03-readout-sum">35</strong></div>
-              <div>Degree: <strong id="s03-readout-deg">&minus;</strong></div>
-              <button type="button" class="btn" id="s03-btn-reset" style="margin-top:0.4rem;padding:0.25rem 0.6rem;font-size:0.8rem;">Reset</button>
+          <div class="s03-bottom-section reveal" style="--i:3">
+            <div class="s03-helper-line">Row and column = vertices. A number means a cable and its weight; 0 means no cable.</div>
+            <div class="s03-bottom-panel">
+              <div class="s03-matrix-block">
+                <div class="mono s03-block-label">ADJACENCY MATRIX</div>
+                <div id="s03-matrix-wrap"></div>
+              </div>
+              <div class="s03-list-block">
+                <div class="mono s03-block-label">ADJACENCY LIST</div>
+                <div class="s03-adj-list" id="s03-adj-list-wrap"></div>
+              </div>
+              <div class="s03-readouts-col">
+                <div class="s03-stat-item"><span class="s03-stat-label">|V|</span><span class="s03-stat-val" id="s03-readout-v">6</span></div>
+                <div class="s03-stat-item"><span class="s03-stat-label">|E|</span><span class="s03-stat-val" id="s03-readout-e">7</span></div>
+                <div class="s03-stat-item"><span class="s03-stat-label">&sum; w</span><span class="s03-stat-val" id="s03-readout-sum">35</span></div>
+                <div class="s03-stat-item"><span class="s03-stat-label">Degree</span><span class="s03-stat-val" id="s03-readout-deg">&minus;</span></div>
+                <button type="button" class="btn btn-sm" id="s03-btn-reset">Reset</button>
+              </div>
             </div>
           </div>
         </div>
@@ -1324,12 +1330,20 @@
             </div>
             <div class="s11-graph-box" id="s11-graph-a"></div>
             <div class="s11-stats-strip">
-              <div class="s11-stat-pill">Components: <strong id="s11-comp-count">1</strong></div>
-              <div class="s11-stat-pill">Sizes: <strong id="s11-comp-sizes">8</strong></div>
-              <div class="s11-stat-pill">
-                Pairs that can no longer talk: <strong id="s11-unreachable-pairs">0 of 28 (0.0%)</strong>
+              <div class="s11-stat-block">
+                <span class="s11-stat-lbl">Components</span>
+                <span class="s11-stat-num" id="s11-comp-count">1</span>
+              </div>
+              <div class="s11-stat-block">
+                <span class="s11-stat-lbl">Sizes</span>
+                <span class="s11-stat-num s11-stat-num-text" id="s11-comp-sizes">8</span>
+              </div>
+              <div class="s11-stat-block s11-stat-block-wide">
+                <span class="s11-stat-lbl">Pairs that can no longer talk</span>
+                <span class="s11-stat-num s11-stat-num-text" id="s11-unreachable-pairs">0 of 28 (0.0%)</span>
               </div>
             </div>
+            <div class="s11-takeaway" id="s11-takeaway-a">Cut any cable to see the network split.</div>
           </div>
 
           <!-- Demo B: Detour -->
@@ -1346,11 +1360,24 @@
             </div>
             <div class="s11-graph-box" id="s11-graph-b"></div>
             <div class="s11-stats-strip">
-              <div class="s11-stat-pill">Pair: <strong id="s11-detour-pair">None selected</strong></div>
-              <div class="s11-stat-pill">MST path (<em>P</em>): <strong id="s11-detour-p">—</strong></div>
-              <div class="s11-stat-pill">Shortest (<em>S</em>): <strong id="s11-detour-s">—</strong></div>
-              <div class="s11-stat-pill">Detour (<em>P/S</em>): <strong id="s11-detour-ratio">—</strong></div>
+              <div class="s11-stat-block">
+                <span class="s11-stat-lbl">Pair</span>
+                <span class="s11-stat-num s11-stat-num-text" id="s11-detour-pair">None selected</span>
+              </div>
+              <div class="s11-stat-block">
+                <span class="s11-stat-lbl">MST path (<em>P</em>)</span>
+                <span class="s11-stat-num" id="s11-detour-p">&mdash;</span>
+              </div>
+              <div class="s11-stat-block">
+                <span class="s11-stat-lbl">Shortest (<em>S</em>)</span>
+                <span class="s11-stat-num" id="s11-detour-s">&mdash;</span>
+              </div>
+              <div class="s11-stat-block">
+                <span class="s11-stat-lbl">Detour (<em>P/S</em>)</span>
+                <span class="s11-stat-num" id="s11-detour-ratio">&mdash;</span>
+              </div>
             </div>
+            <div class="s11-takeaway" id="s11-takeaway-b">Pick two vertices, or press Worst pair.</div>
           </div>
         </div>
       </div>
@@ -1375,6 +1402,7 @@
         <!-- Tab 1: Backup Links -->
         <div class="s12-tab-content active" id="s12-tab-1">
           <div class="card s12-tab-card">
+            <div class="s12-how-to-use">Press Add a backup link. Each press covers at least one weak spot.</div>
             <div class="s12-tab-toolbar">
               <div class="s12-tab-actions">
                 <button class="btn btn-sm btn-primary" id="s12-btn-add-backup">Add a backup link</button>
@@ -1382,7 +1410,7 @@
                 <button class="btn btn-sm" id="s12-btn-toggle-failure">Test a failure: OFF</button>
               </div>
               <div class="s12-readouts-row">
-                <div class="s12-readout-item">Cost: <strong id="s12-cost-val">₹31</strong></div>
+                <div class="s12-readout-item">Cost: <strong id="s12-cost-val">31</strong></div>
                 <div class="s12-readout-item">Cost increase vs MST: <strong id="s12-increase-val">+0.0%</strong></div>
                 <div class="s12-readout-item">Bridges left: <strong id="s12-bridges-val">7</strong></div>
                 <div class="s12-readout-item">Survives any single link failure: <span id="s12-survives-chip" class="chip chip-alarm">No</span></div>
@@ -1399,9 +1427,10 @@
         <!-- Tab 2: Shortest-Path Tree -->
         <div class="s12-tab-content" id="s12-tab-2">
           <div class="card s12-tab-card">
+            <div class="s12-how-to-use">Click a vertex to choose the root, then switch between the two trees.</div>
             <div class="s12-tab-toolbar">
               <div class="s12-tab-actions">
-                <span style="font-size:0.8rem;font-weight:700;">Root vertex:</span>
+                <span class="s12-root-label">Root vertex:</span>
                 <select id="s12-spt-root-sel" class="s12-select">
                   <option value="A" selected>A</option>
                   <option value="B">B</option>
@@ -1430,6 +1459,7 @@
         <!-- Tab 3: Steiner Tree -->
         <div class="s12-tab-content" id="s12-tab-3">
           <div class="card s12-tab-card">
+            <div class="s12-how-to-use">Drag the corners. The extra junction can make the cable shorter.</div>
             <div class="s12-tab-toolbar">
               <div class="s12-tab-actions">
                 <button class="btn btn-sm btn-primary" id="s12-btn-snap-steiner">Snap to best point</button>

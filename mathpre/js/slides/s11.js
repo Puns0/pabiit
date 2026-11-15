@@ -31,14 +31,14 @@
 
   var MST_EDGES = ['EH', 'EF', 'BE', 'AB', 'CF', 'DE', 'GH'];
   var COMP_PALETTES = [
-    { fill: '#fce8e6', ring: '#d9381e' }, // vermilion
-    { fill: '#e8f0fe', ring: '#1b4992' }, // cobalt
-    { fill: '#fef7e0', ring: '#b35c00' }, // ochre
-    { fill: '#e6f4ea', ring: '#2e6918' }, // leaf
-    { fill: '#f3e8fd', ring: '#8e24aa' }, // purple
-    { fill: '#e0f2f1', ring: '#00796b' }, // teal
-    { fill: '#fff3e0', ring: '#e65100' }, // orange
-    { fill: '#ede7f6', ring: '#5e35b1' }  // deep purple
+    { fill: '#178A86', ring: '#0e5653', text: '#ffffff', className: 'comp-teal' },
+    { fill: '#D49A00', ring: '#8a6400', text: '#1c1a16', className: 'comp-mustard' },
+    { fill: '#7D3C98', ring: '#512763', text: '#ffffff', className: 'comp-plum' },
+    { fill: '#2E6918', ring: '#1b400e', text: '#ffffff', className: 'comp-leaf' },
+    { fill: '#2F6BD6', ring: '#1b4992', text: '#ffffff', className: 'comp-cobalt' },
+    { fill: '#E4411F', ring: '#9c2110', text: '#ffffff', className: 'comp-vermilion' },
+    { fill: '#E65100', ring: '#993600', text: '#ffffff', className: 'comp-orange' },
+    { fill: '#5E35B1', ring: '#3b1f73', text: '#ffffff', className: 'comp-deep-purple' }
   ];
 
   function buildCanonicalGraph() {
@@ -118,12 +118,12 @@
     if (elGraphBoxA) {
       elGraphBoxA.innerHTML = '';
       viewA = new NG.View(elGraphBoxA, graphA, {
-        width: 480,
-        height: 270,
+        width: 560,
+        height: 420,
         viewBox: '0 0 560 420',
         draggable: false,
         showWeights: true,
-        nodeRadius: 18
+        nodeRadius: 28
       });
       viewA.render();
 
@@ -160,7 +160,12 @@
       var pal = COMP_PALETTES[cIdx % COMP_PALETTES.length];
       var compNodes = comps[cIdx];
       for (var ni = 0; ni < compNodes.length; ni++) {
-        viewA.setNodeState(compNodes[ni], { fill: pal.fill, ring: pal.ring });
+        var cNid = compNodes[ni];
+        viewA.setNodeState(cNid, { fill: pal.fill, ring: pal.ring, className: pal.className });
+        var nItem = viewA._nodeEls.get(cNid);
+        if (nItem && nItem.text) {
+          nItem.text.style.fill = pal.text;
+        }
       }
     }
 
@@ -198,6 +203,16 @@
     if (elCompSizes) elCompSizes.textContent = sizesArr.join(' and ');
     if (elUnreachablePairs) {
       elUnreachablePairs.textContent = unreachable + ' of ' + totalPairs + ' (' + unreachablePct + '%)';
+    }
+
+    // 5. Dynamic Takeaway
+    var elTakeawayA = document.getElementById('s11-takeaway-a');
+    if (elTakeawayA) {
+      if (cutEdges.size === 0) {
+        elTakeawayA.textContent = 'Cut any cable to see the network split.';
+      } else {
+        elTakeawayA.textContent = 'The network is now in ' + comps.length + ' separate pieces.';
+      }
     }
   }
 
@@ -269,12 +284,12 @@
     if (elGraphBoxB) {
       elGraphBoxB.innerHTML = '';
       viewB = new NG.View(elGraphBoxB, graphB, {
-        width: 480,
-        height: 270,
+        width: 560,
+        height: 420,
         viewBox: '0 0 560 420',
         draggable: false,
         showWeights: true,
-        nodeRadius: 18
+        nodeRadius: 28
       });
       viewB.render();
 
@@ -306,24 +321,59 @@
 
   function updateDemoBView() {
     if (!viewB || !graphB) return;
-    detourOverlayGroup.innerHTML = '';
     viewB.clearStates();
+    var overlay = viewB.layer('overlay');
 
-    // Reset node styling
+    // Reset node styling - cobalt fill with white/paper text, no black circles
     for (var i = 0; i < CANONICAL_NODES.length; i++) {
       var nid = CANONICAL_NODES[i].id;
       if (selectedNodesB.indexOf(nid) !== -1) {
-        viewB.setNodeState(nid, { fill: 'var(--highlighter-yellow)', ring: 'var(--vermilion)' });
+        viewB.setNodeState(nid, { fill: '#2F6BD6', ring: '#1C1A16', className: 'node-selected-b' });
+        var itm = viewB._nodeEls.get(nid);
+        if (itm && itm.text) itm.text.style.fill = '#FBF6E9';
       } else {
-        viewB.setNodeState(nid, { fill: 'var(--paper-2)', ring: 'var(--ink)' });
+        viewB.setNodeState(nid, { fill: '#FBF6E9', ring: '#1C1A16' });
+        var itm2 = viewB._nodeEls.get(nid);
+        if (itm2 && itm2.text) itm2.text.style.fill = '#1C1A16';
       }
     }
+
+    // Add 1 and 2 badges on selected nodes
+    for (var s = 0; s < selectedNodesB.length; s++) {
+      var snode = graphB.node(selectedNodesB[s]);
+      if (!snode) continue;
+      var badgeG = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      badgeG.setAttribute('class', 's11-node-badge');
+      badgeG.setAttribute('transform', 'translate(' + (snode.x + 18) + ',' + (snode.y - 18) + ')');
+
+      var bCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+      bCircle.setAttribute('r', '9');
+      bCircle.setAttribute('fill', '#E4411F');
+      bCircle.setAttribute('stroke', '#FFFFFF');
+      bCircle.setAttribute('stroke-width', '1.5');
+      badgeG.appendChild(bCircle);
+
+      var bTxt = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      bTxt.setAttribute('text-anchor', 'middle');
+      bTxt.setAttribute('dominant-baseline', 'central');
+      bTxt.setAttribute('font-family', 'var(--font-mono)');
+      bTxt.setAttribute('font-weight', '700');
+      bTxt.setAttribute('font-size', '11');
+      bTxt.setAttribute('fill', '#FFFFFF');
+      bTxt.textContent = String(s + 1);
+      badgeG.appendChild(bTxt);
+
+      overlay.appendChild(badgeG);
+    }
+
+    var elTakeawayB = document.getElementById('s11-takeaway-b');
 
     if (selectedNodesB.length < 2) {
       if (elDetourPair) elDetourPair.textContent = selectedNodesB.length === 1 ? ('Selected: ' + selectedNodesB[0] + ' (click 2nd)') : 'None selected';
       if (elDetourP) elDetourP.textContent = '—';
       if (elDetourS) elDetourS.textContent = '—';
       if (elDetourRatio) elDetourRatio.textContent = '—';
+      if (elTakeawayB) elTakeawayB.textContent = 'Pick two vertices, or press Worst pair.';
       return;
     }
 
@@ -384,6 +434,10 @@
     if (elDetourRatio) {
       elDetourRatio.textContent = ratio.toFixed(2) + 'x (+' + pct + '%)';
       elDetourRatio.className = ratio > 1.2 ? 'chip chip-alarm' : 'chip';
+    }
+
+    if (elTakeawayB) {
+      elTakeawayB.textContent = 'The tree path is ' + pLen + ' long, but a direct route of ' + sLen + ' exists.';
     }
   }
 
