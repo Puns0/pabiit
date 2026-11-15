@@ -1,0 +1,509 @@
+/* ============================================================
+   components.css — UI component styles (SPEC §4)
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   1. Card
+   ---------------------------------------------------------- */
+.card {
+  background: var(--paper-3);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 4px 4px 0 var(--ink);
+  padding: 1.25rem 1.5rem;
+  position: relative;
+}
+
+.card.tape::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 60px;
+  height: 16px;
+  background: var(--highlighter);
+  border: 1px solid var(--ink-3);
+  opacity: 0.7;
+}
+
+/* ----------------------------------------------------------
+   2. Button
+   ---------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.5rem 1.25rem;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 3px 3px 0 var(--ink);
+  cursor: pointer;
+  color: var(--ink);
+  transition: transform 0.1s, box-shadow 0.1s;
+  user-select: none;
+}
+
+.btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--ink);
+}
+
+.btn-primary {
+  background: var(--vermilion);
+  color: var(--paper-3);
+  border-color: var(--vermilion);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 3px 3px 0 var(--ink-3);
+}
+
+/* ----------------------------------------------------------
+   3. Range Slider
+   ---------------------------------------------------------- */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--ink-3);
+  border-radius: 3px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--vermilion);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--vermilion);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ----------------------------------------------------------
+   4. Chip
+   ---------------------------------------------------------- */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  background: var(--paper-3);
+  font-weight: 600;
+}
+
+.chip.accepted {
+  background: var(--vermilion);
+  color: var(--paper-3);
+  border-color: var(--vermilion);
+}
+
+.chip.rejected {
+  background: var(--ink-3);
+  color: var(--paper);
+  border-color: var(--ink-3);
+  text-decoration: line-through;
+}
+
+.chip.pending {
+  background: var(--paper-2);
+  border-style: dashed;
+}
+
+/* ----------------------------------------------------------
+   5. Panel
+   ---------------------------------------------------------- */
+.panel {
+  background: var(--paper-3);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+
+/* ----------------------------------------------------------
+   6. Pill
+   ---------------------------------------------------------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.75rem;
+  background: var(--paper-3);
+  border: 1.5px solid var(--ink-3);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+/* ----------------------------------------------------------
+   7. Table
+   ---------------------------------------------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th {
+  font-family: var(--font-mono);
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 2px solid var(--ink);
+  font-weight: 700;
+}
+
+td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--grid-major);
+}
+
+tbody tr:hover {
+  background: var(--highlighter);
+  transition: background 0.15s;
+}
+
+/* ----------------------------------------------------------
+   8. Pseudocode
+   ---------------------------------------------------------- */
+.pseudocode {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  background: var(--paper-3);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  padding: 1rem;
+  counter-reset: line;
+  line-height: 1.7;
+  white-space: pre;
+  overflow-x: auto;
+}
+
+.pseudocode .line {
+  display: block;
+  padding-left: 3rem;
+  position: relative;
+  border-left: 3px solid transparent;
+  transition: background 0.15s;
+}
+
+.pseudocode .line::before {
+  counter-increment: line;
+  content: counter(line);
+  position: absolute;
+  left: 0.5rem;
+  width: 2rem;
+  text-align: right;
+  color: var(--ink-3);
+  font-size: 0.8rem;
+}
+
+.pseudocode .line.active {
+  background: var(--highlighter);
+  border-left-color: var(--ink);
+}
+
+.pseudocode .line:hover {
+  background: rgba(255, 224, 102, 0.3);
+}
+
+/* ----------------------------------------------------------
+   9. Tooltip
+   ---------------------------------------------------------- */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-family: var(--font-body);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+[data-tooltip]:hover::after {
+  opacity: 1;
+}
+
+/* ----------------------------------------------------------
+   10. Stat
+   ---------------------------------------------------------- */
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.stat .stat-number {
+  font-family: var(--font-mono);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.stat .stat-label {
+  font-size: 0.85rem;
+  color: var(--ink-2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+/* ============================================================
+   11. Graph Visualization Styling (SPEC §4)
+   ============================================================ */
+.graph-svg {
+  display: block;
+  user-select: none;
+  touch-action: none;
+  overflow: visible;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Nodes */
+.graph-node {
+  cursor: pointer;
+}
+
+.graph-node circle {
+  fill: var(--paper-3);
+  stroke: var(--ink);
+  stroke-width: 2.5px;
+  transition: stroke 0.15s, fill 0.15s, r 0.15s;
+}
+
+.graph-node:hover circle {
+  stroke-width: 3.5px;
+}
+
+.graph-node.dragging {
+  cursor: grabbing;
+}
+
+.graph-node.dragging circle {
+  stroke-width: 3.5px;
+  stroke: var(--vermilion);
+}
+
+.graph-node text {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  fill: var(--ink);
+  text-anchor: middle;
+  dominant-baseline: central;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Edges */
+.graph-edge {
+  cursor: pointer;
+}
+
+.graph-edge line,
+.graph-edge path {
+  stroke: var(--ink);
+  stroke-width: 2px;
+  stroke-linecap: round;
+  transition: stroke 0.2s, stroke-width 0.2s, opacity 0.2s;
+}
+
+/* Edge States (§4) */
+.graph-edge.state-default line {
+  stroke: var(--ink);
+  stroke-width: 2px;
+  stroke-dasharray: none;
+}
+
+.graph-edge.state-accepted line {
+  stroke: var(--vermilion);
+  stroke-width: 5px;
+  stroke-dasharray: none;
+}
+
+.graph-edge.state-rejected line {
+  stroke: var(--ink-3);
+  stroke-width: 2px;
+  stroke-dasharray: 4 4;
+}
+
+.graph-edge.state-candidate line {
+  stroke: var(--ink-2);
+  stroke-width: 3px;
+  stroke-dasharray: 6 4;
+  animation: dash-pulse 1s linear infinite;
+}
+
+.graph-edge.state-frontier line {
+  stroke: var(--ink-2);
+  stroke-width: 3px;
+  stroke-dasharray: 6 4;
+  animation: dash-pulse 1s linear infinite;
+}
+
+.graph-edge.state-cut line {
+  stroke: var(--alarm);
+  stroke-width: 3px;
+  stroke-dasharray: 3 3;
+}
+
+.graph-edge.state-faded {
+  opacity: 0.25;
+}
+
+.graph-edge.state-blocked line {
+  stroke: var(--alarm);
+  stroke-width: 2.5px;
+  stroke-dasharray: 4 4;
+}
+
+.graph-edge.state-broken line {
+  stroke: var(--alarm);
+  stroke-width: 3px;
+  stroke-dasharray: 5 5;
+}
+
+/* Cross icon at edge midpoint for rejected / broken */
+.edge-cross {
+  stroke: var(--ink-3);
+  stroke-width: 2px;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.edge-cross.alarm {
+  stroke: var(--alarm);
+  stroke-width: 2.5px;
+}
+
+/* Weight Pills */
+.graph-weight-pill {
+  pointer-events: none;
+}
+
+.graph-weight-pill rect {
+  fill: var(--paper-3);
+  stroke: var(--ink-3);
+  stroke-width: 1px;
+  rx: 4px;
+  ry: 4px;
+}
+
+.graph-weight-pill text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  fill: var(--ink);
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+/* Halos for Prim Algorithm */
+.graph-halo-blob {
+  fill: rgba(228, 65, 31, 0.16);
+  stroke: rgba(228, 65, 31, 0.20);
+  stroke-width: 24px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Animations */
+@keyframes dash-pulse {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+@keyframes flash-shake {
+  0%, 100% { transform: translate(0, 0); }
+  20%, 60% { transform: translate(-3px, 2px); }
+  40%, 80% { transform: translate(3px, -2px); }
+}
+
+.flash-cycle line {
+  stroke: var(--alarm) !important;
+  stroke-width: 4px !important;
+}
+
+.flash-shake {
+  animation: flash-shake 0.3s ease-in-out;
+}
+
+.pulse-active {
+  animation: pulse-glow 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+  from {
+    filter: drop-shadow(0 0 2px var(--vermilion));
+  }
+  to {
+    filter: drop-shadow(0 0 8px var(--vermilion));
+  }
+}
+
+/* Path Highlight */
+.path-highlight line {
+  stroke: var(--c5) !important;
+  stroke-width: 5px !important;
+}
+.path-highlight-node circle {
+  stroke: var(--c5) !important;
+  stroke-width: 4px !important;
+}
+
+/* Reduced motion overrides */
+.reduced-motion .graph-edge.state-candidate line,
+.reduced-motion .graph-edge.state-frontier line {
+  animation: none !important;
+}
+
+.reduced-motion .flash-shake {
+  animation: none !important;
+}
+
+.reduced-motion .pulse-active {
+  animation: none !important;
+}

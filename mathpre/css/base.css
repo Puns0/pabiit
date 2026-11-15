@@ -1,0 +1,265 @@
+/* ============================================================
+   base.css — Design-system tokens, typography & global resets
+   Computer Network Design Using Spanning Trees
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   1.  CUSTOM PROPERTIES (design tokens)
+   ---------------------------------------------------------- */
+:root {
+  /* Paper / background palette */
+  --paper:       #F3EBD8;
+  --paper-2:     #EBE1CA;
+  --paper-3:     #FBF6E9;
+
+  /* Graph-paper grid colours */
+  --grid-minor:  rgba(60, 50, 30, .08);
+  --grid-major:  rgba(60, 50, 30, .17);
+
+  /* Ink / foreground palette */
+  --ink:         #1C1A16;
+  --ink-2:       #4A4538;
+  --ink-3:       #8A8270;
+
+  /* Accent colours */
+  --vermilion:   #E4411F;
+  --alarm:       #B80F2A;
+  --highlighter: #FFE066;
+
+  /* Chart / category colours c1–c8 */
+  --c1: #178A86;
+  --c2: #D49A00;
+  --c3: #7D3C98;
+  --c4: #4E8F2F;
+  --c5: #2F6BD6;
+  --c6: #D6457F;
+  --c7: #8B5A2B;
+  --c8: #5E6B73;
+
+  /* Font stacks */
+  --font-display: "Fraunces", "DM Serif Display", Georgia, serif;
+  --font-body:    "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", "IBM Plex Mono", "Courier New", monospace;
+  --font-hand:    "Caveat", "Segoe Print", cursive;
+
+  /* Parallax shift (set by JS at runtime) */
+  --grid-shift: 0px;
+}
+
+/* ----------------------------------------------------------
+   2.  @font-face — local-only, graceful fallback
+   ---------------------------------------------------------- */
+@font-face {
+  font-family: "Fraunces";
+  src: local("Fraunces");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fraunces";
+  src: local("Fraunces Italic"), local("Fraunces");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  src: local("Source Sans 3"), local("Source Sans Pro");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Source Sans 3";
+  src: local("Source Sans 3 Italic"), local("Source Sans Pro Italic"), local("Source Sans 3");
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: local("JetBrains Mono");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Caveat";
+  src: local("Caveat");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ----------------------------------------------------------
+   3.  GLOBAL RESETS
+   ---------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Smooth scroll only when the user hasn't opted out */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ----------------------------------------------------------
+   4.  BODY — base layout, graph-paper background, noise
+   ---------------------------------------------------------- */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--ink);
+  background-color: var(--paper);
+
+  /* Graph-paper grid ------------------------------------------------
+     24 px minor lines + 120 px major lines, both horizontal & vertical.
+     background-position driven by --grid-shift for parallax.          */
+  background-image:
+    /* major vertical */
+    repeating-linear-gradient(
+      to right,
+      var(--grid-major) 0,
+      var(--grid-major) 1px,
+      transparent     1px,
+      transparent     120px
+    ),
+    /* major horizontal */
+    repeating-linear-gradient(
+      to bottom,
+      var(--grid-major) 0,
+      var(--grid-major) 1px,
+      transparent       1px,
+      transparent       120px
+    ),
+    /* minor vertical */
+    repeating-linear-gradient(
+      to right,
+      var(--grid-minor) 0,
+      var(--grid-minor) 1px,
+      transparent       1px,
+      transparent       24px
+    ),
+    /* minor horizontal */
+    repeating-linear-gradient(
+      to bottom,
+      var(--grid-minor) 0,
+      var(--grid-minor) 1px,
+      transparent       1px,
+      transparent       24px
+    );
+
+  background-position:
+    var(--grid-shift) var(--grid-shift),
+    var(--grid-shift) var(--grid-shift),
+    var(--grid-shift) var(--grid-shift),
+    var(--grid-shift) var(--grid-shift);
+
+  /* Hide scrollbars (Firefox) */
+  scrollbar-width: none;
+}
+
+/* Hide scrollbars (WebKit / Blink) */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* ----------------------------------------------------------
+   4b. Noise overlay via SVG filter pseudo-element
+   ---------------------------------------------------------- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.04;
+  filter: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E#n");
+  /* Fallback: inline SVG background for broader support */
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* ----------------------------------------------------------
+   5.  TYPOGRAPHY SCALE
+   ---------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  line-height: 1.1;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(44px, 4vw, 64px);
+}
+
+h2 {
+  font-size: clamp(36px, 3.5vw, 52px);
+}
+
+h3 {
+  font-size: clamp(28px, 2.5vw, 40px);
+}
+
+/* Ensure body text never falls below 18 px */
+p, li, dd, td, th, label, blockquote {
+  font-size: max(1rem, 18px);
+}
+
+/* ----------------------------------------------------------
+   6.  UTILITY FONT CLASSES
+   ---------------------------------------------------------- */
+.mono {
+  font-family: var(--font-mono);
+}
+
+.hand {
+  font-family: var(--font-hand);
+}
+
+/* ----------------------------------------------------------
+   7.  SELECTION HIGHLIGHT
+   ---------------------------------------------------------- */
+::selection {
+  background: var(--highlighter);
+  color: var(--ink);
+}
+
+/* ----------------------------------------------------------
+   8.  REDUCED-MOTION
+   ---------------------------------------------------------- */
+
+/* OS-level preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Manual toggle via M key — JS adds .reduced-motion to <html> */
+html.reduced-motion *,
+html.reduced-motion *::before,
+html.reduced-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}

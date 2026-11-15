@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NG.View &amp; NG.Stepper Visual Playground Harness</title>
+
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/deck.css">
+  <link rel="stylesheet" href="../css/components.css">
+
+  <style>
+    body {
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      font-family: var(--font-body);
+    }
+    .harness-grid {
+      display: grid;
+      grid-template-columns: 600px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+    .view-card {
+      background: var(--paper-3);
+      border: 2px solid var(--ink);
+      border-radius: 6px;
+      box-shadow: 4px 4px 0 var(--ink);
+      padding: 1rem;
+      width: 100%;
+      height: 460px;
+      position: relative;
+    }
+    .controls-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .ctrl-group {
+      background: var(--paper-3);
+      border: 2px solid var(--ink);
+      border-radius: 6px;
+      box-shadow: 4px 4px 0 var(--ink);
+      padding: 1rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .ctrl-group h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .status-text {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--ink-2);
+      min-height: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>NG.View &amp; NG.Stepper Visual Harness</h1>
+  <p style="color: var(--ink-2); margin-top: -0.5rem; margin-bottom: 2rem;">
+    Visual playground verifying SVG renderer styling, pointer dragging, animations, halos, and stepper control.
+  </p>
+
+  <div class="harness-grid">
+    <!-- Left: SVG View Canvas -->
+    <div>
+      <div class="view-card" id="view-container"></div>
+      <div style="margin-top: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+        <span class="pill mono" id="info-pill">Canonical Graph (8 nodes, 13 edges)</span>
+        <span class="pill mono" id="event-log">Event: ready</span>
+      </div>
+    </div>
+
+    <!-- Right: Control Panels -->
+    <div class="controls-panel">
+
+      <!-- 1. Edge States Testing -->
+      <div class="ctrl-group">
+        <h3>1. Edge States (Target: Edge AE)</h3>
+        <div class="btn-row">
+          <button type="button" class="btn" id="btn-state-default">default</button>
+          <button type="button" class="btn" id="btn-state-accepted">accepted</button>
+          <button type="button" class="btn" id="btn-state-rejected">rejected</button>
+          <button type="button" class="btn" id="btn-state-candidate">candidate</button>
+          <button type="button" class="btn" id="btn-state-frontier">frontier</button>
+          <button type="button" class="btn" id="btn-state-cut">cut</button>
+          <button type="button" class="btn" id="btn-state-faded">faded</button>
+          <button type="button" class="btn" id="btn-state-blocked">blocked</button>
+          <button type="button" class="btn" id="btn-state-broken">broken</button>
+        </div>
+      </div>
+
+      <!-- 2. Effects & Animations -->
+      <div class="ctrl-group">
+        <h3>2. Animations &amp; Halos</h3>
+        <div class="btn-row">
+          <button type="button" class="btn btn-primary" id="btn-flash-cycle">flashEdge(AE, 'cycle')</button>
+          <button type="button" class="btn" id="btn-draw-edge">drawEdgeIn(EH, 600ms)</button>
+          <button type="button" class="btn" id="btn-toggle-halo">Toggle Halo (A, B, E, H)</button>
+          <button type="button" class="btn" id="btn-node-colors">Component Colours</button>
+          <button type="button" class="btn" id="btn-highlight-path">Highlight Path (A-B-E-H)</button>
+          <button type="button" class="btn" id="btn-clear-states">Clear States</button>
+        </div>
+      </div>
+
+      <!-- 3. Dragging & Weight Mode -->
+      <div class="ctrl-group">
+        <h3>3. Pointer Dragging &amp; Weight Mode</h3>
+        <div class="btn-row" style="align-items: center;">
+          <button type="button" class="btn" id="btn-toggle-drag">Draggable: ON</button>
+          <button type="button" class="btn" id="btn-toggle-weight-mode">Weight Mode: fixed</button>
+          <button type="button" class="btn" id="btn-reset-positions">Reset Positions</button>
+        </div>
+        <div class="status-text" id="drag-status">Drag nodes with mouse or touch. In euclid mode, weights recompute live!</div>
+      </div>
+
+      <!-- 4. Stepper Driving Kruskal Steps -->
+      <div class="ctrl-group">
+        <h3>
+          <span>4. NG.Stepper (Kruskal Steps)</span>
+          <span class="pill mono" id="stepper-counter">Step: -1 / 16</span>
+        </h3>
+        <div class="btn-row">
+          <button type="button" class="btn btn-primary" id="btn-step-play">Play / Pause</button>
+          <button type="button" class="btn" id="btn-step-next">Next &rarr;</button>
+          <button type="button" class="btn" id="btn-step-prev">&larr; Back</button>
+          <button type="button" class="btn" id="btn-step-reset">Reset</button>
+        </div>
+        <div style="display: flex; align-items: center; gap: 1rem; margin-top: 0.5rem;">
+          <label for="speed-slider" class="mono" style="font-size: 0.85rem; white-space: nowrap;">Speed: <span id="speed-label">1.0x</span></label>
+          <input type="range" id="speed-slider" min="0.25" max="4.0" step="0.25" value="1.0">
+        </div>
+        <div class="status-text" id="stepper-status">Initial state ready. Click Next or Play.</div>
+      </div>
+
+      <!-- 5. Multi-Instance & Destroy Test -->
+      <div class="ctrl-group">
+        <h3>5. Isolation &amp; destroy() Verification</h3>
+        <div class="btn-row">
+          <button type="button" class="btn" id="btn-spawn-second">Create Second View</button>
+          <button type="button" class="btn" id="btn-destroy-second">Destroy Second View</button>
+        </div>
+        <div id="second-container" style="display: none; height: 260px; margin-top: 0.5rem;" class="view-card"></div>
+        <div class="status-text" id="multi-status">Second view idle.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts in order -->
+  <script src="../js/core/util.js"></script>
+  <script src="../js/core/graph.js"></script>
+  <script src="../js/core/algo.js"></script>
+  <script src="../js/core/view.js"></script>
+  <script src="../js/core/stepper.js"></script>
+
+  <script>
+    (function () {
+      function buildCanonical() {
+        var g = new NG.Graph();
+        g.addNode(120, 80, 'A', 'A');
+        g.addNode(300, 50, 'B', 'B');
+        g.addNode(480, 90, 'C', 'C');
+        g.addNode(80, 230, 'D', 'D');
+        g.addNode(260, 210, 'E', 'E');
+        g.addNode(450, 240, 'F', 'F');
+        g.addNode(170, 370, 'G', 'G');
+        g.addNode(380, 360, 'H', 'H');
+
+        g.addEdge('E', 'H', 1, 'EH');
+        g.addEdge('E', 'F', 2, 'EF');
+        g.addEdge('B', 'E', 3, 'BE');
+        g.addEdge('A', 'B', 4, 'AB');
+        g.addEdge('A', 'E', 5, 'AE');
+        g.addEdge('C', 'F', 6, 'CF');
+        g.addEdge('D', 'E', 7, 'DE');
+        g.addEdge('G', 'H', 8, 'GH');
+        g.addEdge('A', 'D', 9, 'AD');
+        g.addEdge('B', 'C', 10, 'BC');
+        g.addEdge('D', 'G', 11, 'DG');
+        g.addEdge('F', 'H', 12, 'FH');
+        g.addEdge('C', 'E', 13, 'CE');
+        return g;
+      }
+
+      var graph = buildCanonical();
+      var view = new NG.View('#view-container', graph, {
+        draggable: true,
+        showWeights: true,
+        weightMode: 'fixed',
+        weightScale: 0.05
+      });
+
+      var eventLog = document.getElementById('event-log');
+      view.onNodeClick = function (id) { eventLog.textContent = 'Event: onNodeClick(' + id + ')'; };
+      view.onEdgeClick = function (id) { eventLog.textContent = 'Event: onEdgeClick(' + id + ')'; };
+      view.onNodeHover = function (id) { if (id) eventLog.textContent = 'Event: onNodeHover(' + id + ')'; };
+      view.onEdgeHover = function (id) { if (id) eventLog.textContent = 'Event: onEdgeHover(' + id + ')'; };
+      view.onNodeDrag = function (id, x, y) { eventLog.textContent = 'Dragging ' + id + ' (' + Math.round(x) + ', ' + Math.round(y) + ')'; };
+      view.onBackgroundClick = function (x, y) { eventLog.textContent = 'Bg Click (' + Math.round(x) + ', ' + Math.round(y) + ')'; };
+
+      // 1. Edge states
+      var states = ['default', 'accepted', 'rejected', 'candidate', 'frontier', 'cut', 'faded', 'blocked', 'broken'];
+      states.forEach(function (st) {
+        var btn = document.getElementById('btn-state-' + st);
+        if (btn) {
+          btn.addEventListener('click', function () {
+            view.setEdgeState('AE', st);
+            eventLog.textContent = 'AE state set to: ' + st;
+          });
+        }
+      });
+
+      // 2. Animations & Halos
+      document.getElementById('btn-flash-cycle').addEventListener('click', function () {
+        view.flashEdge('AE', 'cycle');
+        eventLog.textContent = 'flashEdge(AE, cycle) with shake & cross icon';
+      });
+
+      document.getElementById('btn-draw-edge').addEventListener('click', function () {
+        view.drawEdgeIn('EH', 600);
+        eventLog.textContent = 'drawEdgeIn(EH, 600ms)';
+      });
+
+      var haloOn = false;
+      document.getElementById('btn-toggle-halo').addEventListener('click', function () {
+        haloOn = !haloOn;
+        if (haloOn) {
+          view.halo(['A', 'B', 'E', 'H']);
+          eventLog.textContent = 'Halo active on {A, B, E, H}';
+        } else {
+          view.halo([]);
+          eventLog.textContent = 'Halo cleared';
+        }
+      });
+
+      document.getElementById('btn-node-colors').addEventListener('click', function () {
+        view.setNodeColors({
+          'A': 'var(--c1)',
+          'B': 'var(--c1)',
+          'E': 'var(--c1)',
+          'C': 'var(--c2)',
+          'F': 'var(--c2)',
+          'D': 'var(--c3)',
+          'G': 'var(--c4)',
+          'H': 'var(--c4)'
+        });
+        eventLog.textContent = 'Component colours set via --c1..--c4';
+      });
+
+      document.getElementById('btn-highlight-path').addEventListener('click', function () {
+        view.highlightPath({
+          nodes: ['A', 'B', 'E', 'H'],
+          edges: ['AB', 'BE', 'EH']
+        });
+        eventLog.textContent = 'Path highlighted: A-B-E-H';
+      });
+
+      document.getElementById('btn-clear-states').addEventListener('click', function () {
+        view.clearStates();
+        haloOn = false;
+        eventLog.textContent = 'States cleared';
+      });
+
+      // 3. Dragging & Weight Mode
+      var btnDrag = document.getElementById('btn-toggle-drag');
+      btnDrag.addEventListener('click', function () {
+        view.draggable = !view.draggable;
+        btnDrag.textContent = 'Draggable: ' + (view.draggable ? 'ON' : 'OFF');
+      });
+
+      var btnWeightMode = document.getElementById('btn-toggle-weight-mode');
+      btnWeightMode.addEventListener('click', function () {
+        view.weightMode = view.weightMode === 'fixed' ? 'euclid' : 'fixed';
+        btnWeightMode.textContent = 'Weight Mode: ' + view.weightMode;
+        document.getElementById('drag-status').textContent = view.weightMode === 'euclid'
+          ? 'Euclid Mode ACTIVE: Drag nodes to see weights recalculate in real time!'
+          : 'Fixed Mode: Drag nodes freely without changing weights.';
+      });
+
+      document.getElementById('btn-reset-positions').addEventListener('click', function () {
+        var fresh = buildCanonical();
+        graph = fresh;
+        view.graph = fresh;
+        view.render();
+        eventLog.textContent = 'Node positions reset to canonical coordinates';
+      });
+
+      // 4. Stepper driving Kruskal steps
+      var kruskalSteps = NG.Algo.kruskalSteps(graph);
+      var stepperStatus = document.getElementById('stepper-status');
+      var stepperCounter = document.getElementById('stepper-counter');
+
+      var stepper = new NG.Stepper({
+        steps: kruskalSteps,
+        intervalMs: 700,
+        onStep: function (index, step, direction) {
+          stepperCounter.textContent = 'Step: ' + index + ' / ' + (kruskalSteps.length - 1);
+
+          if (index === -1 || !step) {
+            // Initial state: reset visual appearance
+            view.clearStates();
+            stepperStatus.textContent = 'Initial state. No edges examined.';
+            return;
+          }
+
+          // Apply step state to the graph view
+          if (step.type === 'consider') {
+            view.setEdgeState(step.edgeId, 'candidate');
+            stepperStatus.textContent = 'Considering ' + step.edgeId + '... (roots: ' + step.findU + ', ' + step.findV + ')';
+          } else if (step.type === 'accept') {
+            view.setEdgeState(step.edgeId, 'accepted');
+            stepperStatus.textContent = 'Accepted ' + step.edgeId + '! Running total: ' + step.total;
+          } else if (step.type === 'reject') {
+            view.setEdgeState(step.edgeId, 'rejected');
+            stepperStatus.textContent = 'Rejected ' + step.edgeId + ' (closes cycle). Total: ' + step.total;
+          } else if (step.type === 'done') {
+            stepperStatus.textContent = 'MST Complete! Total weight = ' + step.total;
+          }
+
+          // Synchronize accepted edges from step snapshot
+          for (var i = 0; i < step.acceptedEdges.length; i++) {
+            view.setEdgeState(step.acceptedEdges[i], 'accepted');
+          }
+        },
+        onEnd: function () {
+          stepperStatus.textContent = 'Algorithm finished.';
+        }
+      });
+
+      document.getElementById('btn-step-play').addEventListener('click', function () {
+        stepper.toggle();
+      });
+      document.getElementById('btn-step-next').addEventListener('click', function () {
+        stepper.next();
+      });
+      document.getElementById('btn-step-prev').addEventListener('click', function () {
+        stepper.prev();
+      });
+      document.getElementById('btn-step-reset').addEventListener('click', function () {
+        stepper.reset();
+      });
+
+      var speedSlider = document.getElementById('speed-slider');
+      var speedLabel = document.getElementById('speed-label');
+      speedSlider.addEventListener('input', function () {
+        var spd = parseFloat(speedSlider.value);
+        stepper.setSpeed(spd);
+        speedLabel.textContent = spd.toFixed(2) + 'x';
+      });
+
+      // 5. Multi-Instance & Destroy Test
+      var secondView = null;
+      var secondContainer = document.getElementById('second-container');
+      var multiStatus = document.getElementById('multi-status');
+
+      document.getElementById('btn-spawn-second').addEventListener('click', function () {
+        if (!secondView) {
+          secondContainer.style.display = 'block';
+          var g2 = buildCanonical();
+          secondView = new NG.View(secondContainer, g2, {
+            width: 400,
+            height: 250,
+            viewBox: '0 0 560 420',
+            draggable: true
+          });
+          secondView.setEdgeState('EH', 'accepted');
+          multiStatus.textContent = 'Second View spawned. Interactions are isolated!';
+        }
+      });
+
+      document.getElementById('btn-destroy-second').addEventListener('click', function () {
+        if (secondView) {
+          secondView.destroy();
+          secondView = null;
+          secondContainer.style.display = 'none';
+          multiStatus.textContent = 'Second View destroyed cleanly. Listeners removed.';
+        }
+      });
+
+      window.__harness = {
+        view: view,
+        graph: graph,
+        stepper: stepper,
+        buildCanonical: buildCanonical
+      };
+    })();
+  </script>
+</body>
+</html>

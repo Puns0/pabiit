@@ -20,5 +20,10 @@ export const presentations = [
     id: 'indoor-navigation',
     title: 'Indoor Navigation',
     link: '/presentation.html',
+  },
+  {
+    id: 'spanning-tree-computer-networks',
+    title: 'Spanning Tree and Computer Networks',
+    link: '/mathpre/index.html',
   }
 ]
