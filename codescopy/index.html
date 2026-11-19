@@ -1,0 +1,1053 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OS FA 1 - C Programs (with Gantt Chart)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0E14;
+      --bg-card: #131720;
+      --bg-code: #07090D;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-focus: rgba(139, 92, 246, 0.4);
+      --primary: #8B5CF6;
+      --primary-light: #A78BFA;
+      --primary-glow: rgba(139, 92, 246, 0.15);
+      --accent-cyan: #06B6D4;
+      --text: #F9FAFB;
+      --text-muted: #9CA3AF;
+      --text-dim: #6B7280;
+      --success: #10B981;
+      --success-glow: rgba(16, 185, 129, 0.2);
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --radius: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      padding-bottom: 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(180deg, rgba(19, 23, 32, 0.95) 0%, rgba(11, 14, 20, 0.8) 100%);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      padding: 16px 24px;
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .header-title-box h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-badge {
+      background: var(--primary-glow);
+      color: var(--primary-light);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+    }
+
+    .header-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Nav pills */
+    .nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .nav-pill {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .nav-pill:hover {
+      background: rgba(139, 92, 246, 0.15);
+      border-color: var(--primary);
+      color: var(--text);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 32px auto 0;
+      padding: 0 20px;
+    }
+
+    /* Top Banner */
+    .info-banner {
+      background: rgba(6, 182, 212, 0.06);
+      border: 1px solid rgba(6, 182, 212, 0.2);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 0.88rem;
+      color: #CBD5E1;
+    }
+
+    .info-banner-icon {
+      color: var(--accent-cyan);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .info-banner code {
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text);
+    }
+
+    /* Program Card */
+    .program-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 32px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      scroll-margin-top: 90px;
+    }
+
+    .program-card:hover {
+      border-color: rgba(139, 92, 246, 0.3);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    /* Card Header */
+    .card-header {
+      padding: 16px 20px;
+      background: rgba(255, 255, 255, 0.02);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-title-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .prog-num-badge {
+      background: var(--primary);
+      color: #fff;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 9px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    /* Copy Button */
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--primary);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 7px;
+      padding: 9px 16px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+      outline: none;
+    }
+
+    .copy-btn:hover {
+      background: #7C3AED;
+      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .copy-btn:active {
+      transform: translateY(1px);
+    }
+
+    .copy-btn.copied {
+      background: var(--success);
+      box-shadow: 0 2px 10px var(--success-glow);
+    }
+
+    .copy-btn svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Code Block */
+    .code-container {
+      position: relative;
+      background: var(--bg-code);
+      overflow-x: auto;
+    }
+
+    pre {
+      padding: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: #E2E8F0;
+      tab-size: 4;
+      white-space: pre;
+    }
+
+    /* Syntax Highlighting */
+    .syn-preproc { color: #F472B6; font-weight: 600; }
+    .syn-keyword { color: #A78BFA; font-weight: 600; }
+    .syn-type    { color: #38BDF8; font-weight: 600; }
+    .syn-string  { color: #34D399; }
+    .syn-num     { color: #FBBF24; }
+    .syn-comment { color: #64748B; font-style: italic; }
+    .syn-func    { color: #60A5FA; }
+
+    /* Collapsible Details */
+    .details-toggle {
+      border-top: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    details summary {
+      padding: 12px 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-weight: 500;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.15s ease;
+    }
+
+    details summary:hover {
+      color: var(--primary-light);
+    }
+
+    details[open] summary {
+      border-bottom: 1px dashed var(--border);
+      color: var(--text);
+    }
+
+    .details-content {
+      padding: 18px 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .details-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    .details-box-title {
+      font-size: 0.76rem;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--primary-light);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .details-box pre {
+      background: transparent;
+      padding: 0;
+      font-size: 0.82rem;
+      line-height: 1.5;
+      color: #94A3B8;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #181E29;
+      color: var(--text);
+      border: 1px solid var(--success);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .toast-icon {
+      color: var(--success);
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .card-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .copy-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="header-title-box">
+        <h1>
+          <span>OS FA 1 - C Programs</span>
+          <span class="header-badge">Tested &amp; Gantt</span>
+        </h1>
+        <p class="header-subtitle">Click the copy button on any program to copy clean C source code</p>
+      </div>
+      <nav class="nav-pills" aria-label="Jump to program">
+        <a href="#prog-1" class="nav-pill">P1: Fork / Exec</a>
+        <a href="#prog-2" class="nav-pill">P2: FCFS</a>
+        <a href="#prog-3" class="nav-pill">P3: SJF</a>
+        <a href="#prog-4" class="nav-pill">P4: Round Robin</a>
+        <a href="#prog-5" class="nav-pill">P5: Priority</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <div class="info-banner">
+      <svg class="info-banner-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="16" x2="12" y2="12"></line>
+        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+      </svg>
+      <div>
+        <strong>Compilation Info:</strong> Save any snippet as a <code>.c</code> file and compile with <code>gcc file.c -o out</code>. Program 1 uses <code>fork()</code> (run on Linux/WSL/Mac). Programs 2–5 run anywhere (Linux/Mac <code>./out</code>, Windows <code>out.exe</code>) and print Gantt charts.
+      </div>
+    </div>
+
+    <!-- PROGRAM 1 -->
+    <article class="program-card" id="prog-1">
+      <div class="card-header">
+        <div class="card-title-group">
+          <span class="prog-num-badge">P1</span>
+          <h2 class="card-title">Program 1 - Process System Calls (fork, exec, wait)</h2>
+        </div>
+        <button class="copy-btn" onclick="copyProgram('prog-1', this)">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span>Copy Code</span>
+        </button>
+      </div>
+      <div class="code-container">
+        <pre><code id="code-prog-1"><span class="syn-preproc">#include</span> <span class="syn-string">&lt;stdio.h&gt;</span>
+<span class="syn-preproc">#include</span> <span class="syn-string">&lt;unistd.h&gt;</span>
+<span class="syn-preproc">#include</span> <span class="syn-string">&lt;sys/wait.h&gt;</span>
+
+<span class="syn-type">int</span> <span class="syn-func">main</span>() {
+    <span class="syn-type">pid_t</span> pid = <span class="syn-func">fork</span>();
+    <span class="syn-keyword">if</span> (pid &lt; <span class="syn-num">0</span>) {
+        <span class="syn-func">perror</span>(<span class="syn-string">"fork failed"</span>);
+        <span class="syn-keyword">return</span> <span class="syn-num">1</span>;
+    }
+    <span class="syn-keyword">if</span> (pid == <span class="syn-num">0</span>) { <span class="syn-comment">// child</span>
+        <span class="syn-func">printf</span>(<span class="syn-string">"Child running (PID %d)\n"</span>, <span class="syn-func">getpid</span>());
+        <span class="syn-func">fflush</span>(stdout);
+        <span class="syn-func">execlp</span>(<span class="syn-string">"ls"</span>, <span class="syn-string">"ls"</span>, <span class="syn-string">"-l"</span>, NULL); <span class="syn-comment">// replaces child</span>
+        <span class="syn-func">perror</span>(<span class="syn-string">"exec failed"</span>); <span class="syn-comment">// only if exec fails</span>
+        <span class="syn-keyword">return</span> <span class="syn-num">1</span>;
+    }
+    <span class="syn-func">printf</span>(<span class="syn-string">"Parent waiting for child %d\n"</span>, pid);
+    <span class="syn-func">wait</span>(NULL); <span class="syn-comment">// parent waits</span>
+    <span class="syn-func">printf</span>(<span class="syn-string">"Child finished\n"</span>);
+    <span class="syn-keyword">return</span> <span class="syn-num">0</span>;
+}</code></pre>
+      </div>
+      <div class="details-toggle">
+        <details>
+          <summary>Execution Details (How to run, input &amp; output)</summary>
+          <div class="details-content">
+            <div class="details-box">
+              <div class="details-box-title">How to Run</div>
+              <pre>gcc program1_fork.c -o program1_fork
+./program1_fork</pre>
+            </div>
+            <div class="details-box">
+              <div class="details-box-title">Type this input</div>
+              <pre>(no input needed)</pre>
+            </div>
+            <div class="details-box">
+              <div class="details-box-title">Output you will see</div>
+              <pre>Child running (PID 282)
+Parent waiting for child 282
+&lt;ls -l listing of the folder&gt;
+Child finished</pre>
+            </div>
+          </div>
+        </details>
+      </div>
+    </article>
+
+    <!-- PROGRAM 2 -->
+    <article class="program-card" id="prog-2">
+      <div class="card-header">
+        <div class="card-title-group">
+          <span class="prog-num-badge">P2</span>
+          <h2 class="card-title">Program 2 - FCFS Scheduling</h2>
+        </div>
+        <button class="copy-btn" onclick="copyProgram('prog-2', this)">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span>Copy Code</span>
+        </button>
+      </div>
+      <div class="code-container">
+        <pre><code id="code-prog-2"><span class="syn-preproc">#include</span> <span class="syn-string">&lt;stdio.h&gt;</span>
+
+<span class="syn-type">int</span> <span class="syn-func">main</span>() {
+    <span class="syn-type">int</span> n, bt[<span class="syn-num">10</span>], wt = <span class="syn-num">0</span>, tat, tw = <span class="syn-num">0</span>, tt = <span class="syn-num">0</span>;
+    <span class="syn-func">printf</span>(<span class="syn-string">"Enter number of processes: "</span>);
+    <span class="syn-func">scanf</span>(<span class="syn-string">"%d"</span>, &amp;n);
+    <span class="syn-func">printf</span>(<span class="syn-string">"Enter burst times: "</span>);
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>; i &lt; n; i++) <span class="syn-func">scanf</span>(<span class="syn-string">"%d"</span>, &amp;bt[i]);
+    <span class="syn-func">printf</span>(<span class="syn-string">"\nProcess\tBT\tWT\tTAT\n"</span>);
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>; i &lt; n; i++) {
+        tat = wt + bt[i];
+        <span class="syn-func">printf</span>(<span class="syn-string">"P%d\t%d\t%d\t%d\n"</span>, i + <span class="syn-num">1</span>, bt[i], wt, tat);
+        tw += wt;
+        tt += tat;
+        wt = tat; <span class="syn-comment">// next process waits until this one ends</span>
+    }
+    <span class="syn-func">printf</span>(<span class="syn-string">"Avg WT = %.2f\nAvg TAT = %.2f\n"</span>, (<span class="syn-type">float</span>)tw / n, (<span class="syn-type">float</span>)tt / n);
+    <span class="syn-func">printf</span>(<span class="syn-string">"\nGantt Chart:\n|"</span>);
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>; i &lt; n; i++) <span class="syn-func">printf</span>(<span class="syn-string">" P%d |"</span>, i + <span class="syn-num">1</span>);
+    <span class="syn-func">printf</span>(<span class="syn-string">"\n0"</span>);
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>, t = <span class="syn-num">0</span>; i &lt; n; i++) <span class="syn-func">printf</span>(<span class="syn-string">"%5d"</span>, t += bt[i]);
+    <span class="syn-func">printf</span>(<span class="syn-string">"\n"</span>);
+    <span class="syn-keyword">return</span> <span class="syn-num">0</span>;
+}</code></pre>
+      </div>
+      <div class="details-toggle">
+        <details>
+          <summary>Execution Details (How to run, input &amp; output)</summary>
+          <div class="details-content">
+            <div class="details-box">
+              <div class="details-box-title">How to Run</div>
+              <pre>gcc program2_fcfs.c -o program2_fcfs
+./program2_fcfs</pre>
+            </div>
+            <div class="details-box">
+              <div class="details-box-title">Type this input</div>
+              <pre>3
+5 3 2</pre>
+            </div>
+            <div class="details-box">
+              <div class="details-box-title">Output you will see</div>
+              <pre>Process BT      WT      TAT
+P1      5       0       5
+P2      3       5       8
+P3      2       8       10
+Avg WT = 4.33
+Avg TAT = 7.67
+
+Gantt Chart:
+| P1 | P2 | P3 |
+0    5    8   10</pre>
+            </div>
+          </div>
+        </details>
+      </div>
+    </article>
+
+    <!-- PROGRAM 3 -->
+    <article class="program-card" id="prog-3">
+      <div class="card-header">
+        <div class="card-title-group">
+          <span class="prog-num-badge">P3</span>
+          <h2 class="card-title">Program 3 - SJF Non-Preemptive Scheduling</h2>
+        </div>
+        <button class="copy-btn" onclick="copyProgram('prog-3', this)">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span>Copy Code</span>
+        </button>
+      </div>
+      <div class="code-container">
+        <pre><code id="code-prog-3"><span class="syn-preproc">#include</span> <span class="syn-string">&lt;stdio.h&gt;</span>
+
+<span class="syn-type">int</span> <span class="syn-func">main</span>() {
+    <span class="syn-type">int</span> n, bt[<span class="syn-num">10</span>], id[<span class="syn-num">10</span>], wt = <span class="syn-num">0</span>, tat, tw = <span class="syn-num">0</span>, tt = <span class="syn-num">0</span>, t;
+    <span class="syn-func">printf</span>(<span class="syn-string">"Enter number of processes: "</span>);
+    <span class="syn-func">scanf</span>(<span class="syn-string">"%d"</span>, &amp;n);
+    <span class="syn-func">printf</span>(<span class="syn-string">"Enter burst times: "</span>);
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>; i &lt; n; i++) {
+        <span class="syn-func">scanf</span>(<span class="syn-string">"%d"</span>, &amp;bt[i]);
+        id[i] = i + <span class="syn-num">1</span>;
+    }
+    <span class="syn-comment">// sort by burst time, keep process IDs with them</span>
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>; i &lt; n - <span class="syn-num">1</span>; i++)
+        <span class="syn-keyword">for</span> (<span class="syn-type">int</span> j = i + <span class="syn-num">1</span>; j &lt; n; j++)
+            <span class="syn-keyword">if</span> (bt[i] &gt; bt[j]) {
+                t = bt[i]; bt[i] = bt[j]; bt[j] = t;
+                t = id[i]; id[i] = id[j]; id[j] = t;
+            }
+    <span class="syn-func">printf</span>(<span class="syn-string">"\nProcess\tBT\tWT\tTAT\n"</span>);
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>; i &lt; n; i++) {
+        tat = wt + bt[i];
+        <span class="syn-func">printf</span>(<span class="syn-string">"P%d\t%d\t%d\t%d\n"</span>, id[i], bt[i], wt, tat);
+        tw += wt;
+        tt += tat;
+        wt = tat;
+    }
+    <span class="syn-func">printf</span>(<span class="syn-string">"Avg WT = %.2f\nAvg TAT = %.2f\n"</span>, (<span class="syn-type">float</span>)tw / n, (<span class="syn-type">float</span>)tt / n);
+    <span class="syn-func">printf</span>(<span class="syn-string">"\nGantt Chart:\n|"</span>);
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>; i &lt; n; i++) <span class="syn-func">printf</span>(<span class="syn-string">" P%d |"</span>, id[i]);
+    <span class="syn-func">printf</span>(<span class="syn-string">"\n0"</span>);
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>, x = <span class="syn-num">0</span>; i &lt; n; i++) <span class="syn-func">printf</span>(<span class="syn-string">"%5d"</span>, x += bt[i]);
+    <span class="syn-func">printf</span>(<span class="syn-string">"\n"</span>);
+    <span class="syn-keyword">return</span> <span class="syn-num">0</span>;
+}</code></pre>
+      </div>
+      <div class="details-toggle">
+        <details>
+          <summary>Execution Details (How to run, input &amp; output)</summary>
+          <div class="details-content">
+            <div class="details-box">
+              <div class="details-box-title">How to Run</div>
+              <pre>gcc program3_sjf.c -o program3_sjf
+./program3_sjf</pre>
+            </div>
+            <div class="details-box">
+              <div class="details-box-title">Type this input</div>
+              <pre>3
+5 3 2</pre>
+            </div>
+            <div class="details-box">
+              <div class="details-box-title">Output you will see</div>
+              <pre>Process BT      WT      TAT
+P3      2       0       2
+P2      3       2       5
+P1      5       5       10
+Avg WT = 2.33
+Avg TAT = 5.67
+
+Gantt Chart:
+| P3 | P2 | P1 |
+0    2    5   10</pre>
+            </div>
+          </div>
+        </details>
+      </div>
+    </article>
+
+    <!-- PROGRAM 4 -->
+    <article class="program-card" id="prog-4">
+      <div class="card-header">
+        <div class="card-title-group">
+          <span class="prog-num-badge">P4</span>
+          <h2 class="card-title">Program 4 - Round Robin Scheduling</h2>
+        </div>
+        <button class="copy-btn" onclick="copyProgram('prog-4', this)">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span>Copy Code</span>
+        </button>
+      </div>
+      <div class="code-container">
+        <pre><code id="code-prog-4"><span class="syn-preproc">#include</span> <span class="syn-string">&lt;stdio.h&gt;</span>
+
+<span class="syn-type">int</span> <span class="syn-func">main</span>() {
+    <span class="syn-type">int</span> n, tq, bt[<span class="syn-num">10</span>], rem[<span class="syn-num">10</span>], wt[<span class="syn-num">10</span>], tat[<span class="syn-num">10</span>];
+    <span class="syn-type">int</span> time = <span class="syn-num">0</span>, done = <span class="syn-num">0</span>, tw = <span class="syn-num">0</span>, tt = <span class="syn-num">0</span>;
+    <span class="syn-type">int</span> gp[<span class="syn-num">100</span>], gt[<span class="syn-num">100</span>], g = <span class="syn-num">0</span>; <span class="syn-comment">// Gantt: process id and end time of each slice</span>
+    <span class="syn-func">printf</span>(<span class="syn-string">"Enter number of processes: "</span>);
+    <span class="syn-func">scanf</span>(<span class="syn-string">"%d"</span>, &amp;n);
+    <span class="syn-func">printf</span>(<span class="syn-string">"Enter burst times: "</span>);
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>; i &lt; n; i++) {
+        <span class="syn-func">scanf</span>(<span class="syn-string">"%d"</span>, &amp;bt[i]);
+        rem[i] = bt[i];
+    }
+    <span class="syn-func">printf</span>(<span class="syn-string">"Enter time quantum: "</span>);
+    <span class="syn-func">scanf</span>(<span class="syn-string">"%d"</span>, &amp;tq);
+    <span class="syn-keyword">while</span> (done &lt; n) {
+        <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>; i &lt; n; i++) {
+            <span class="syn-keyword">if</span> (rem[i] == <span class="syn-num">0</span>) <span class="syn-keyword">continue</span>;
+            <span class="syn-type">int</span> run = rem[i] &lt; tq ? rem[i] : tq;
+            rem[i] -= run;
+            time += run;
+            gp[g] = i + <span class="syn-num">1</span>; gt[g++] = time;
+            <span class="syn-keyword">if</span> (rem[i] == <span class="syn-num">0</span>) {
+                done++;
+                tat[i] = time; <span class="syn-comment">// arrival = 0</span>
+                wt[i] = tat[i] - bt[i];
+            }
+        }
+    }
+    <span class="syn-func">printf</span>(<span class="syn-string">"\nProcess\tBT\tWT\tTAT\n"</span>);
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>; i &lt; n; i++) {
+        <span class="syn-func">printf</span>(<span class="syn-string">"P%d\t%d\t%d\t%d\n"</span>, i + <span class="syn-num">1</span>, bt[i], wt[i], tat[i]);
+        tw += wt[i];
+        tt += tat[i];
+    }
+    <span class="syn-func">printf</span>(<span class="syn-string">"Avg WT = %.2f\nAvg TAT = %.2f\n"</span>, (<span class="syn-type">float</span>)tw / n, (<span class="syn-type">float</span>)tt / n);
+    <span class="syn-func">printf</span>(<span class="syn-string">"\nGantt Chart:\n|"</span>);
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>; i &lt; g; i++) <span class="syn-func">printf</span>(<span class="syn-string">" P%d |"</span>, gp[i]);
+    <span class="syn-func">printf</span>(<span class="syn-string">"\n0"</span>);
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>; i &lt; g; i++) <span class="syn-func">printf</span>(<span class="syn-string">"%5d"</span>, gt[i]);
+    <span class="syn-func">printf</span>(<span class="syn-string">"\n"</span>);
+    <span class="syn-keyword">return</span> <span class="syn-num">0</span>;
+}</code></pre>
+      </div>
+      <div class="details-toggle">
+        <details>
+          <summary>Execution Details (How to run, input &amp; output)</summary>
+          <div class="details-content">
+            <div class="details-box">
+              <div class="details-box-title">How to Run</div>
+              <pre>gcc program4_round_robin.c -o program4_round_robin
+./program4_round_robin</pre>
+            </div>
+            <div class="details-box">
+              <div class="details-box-title">Type this input</div>
+              <pre>3
+5 3 2
+2 (time quantum)</pre>
+            </div>
+            <div class="details-box">
+              <div class="details-box-title">Output you will see</div>
+              <pre>Process BT      WT      TAT
+P1      5       5       10
+P2      3       6       9
+P3      2       4       6
+Avg WT = 5.00
+Avg TAT = 8.33
+
+Gantt Chart:
+| P1 | P2 | P3 | P1 | P2 | P1 |
+0    2    4    6    8    9   10</pre>
+            </div>
+          </div>
+        </details>
+      </div>
+    </article>
+
+    <!-- PROGRAM 5 -->
+    <article class="program-card" id="prog-5">
+      <div class="card-header">
+        <div class="card-title-group">
+          <span class="prog-num-badge">P5</span>
+          <h2 class="card-title">Program 5 - Non-Preemptive Priority Scheduling</h2>
+        </div>
+        <button class="copy-btn" onclick="copyProgram('prog-5', this)">
+          <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+          <span>Copy Code</span>
+        </button>
+      </div>
+      <div class="code-container">
+        <pre><code id="code-prog-5"><span class="syn-preproc">#include</span> <span class="syn-string">&lt;stdio.h&gt;</span>
+
+<span class="syn-type">int</span> <span class="syn-func">main</span>() {
+    <span class="syn-type">int</span> n, bt[<span class="syn-num">10</span>], pr[<span class="syn-num">10</span>], id[<span class="syn-num">10</span>], wt = <span class="syn-num">0</span>, tat, tw = <span class="syn-num">0</span>, tt = <span class="syn-num">0</span>, t;
+    <span class="syn-func">printf</span>(<span class="syn-string">"Enter number of processes: "</span>);
+    <span class="syn-func">scanf</span>(<span class="syn-string">"%d"</span>, &amp;n);
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>; i &lt; n; i++) {
+        id[i] = i + <span class="syn-num">1</span>;
+        <span class="syn-func">printf</span>(<span class="syn-string">"P%d burst time and priority (small = high): "</span>, i + <span class="syn-num">1</span>);
+        <span class="syn-func">scanf</span>(<span class="syn-string">"%d %d"</span>, &amp;bt[i], &amp;pr[i]);
+    }
+    <span class="syn-comment">// bubble sort on priority (adjacent swaps keep input order for ties)</span>
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>; i &lt; n - <span class="syn-num">1</span>; i++)
+        <span class="syn-keyword">for</span> (<span class="syn-type">int</span> j = <span class="syn-num">0</span>; j &lt; n - <span class="syn-num">1</span> - i; j++)
+            <span class="syn-keyword">if</span> (pr[j] &gt; pr[j + <span class="syn-num">1</span>]) {
+                t = pr[j]; pr[j] = pr[j + <span class="syn-num">1</span>]; pr[j + <span class="syn-num">1</span>] = t;
+                t = bt[j]; bt[j] = bt[j + <span class="syn-num">1</span>]; bt[j + <span class="syn-num">1</span>] = t;
+                t = id[j]; id[j] = id[j + <span class="syn-num">1</span>]; id[j + <span class="syn-num">1</span>] = t;
+            }
+    <span class="syn-func">printf</span>(<span class="syn-string">"\nProcess\tBT\tPri\tWT\tTAT\n"</span>);
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>; i &lt; n; i++) {
+        tat = wt + bt[i];
+        <span class="syn-func">printf</span>(<span class="syn-string">"P%d\t%d\t%d\t%d\t%d\n"</span>, id[i], bt[i], pr[i], wt, tat);
+        tw += wt;
+        tt += tat;
+        wt = tat;
+    }
+    <span class="syn-func">printf</span>(<span class="syn-string">"Avg WT = %.2f\nAvg TAT = %.2f\n"</span>, (<span class="syn-type">float</span>)tw / n, (<span class="syn-type">float</span>)tt / n);
+    <span class="syn-func">printf</span>(<span class="syn-string">"\nGantt Chart:\n|"</span>);
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>; i &lt; n; i++) <span class="syn-func">printf</span>(<span class="syn-string">" P%d |"</span>, id[i]);
+    <span class="syn-func">printf</span>(<span class="syn-string">"\n0"</span>);
+    <span class="syn-keyword">for</span> (<span class="syn-type">int</span> i = <span class="syn-num">0</span>, x = <span class="syn-num">0</span>; i &lt; n; i++) <span class="syn-func">printf</span>(<span class="syn-string">"%5d"</span>, x += bt[i]);
+    <span class="syn-func">printf</span>(<span class="syn-string">"\n"</span>);
+    <span class="syn-keyword">return</span> <span class="syn-num">0</span>;
+}</code></pre>
+      </div>
+      <div class="details-toggle">
+        <details>
+          <summary>Execution Details (How to run, input &amp; output)</summary>
+          <div class="details-content">
+            <div class="details-box">
+              <div class="details-box-title">How to Run</div>
+              <pre>gcc program5_priority.c -o program5_priority
+./program5_priority</pre>
+            </div>
+            <div class="details-box">
+              <div class="details-box-title">Type this input</div>
+              <pre>3
+5 2 (P1: burst, priority)
+3 1 (P2)
+2 3 (P3)</pre>
+            </div>
+            <div class="details-box">
+              <div class="details-box-title">Output you will see</div>
+              <pre>Process BT      Pri     WT      TAT
+P2      3       1       0       3
+P1      5       2       3       8
+P3      2       3       8       10
+Avg WT = 3.67
+Avg TAT = 7.00
+
+Gantt Chart:
+| P2 | P1 | P3 |
+0    3    8   10</pre>
+            </div>
+          </div>
+        </details>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <svg class="toast-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span id="toast-text">Code copied to clipboard!</span>
+  </div>
+
+  <script>
+    // Clean raw C source strings (without any HTML entities or tags)
+    const rawCodes = {
+      'prog-1': `#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int main() {
+    pid_t pid = fork();
+    if (pid < 0) {
+        perror("fork failed");
+        return 1;
+    }
+    if (pid == 0) { // child
+        printf("Child running (PID %d)\\n", getpid());
+        fflush(stdout);
+        execlp("ls", "ls", "-l", NULL); // replaces child
+        perror("exec failed"); // only if exec fails
+        return 1;
+    }
+    printf("Parent waiting for child %d\\n", pid);
+    wait(NULL); // parent waits
+    printf("Child finished\\n");
+    return 0;
+}`,
+
+      'prog-2': `#include <stdio.h>
+
+int main() {
+    int n, bt[10], wt = 0, tat, tw = 0, tt = 0;
+    printf("Enter number of processes: ");
+    scanf("%d", &n);
+    printf("Enter burst times: ");
+    for (int i = 0; i < n; i++) scanf("%d", &bt[i]);
+    printf("\\nProcess\\tBT\\tWT\\tTAT\\n");
+    for (int i = 0; i < n; i++) {
+        tat = wt + bt[i];
+        printf("P%d\\t%d\\t%d\\t%d\\n", i + 1, bt[i], wt, tat);
+        tw += wt;
+        tt += tat;
+        wt = tat; // next process waits until this one ends
+    }
+    printf("Avg WT = %.2f\\nAvg TAT = %.2f\\n", (float)tw / n, (float)tt / n);
+    printf("\\nGantt Chart:\\n|");
+    for (int i = 0; i < n; i++) printf(" P%d |", i + 1);
+    printf("\\n0");
+    for (int i = 0, t = 0; i < n; i++) printf("%5d", t += bt[i]);
+    printf("\\n");
+    return 0;
+}`,
+
+      'prog-3': `#include <stdio.h>
+
+int main() {
+    int n, bt[10], id[10], wt = 0, tat, tw = 0, tt = 0, t;
+    printf("Enter number of processes: ");
+    scanf("%d", &n);
+    printf("Enter burst times: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &bt[i]);
+        id[i] = i + 1;
+    }
+    // sort by burst time, keep process IDs with them
+    for (int i = 0; i < n - 1; i++)
+        for (int j = i + 1; j < n; j++)
+            if (bt[i] > bt[j]) {
+                t = bt[i]; bt[i] = bt[j]; bt[j] = t;
+                t = id[i]; id[i] = id[j]; id[j] = t;
+            }
+    printf("\\nProcess\\tBT\\tWT\\tTAT\\n");
+    for (int i = 0; i < n; i++) {
+        tat = wt + bt[i];
+        printf("P%d\\t%d\\t%d\\t%d\\n", id[i], bt[i], wt, tat);
+        tw += wt;
+        tt += tat;
+        wt = tat;
+    }
+    printf("Avg WT = %.2f\\nAvg TAT = %.2f\\n", (float)tw / n, (float)tt / n);
+    printf("\\nGantt Chart:\\n|");
+    for (int i = 0; i < n; i++) printf(" P%d |", id[i]);
+    printf("\\n0");
+    for (int i = 0, x = 0; i < n; i++) printf("%5d", x += bt[i]);
+    printf("\\n");
+    return 0;
+}`,
+
+      'prog-4': `#include <stdio.h>
+
+int main() {
+    int n, tq, bt[10], rem[10], wt[10], tat[10];
+    int time = 0, done = 0, tw = 0, tt = 0;
+    int gp[100], gt[100], g = 0; // Gantt: process id and end time of each slice
+    printf("Enter number of processes: ");
+    scanf("%d", &n);
+    printf("Enter burst times: ");
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &bt[i]);
+        rem[i] = bt[i];
+    }
+    printf("Enter time quantum: ");
+    scanf("%d", &tq);
+    while (done < n) {
+        for (int i = 0; i < n; i++) {
+            if (rem[i] == 0) continue;
+            int run = rem[i] < tq ? rem[i] : tq;
+            rem[i] -= run;
+            time += run;
+            gp[g] = i + 1; gt[g++] = time;
+            if (rem[i] == 0) {
+                done++;
+                tat[i] = time; // arrival = 0
+                wt[i] = tat[i] - bt[i];
+            }
+        }
+    }
+    printf("\\nProcess\\tBT\\tWT\\tTAT\\n");
+    for (int i = 0; i < n; i++) {
+        printf("P%d\\t%d\\t%d\\t%d\\n", i + 1, bt[i], wt[i], tat[i]);
+        tw += wt[i];
+        tt += tat[i];
+    }
+    printf("Avg WT = %.2f\\nAvg TAT = %.2f\\n", (float)tw / n, (float)tt / n);
+    printf("\\nGantt Chart:\\n|");
+    for (int i = 0; i < g; i++) printf(" P%d |", gp[i]);
+    printf("\\n0");
+    for (int i = 0; i < g; i++) printf("%5d", gt[i]);
+    printf("\\n");
+    return 0;
+}`,
+
+      'prog-5': `#include <stdio.h>
+
+int main() {
+    int n, bt[10], pr[10], id[10], wt = 0, tat, tw = 0, tt = 0, t;
+    printf("Enter number of processes: ");
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        id[i] = i + 1;
+        printf("P%d burst time and priority (small = high): ", i + 1);
+        scanf("%d %d", &bt[i], &pr[i]);
+    }
+    // bubble sort on priority (adjacent swaps keep input order for ties)
+    for (int i = 0; i < n - 1; i++)
+        for (int j = 0; j < n - 1 - i; j++)
+            if (pr[j] > pr[j + 1]) {
+                t = pr[j]; pr[j] = pr[j + 1]; pr[j + 1] = t;
+                t = bt[j]; bt[j] = bt[j + 1]; bt[j + 1] = t;
+                t = id[j]; id[j] = id[j + 1]; id[j + 1] = t;
+            }
+    printf("\\nProcess\\tBT\\tPri\\tWT\\tTAT\\n");
+    for (int i = 0; i < n; i++) {
+        tat = wt + bt[i];
+        printf("P%d\\t%d\\t%d\\t%d\\t%d\\n", id[i], bt[i], pr[i], wt, tat);
+        tw += wt;
+        tt += tat;
+        wt = tat;
+    }
+    printf("Avg WT = %.2f\\nAvg TAT = %.2f\\n", (float)tw / n, (float)tt / n);
+    printf("\\nGantt Chart:\\n|");
+    for (int i = 0; i < n; i++) printf(" P%d |", id[i]);
+    printf("\\n0");
+    for (int i = 0, x = 0; i < n; i++) printf("%5d", x += bt[i]);
+    printf("\\n");
+    return 0;
+}`
+    };
+
+    let toastTimer = null;
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastText = document.getElementById('toast-text');
+      toastText.textContent = message;
+      toast.classList.add('show');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    async function copyProgram(progId, btn) {
+      const code = rawCodes[progId];
+      if (!code) return;
+
+      let success = false;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        try {
+          await navigator.clipboard.writeText(code);
+          success = true;
+        } catch (err) {
+          success = fallbackCopy(code);
+        }
+      } else {
+        success = fallbackCopy(code);
+      }
+
+      if (success) {
+        const originalHtml = btn.innerHTML;
+        btn.classList.add('copied');
+        btn.innerHTML = `
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <span>Copied!</span>
+        `;
+        showToast(`Copied ${progId.toUpperCase().replace('-', ' ')} code!`);
+
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = originalHtml;
+        }, 2000);
+      } else {
+        showToast('Failed to copy. Please copy manually.');
+      }
+    }
+
+    function fallbackCopy(text) {
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.style.position = 'fixed';
+      textarea.style.opacity = '0';
+      document.body.appendChild(textarea);
+      textarea.select();
+      let res = false;
+      try {
+        res = document.execCommand('copy');
+      } catch (e) {
+        res = false;
+      }
+      document.body.removeChild(textarea);
+      return res;
+    }
+  </script>
+</body>
+</html>
